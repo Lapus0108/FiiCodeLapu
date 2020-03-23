@@ -75,13 +75,7 @@ class Registration extends React.Component {
             address: this.state.address
         }
 
-        axios.post("http://localhost:8000/api/register", user,
-            {
-                headers: {
-                    'Authorization': 'Bearer ' + '05SghP5mw20KZtm4P7rX6yQrylXhsGk7IvD6ZbJ9',
-                }
-            },
-            // { withCredentials: true}
+        axios.post("http://localhost:8000/api/register", user
         ).then(response => {
             console.log("registration res", response);
         }).catch(error => {
