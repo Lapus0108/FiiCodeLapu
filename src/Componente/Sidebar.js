@@ -2,49 +2,48 @@ import React from 'react';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import { Link } from 'react-router-dom';
-
+import {Link} from 'react-router-dom';
 
 
 function Sidebar({items}) {
     return (
         <div className="sidebar">
-         <List disablePadding dense>
-         {items.map(({ label, name, items: subItems, ...rest }) => {
-           return (
-            <React.Fragment key={name}>
-              <ListItem style={{ paddingLeft: 18 }} button {...rest}>
-                <ListItemText>{label}</ListItemText>
-              </ListItem>
-              {Array.isArray(subItems) ? (
-                <List disablePadding dense>
-                  {subItems.map((subItem) => {
+            <List disablePadding dense>
+                {items.map(({label, name, items: subItems, ...rest}) => {
                     return (
-                      <ListItem
-                        key={subItem.name}
-                        style={{ paddingLeft: 36 }}
-                        button
-                        dense
-                      >
-                        <ListItemText>
+                        <React.Fragment key={name}>
+                            <ListItem style={{paddingLeft: 18}} button {...rest}>
+                                <ListItemText>{label}</ListItemText>
+                            </ListItem>
+                            {Array.isArray(subItems) ? (
+                                <List disablePadding dense>
+                                    {subItems.map((subItem) => {
+                                        return (
+                                            <ListItem
+                                                key={subItem.name}
+                                                style={{paddingLeft: 36}}
+                                                button
+                                                dense
+                                            >
+                                                <ListItemText>
                           <span className="sidebar-subitem-text">
                             {subItem.label}
                           </span>
-                        </ListItemText>
-                      </ListItem>
+                                                </ListItemText>
+                                            </ListItem>
+                                        )
+                                    })}
+                                </List>
+                            ) : null}
+                        </React.Fragment>
+
                     )
-                  })}
-                </List>
-              ) : null}
-            </React.Fragment>
-          
-          )
-        })}
-      </List>
-    </div>
-      )
-  }
-  
-  export default Sidebar
+                })}
+            </List>
+        </div>
+    )
+}
+
+export default Sidebar
 
 
