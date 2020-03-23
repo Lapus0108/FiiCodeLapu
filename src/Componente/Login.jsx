@@ -10,12 +10,19 @@ class Login extends React.Component {
          email: "",
          password:"",
          loginErrors: ""
-         
-     };
+ };
 
      this.handleSubmit=this.handleSubmit.bind(this);
      this.handleChange=this.handleChange.bind(this);
     }
+
+    componentDidMount() {
+        axios.get(`DATABASE`)
+          .then(res => {
+            const user = res.data;
+            this.setState({ user });
+          })
+      }
 
     handleChange(event) {
         this.setState({

@@ -14,6 +14,7 @@ import Login from './Componente/Login';
 import HomeMenu from "./Componente/HomeMenu";
 import {withRouter} from 'react-router';
 import AddProduct from "./Componente/Adauga_articol";
+import SingleProduct from "./Componente/SingleProduct";
 
 //GOOGLE MAPS DEFAULT STYLE
 const mapStyles = {
@@ -64,7 +65,7 @@ const mapStyles = {
   // }
   //  console.log(judete)
   //  const returnedArray = Array.from(judete)
-  //  console.log(returnedArray)
+  //  console.log(returnedArray)                          SUNT PESTE TOT IN STATE UNDE E NEVOIE(register, add_product)
 
 
 
@@ -167,7 +168,13 @@ const mapStyles = {
 
                   <Route 
                           path="/add_product" 
-                          component={AddProduct}/>       
+                          component={AddProduct}/>   
+
+                  {/* PAGINA PRODUS INDIVIDUAL */}
+
+                  <Route 
+                          path="/single_product" 
+                          component={SingleProduct}/>     
 
                    {/* PAGINA REGISTER */}
 

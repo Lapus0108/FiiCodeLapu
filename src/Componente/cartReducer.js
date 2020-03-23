@@ -1,22 +1,8 @@
-import Item1 from "../images/vazatest.jpg"
-import Item2 from "../images/vazatest.jpg"
-import Item3 from "../images/vazatest.jpg"
-import Item4 from "../images/vazatest.jpg"
-import Item5 from "../images/vazatest.jpg"
-import Item6 from "../images/vazatest.jpg"
-
 import { ADD_TO_CART,REMOVE_ITEM,SUB_QUANTITY,ADD_QUANTITY,ADD_SHIPPING } from "./cart-actions"
 
 
 const initState = {
-    items: [
-        {id:1,title:'Vaza veche', desc: "Ziua 3 fara pariuri: am pus 100 de lei pe propriul caine", price:110,img:Item1},
-        {id:2,title:'Covor', desc: "Ziua 3 fara pariuri: am pus 100 de lei pe propriul caine", price:80,img:Item2},
-        {id:3,title:'Tablou vechi', desc: "Ziua 3 fara pariuri: am pus 100 de lei pe propriul caine",price:120,img:Item3},
-        {id:4,title:'Scaun', desc: "Ziua 3 fara pariuri: am pus 100 de lei pe propriul caine", price:260,img:Item4},
-        {id:5,title:'Lapte de capra', desc: "Ziua 3 fara pariuri: am pus 100 de lei pe propriul caine", price:160,img:Item5},
-        {id:6,title:'Papuci de casa', desc: "Ziua 3 fara pariuri: am pus 100 de lei pe propriul caine",price:90,img:Item6}
-    ],
+    items: [],
     addedItems:[],
     total: 0
 

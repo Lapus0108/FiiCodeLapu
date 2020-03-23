@@ -13,12 +13,32 @@ class Registration extends React.Component {
          registrationErrors: "",
          bifa1: false,
          bifa2: false,
-        //  judet:""
+         county:"",
          username:"",
          address:"",
-         age:""
-     };
+         age:"",
 
+         judete:[
+          {
+            id:1,
+            nume: "Iasi",
+            lat_centru: 44,
+            long_centru:55
+          },
+          {
+            id:2,
+            nume: "Bucuresti",
+            lat_centru: 42,
+            long_centru:34
+          },
+          { id:3,
+            nume: "Timisoara",
+            lat_centru:33,
+            long_centru:41
+          }
+         ]
+     };
+     
      this.handleSubmit=this.handleSubmit.bind(this);
      this.handleChange=this.handleChange.bind(this);
     }
@@ -50,6 +70,7 @@ class Registration extends React.Component {
             password,
             username,
             age,
+            county,
             address
             
         }=this.state;
@@ -60,6 +81,7 @@ class Registration extends React.Component {
                 password: password,
                 username: username,
                 age: age,
+                county:county,
                 address: address,
                 }
         
@@ -124,6 +146,17 @@ render(){
             maxLength={2}
             onChange={event => this.setState({age: event.target.value.replace(/\D/,'')})}
             required />
+
+          <label>Selecteaza judetul
+              <select value={this.state.county} onChange={this.handleChange} name="county">
+                {this.state.judete.map((item,key)=>{
+                  return(
+                    <option value={item.nume} onChange={this.handleChange}>{item.nume}</option>
+                    )
+                })}
+              </select>
+            </label>
+
 
             <input 
             type="text" 
