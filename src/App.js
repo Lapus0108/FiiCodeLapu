@@ -16,6 +16,8 @@ import {withRouter} from 'react-router';
 import AddProduct from "./Componente/Adauga_articol";
 import SingleProduct from "./Componente/SingleProduct";
 
+
+
 //GOOGLE MAPS DEFAULT STYLE
 const mapStyles = {
     width: '100%',
