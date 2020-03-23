@@ -237,7 +237,7 @@
   height: 100%;
 }
 .container_register{
-  width: 350px;
+  width: 365px;
     height: auto;
     margin-left: auto;
     margin-right: auto;
@@ -257,8 +257,8 @@
 }
 .container_register input{
   font-size: 16px;
-  margin-bottom: 19px;
-  height: 30px;
+  margin-bottom: 13px;
+  height: 25px;
   background-color: burlywood;
   border-radius: 5px;
   font-family: serif;
@@ -428,10 +428,73 @@ background-color: saddlebrown;
 .title_addarticles{
   font-family: serif;
   font-size: 30px;
+  margin-top: 20px;
 }
 .add_product_bifa{
   display: inline-flex;
 }
 .add_product_bifa input{
   height: auto;
+}
+.container_add_product label{
+  font-weight: 600;
+    text-align: left;
+    margin-bottom: 19px;
+}
+.container_add_product select{
+  height: 30px;
+    background-color: burlywood;
+    margin-left: 5px;
+}
+
+.container_register label{
+  font-weight: 600;
+    text-align: left;
+    margin-bottom: 19px;
+}
+.container_register select{
+  height: 30px;
+    background-color: burlywood;
+    margin-left: 5px;
+}
+.input_image input{
+  background: none;
+    font-weight: 800;
+}
+.input_image{
+  text-align: left;
+}
+.sgproduct_container{
+  width: 375px;
+  height: fit-content;
+  margin-left: 22%;
+  margin-top: 5%;
+  text-align: left;
+  font-size: 20px;
+  font-family: serif;
+  background-color: bisque;
+}
+.sgproduct_title{
+  margin-bottom: 15px;
+}
+.sgproduct_titleart{
+  margin-bottom: 15px;
+  font-size: 32px;
+}
+.sgproduct_conditionals{
+  margin-bottom: 15px;
+  color: darkred;
+}
+.sgproduct_contact_button img{
+  width: 50px;
+  height: 100%;
+}
+.sgproduct_contact_button{
+  height: 47px;
+  display: inline-flex;
+}
+.sgproduct_button_text{
+    height: fit-content;
+    align-self: center;
+    padding-right: 5px;
 }
