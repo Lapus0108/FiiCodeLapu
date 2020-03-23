@@ -75,13 +75,13 @@ class Registration extends React.Component {
             
         }=this.state;
 
-        axios.post("DATABASE", { 
+        axios.post("localhost:8000/users", {
             user:{
                 email: email,
                 password: password,
                 username: username,
                 age: age,
-                county:county,
+                jud_id:county,
                 address: address,
                 }
         
@@ -122,7 +122,7 @@ render(){
 
             <input 
             type="password" 
-            name="password" 
+            name="password_confirmation"
             placeholder="Confirm password" 
             value={this.state.password_confirmation} 
             onChange={this.handleChange} 
