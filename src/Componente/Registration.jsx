@@ -1,7 +1,33 @@
-import React, { Component } from 'react';
+import React from 'react';
 import axios from "axios";
 import background_auth from "../images/Buton_lemn.png";
+import { Redirect } from 'react-router-dom';
 
+const judete=[
+  {
+    id:1,
+    name: "",
+    lat_centru: 44,
+    long_centru:55
+  },
+  {
+    id:2,
+    name: "Bucuresti",
+    lat_centru: 42,
+    long_centru:34
+  },
+  { id:3,
+    name: "Timisoara",
+    lat_centru:33,
+    long_centru:41
+  },
+  {
+    id:4,
+    name: "Iasi",
+    lat_centru: 44,
+    long_centru:55
+  }
+ ]
 class Registration extends React.Component {
     constructor(){
      super();
@@ -17,30 +43,19 @@ class Registration extends React.Component {
          username:"",
          address:"",
          age:"",
-
-         judete:[
-          {
-            id:1,
-            nume: "Iasi",
-            lat_centru: 44,
-            long_centru:55
-          },
-          {
-            id:2,
-            nume: "Bucuresti",
-            lat_centru: 42,
-            long_centru:34
-          },
-          { id:3,
-            nume: "Timisoara",
-            lat_centru:33,
-            long_centru:41
-          }
-         ]
+         redirect:false
+         
      };
      
      this.handleSubmit=this.handleSubmit.bind(this);
      this.handleChange=this.handleChange.bind(this);
+    }
+
+
+    renderRedirect = () => {
+      if (this.state.redirect) {
+        return <Redirect to='/login' />
+      }
     }
 
     handleChange(event) {
@@ -65,41 +80,34 @@ class Registration extends React.Component {
     
 
     handleSubmit(event) {
-        const {
-            email,
-            password,
-            username,
-            age,
-            county,
-            address
-            
-        }=this.state;
+        const user= {
+            email:this.state.email,
+            password:this.state.password,
+            name:this.state.username,
+            age:this.state.age,
+            county:this.state.county,
+            address:this.state.address,
+        }
 
-        axios.post("DATABASE", { 
-            user:{
-                email: email,
-                password: password,
-                username: username,
-                age: age,
-                county:county,
-                address: address,
-                }
-        
-        },
-        { withCredentials: true}
+        axios.post("DATABASE",user,
+        // { withCredentials: true}
         ).then(response=>{
             console.log("registration res", response);
         }).catch(error=>{
             console.log("registration error", error);
         })
         event.preventDefault();
+        this.setState({
+          redirect: true
+        })
     }
 
 render(){
     return(
         <>
+        {this.renderRedirect()}
         <div className="container_titlu_auth">
-        <img src={background_auth}/>
+        <img src={background_auth} alt="register_lemn"/>
         <div className="titlu_pagina_auth">Register now</div>
         </div>
     <div className="container_register">
@@ -117,14 +125,16 @@ render(){
             name="password" 
             placeholder="Password" 
             value={this.state.password} 
+            maxLength={16}
             onChange={this.handleChange} 
             required />
 
             <input 
             type="password" 
-            name="password" 
+            name="password_confirmation" 
             placeholder="Confirm password" 
             value={this.state.password_confirmation} 
+            maxLength={16}
             onChange={this.handleChange} 
             required />
 
@@ -147,11 +157,11 @@ render(){
             onChange={event => this.setState({age: event.target.value.replace(/\D/,'')})}
             required />
 
-          <label>Selecteaza judetul
+          <label>Select county
               <select value={this.state.county} onChange={this.handleChange} name="county">
-                {this.state.judete.map((item,key)=>{
+                {judete.map((item,key)=>{
                   return(
-                    <option value={item.nume} onChange={this.handleChange}>{item.nume}</option>
+                    <option value={item.id} onChange={this.handleChange}>{item.name}</option>
                     )
                 })}
               </select>
@@ -196,7 +206,7 @@ render(){
               </label>
             </div>
 
-            <button type="submit">Register</button>
+            <button type="submit" onClick={this.setRedirect}>Register</button>
         </form>
     </div>
     </>

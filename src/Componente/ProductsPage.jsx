@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Link} from 'react-router-dom';
 import {addToCart} from "./cartActions";
 import simbolMesaj from "../images/pngwave.png";
 import simbolCart from "../images/cart.png";

@@ -1,10 +1,53 @@
-import React, { Component } from 'react';
-import Dropdown from './DropdownJudete';
+import React from 'react';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 
+const categories=[
+    {
+        id:"1",
+        name:"Furniture",
+    },
+    {
+        id:"2",
+        name:"Food",
+    },
+    {
+        id:"3",
+        name:"Homemade",
+    },
+    {
+        id:"4",
+        name:"Clothing",
+    },
+    {
+        id:"5",
+        name:"None of the above",
+    }
+
+]
+
+const judete=[
+    {
+        id:1,
+        nume: "Iasi",
+        lat_centru: 44,
+        long_centru:55
+    },
+    {
+        id:2,
+        nume: "Bucuresti",
+        lat_centru: 42,
+        long_centru:34
+    },
+    { id:3,
+        nume: "Timisoara",
+        lat_centru:33,
+        long_centru:41
+    }
+]
 
 class AddArticles extends React.Component {
     constructor(){
@@ -18,32 +61,30 @@ class AddArticles extends React.Component {
             negotiable: false,
             bifa2: false,
             image:"",
-            tag:"",
+            tag:{
+                name:"",
+                id:""
+            },
+            redirect: false
 
-            judete:[
-                {
-                    id:1,
-                    nume: "Iasi",
-                    lat_centru: 44,
-                    long_centru:55
-                },
-                {
-                    id:2,
-                    nume: "Bucuresti",
-                    lat_centru: 42,
-                    long_centru:34
-                },
-                { id:3,
-                    nume: "Timisoara",
-                    lat_centru:33,
-                    long_centru:41
-                }
-            ]
 
         };
         this.handleSubmit=this.handleSubmit.bind(this);
         this.handleChange=this.handleChange.bind(this);
     }
+
+
+    setRedirect = () => {
+        this.setState({
+          redirect: true
+        })
+      }
+
+      renderRedirect = () => {
+        if (this.state.redirect) {
+          return <Redirect to='/products' />
+        }
+      }
 
     handleChange(event) {
         this.setState({
@@ -92,12 +133,15 @@ class AddArticles extends React.Component {
             }).catch(error=>{
             console.log("registration error", error);
         })
+        console.log(this.state.tag)
+        console.log(this.state.county)
 
     }
 
     render(){
         return(
             <>
+            {this.renderRedirect()}
             <div className="title_addarticles">
                 Adauga un produs nou pe piata:
             </div>
@@ -120,11 +164,11 @@ class AddArticles extends React.Component {
                         required />
 
 
-                    <label>Selecteaza category
-                        <select value={this.state.county} onChange={this.handleChange} name="county">
-                            {this.state.judete.map((item,key)=>{
+                    <label>Select category
+                        <select value={this.state.tag.name} onChange={this.handleChange} name="tag" >
+                            {categories.map((item,key)=>{
                                 return(
-                                    <option value={item.nume} onChange={this.handleChange}>{item.nume}</option>
+                                    <option value={item.id} onChange={this.handleChange}>{item.name}</option>
                                 )
                             })}
                         </select>
@@ -139,11 +183,11 @@ class AddArticles extends React.Component {
                         required />
 
 
-                    <label>Selecteaza judetul
+                    <label>Select county
                         <select value={this.state.county} onChange={this.handleChange} name="county">
-                            {this.state.judete.map((item,key)=>{
+                            {judete.map((item,key)=>{
                                 return(
-                                    <option value={item.nume} onChange={this.handleChange}>{item.nume}</option>
+                                    <option value={item.id} onChange={this.handleChange}>{item.nume}</option>
                                 )
                             })}
                         </select>
@@ -182,7 +226,7 @@ class AddArticles extends React.Component {
                         </label>
                     </div>
 
-                    <button type="submit">Add you product</button>
+                    <button type="submit" onClick={this.setRedirect}>Add you product</button>
 
                 </form>
             </div>

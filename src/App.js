@@ -4,17 +4,18 @@ import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
 import Dropdown from "./Componente/DropdownJudete";
 import background from "../src/assets/img/Background-map-page-2.jpg";
 import Sidebar from "./Componente/Sidebar";
-import { Router, Route, Link, BrowserRouter, Switch } from "react-router-dom";
+import { Route, BrowserRouter, Switch } from "react-router-dom";
 import Registration from "./Componente/Registration";
 import Cart from "./Componente/Cart";
 import Navbar from "./Componente/Navbar2";
-import ReactDOM from 'react-dom';
 import ProductsPage from './Componente/ProductsPage';
 import Login from './Componente/Login';
 import HomeMenu from "./Componente/HomeMenu";
-import {withRouter} from 'react-router';
 import AddProduct from "./Componente/Adauga_articol";
 import SingleProduct from "./Componente/SingleProduct";
+import Mailing from "./Componente/Mailing";
+import AboutUs from "./Componente/AboutUs";
+
 
 
 
@@ -187,6 +188,18 @@ const mapStyles = {
                           handleSuccessfulAuth={this.handleSuccessfulAuth}
                           />
                         )}/>
+
+                  {/* PAGINA SCRISORI */}
+
+                  <Route 
+                          path="/mailing" 
+                          component={Mailing}/>  
+
+                  {/* PAGINA ABOUT US */}
+
+                  <Route 
+                          path="/about_us" 
+                          component={AboutUs}/>  
 
                    {/* PAGINA LOGIN */}
 
