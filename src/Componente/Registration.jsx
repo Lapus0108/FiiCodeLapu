@@ -3,31 +3,7 @@ import axios from "axios";
 import background_auth from "../images/Buton_lemn.png";
 import { Redirect } from 'react-router-dom';
 
-const judete=[
-  {
-    id:1,
-    name: "",
-    lat_centru: 44,
-    long_centru:55
-  },
-  {
-    id:2,
-    name: "Bucuresti",
-    lat_centru: 42,
-    long_centru:34
-  },
-  { id:3,
-    name: "Timisoara",
-    lat_centru:33,
-    long_centru:41
-  },
-  {
-    id:4,
-    name: "Iasi",
-    lat_centru: 44,
-    long_centru:55
-  }
- ]
+
 class Registration extends React.Component {
     constructor(){
      super();
@@ -46,7 +22,7 @@ class Registration extends React.Component {
          redirect:false
          
      };
-     
+    
      this.handleSubmit=this.handleSubmit.bind(this);
      this.handleChange=this.handleChange.bind(this);
     }
@@ -159,7 +135,7 @@ render(){
 
           <label>Select county
               <select value={this.state.county} onChange={this.handleChange} name="county">
-                {judete.map((item,key)=>{
+                {this.props.judete.map((item,key)=>{
                   return(
                     <option value={item.id} onChange={this.handleChange}>{item.name}</option>
                     )

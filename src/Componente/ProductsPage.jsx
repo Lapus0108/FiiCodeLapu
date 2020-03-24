@@ -4,6 +4,7 @@ import {addToCart} from "./cartActions";
 import simbolMesaj from "../images/pngwave.png";
 import simbolCart from "../images/cart.png";
 import axios from "axios";
+import {Link} from "react-router-dom";
 
 class Home extends Component {
 
@@ -22,8 +23,9 @@ class Home extends Component {
             }
             ]
         }
-    }
 
+    }
+    
     handleClick = (id) => {
         this.props.addToCart(id);
     }
@@ -42,18 +44,24 @@ class Home extends Component {
     }
 
     render() {
+        const {isLoggedIn}=this.props;
+        console.log(isLoggedIn)
         let itemList = this.state.produs.sort(function (a, b) {     //FILTRU PRET CRESCATOR
             return a.price - b.price;
         }).map(item => {
             return (
+                <Link to={`/products/${item.id}`}>
                 <div className="card" key={item.id}>
                     <div className="card-image">
                         <img src={item.img} alt={item.title}/>
                         <span className="card-title">{item.title}</span>
+                        {isLoggedIn===true ? 
                         <span to="/" className="btn-floating halfway-fab waves-effect waves-light red" onClick={() => {
                             this.handleClick(item.id)
                         }}><i className="material-icons">
                         <img src={simbolCart} alt="Logo"/></i></span>
+                        : ""}
+                    
                     </div>
 
                     <div className="card-content">
@@ -61,6 +69,7 @@ class Home extends Component {
                         <p><b>Pret: {item.price}{" "}RON</b></p>
                     </div>
                 </div>
+                </Link>
 
             )
         })

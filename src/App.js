@@ -49,29 +49,201 @@ const mapStyles = {
         { name: 'notif_settings', label: 'Notification settings' },
       ],
     },
-    { name: 'home', label: 'Logout' },
+    
   ]
-  // const judete={
-  //   1:{
-  //     nume: "Iasi",
-  //     lat_centru: 44,
-  //     long_centru:55
-  //   },
-  //   2:{
-  //     nume: "Bucuresti",
-  //     lat_centru: 42,
-  //     long_centru:34
-  //   },
-  //   3:{
-  //     nume: "Timisoara",
-  //     lat_centru:33,
-  //     long_centru:41
-  //   }
-  // }
-  //  console.log(judete)
-  //  const returnedArray = Array.from(judete)
-  //  console.log(returnedArray)                          SUNT PESTE TOT UNDE E NEVOIE(register, add_product)
+ const judete = [
+  {
+      "id": 28,
+      "name": "Alba"
+  },
+  {
+      "id": 1,
+      "name": "Arad"
+  },
+  {
+      "id": 11,
+      "name": "Arges"
+  },
+  {
+      "id": 3,
+      "name": "Bacau"
+  },
+  {
+      "id": 19,
+      "name": "Bihor"
+  },
+  {
+      "id": 21,
+      "name": "Bistrita-Nasaud"
+  },
+  {
+      "id": 18,
+      "name": "Botosani"
+  },
+  {
+      "id": 37,
+      "name": "Braila"
+  },
+  {
+      "id": 4,
+      "name": "Brasov"
+  },
+  {
+      "id": 46,
+      "name": "Bucuresti - Ilfov"
+  },
+  {
+      "id": 36,
+      "name": "Buzau"
+  },
+  {
+      "id": 40,
+      "name": "Calarasi"
+  },
+  {
+      "id": 26,
+      "name": "Caras-Severin"
+  },
+  {
+      "id": 2,
+      "name": "Cluj"
+  },
+  {
+      "id": 7,
+      "name": "Constanta"
+  },
+  {
+      "id": 29,
+      "name": "Covasna"
+  },
+  {
+      "id": 35,
+      "name": "Dambovita"
+  },
+  {
+      "id": 8,
+      "name": "Dolj"
+  },
+  {
+      "id": 9,
+      "name": "Galati"
+  },
+  {
+      "id": 41,
+      "name": "Giurgiu"
+  },
+  {
+      "id": 33,
+      "name": "Gorj"
+  },
+  {
+      "id": 23,
+      "name": "Harghita"
+  },
+  {
+      "id": 27,
+      "name": "Hunedoara"
+  },
+  {
+      "id": 39,
+      "name": "Ialomita"
+  },
+  {
+      "id": 10,
+      "name": "Iasi"
+  },
+  {
+      "id": 16,
+      "name": "Maramures"
+  },
+  {
+      "id": 32,
+      "name": "Mehedinti"
+  },
+  {
+      "id": 22,
+      "name": "Mures"
+  },
+  {
+      "id": 24,
+      "name": "Neamt"
+  },
+  {
+      "id": 43,
+      "name": "Olt"
+  },
+  {
+      "id": 6,
+      "name": "Prahova"
+  },
+  {
+      "id": 20,
+      "name": "Salaj"
+  },
+  {
+      "id": 15,
+      "name": "Satu Mare"
+  },
+  {
+      "id": 12,
+      "name": "Sibiu"
+  },
+  {
+      "id": 17,
+      "name": "Suceava"
+  },
+  {
+      "id": 42,
+      "name": "Teleorman"
+  },
+  {
+      "id": 13,
+      "name": "Timis"
+  },
+  {
+      "id": 38,
+      "name": "Tulcea"
+  },
+  {
+      "id": 34,
+      "name": "Valcea"
+  },
+  {
+      "id": 30,
+      "name": "Vaslui"
+  },
+  {
+      "id": 31,
+      "name": "Vrancea"
+  }
+]
+const categories = [
+  {
+      id: "1",
+      name: "",
+  },
+  {
+      id: "2",
+      name: "Food",
+  },
+  {
+      id: "3",
+      name: "Homemade",
+  },
+  {
+      id: "4",
+      name: "Clothing",
+  },
+  {
+      id: "5",
+      name: "Furniture",
+  },
+  {
+      id: "6",
+      name: "None of the above"
+  }
 
+]
 
 
   export class MapContainer extends Component {
@@ -80,10 +252,11 @@ const mapStyles = {
     
       this.handleSuccessfulAuth=this.handleSuccessfulAuth.bind(this);
       this.state={
+        isLoggedIn: true,  //IN FUNCTIE DE ASTA IAU MAI DEPARTE DACA E LOGAT
         user:{
           email: "",
           password:"",
-          isLoggedIn: true,       //IN FUNCTIE DE ASTA IAU MAI DEPARTE DACA E LOGAT
+               
           id: "",
           user_token:""
         },
@@ -144,7 +317,7 @@ const mapStyles = {
           
           <BrowserRouter>
             <div className="App">
-            {this.state.user.isLoggedIn===true
+            {this.state.isLoggedIn===true
                   ?  <Sidebar items={items}/>
                   : ""}
                <Switch>
@@ -155,8 +328,13 @@ const mapStyles = {
                     <Route exact path="/products" component={props=>(
                     <>
                     <Navbar/> 
-                    <ProductsPage/>
-                    </>)}/>
+                    <ProductsPage
+                    categories={categories}
+                    isLoggedIn={this.state.isLoggedIn}
+                    judete={judete}
+                    />
+                    </>)}
+                    />
 
                    {/* PAGINA CART */}
 
@@ -176,13 +354,25 @@ const mapStyles = {
 
                    <Route 
                           path="/home" 
-                           exact component={HomeMenu}/> 
+                          component={props=>(
+                          <HomeMenu
+                          isLoggedIn={this.state.isLoggedIn}
+                          />
+                          )}
+                  />
+
 
                   {/* PAGINA ADAUGA PRODUS */}
 
                   <Route 
                           path="/add_product" 
-                          component={AddProduct}/>   
+                          component={props=>(
+                          <AddProduct
+                          judete={judete}
+                          categories={categories}
+                          />  
+                          )} />
+
 
                   {/* PAGINA PRODUS INDIVIDUAL */}
 
@@ -195,9 +385,13 @@ const mapStyles = {
                    <Route 
                         path="/register" 
                         component={props=>(
+                          this.state.isLoggedIn===false ?
                           <Registration
+                          judete={judete}
+                          isLoggedIn={this.state.isLoggedIn}
                           handleSuccessfulAuth={this.handleSuccessfulAuth}
                           />
+                          : ""
                         )}/>
 
                   {/* PAGINA SCRISORI */}
@@ -217,9 +411,13 @@ const mapStyles = {
                    <Route 
                         path="/login" 
                         component={props=>(
+                          this.state.isLoggedIn===false ?
                           <Login
+                          isLoggedIn={this.state.isLoggedIn}
                           handleSuccessfulAuth={this.handleSuccessfulAuth}
+                          
                           />
+                          :""
                         )}/>
 
                    {/* PAGINA HARTA GOOGLE */}

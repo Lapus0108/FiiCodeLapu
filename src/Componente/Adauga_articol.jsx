@@ -5,61 +5,6 @@ import {Redirect} from 'react-router-dom';
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 
-const categories = [
-    {
-        id: "1",
-        name: "",
-    },
-    {
-        id: "2",
-        name: "Food",
-    },
-    {
-        id: "3",
-        name: "Homemade",
-    },
-    {
-        id: "4",
-        name: "Clothing",
-    },
-    {
-        id: "5",
-        name: "Furniture",
-    },
-    {
-        id: "6",
-        name: "None of the above"
-    }
-
-]
-
-const judete = [
-    {
-        id: 1,
-        nume: "",
-        lat_centru: 44,
-        long_centru: 55
-    },
-    {
-        id: 2,
-        nume: "Bucuresti",
-        lat_centru: 42,
-        long_centru: 34
-    },
-    {
-        id: 3,
-        nume: "Timisoara",
-        lat_centru: 33,
-        long_centru: 41
-    },
-    {
-        id: 4,
-        nume: "Iasi",
-        lat_centru: 44,
-        long_centru: 55
-    }
-]
-
 class AddArticles extends React.Component {
     constructor() {
         super();
@@ -147,10 +92,13 @@ class AddArticles extends React.Component {
         })
         console.log(this.state.tag)
         console.log(this.state.county)
-
-        this.setState({
-            redirect: true
-        })
+        
+        if(this.state.bifa2===true){
+        
+            this.setState({
+            redirect: true})
+        }
+        
 
     }
 
@@ -183,7 +131,7 @@ class AddArticles extends React.Component {
 
                     <label>Select category
                         <select value={this.state.tag.name} onChange={this.handleChange} name="tag">
-                            {categories.map((item, key) => {
+                            {this.props.categories.map((item, key) => {
                                 return (
                                     <option value={item.id} onChange={this.handleChange}>{item.name}</option>
                                 )
@@ -202,9 +150,9 @@ class AddArticles extends React.Component {
 
                     <label>Select county
                         <select value={this.state.county} onChange={this.handleChange} name="county">
-                            {judete.map((item, key) => {
+                            {this.props.judete.map((item, key) => {
                                 return (
-                                    <option value={item.id} onChange={this.handleChange}>{item.nume}</option>
+                                    <option value={item.id} onChange={this.handleChange}>{item.name}</option>
                                 )
                             })}
                         </select>
