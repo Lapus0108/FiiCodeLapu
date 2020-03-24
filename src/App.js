@@ -4,7 +4,7 @@ import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
 import Dropdown from "./Componente/DropdownJudete";
 import background from "../src/assets/img/Background-map-page-2.jpg";
 import Sidebar from "./Componente/Sidebar";
-import { Route, BrowserRouter, Switch } from "react-router-dom";
+import { Route, BrowserRouter, Switch,Router } from "react-router-dom";
 import Registration from "./Componente/Registration";
 import Cart from "./Componente/Cart";
 import Navbar from "./Componente/Navbar2";
@@ -28,26 +28,28 @@ const mapStyles = {
   //AICI SE ADAUGA LABELURILE DIN BARA DE MENIURI
   const items = [
     { name: 'home', label: 'Home' },
+    { name: 'about_us', label: 'About us'},
     { name: 'profile', label: 'Profile' },
-    { name: 'myorders', label: 'My orders' },
+    // { name: 'myorders', label: 'My orders' },
+    { name: 'add_product', label: 'Add product'},
     { name: 'products', label: 'Products' },
     { name: 'cart', label: 'Cart' },
-    {name:  'retromailing', 
+    {name:  'mailing', 
     label: 'Retro mailing',
     items:[
-      { name: 'scrisori', label: 'About letters' },
-      { name: 'harta_scrisori', label: 'Send your letter!' },
+      { name: 'mailing', label: 'About letters' },
+      { name: 'map', label: 'Send your letter!' },
     ]
   },
     {
-      name: 'setari',
+      name: 'settings',
       label: 'Settings',
       items: [
-        { name: 'setari_cont', label: 'Account settings' },
-        { name: 'setari_notificari', label: 'Notification settings' },
+        { name: 'account_settings', label: 'Account settings' },
+        { name: 'notif_settings', label: 'Notification settings' },
       ],
     },
-    { name: 'logout', label: 'Logout' },
+    { name: 'home', label: 'Logout' },
   ]
   // const judete={
   //   1:{
@@ -68,7 +70,7 @@ const mapStyles = {
   // }
   //  console.log(judete)
   //  const returnedArray = Array.from(judete)
-  //  console.log(returnedArray)                          SUNT PESTE TOT IN STATE UNDE E NEVOIE(register, add_product)
+  //  console.log(returnedArray)                          SUNT PESTE TOT UNDE E NEVOIE(register, add_product)
 
 
 
@@ -78,6 +80,13 @@ const mapStyles = {
     
       this.handleSuccessfulAuth=this.handleSuccessfulAuth.bind(this);
       this.state={
+        user:{
+          email: "",
+          password:"",
+          isLoggedIn: true,       //IN FUNCTIE DE ASTA IAU MAI DEPARTE DACA E LOGAT
+          id: "",
+          user_token:""
+        },
         showingInfoWindow: false,  //Hides or the shows the infoWindow
         activeMarker: {},          //Shows the active marker upon click
         selectedPlace: {},          //Shows the infoWindow to the selected place upon a marker
@@ -130,12 +139,14 @@ const mapStyles = {
           <div className="background_map_page">
               <img src={background}></img>
               </div>
-           <Sidebar items={items}/> 
+          
           
           
           <BrowserRouter>
             <div className="App">
-            
+            {this.state.user.isLoggedIn===true
+                  ?  <Sidebar items={items}/>
+                  : ""}
                <Switch>
 
 
@@ -165,7 +176,7 @@ const mapStyles = {
 
                    <Route 
                           path="/home" 
-                          component={HomeMenu}/> 
+                           exact component={HomeMenu}/> 
 
                   {/* PAGINA ADAUGA PRODUS */}
 
@@ -176,7 +187,7 @@ const mapStyles = {
                   {/* PAGINA PRODUS INDIVIDUAL */}
 
                   <Route 
-                          path="/single_product" 
+                          path="/products/1" 
                           component={SingleProduct}/>     
 
                    {/* PAGINA REGISTER */}

@@ -8,7 +8,7 @@ axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 const categories=[
     {
         id:"1",
-        name:"Furniture",
+        name:"",
     },
     {
         id:"2",
@@ -24,7 +24,11 @@ const categories=[
     },
     {
         id:"5",
-        name:"None of the above",
+        name:"Furniture",
+    },
+    {
+        id:"6",
+        name:"None of the above"
     }
 
 ]
@@ -32,7 +36,7 @@ const categories=[
 const judete=[
     {
         id:1,
-        nume: "Iasi",
+        nume: "",
         lat_centru: 44,
         long_centru:55
     },
@@ -46,6 +50,12 @@ const judete=[
         nume: "Timisoara",
         lat_centru:33,
         long_centru:41
+    },
+    {
+        id:4,
+        nume: "Iasi",
+        lat_centru: 44,
+        long_centru:55
     }
 ]
 
@@ -65,7 +75,8 @@ class AddArticles extends React.Component {
                 name:"",
                 id:""
             },
-            redirect: false
+            redirect: false,
+            
 
 
         };
@@ -75,6 +86,7 @@ class AddArticles extends React.Component {
 
 
     setRedirect = () => {
+
         this.setState({
           redirect: true
         })
@@ -118,32 +130,24 @@ class AddArticles extends React.Component {
 
     setUploadedImgString=(img64Base) => {
         this.setState({ uploadedImgString: img64Base });
-    }
+      }
+    
+   
 
     handleSubmit(event) {
         event.preventDefault();
 
-        const product = new FormData();
+        const product={
+            title:this.state.name,
+            description: this.state.description,
+            price:this.state.price,
+            negotiabile:this.state.negotiable,
+            seller_id: "1",
+            image_buna:this.setUploadedImgString(this.state.image)
+            
+        }
 
-        product.append('image', this.state.image);
-        product.append('title', this.state.name);
-        product.append('description', this.state.description);
-        product.append('price', this.state.price);
-        product.append('negotiable', this.state.negotiable);
-        product.append('seller_id', "1")
-
-        // const product={
-        //     title:this.state.name,
-        //     description: this.state.description,
-        //     price:this.state.price,
-        //     negotiabile:this.state.negotiable,
-        //     seller_id: "1",
-        //     image: this.setUploadedImgString(this.state.image)
-        // }
-
-        console.log(product)
-
-        axios.post("http://localhost:8000/api/products", product, {headers: {"Content-Type" : "multipart/formdata", "Accept" : "appilcation/json"}})
+        axios.post("http://localhost:8000/api/products", product)
             .then(response=>{
                 console.log("registration res", response);
             }).catch(error=>{
@@ -153,6 +157,7 @@ class AddArticles extends React.Component {
         console.log(this.state.county)
 
     }
+    
 
     render(){
         return(
@@ -241,10 +246,10 @@ class AddArticles extends React.Component {
                             <span className="checkmarkTermenisiConditii" />
                         </label>
                     </div>
-
-                    <button type="submit"
-                            // onClick={this.setRedirect}
-                    >Add you product</button>
+                    
+                        
+                <button type="submit" onClick={this.setRedirect}>Add you product</button>)
+                       
 
                 </form>
             </div>
