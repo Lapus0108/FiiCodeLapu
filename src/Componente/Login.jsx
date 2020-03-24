@@ -60,7 +60,12 @@ class Login extends React.Component {
         //     console.log("login error", error);
         // })
 
-        axios.post("http://localhost:8000/api/login", user)                                    //AICI TREBUIE PUS LINKUL DE LA DATABASE CU USERII CREATI
+        axios.post("http://localhost:8000/api/login", user, {
+            headers: {
+                'Content-Type': "application/json",
+                'Accept': "application/json",
+            }
+        })                                    //AICI TREBUIE PUS LINKUL DE LA DATABASE CU USERII CREATI
             .then(response => {
                 console.log("res from login", response);
                 if (response.status = 200) {
