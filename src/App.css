@@ -312,7 +312,7 @@
     position: relative;
     margin-right: auto;
     margin-left: auto;
-    margin-top: 20%;
+    margin-top: 174px;
 
 }
 .container_buton1{
@@ -511,11 +511,36 @@ background-color: saddlebrown;
   height: 100%;
   width: 375px;
   margin-left: 100px;
-  background-color: bisque;
+
   align-self: center;
  }
 
 .image_container_sgproduct img{
 max-width: 100%;
 max-height: 100%;
+}
+.element_lista a{
+  color: white;
+  text-decoration: none;
+}
+.buton_remove_article img{
+  max-height: 100%;
+  max-width: 100%;
+}
+.buton_remove_article{
+  width: 75px;
+  height: 75px;
+  padding-left: 20px;
+}
+
+.buton_edit_article{
+  width: 63px;
+    height: 70px;
+    padding-left: 25px;
+    padding-top: 10px;
+}
+
+.buton_edit_article img{
+  max-height: 100%;
+  max-width: 100%;
 }
