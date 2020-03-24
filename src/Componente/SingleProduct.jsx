@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import contact_button from "../images/pngwave.png";
+import imagineArticol from "../images/vazatest.jpg";
 
 const items=[
     {
@@ -26,6 +27,7 @@ class SingleProduct extends React.Component {
 
         let ItemPage= items.map(item=>{
             return(
+                <div className="container_sgrpoduct_total">
                 <div className="sgproduct_container">
                 <div className="sgproduct_titleart">Selected article: {item.title}</div>
                 <div className="sgproduct_title">Price: {item.price} RON</div>
@@ -36,6 +38,10 @@ class SingleProduct extends React.Component {
                 <div className="sgproduct_contact_button">
                     <div className="sgproduct_button_text">Contact seller:</div>
                     <img src={contact_button} alt="contact_button"></img>
+                </div>
+                </div>
+                <div className="image_container_sgproduct">
+                    <img src={imagineArticol} alt="imagine_articol_sgproduct"/>
                 </div>
                 </div>
             )

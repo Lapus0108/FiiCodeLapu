@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {isValidElement} from 'react';
+import React from 'react';
+
 
 class Dropdown extends React.Component {
     constructor() {

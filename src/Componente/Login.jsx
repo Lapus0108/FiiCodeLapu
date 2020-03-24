@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import axios from "axios";
 import background_auth from "../images/Buton_lemn.png";
+import { Redirect } from 'react-router-dom';
 
 class Login extends React.Component {
     constructor(){
@@ -9,13 +10,21 @@ class Login extends React.Component {
      this.state = {
          email: "",
          password:"",
-         loginErrors: ""
+         loginErrors: "",
+         redirect:false
  };
 
      this.handleSubmit=this.handleSubmit.bind(this);
      this.handleChange=this.handleChange.bind(this);
     }
+    
 
+      renderRedirect = () => {
+        if (this.state.redirect) {
+          return <Redirect to='/products' />
+        }
+      }
+    
     componentDidMount() {
         axios.get(`DATABASE`)
           .then(res => {
@@ -52,13 +61,17 @@ class Login extends React.Component {
             console.log("login error", error);
         })
         event.preventDefault();
+        this.setState({
+            redirect: true
+          })
     }
 
 render(){
     return(
         <>
+        {this.renderRedirect()}
         <div className="container_titlu_auth">
-            <img src={background_auth}/>
+            <img src={background_auth} alt="login_img"/>
         <div className="titlu_pagina_auth">Login </div>
         </div>
     <div className="container_register">
@@ -80,7 +93,7 @@ render(){
             required />
 
 
-            <button type="submit">Login</button>
+            <button type="submit" onClick={this.setRedirect}>Login</button>
         </form>
     </div>
     </>
