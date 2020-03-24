@@ -2,9 +2,6 @@ import React from 'react';
 import axios from 'axios';
 import {Redirect} from 'react-router-dom';
 
-axios.defaults.xsrfCookieName = 'csrftoken';
-axios.defaults.xsrfHeaderName = 'X-CSRFToken';
-
 class AddArticles extends React.Component {
     constructor() {
         super();
@@ -13,7 +10,10 @@ class AddArticles extends React.Component {
             name: "",
             description: "",
             price: "",
-            county: "",
+            county: {
+                name: "",
+                id: "99"
+            },
             negotiable: false,
             bifa2: false,
             image: "",
@@ -74,32 +74,42 @@ class AddArticles extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
 
-        const product = {
-            title: this.state.name,
-            description: this.state.description,
-            price: this.state.price,
-            negotiable: this.state.negotiable,
-            seller_id: "1",
-            image_buna: this.setUploadedImgString(this.state.image)
+        console.log(this.state.county, "County");
+        console.log(this.state.tag, "Tag")
 
-        }
+        if (this.state.bifa2 === true && this.state.county.id !== "99") {
 
-        axios.post("http://localhost:8000/api/products", product)
-            .then(response => {
-                console.log("registration res", response);
-            }).catch(error => {
-            console.log("registration error", error);
-        })
-        console.log(this.state.tag)
-        console.log(this.state.county)
-        
-        if(this.state.bifa2===true){
-        
+            const product = {
+                title: this.state.name,
+                description: this.state.description,
+                price: this.state.price,
+                negotiable: this.state.negotiable,
+                seller_id: JSON.parse(localStorage.getItem('user')).id,
+                // image_buna: this.setUploadedImgString(this.state.image)
+
+            }
+
+            console.log(product.seller_id, "Seller")
+
+            axios.post("http://localhost:8000/api/products", product, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                    'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('user')).token
+                }
+            })
+                .then(response => {
+                    console.log("registration res", response);
+                }).catch(error => {
+                console.log("registration error", error);
+            })
+
             this.setState({
-            redirect: true})
+                redirect: true
+            })
+        } else {
+            this.setState({redirect: false})
         }
-        
-
     }
 
 
@@ -149,7 +159,7 @@ class AddArticles extends React.Component {
 
 
                     <label>Select county
-                        <select value={this.state.county} onChange={this.handleChange} name="county">
+                        <select value={this.state.county.name} onChange={this.handleChange} name="county">
                             {this.props.judete.map((item, key) => {
                                 return (
                                     <option value={item.id} onChange={this.handleChange}>{item.name}</option>
@@ -193,8 +203,6 @@ class AddArticles extends React.Component {
 
 
                     <button type="submit" onClick={this.handleSubmit}>Add you product</button>
-                    )
-
 
                 </form>
             </div>

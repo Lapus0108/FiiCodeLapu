@@ -1,17 +1,16 @@
 import React from 'react';
 
-class AboutUs extends React.Component{
-    constructor(){
+class AboutUs extends React.Component {
+    constructor() {
         super();
-    this.state={
-
+        this.state = {}
     }
-}
-render(){
-    return(
-        <div></div>
-    )
-}
+
+    render() {
+        return (
+            <div></div>
+        )
+    }
 }
 
 export default AboutUs

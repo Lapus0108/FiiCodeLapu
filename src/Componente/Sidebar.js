@@ -14,45 +14,46 @@ function Sidebar({items}) {
                         <>
                         <React.Fragment key={name}>
                             <div className="element_lista">
-                            <Link to={`/${name}`}>
-                            <ListItem style={{paddingLeft: 18}} button {...rest}>
-                                <ListItemText>{label}</ListItemText>
-                            </ListItem>
-                            </Link>
+                                <Link to={`/${name}`}>
+                                    <ListItem style={{paddingLeft: 18}} button {...rest}>
+                                        <ListItemText>{label}</ListItemText>
+                                    </ListItem>
+                                </Link>
                             </div>
-                            
-                            
+
+
                             {Array.isArray(subItems) ? (
                                 <List disablePadding dense>
                                     {subItems.map((subItem) => {
                                         return (
-                                            <Link to={`/${subItem.name}`} style={{ color: '#FFFFFF', textDecoration:'none' }}>
-                                            <ListItem
-                                                key={subItem.name}
-                                                style={{paddingLeft: 36}}
-                                                button
-                                                dense
-                                            >
-                                                
-                                        <ListItemText>
+                                            <Link to={`/${subItem.name}`}
+                                                  style={{color: '#FFFFFF', textDecoration: 'none'}}>
+                                                <ListItem
+                                                    key={subItem.name}
+                                                    style={{paddingLeft: 36}}
+                                                    button
+                                                    dense
+                                                >
+
+                                                    <ListItemText>
                          <span className="sidebar-subitem-text">
                             {subItem.label}
                           </span>
-                                                </ListItemText>
-                                            </ListItem>
+                                                    </ListItemText>
+                                                </ListItem>
                                             </Link>
                                         )
                                     })}
                                 </List>
                             ) : null}
                         </React.Fragment>
-                        
-</>
+
+                        </>
                     )
                 })}
             </List>
         </div>
-        
+
     )
 }
 

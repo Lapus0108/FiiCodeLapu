@@ -25,7 +25,7 @@ class Home extends Component {
         }
 
     }
-    
+
     handleClick = (id) => {
         this.props.addToCart(id);
     }
@@ -37,38 +37,35 @@ class Home extends Component {
                 this.setState({produs: produs});
             })
 
-        const user = localStorage.getItem('user');
-
-        console.log(user, "");
-
     }
 
     render() {
-        const {isLoggedIn}=this.props;
+        const {isLoggedIn} = this.props;
         console.log(isLoggedIn)
         let itemList = this.state.produs.sort(function (a, b) {     //FILTRU PRET CRESCATOR
             return a.price - b.price;
         }).map(item => {
             return (
                 <Link to={`/products/${item.id}`}>
-                <div className="card" key={item.id}>
-                    <div className="card-image">
-                        <img src={item.img} alt={item.title}/>
-                        <span className="card-title">{item.title}</span>
-                        {isLoggedIn===true ? 
-                        <span to="/" className="btn-floating halfway-fab waves-effect waves-light red" onClick={() => {
-                            this.handleClick(item.id)
-                        }}><i className="material-icons">
+                    <div className="card" key={item.id}>
+                        <div className="card-image">
+                            <img src={item.img} alt={item.title}/>
+                            <span className="card-title">{item.title}</span>
+                            {isLoggedIn === true ?
+                                <span to="/" className="btn-floating halfway-fab waves-effect waves-light red"
+                                      onClick={() => {
+                                          this.handleClick(item.id)
+                                      }}><i className="material-icons">
                         <img src={simbolCart} alt="Logo"/></i></span>
-                        : ""}
-                    
-                    </div>
+                                : ""}
 
-                    <div className="card-content">
-                        <p>{item.desc}</p>
-                        <p><b>Pret: {item.price}{" "}RON</b></p>
+                        </div>
+
+                        <div className="card-content">
+                            <p>{item.desc}</p>
+                            <p><b>Pret: {item.price}{" "}RON</b></p>
+                        </div>
                     </div>
-                </div>
                 </Link>
 
             )
