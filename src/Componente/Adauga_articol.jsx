@@ -1,102 +1,95 @@
 import React from 'react';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 
-const categories=[
+const categories = [
     {
-        id:"1",
-        name:"",
+        id: "1",
+        name: "",
     },
     {
-        id:"2",
-        name:"Food",
+        id: "2",
+        name: "Food",
     },
     {
-        id:"3",
-        name:"Homemade",
+        id: "3",
+        name: "Homemade",
     },
     {
-        id:"4",
-        name:"Clothing",
+        id: "4",
+        name: "Clothing",
     },
     {
-        id:"5",
-        name:"Furniture",
+        id: "5",
+        name: "Furniture",
     },
     {
-        id:"6",
-        name:"None of the above"
+        id: "6",
+        name: "None of the above"
     }
 
 ]
 
-const judete=[
+const judete = [
     {
-        id:1,
+        id: 1,
         nume: "",
         lat_centru: 44,
-        long_centru:55
+        long_centru: 55
     },
     {
-        id:2,
+        id: 2,
         nume: "Bucuresti",
         lat_centru: 42,
-        long_centru:34
-    },
-    { id:3,
-        nume: "Timisoara",
-        lat_centru:33,
-        long_centru:41
+        long_centru: 34
     },
     {
-        id:4,
+        id: 3,
+        nume: "Timisoara",
+        lat_centru: 33,
+        long_centru: 41
+    },
+    {
+        id: 4,
         nume: "Iasi",
         lat_centru: 44,
-        long_centru:55
+        long_centru: 55
     }
 ]
 
 class AddArticles extends React.Component {
-    constructor(){
+    constructor() {
         super();
 
         this.state = {
-            name:"",
-            description:"",
-            price:"",
-            county:"",
+            name: "",
+            description: "",
+            price: "",
+            county: "",
             negotiable: false,
             bifa2: false,
-            image:"",
-            tag:{
-                name:"",
-                id:""
+            image: "",
+            tag: {
+                name: "",
+                id: ""
             },
             redirect: false,
-            
 
 
         };
-        this.handleSubmit=this.handleSubmit.bind(this);
-        this.handleChange=this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
 
-    setRedirect = () => {
-
-        this.setState({
-          redirect: true
-        })
-      }
-
-      renderRedirect = () => {
+    renderRedirect = () => {
         if (this.state.redirect) {
-          return <Redirect to='/products' />
+            return <Redirect to='/products'/>
         }
-      }
+    }
 
     handleChange(event) {
         this.setState({
@@ -104,14 +97,14 @@ class AddArticles extends React.Component {
         })
     }
 
-    onChange1= () => {
+    onChange1 = () => {
         this.setState(initialState => ({
 
             negotiable: !initialState.negotiable
         }));
     }
 
-    onChange2= () => {
+    onChange2 = () => {
         this.setState(initialState => ({
             bifa2: !initialState.bifa2,
 
@@ -128,39 +121,42 @@ class AddArticles extends React.Component {
         }
     }
 
-    setUploadedImgString=(img64Base) => {
-        this.setState({ uploadedImgString: img64Base });
-      }
-    
-   
+    setUploadedImgString = (img64Base) => {
+        this.setState({uploadedImgString: img64Base});
+    }
+
 
     handleSubmit(event) {
         event.preventDefault();
 
-        const product={
-            title:this.state.name,
+        const product = {
+            title: this.state.name,
             description: this.state.description,
-            price:this.state.price,
-            negotiabile:this.state.negotiable,
+            price: this.state.price,
+            negotiable: this.state.negotiable,
             seller_id: "1",
-            image_buna:this.setUploadedImgString(this.state.image)
-            
+            image_buna: this.setUploadedImgString(this.state.image)
+
         }
 
         axios.post("http://localhost:8000/api/products", product)
-            .then(response=>{
+            .then(response => {
                 console.log("registration res", response);
-            }).catch(error=>{
+            }).catch(error => {
             console.log("registration error", error);
         })
         console.log(this.state.tag)
         console.log(this.state.county)
 
-    }
-    
+        this.setState({
+            redirect: true
+        })
 
-    render(){
-        return(
+    }
+
+
+    render() {
+        return (
             <>
             {this.renderRedirect()}
             <div className="title_addarticles">
@@ -174,7 +170,7 @@ class AddArticles extends React.Component {
                         placeholder="Product name:"
                         value={this.state.name}
                         onChange={this.handleChange}
-                        required />
+                        required/>
 
                     <input
                         type="text"
@@ -182,13 +178,13 @@ class AddArticles extends React.Component {
                         placeholder="Describe your product:"
                         value={this.state.description}
                         onChange={this.handleChange}
-                        required />
+                        required/>
 
 
                     <label>Select category
-                        <select value={this.state.tag.name} onChange={this.handleChange} name="tag" >
-                            {categories.map((item,key)=>{
-                                return(
+                        <select value={this.state.tag.name} onChange={this.handleChange} name="tag">
+                            {categories.map((item, key) => {
+                                return (
                                     <option value={item.id} onChange={this.handleChange}>{item.name}</option>
                                 )
                             })}
@@ -200,14 +196,14 @@ class AddArticles extends React.Component {
                         name="price"
                         placeholder="Price(RON):"
                         value={this.state.price}
-                        onChange={event => this.setState({price: event.target.value.replace(/\D/,'')})}
-                        required />
+                        onChange={event => this.setState({price: event.target.value.replace(/\D/, '')})}
+                        required/>
 
 
                     <label>Select county
                         <select value={this.state.county} onChange={this.handleChange} name="county">
-                            {judete.map((item,key)=>{
-                                return(
+                            {judete.map((item, key) => {
+                                return (
                                     <option value={item.id} onChange={this.handleChange}>{item.nume}</option>
                                 )
                             })}
@@ -215,7 +211,7 @@ class AddArticles extends React.Component {
                     </label>
 
                     <div className="input_image">
-                        <input type="file" onChange={this.onImageChange} className="filetype" id="product_image" />
+                        <input type="file" onChange={this.onImageChange} className="filetype" id="product_image"/>
                         {/* <img id="target" src={this.state.image}/> */}
                     </div>
 
@@ -226,10 +222,10 @@ class AddArticles extends React.Component {
                             <input
                                 onChange={this.onChange1}
                                 type="checkbox"
-                                checked={this.state.negociabil}
+                                checked={this.state.negotiable}
                             />
                             I would like to receive negotiation offers
-                            <span className="checkmarkTermenisiConditii" />
+                            <span className="checkmarkTermenisiConditii"/>
                         </label>
                     </div>
 
@@ -243,13 +239,14 @@ class AddArticles extends React.Component {
                                 checked={this.state.bifa2}
                             />
                             I assure that the declared data are real
-                            <span className="checkmarkTermenisiConditii" />
+                            <span className="checkmarkTermenisiConditii"/>
                         </label>
                     </div>
-                    
-                        
-                <button type="submit" onClick={this.setRedirect}>Add you product</button>)
-                       
+
+
+                    <button type="submit" onClick={this.handleSubmit}>Add you product</button>
+                    )
+
 
                 </form>
             </div>

@@ -34,6 +34,11 @@ class Home extends Component {
                 const produs = res.data.data;
                 this.setState({produs: produs});
             })
+
+        const user = localStorage.getItem('user');
+
+        console.log(user, "");
+
     }
 
     render() {
