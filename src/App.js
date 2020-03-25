@@ -15,9 +15,12 @@ import AddProduct from "./Componente/Adauga_articol";
 import SingleProduct from "./Componente/SingleProduct";
 import Mailing from "./Componente/Mailing";
 import AboutUs from "./Componente/AboutUs";
-import judete from "./assets/data/county.json"
-import categories from "./assets/data/tags.json"
 import Logout from "./Componente/Logout";
+
+import judete from "./assets/data/county.json"
+import tags from "./assets/data/tags.json"
+import EditProduct from "./Componente/EditProduct";
+
 
 
 //GOOGLE MAPS DEFAULT STYLE
@@ -59,7 +62,7 @@ export class MapContainer extends Component {
 
         this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this);
         this.state = {
-            isLoggedIn: true,  //IN FUNCTIE DE ASTA IAU MAI DEPARTE DACA E LOGAT
+            isLoggedIn: false,  //IN FUNCTIE DE ASTA IAU MAI DEPARTE DACA E LOGAT
             user: {
                 email: "",
                 password: "",
@@ -136,7 +139,7 @@ export class MapContainer extends Component {
                                 <>
                                 <Navbar/>
                                 <ProductsPage
-                                    categories={categories}
+                                    tags={tags}
                                     isLoggedIn={this.state.isLoggedIn}
                                     judete={judete}
                                 />
@@ -176,7 +179,7 @@ export class MapContainer extends Component {
                                 component={props => (
                                     <AddProduct
                                         judete={judete}
-                                        categories={categories}
+                                        tags={tags}
                                     />
                                 )}/>
 
@@ -184,8 +187,14 @@ export class MapContainer extends Component {
                             {/* PAGINA PRODUS INDIVIDUAL */}
 
                             <Route
-                                path="/products/:product"
+                                path="/products/:product/"
                                 component={SingleProduct}/>
+
+                            {/* PAGINA EDITARE PRODUS */}
+
+                            <Route
+                                path="/product_edit/:product"
+                                component={EditProduct}/>
 
                             {/* PAGINA REGISTER */}
 

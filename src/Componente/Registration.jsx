@@ -62,7 +62,7 @@ class Registration extends React.Component {
             name: this.state.username,
             age: this.state.age,
             address: this.state.address,
-            jud_id: this.state.county
+            county_id: this.state.county,
         }
 
         axios.post("http://localhost:8000/api/register", user, {

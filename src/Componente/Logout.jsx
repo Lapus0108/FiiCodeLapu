@@ -28,7 +28,8 @@ class Logout extends React.Component {
             .then(response => {
                 console.log("res from logout", response);
                 if (response.status = 200) {
-                    localStorage.setItem('user', "");
+                    const user = JSON.stringify({id: 0, name: "guest"});
+                    localStorage.setItem('user', user);
                     localStorage.setItem('isLoggedIn', false)
                 }
             }).catch(error => {

@@ -1,34 +1,54 @@
 import React from 'react';
 import axios from 'axios';
 import {Redirect} from 'react-router-dom';
+import judete from '../assets/data/county.json';
+import tags from '../assets/data/tags.json'
 
 class AddArticles extends React.Component {
     constructor() {
         super();
 
         this.state = {
-            name: "",
-            description: "",
-            price: "",
-            county: {
-                name: "",
-                id: "99"
-            },
-            negotiable: false,
-            bifa2: false,
-            image: "",
-            tag: {
-                name: "",
-                id: ""
+            product: {
+                title: "",
+                description: "",
+                price: "",
+                county: {
+                    name: "",
+                    id: "99"
+                },
+                negotiable: false,
+                image: "",
+                tag: {
+                    name: "",
+                    id: ""
+                }
             },
             redirect: false,
-
+            bifa2: false,
 
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
 
+    componentDidMount() {
+        const url_get = `http://localhost:8000/api/products/`;
+        const id_get = this.props.match.params.product;
+        axios.get(url_get + id_get, "", {
+            headers: {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json',
+                }
+            }
+        })
+            .then(res => {
+                const product = res.data;
+                this.setState({product: product});
+            })
+
+    }
 
     renderRedirect = () => {
         if (this.state.redirect) {
@@ -92,7 +112,7 @@ class AddArticles extends React.Component {
 
             console.log(product);
 
-            axios.post("http://localhost:8000/api/products", product, {
+            axios.put("http://localhost:8000/api/products/" + this.props.match.params.product, product, {
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json',
@@ -119,30 +139,31 @@ class AddArticles extends React.Component {
             <>
             {this.renderRedirect()}
             <div className="title_addarticles">
-                Adauga un produs nou pe piata:
+                Editeaza-ti produsul:
             </div>
             <div className="container_add_product">
                 <form onSubmit={this.handleSubmit}>
                     <input
                         type="text"
                         name="name"
-                        placeholder="Product name:"
-                        value={this.state.name}
+                        placeholder={this.state.product.title}
+                        value={this.state.product.title}
                         onChange={this.handleChange}
-                        required/>
+                        required
+                    />
 
                     <input
                         type="text"
                         name="description"
-                        placeholder="Describe your product:"
-                        value={this.state.description}
+                        placeholder={this.state.product.description}
+                        value={this.state.product.description}
                         onChange={this.handleChange}
                         required/>
 
 
                     <label>Select category
-                        <select value={this.state.tag.name} onChange={this.handleChange} name="tag">
-                            {this.props.tags.map((item, key) => {
+                        <select value={this.state.product.tag} onChange={this.handleChange} name="tag">
+                            {tags.map((item, key) => {
                                 return (
                                     <option value={item.id} onChange={this.handleChange}>{item.name}</option>
                                 )
@@ -153,15 +174,15 @@ class AddArticles extends React.Component {
                     <input
                         type="text"
                         name="price"
-                        placeholder="Price(RON):"
-                        value={this.state.price}
+                        placeholder={this.state.product.price}
+                        value={this.state.product.price}
                         onChange={event => this.setState({price: event.target.value.replace(/\D/, '')})}
                         required/>
 
 
                     <label>Select county
-                        <select value={this.state.county.name} onChange={this.handleChange} name="county">
-                            {this.props.judete.map((item, key) => {
+                        <select value={this.state.product.county} onChange={this.handleChange} name="county">
+                            {judete.map((item, key) => {
                                 return (
                                     <option value={item.id} onChange={this.handleChange}>{item.name}</option>
                                 )
@@ -177,11 +198,10 @@ class AddArticles extends React.Component {
                     <div className="add_product_bifa ">
                         {/* trebuie pus link */}
                         <label className="containerTermeni">
-
                             <input
                                 onChange={this.onChange1}
                                 type="checkbox"
-                                checked={this.state.negotiable}
+                                checked={this.state.product.negotiable}
                             />
                             I would like to receive negotiation offers
                             <span className="checkmarkTermenisiConditii"/>
@@ -203,7 +223,7 @@ class AddArticles extends React.Component {
                     </div>
 
 
-                    <button type="submit" onClick={this.handleSubmit}>Add you product</button>
+                    <button type="submit" onClick={this.handleSubmit}>Submit changes</button>
 
                 </form>
             </div>
