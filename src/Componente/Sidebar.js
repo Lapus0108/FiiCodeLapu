@@ -6,7 +6,12 @@ import {Link, BrowserRouter} from 'react-router-dom';
 
 
 function Sidebar({items}) {
+
+    const isLoggedIn  = localStorage.getItem('isLoggedIn');
+
     return (
+        <div>
+        { isLoggedIn ?
         <div className="sidebar">
             <List disablePadding dense>
                 {items.map(({label, name, items: subItems, ...rest}) => {
@@ -52,8 +57,8 @@ function Sidebar({items}) {
                     )
                 })}
             </List>
+        </div> : <></> }
         </div>
-
     )
 }
 

@@ -17,10 +17,11 @@ import Mailing from "./Componente/Mailing";
 import AboutUs from "./Componente/AboutUs";
 import Logout from "./Componente/Logout";
 
+import axios from "axios";
+
 import judete from "./assets/data/county.json"
 import tags from "./assets/data/tags.json"
 import EditProduct from "./Componente/EditProduct";
-
 
 
 //GOOGLE MAPS DEFAULT STYLE
@@ -84,6 +85,25 @@ export class MapContainer extends Component {
         }
     }
 
+    checkLoginStatus() {
+        if (localStorage.getItem('isLoggedIn') && this.state.isLoggedIn === false)
+            this.setState({
+                isLoggedIn: true,
+                user: localStorage.getItem('user')
+            })
+        // else if (!localStorage.getItem('isLoggedIn') && this.state.isLoggedIn === true)
+        //     this.setState({
+        //         isLoggedIn: false,
+        //         user: {}
+        //     })
+    }
+
+    componentDidMount() {
+        console.log("TESTAM", this.state.isLoggedIn)
+
+        this.checkLoginStatus();
+    }
+
     onMarkerClick = (props, marker, e) =>
         this.setState({
             selectedPlace: props,
@@ -104,6 +124,7 @@ export class MapContainer extends Component {
         this.props.handleLogin(data);
         this.props.history.push("/dashboard");
     }
+
 
     // displayMarkers = () => {
     //   return this.state.oficii_post.map((item, index) => {
@@ -127,9 +148,7 @@ export class MapContainer extends Component {
 
                 <BrowserRouter>
                     <div className="App">
-                        {this.state.isLoggedIn === true
-                            ? <Sidebar items={items}/>
-                            : ""}
+                        <Sidebar items={items}/>
                         <Switch>
 
 
@@ -230,7 +249,6 @@ export class MapContainer extends Component {
                                         <Login
                                             isLoggedIn={this.state.isLoggedIn}
                                             handleSuccessfulAuth={this.handleSuccessfulAuth}
-
                                         />
                                         : ""
                                 )}/>
