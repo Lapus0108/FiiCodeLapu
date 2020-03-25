@@ -35,9 +35,12 @@ class Logout extends React.Component {
             }).catch(error => {
             console.log("logout error", error);
         })
+        // fakeLogout = () => 
+        this.props.doLogout();
     }
 
     render() {
+        const { auth } = this.props;
         return (
             <>
             {this.renderRedirect()}

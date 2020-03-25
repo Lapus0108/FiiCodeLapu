@@ -63,10 +63,10 @@ class Login extends React.Component {
             }).catch(error => {
             console.log("login error", error);
         })
+        this.props.doLogin(user);
         event.preventDefault();
-        this.setState({
-            redirect: true
-        })
+       
+    
     }
 
     render() {
@@ -96,7 +96,7 @@ class Login extends React.Component {
                         required/>
 
 
-                    <button type="submit" onClick={this.setRedirect}>Login</button>
+                    <button type="submit" onClick={this.setRedirect} >Login</button>
                 </form>
             </div>
             </>

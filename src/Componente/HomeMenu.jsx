@@ -10,7 +10,7 @@ class HomeMenu extends React.Component {
     };
 
     render() {
-        const {isLoggedIn} = this;
+        const {isLoggedIn} = this.props;
         return (
             <>
             <div className="text_dr_sus">Designed and created for FiiCODE 2020</div>

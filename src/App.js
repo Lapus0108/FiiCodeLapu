@@ -16,10 +16,14 @@ import SingleProduct from "./Componente/SingleProduct";
 import Mailing from "./Componente/Mailing";
 import AboutUs from "./Componente/AboutUs";
 import Logout from "./Componente/Logout";
-
+import axios from "axios";
 import judete from "./assets/data/county.json"
 import tags from "./assets/data/tags.json"
-import EditProduct from "./Componente/EditProduct";
+import { doLogin, doLogout } from "./Componente/login-actions/auth";
+import PrivateRoute from "./Componente/login-actions/PrivateRoute";
+import history from "./Componente/login-actions/history";
+import { connect } from "react-redux";
+import auth from "./Componente/login-reducers/auth";
 
 
 
@@ -82,6 +86,30 @@ export class MapContainer extends Component {
             //   {latitude: 47.5524695, longitude: -122.0425407}
             // ]
         }
+        
+    }
+    checkLoginStatus(){
+        axios.get("Database",{withCredentials:true})
+        .then(response=>{
+            if(response.data.logged_in && this.state.isLoggedIn===false)
+            this.setState({
+                isLoggedIn:true,
+                user: response.data.user
+            })
+            else if(!response.data.logged_in && this.state.isLoggedIn===true)
+            this.setState({
+                isLoggedIn: false,
+                user:{}
+            })
+
+        })
+        .catch(error=>{
+            console.log("check login error", error);
+
+        });
+    }
+    componentDidMount(){
+        this.checkLoginStatus();
     }
 
     onMarkerClick = (props, marker, e) =>
@@ -125,17 +153,73 @@ export class MapContainer extends Component {
                 </div>
 
 
-                <BrowserRouter>
+                <BrowserRouter history={history}>
                     <div className="App">
                         {this.state.isLoggedIn === true
                             ? <Sidebar items={items}/>
                             : ""}
                         <Switch>
 
+                             {/* PAGINA REGISTER */}
 
+                             <Route
+                                path="/register"
+                                component={props => (
+                                    this.state.isLoggedIn === false ?
+                                        <Registration
+                                            judete={judete}
+                                            isLoggedIn={this.state.isLoggedIn}
+                                        />
+                                        : ""
+                                )}/>
+
+                             {/* PAGINA LOGIN */}
+
+                             <Route
+                                path="/login"
+                                component={props => (
+                                    this.state.isLoggedIn === false ?
+                                        <Login
+                                            isLoggedIn={this.state.isLoggedIn}
+                                            handleSuccessfulAuth={this.handleSuccessfulAuth}
+                                            doLogin={doLogin}
+                                            auth={auth}
+
+                                        />
+                                        : ""
+                                )}/>
+                            
+
+
+                             {/* PAGINA LOGOUT */}
+
+                             <Route path="/logout"
+                                   component={props => (
+                                       this.state.isLoggedIn === true ?
+                                           <Logout
+                                               isLoggedIn={this.state.isLoggedIn}
+                                               doLogout={doLogout}
+                                               auth={auth}
+                                           />
+                                           : ""
+                                   )}
+                            />
+
+                             {/* PAGINA INCEPUT */}
+
+                             <Route
+                                path="/home"
+                                component={props => (
+                                    <HomeMenu
+                                        isLoggedIn={this.state.isLoggedIn}
+                                    />
+                                )}
+                            />
+
+                            
                             {/* PAGINA PRODUSE */}
 
-                            <Route exact path="/products" component={props => (
+                            <PrivateRoute exact path="/products" component={props => (
                                 <>
                                 <Navbar/>
                                 <ProductsPage
@@ -145,32 +229,6 @@ export class MapContainer extends Component {
                                 />
                                 </>)}
                             />
-
-                            {/* PAGINA CART */}
-
-                            <Route
-                                path="/cart"
-                                component={props => (
-                                    <>
-                                    <Navbar/>
-                                    <Cart/>
-
-                                    </>
-                                )}
-                            />
-
-
-                            {/* PAGINA INCEPUT */}
-
-                            <Route
-                                path="/home"
-                                component={props => (
-                                    <HomeMenu
-                                        isLoggedIn={this.state.isLoggedIn}
-                                    />
-                                )}
-                            />
-
 
                             {/* PAGINA ADAUGA PRODUS */}
 
@@ -183,31 +241,24 @@ export class MapContainer extends Component {
                                     />
                                 )}/>
 
+                              {/* PAGINA PRODUS INDIVIDUAL */}
 
-                            {/* PAGINA PRODUS INDIVIDUAL */}
-
-                            <Route
+                              <Route
                                 path="/products/:product/"
                                 component={SingleProduct}/>
 
-                            {/* PAGINA EDITARE PRODUS */}
+                            {/* PAGINA CART */}
 
                             <Route
-                                path="/product_edit/:product"
-                                component={EditProduct}/>
-
-                            {/* PAGINA REGISTER */}
-
-                            <Route
-                                path="/register"
+                                path="/cart"
                                 component={props => (
-                                    this.state.isLoggedIn === false ?
-                                        <Registration
-                                            judete={judete}
-                                            isLoggedIn={this.state.isLoggedIn}
-                                        />
-                                        : ""
-                                )}/>
+                                    <>
+                                    <Navbar/>
+                                    <Cart/>
+
+                                    </>
+                                )}
+                            />                  
 
                             {/* PAGINA SCRISORI */}
 
@@ -221,33 +272,8 @@ export class MapContainer extends Component {
                                 path="/about_us"
                                 component={AboutUs}/>
 
-                            {/* PAGINA LOGIN */}
-
-                            <Route
-                                path="/login"
-                                component={props => (
-                                    this.state.isLoggedIn === false ?
-                                        <Login
-                                            isLoggedIn={this.state.isLoggedIn}
-                                            handleSuccessfulAuth={this.handleSuccessfulAuth}
-
-                                        />
-                                        : ""
-                                )}/>
-
-                            {/* PAGINA LOGOUT */}
-
-                            <Route path="/logout"
-                                   component={props => (
-                                       this.state.isLoggedIn === true ?
-                                           <Logout
-                                               isLoggedIn={this.state.isLoggedIn}
-                                           />
-                                           : ""
-                                   )}
-                            />
-
-                            {/* PAGINA HARTA GOOGLE */}
+                           
+                           {/* PAGINA HARTA GOOGLE */}
                             <Route
                                 path="/map"
                                 exact
@@ -295,9 +321,18 @@ export class MapContainer extends Component {
     }
 }
 
-export default GoogleApiWrapper({
-    apiKey: 'AIzaSyDNwR7Y528w5gyiSweT0IJ-awU2mPUEYhs'
-})(MapContainer);
+// export default GoogleApiWrapper({
+//     apiKey: 'AIzaSyDNwR7Y528w5gyiSweT0IJ-awU2mPUEYhs'
+// })(MapContainer);
+const mapStateToProps = state => ({
+    auth: state.auth,
+  });
+
+export default connect(
+    mapStateToProps,
+    { doLogin, doLogout },
+  )(MapContainer);
+  
 
 
 //GOOGLE API KEY AIzaSyDcEaiQfgcMH2TowRayxYO2kgbEhbG1Aa4 (NU E BUN ASTA)
