@@ -13,7 +13,9 @@ class Login extends React.Component {
             email: "",
             password: "",
             loginErrors: "",
-            redirect: false
+            redirect: false,
+            mesaj:"",
+    
 
         };
 
@@ -24,16 +26,8 @@ class Login extends React.Component {
 
     renderRedirect = () => {
         if (this.state.redirect) {
-            return <Redirect to='/products'/>
+            return <Redirect to='/home'/>
         }
-    }
-
-    componentDidMount() {
-        axios.get(`DATABASE`)
-            .then(res => {
-                const user = res.data;
-                this.setState({user});
-            })
     }
 
     handleChange(event) {
@@ -41,32 +35,37 @@ class Login extends React.Component {
             [event.target.name]: event.target.value
         })
     }
+    
 
     handleSubmit(event) {
+
         const user = {
             email: this.state.email,
             password: this.state.password
         }
-
         console.log(user, "user")
-
         axios.post("http://localhost:8000/api/login", user, {
             headers: {
                 'Content-Type': "application/json",
                 'Accept': "application/json",
             }
-        })                                    //AICI TREBUIE PUS LINKUL DE LA DATABASE CU USERII CREATI
+        })                                   
             .then(response => {
+                
                 console.log("res from login", response);
                 if (response.status = 200) {
                     localStorage.setItem('user', JSON.stringify(response.data));
+                    this.setState({redirect:true})
+                    this.props.doLogin()    
                 }
+                
             }).catch(error => {
             console.log("login error", error);
+            this.setState({mesaj:"Email and password does not match"});
         })
-        event.preventDefault();
-        this.props.doLogin();
-    }
+       event.preventDefault();
+}
+
 
     render() {
         return (
@@ -96,7 +95,9 @@ class Login extends React.Component {
 
 
                     <button type="submit" onClick={this.handleSubmit} >Login</button>
+                    
                 </form>
+                <div className="login_spatiu_erori">{this.state.mesaj}</div>
             </div>
             </>
         );

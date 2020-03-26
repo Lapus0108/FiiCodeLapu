@@ -12,12 +12,23 @@ class SingleProduct extends React.Component {
         this.state = {
             product: {
                 id: 0,
+                
                 title: "Test Product",
+                titleClicked: false,
+                
                 description: "This is just a basic product while we load the page. Check your internet connection if it takes too long",
+                descriptionClicked:false,
+
                 price: 0,
+                priceClicked:false,
+
                 negotiable: 0,
+                negotiableClicked:false,
+
                 seller_id: 0,
+               
             },
+            vizibilitateButoane: [false, false, false, false],
             user: JSON.parse(localStorage.getItem('user'))
         }
     }
@@ -39,6 +50,50 @@ class SingleProduct extends React.Component {
             })
 
     }
+     // Actualizarea textului din input-uri
+  handleChange = (event, index) => {
+    const value = event.target.value;
+    let userData = this.state.userData;
+    switch (index) {
+      case 0:
+        this.setState(prevState => {
+          product.title = value;
+          return { userData };
+        });
+        break;
+      case 1:
+        this.setState(prevState => {
+          product.description = value;
+          return { userData };
+        });
+        break;
+      case 2:
+        this.setState(prevState => {
+          product.price = value;
+          return { userData };
+        });
+        break;
+      case 3:
+        this.setState(prevState => {
+          product.negotiable = value;
+          return { userData };
+        });
+        break;
+      default: {
+        alert(
+          "Nu se poate actualiza textul inputului sau nu exista butonul cu indexul " +
+            index
+        );
+      }
+    }
+  };
+
+  afisareText = index => {
+    const vizibilitateButon = this.state.vizibilitateButoane[index]
+      ? "none"
+      : "block";
+    return vizibilitateButon;
+  };
 
     remove_article_function = (e) => {
 

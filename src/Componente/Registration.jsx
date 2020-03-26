@@ -19,7 +19,8 @@ class Registration extends React.Component {
             username: "",
             address: "",
             age: "",
-            redirect: false
+            redirect: false,
+            mesaj:""
 
         };
 
@@ -28,11 +29,14 @@ class Registration extends React.Component {
     }
 
 
-    renderRedirect = () => {
+    renderRedirect=() => {
         if (this.state.redirect) {
-            return <Redirect to='/products'/>
+            return <Redirect to='/login'/>
         }
     }
+   
+        
+   
 
     handleChange(event) {
         this.setState({
@@ -64,22 +68,27 @@ class Registration extends React.Component {
             address: this.state.address,
             county_id: this.state.county,
         }
-
+    if(this.state.password_confirmation===this.state.password){
         axios.post("http://localhost:8000/api/register", user, {
                 headers: {}
             }
         ).then(response => {
+            
             console.log("registration res", response);
+            this.setState({mesaj: "Registration successful, please log in!"})
+            this.timer = setTimeout(() => {this.setState({redirect: true, })
+           }, 2000);
+        
+        
+          
         }).catch(error => {
             console.log("registration error", error);
         })
-        event.preventDefault();
-        this.setState({
-            redirect: false
-        })
     }
-
-    render() {
+    else this.setState({mesaj: "Password and password confirmation do not match"})
+        event.preventDefault();       
+    }
+   render() {
         return (
             <>
             {this.renderRedirect()}
@@ -103,6 +112,7 @@ class Registration extends React.Component {
                         placeholder="Password"
                         value={this.state.password}
                         maxLength={16}
+                        minLength={8}
                         onChange={this.handleChange}
                         required/>
 
@@ -112,6 +122,7 @@ class Registration extends React.Component {
                         placeholder="Confirm password"
                         value={this.state.password_confirmation}
                         maxLength={16}
+                        minLength={8}
                         onChange={this.handleChange}
                         required/>
 
@@ -159,6 +170,7 @@ class Registration extends React.Component {
                         <label className="containerTermeni">
 
                             <input
+                            required
                                 onChange={this.onChange1}
                                 type="checkbox"
                                 checked={this.state.bifa1}
@@ -173,6 +185,7 @@ class Registration extends React.Component {
                             {/* trebuie pus link */}
 
                             <input
+                            required
                                 onChange={this.onChange2}
                                 checked={this.state.bifa2}
                                 type="checkbox"
@@ -184,6 +197,7 @@ class Registration extends React.Component {
 
                     <button type="submit" onClick={this.setRedirect}>Register</button>
                 </form>
+                <div className="register_spatiu_erori">{this.state.mesaj}</div>
             </div>
             </>
         );

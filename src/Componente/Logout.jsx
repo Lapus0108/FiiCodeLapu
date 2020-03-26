@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import { userLogout } from "./login-actions/auth.js"
 
 class Logout extends React.Component {
+    
     constructor() {
         super();
         this.state = {
@@ -15,11 +16,12 @@ class Logout extends React.Component {
 
     renderRedirect = () => {
         if (this.state.redirect) {
-            return <Redirect to='/products'/>
+            return <Redirect to='/home'/>
         }
     }
 
     componentDidMount() {
+        
         axios.post("http://localhost:8000/api/logout", "", {
             headers: {
                 'Content-Type': "application/json",
@@ -33,13 +35,18 @@ class Logout extends React.Component {
                     const user = JSON.stringify({id: 0, name: "guest"});
                     localStorage.setItem('user', user);
                 }
+                
+             
             }).catch(error => {
             console.log("logout error", error);
+            
+            this.timer = setTimeout(() => {this.setState({redirect: true, })
+        }, 1000);
         });
         this.props.doLogout();
-    }
-
-
+        
+}
+        
     render() {
         return (
             <>
@@ -48,8 +55,8 @@ class Logout extends React.Component {
                 <img src={background_auth} alt="login_img"/>
                 <div className="titlu_pagina_auth">Logout</div>
             </div>
-            <div className="container_register">
-                <h1>Logging you out</h1>
+            <div className="logout_message">
+                <h1>Logging you out...</h1>
             </div>
             </>
         )

@@ -49,7 +49,7 @@ class Home extends Component {
                 <Link to={`/products/${item.id}`}>
                     <div className="card" key={item.id}>
                         <div className="card-image">
-                            <img src={item.img} alt={item.title}/>
+                            <img src={item.img} alt=""/>
                             <span className="card-title">{item.title}</span>
                             {isLoggedIn === true ?
                                 <span to="/" className="btn-floating halfway-fab waves-effect waves-light red"

@@ -11,7 +11,6 @@ function Sidebar({items}) {
 
     return (
         <div>
-        { isLoggedIn ?
         <div className="sidebar">
             <List disablePadding dense>
                 {items.map(({label, name, items: subItems, ...rest}) => {
@@ -57,7 +56,7 @@ function Sidebar({items}) {
                     )
                 })}
             </List>
-        </div> : <></> }
+        </div> 
         </div>
     )
 }
