@@ -27,4 +27,6 @@ export const addQuantity = (id) => {
         type: ADD_QUANTITY,
         id
     }
+
+
 }

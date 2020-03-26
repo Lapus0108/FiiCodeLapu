@@ -19,7 +19,7 @@ import Logout from "./Componente/Logout";
 import axios from "axios";
 import judete from "./assets/data/county.json"
 import tags from "./assets/data/tags.json"
-import { doLogin, doLogout } from "./Componente/login-actions/auth";
+import { userLogin, userLogout } from "./Componente/login-actions/auth";
 import PrivateRoute from "./Componente/login-actions/PrivateRoute";
 import history from "./Componente/login-actions/history";
 import { connect } from "react-redux";
@@ -66,7 +66,6 @@ export class MapContainer extends Component {
 
         this.handleSuccessfulAuth = this.handleSuccessfulAuth.bind(this);
         this.state = {
-            isLoggedIn: false,  //IN FUNCTIE DE ASTA IAU MAI DEPARTE DACA E LOGAT
             user: {
                 email: "",
                 password: "",
@@ -155,7 +154,7 @@ export class MapContainer extends Component {
 
                 <BrowserRouter history={history}>
                     <div className="App">
-                        {this.state.isLoggedIn === true
+                        {this.props.isLoggedIn === true
                             ? <Sidebar items={items}/>
                             : ""}
                         <Switch>
@@ -165,7 +164,7 @@ export class MapContainer extends Component {
                              <Route
                                 path="/register"
                                 component={props => (
-                                    this.state.isLoggedIn === false ?
+                                    this.props.isLoggedIn === false ?
                                         <Registration
                                             judete={judete}
                                             isLoggedIn={this.state.isLoggedIn}
@@ -178,11 +177,11 @@ export class MapContainer extends Component {
                              <Route
                                 path="/login"
                                 component={props => (
-                                    this.state.isLoggedIn === false ?
+                                    this.props.isLoggedIn === false ?
                                         <Login
                                             isLoggedIn={this.state.isLoggedIn}
                                             handleSuccessfulAuth={this.handleSuccessfulAuth}
-                                            doLogin={doLogin}
+                                            userLogin={userLogin}
                                             auth={auth}
 
                                         />
@@ -195,13 +194,13 @@ export class MapContainer extends Component {
 
                              <Route path="/logout"
                                    component={props => (
-                                       this.state.isLoggedIn === true ?
+                                       // this.state.isLoggedIn === true ?
                                            <Logout
-                                               isLoggedIn={this.state.isLoggedIn}
-                                               doLogout={doLogout}
+                                               isLoggedIn={this.props.isLoggedIn}
+                                               userLogout={userLogout}
                                                auth={auth}
                                            />
-                                           : ""
+                                           // : ""
                                    )}
                             />
 
@@ -211,7 +210,7 @@ export class MapContainer extends Component {
                                 path="/home"
                                 component={props => (
                                     <HomeMenu
-                                        isLoggedIn={this.state.isLoggedIn}
+                                        isLoggedIn={this.props.isLoggedIn}
                                     />
                                 )}
                             />
@@ -219,12 +218,12 @@ export class MapContainer extends Component {
                             
                             {/* PAGINA PRODUSE */}
 
-                            <PrivateRoute exact path="/products" component={props => (
+                            <Route exact path="/products" component={props => (
                                 <>
                                 <Navbar/>
                                 <ProductsPage
                                     tags={tags}
-                                    isLoggedIn={this.state.isLoggedIn}
+                                    isLoggedIn={this.props.isLoggedIn}
                                     judete={judete}
                                 />
                                 </>)}
@@ -325,13 +324,10 @@ export class MapContainer extends Component {
 //     apiKey: 'AIzaSyDNwR7Y528w5gyiSweT0IJ-awU2mPUEYhs'
 // })(MapContainer);
 const mapStateToProps = state => ({
-    auth: state.auth,
+    isLoggedIn: state.auth,
   });
 
-export default connect(
-    mapStateToProps,
-    { doLogin, doLogout },
-  )(MapContainer);
+export default connect(mapStateToProps, {userLogin, userLogout})(MapContainer);
   
 
 

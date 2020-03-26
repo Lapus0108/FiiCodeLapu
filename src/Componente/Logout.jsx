@@ -2,6 +2,8 @@ import React from 'react';
 import {Redirect} from "react-router-dom";
 import background_auth from "../images/Buton_lemn.png";
 import axios from "axios";
+import { connect } from 'react-redux'
+import { userLogout } from "./login-actions/auth.js"
 
 class Logout extends React.Component {
     constructor() {
@@ -17,7 +19,7 @@ class Logout extends React.Component {
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
         axios.post("http://localhost:8000/api/logout", "", {
             headers: {
                 'Content-Type': "application/json",
@@ -30,17 +32,15 @@ class Logout extends React.Component {
                 if (response.status = 200) {
                     const user = JSON.stringify({id: 0, name: "guest"});
                     localStorage.setItem('user', user);
-                    localStorage.setItem('isLoggedIn', false)
                 }
             }).catch(error => {
             console.log("logout error", error);
-        })
-        // fakeLogout = () => 
+        });
         this.props.doLogout();
     }
 
+
     render() {
-        const { auth } = this.props;
         return (
             <>
             {this.renderRedirect()}
@@ -56,4 +56,16 @@ class Logout extends React.Component {
     }
 }
 
-export default Logout;
+const mapStateToProps = (state) => {
+    return {
+        isLoggedIn: state.auth
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        doLogout: () => {
+            dispatch(userLogout())
+        },
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Logout)

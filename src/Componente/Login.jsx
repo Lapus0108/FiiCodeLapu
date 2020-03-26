@@ -2,6 +2,8 @@ import React from 'react';
 import axios from "axios";
 import background_auth from "../images/Buton_lemn.png";
 import {Redirect} from 'react-router-dom';
+import { userLogin }from './login-actions/auth.js'
+import { connect } from 'react-redux'
 
 class Login extends React.Component {
     constructor() {
@@ -58,15 +60,12 @@ class Login extends React.Component {
                 console.log("res from login", response);
                 if (response.status = 200) {
                     localStorage.setItem('user', JSON.stringify(response.data));
-                    localStorage.setItem('isLoggedIn', true)
                 }
             }).catch(error => {
             console.log("login error", error);
         })
-        this.props.doLogin(user);
         event.preventDefault();
-       
-    
+        this.props.doLogin();
     }
 
     render() {
@@ -96,7 +95,7 @@ class Login extends React.Component {
                         required/>
 
 
-                    <button type="submit" onClick={this.setRedirect} >Login</button>
+                    <button type="submit" onClick={this.handleSubmit} >Login</button>
                 </form>
             </div>
             </>
@@ -104,4 +103,16 @@ class Login extends React.Component {
     }
 }
 
-export default Login;
+const mapStateToProps = (state) => {
+    return {
+        isLoggedIn: state.auth
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        doLogin: () => {
+            dispatch(userLogin())
+        },
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Login)
