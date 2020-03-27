@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 
+import judete from 'assets/data/county.json'
 
-class Dropdown extends React.Component {
+export default class Dropdown extends Component {
     constructor() {
         super();
 
@@ -56,7 +57,7 @@ class Dropdown extends React.Component {
 
                 { this.state.displayMenu ? (
                     <div>
-                        {this.state.judete.map((item, key) => {
+                        {judete.map((item, key) => {
                             return (
                                 <div className="element_dropdown" key={item.id}>{item.nume}</div>
 
@@ -73,5 +74,3 @@ class Dropdown extends React.Component {
         );
     }
 }
-
-export default Dropdown;

@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 import {Redirect} from 'react-router-dom';
 
-class AddArticles extends React.Component {
+export default class ProductsAdd extends Component {
     constructor() {
         super();
 
@@ -212,5 +212,3 @@ class AddArticles extends React.Component {
         );
     }
 }
-
-export default AddArticles;

@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {Redirect} from "react-router-dom";
-import background_auth from "../images/Buton_lemn.png";
 import axios from "axios";
-import { connect } from 'react-redux'
-import { userLogout } from "./login-actions/auth.js"
 
-class Logout extends React.Component {
+import background_auth from "../../assets/images/Buton_lemn.png";
+
+export default class Logout extends Component {
     constructor() {
         super();
         this.state = {
@@ -15,7 +14,7 @@ class Logout extends React.Component {
 
     renderRedirect = () => {
         if (this.state.redirect) {
-            return <Redirect to='/products'/>
+            return <Redirect to='/home'/>
         }
     }
 
@@ -29,10 +28,11 @@ class Logout extends React.Component {
         })
             .then(response => {
                 console.log("res from logout", response);
+                this.props.doLogout()
             }).catch(error => {
             console.log("logout error", error);
         });
-        this.props.doLogout();
+        setTimeout(() => {this.setState({redirect: true, })}, 1000);
     }
 
 
@@ -44,24 +44,10 @@ class Logout extends React.Component {
                 <img src={background_auth} alt="login_img"/>
                 <div className="titlu_pagina_auth">Logout</div>
             </div>
-            <div className="container_register">
-                <h1>Logging you out</h1>
+            <div className="logout_message">
+                <h1>Logging you out...</h1>
             </div>
             </>
         )
     }
 }
-
-const mapStateToProps = (state) => {
-    return {
-        user: state.auth.user
-    }
-}
-const mapDispatchToProps = (dispatch) => {
-    return {
-        doLogout: () => {
-            dispatch(userLogout())
-        },
-    }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Logout)

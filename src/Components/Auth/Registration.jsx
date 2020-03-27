@@ -1,10 +1,10 @@
-import React from 'react';
-import axios from "axios";
-import background_auth from "../images/Buton_lemn.png";
+import React, { Component } from 'react';
 import {Redirect} from 'react-router-dom';
+import axios from "axios";
 
+import background_auth from "../../assets/images/Buton_lemn.png";
 
-class Registration extends React.Component {
+export default class Registration extends Component {
     constructor() {
         super();
 
@@ -19,7 +19,9 @@ class Registration extends React.Component {
             username: "",
             address: "",
             age: "",
-            redirect: false
+            redirect: false,
+            mesaj:"",
+            image:""
 
         };
 
@@ -30,7 +32,7 @@ class Registration extends React.Component {
 
     renderRedirect = () => {
         if (this.state.redirect) {
-            return <Redirect to='/products'/>
+            return <Redirect to='/login'/>
         }
     }
 
@@ -63,20 +65,23 @@ class Registration extends React.Component {
             age: this.state.age,
             address: this.state.address,
             county_id: this.state.county,
+            image: this.state.image
         }
-
-        axios.post( process.env.REACT_APP_SERVER_APP_URL + "/register", user, {
-                headers: {}
-            }
-        ).then(response => {
-            console.log("registration res", response);
-        }).catch(error => {
-            console.log("registration error", error);
-        })
+        if(this.state.password_confirmation===this.state.password) {
+            axios.post(process.env.REACT_APP_SERVER_APP_URL + "/register", user, {
+                    headers: {}
+                }
+            ).then(response => {
+                console.log("registration res", response);
+            this.setState({mesaj: "Registration successful, please log in!"})
+            this.timer = setTimeout(() => {this.setState({redirect: true, })
+           }, 2000);
+            }).catch(error => {
+                console.log("registration error", error);
+            })
+    }
+    else this.setState({mesaj: "Password and password confirmation do not match"})
         event.preventDefault();
-        this.setState({
-            redirect: false
-        })
     }
 
     render() {
@@ -103,6 +108,7 @@ class Registration extends React.Component {
                         placeholder="Password"
                         value={this.state.password}
                         maxLength={16}
+                        minLength={8}
                         onChange={this.handleChange}
                         required/>
 
@@ -112,6 +118,7 @@ class Registration extends React.Component {
                         placeholder="Confirm password"
                         value={this.state.password_confirmation}
                         maxLength={16}
+                        minLength={8}
                         onChange={this.handleChange}
                         required/>
 
@@ -124,6 +131,10 @@ class Registration extends React.Component {
                         maxLength={12}
                         onChange={this.handleChange}
                         required/>
+
+                    <div className="input_image">
+                        <input type="file" onChange={this.onImageChange} className="filetype" id="user_image"/>
+                    </div>
 
                     <input
                         type="text"
@@ -159,6 +170,7 @@ class Registration extends React.Component {
                         <label className="containerTermeni">
 
                             <input
+                            required
                                 onChange={this.onChange1}
                                 type="checkbox"
                                 checked={this.state.bifa1}
@@ -173,6 +185,7 @@ class Registration extends React.Component {
                             {/* trebuie pus link */}
 
                             <input
+                            required
                                 onChange={this.onChange2}
                                 checked={this.state.bifa2}
                                 type="checkbox"
@@ -184,10 +197,9 @@ class Registration extends React.Component {
 
                     <button type="submit" onClick={this.setRedirect}>Register</button>
                 </form>
+                <div className="register_spatiu_erori">{this.state.mesaj}</div>
             </div>
             </>
         );
     }
 }
-
-export default Registration;

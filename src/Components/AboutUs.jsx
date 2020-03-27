@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-class Mailing extends React.Component {
+export default class AboutUs extends Component {
     constructor() {
         super();
         this.state = {}
@@ -12,5 +12,3 @@ class Mailing extends React.Component {
         )
     }
 }
-
-export default Mailing

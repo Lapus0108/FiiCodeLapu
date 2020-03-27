@@ -1,8 +1,9 @@
-import React from 'react';
-import background_auth from "../images/Buton_lemn.png";
+import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 
-class HomeMenu extends React.Component {
+import background_auth from 'assets/images/Buton_lemn.png';
+
+export default class HomeMenu extends Component {
     constructor() {
         super();
 
@@ -11,6 +12,7 @@ class HomeMenu extends React.Component {
 
     render() {
         const {isLoggedIn} = this.props;
+
         return (
             <>
             <div className="text_dr_sus">Designed and created for FiiCODE 2020</div>
@@ -78,5 +80,3 @@ class HomeMenu extends React.Component {
         );
     }
 }
-
-export default HomeMenu;

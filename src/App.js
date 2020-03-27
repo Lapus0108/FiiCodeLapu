@@ -24,7 +24,7 @@ import PrivateRoute from "./Componente/login-actions/PrivateRoute";
 import history from "./Componente/login-actions/history";
 import { connect } from "react-redux";
 import auth from "./Componente/login-reducers/auth";
-import EditProduct from "./Componente/EditProduct";
+import CookieConsent from "react-cookie-consent";
 
 
 
@@ -40,7 +40,7 @@ const items = [
     {name: 'about_us', label: 'About us'},
     {name: 'profile', label: 'Profile'},
     // { name: 'myorders', label: 'My orders' },
-    {name: 'add_product', label: 'Add product'},
+    {name: 'products/create', label: 'Add product'},
     {name: 'products', label: 'Products'},
     {name: 'cart', label: 'Cart'},
     {
@@ -70,7 +70,6 @@ export class MapContainer extends Component {
             user: {
                 email: "",
                 password: "",
-
                 id: "",
                 user_token: ""
             },
@@ -166,11 +165,30 @@ export class MapContainer extends Component {
                                 path="/register"
                                 component={props => (
                                     this.props.isLoggedIn === false ?
+                                    <>
                                         <Registration
                                             judete={judete}
                                             isLoggedIn={this.state.isLoggedIn}
+
                                         />
+                                        <CookieConsent
+                                            buttonStyle={{ fontWeight: "bold" }}
+                                            location="bottom"
+                                            buttonText="I agree"
+                                            cookieName="Retrosite_cookies"
+                                            style={{ background: "#2B373B" }}
+                                            buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
+                                            expires={150}
+                                            enableDeclineButton
+                                            onAccept={() => {console.log("Cookies accepted by user")}}
+                                            onDecline={() => {console.log("Cookies not accepted by user")}}
+                                        >
+                                        This website uses cookies to enhance the user experience. By using our website you consent to all cookies in accordance with our Cookies Policy{" "}
+                                        </CookieConsent>
+                                        </>
                                         : ""
+
+
                                 )}/>
 
                              {/* PAGINA LOGIN */}
@@ -178,7 +196,9 @@ export class MapContainer extends Component {
                              <Route
                                 path="/login"
                                 component={props => (
+
                                     this.props.isLoggedIn === false ?
+
                                         <Login
                                             isLoggedIn={this.state.isLoggedIn}
                                             handleSuccessfulAuth={this.handleSuccessfulAuth}
@@ -186,7 +206,10 @@ export class MapContainer extends Component {
                                             auth={auth}
 
                                         />
+
                                         : ""
+
+
                                 )}/>
                             
 
@@ -221,25 +244,27 @@ export class MapContainer extends Component {
 
                             <Route exact path="/products" component={props => (
                                 <>
-                                <Navbar/>
                                 <ProductsPage
                                     tags={tags}
                                     isLoggedIn={this.props.isLoggedIn}
                                     judete={judete}
                                 />
+
                                 </>)}
                             />
 
                             {/* PAGINA ADAUGA PRODUS */}
 
                             <Route
-                                path="/add_product"
+                                path="/products/create"
                                 component={props => (
                                     <AddProduct
                                         judete={judete}
                                         tags={tags}
                                     />
                                 )}/>
+
+
 
                               {/* PAGINA PRODUS INDIVIDUAL */}
                             <Route

@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {addToCart} from "./cartActions";
-import simbolMesaj from "../images/pngwave.png";
-import simbolCart from "../images/cart.png";
+import {addToCart} from "../../Actions/Cart/cartActions";
+import simbolMesaj from "../../assets/images/pngwave.png";
+import simbolCart from "../../assets/images/cart.png";
 import axios from "axios";
 import {Link} from "react-router-dom";
 
-class Home extends Component {
+export default class Products extends Component {
 
     constructor() {
         super();
@@ -30,7 +30,7 @@ class Home extends Component {
         this.props.addToCart(id);
     }
 
-    componentWillMount() {
+    componentDidMount() {
         axios.get("http://localhost:8000/api/products")
             .then(res => {
                 const produs = res.data.data;
@@ -49,7 +49,7 @@ class Home extends Component {
                 <Link to={`/products/${item.id}`}>
                     <div className="card" key={item.id}>
                         <div className="card-image">
-                            <img src={item.img} alt={item.title}/>
+                            <img src={item.img} alt=""/>
                             <span className="card-title">{item.title}</span>
                             {isLoggedIn === true ?
                                 <span to="/" className="btn-floating halfway-fab waves-effect waves-light red"
@@ -82,18 +82,3 @@ class Home extends Component {
         )
     }
 }
-const mapStateToProps = (state) => {
-    return {
-        items: state.items
-    }
-}
-const mapDispatchToProps = (dispatch) => {
-
-    return {
-        addToCart: (id) => {
-            dispatch(addToCart(id))
-        }
-    }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home)

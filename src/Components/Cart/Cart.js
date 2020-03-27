@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import {removeItem, addQuantity, subtractQuantity} from './cartActions'
-import Recipe from "./Recipe";
-import arrowUp from "../images/ArrowUp2.png";
-import arrowDown from "../images/ArrowDown.png";
+import {removeItem, addQuantity, subtractQuantity} from '../../Actions/Cart/cartActions'
+import Recipe from "./Receipt";
+import arrowUp from "../../assets/images/ArrowUp2.png";
+import arrowDown from "../../assets/images/ArrowDown.png";
 
-class Cart extends Component {
+export default class Cart extends Component {
 
     //to remove the item completely
     handleRemove = (id) => {
@@ -80,25 +80,3 @@ class Cart extends Component {
         )
     }
 }
-
-
-const mapStateToProps = (state) => {
-    return {
-        items: state.addedItems,
-        //addedItems: state.addedItems
-    }
-}
-const mapDispatchToProps = (dispatch) => {
-    return {
-        removeItem: (id) => {
-            dispatch(removeItem(id))
-        },
-        addQuantity: (id) => {
-            dispatch(addQuantity(id))
-        },
-        subtractQuantity: (id) => {
-            dispatch(subtractQuantity(id))
-        }
-    }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Cart)

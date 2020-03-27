@@ -10,5 +10,7 @@ export function userLogin (user){
 export function userLogout (){
     return {
         type: AUTH_LOGOUT,
+        
     }
+    
 }

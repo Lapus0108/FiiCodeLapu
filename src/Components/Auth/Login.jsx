@@ -1,11 +1,10 @@
-import React from 'react';
-import axios from "axios";
-import background_auth from "../images/Buton_lemn.png";
+import React, { Component } from 'react';
 import {Redirect} from 'react-router-dom';
-import { userLogin }from './login-actions/auth.js'
-import { connect } from 'react-redux'
+import axios from "axios";
 
-class Login extends React.Component {
+import background_auth from "../../assets/images/Buton_lemn.png";
+
+export default class Login extends Component {
     constructor() {
         super();
 
@@ -13,7 +12,9 @@ class Login extends React.Component {
             email: "",
             password: "",
             loginErrors: "",
-            redirect: false
+            redirect: false,
+            mesaj:"",
+
 
         };
 
@@ -51,13 +52,16 @@ class Login extends React.Component {
             .then(response => {
                 console.log("res from login", response);
                 if (response.status = 200) {
-                    this.props.doLogin(response.data);
+                    this.setState({redirect:true})
+                    this.props.doLogin(response.data)
                 }
             }).catch(error => {
             console.log("login error", error);
-        })
+            this.setState({mesaj:"Email and password does not match"});
+        });
         event.preventDefault();
-    }
+}
+
 
     render() {
         return (
@@ -93,17 +97,3 @@ class Login extends React.Component {
         );
     }
 }
-
-const mapStateToProps = (state) => {
-    return {
-        isLoggedIn: state.auth
-    }
-}
-const mapDispatchToProps = (dispatch) => {
-    return {
-        doLogin: (user) => {
-            dispatch(userLogin(user))
-        },
-    }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(Login)

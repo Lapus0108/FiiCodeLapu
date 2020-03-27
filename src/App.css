@@ -476,8 +476,18 @@ background-color: saddlebrown;
   
 }
 .sgproduct_title{
-  margin-bottom: 15px;
+  
+  display: inline-flex;
 }
+.sgproduct_containertext{
+  height: 30px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.sgproduct_containertext button{
+  width: 60px;
+}
+
 .sgproduct_titleart{
   margin-bottom: 15px;
   font-size: 32px;
@@ -543,4 +553,25 @@ max-height: 100%;
 .buton_edit_article img{
   max-height: 100%;
   max-width: 100%;
+}
+.register_spatiu_erori{
+  width: 100%;
+    height: 30px;
+    padding-top: 10px;
+    font-family: serif;
+    font-weight: 600;
+    font-size: large;
+}
+.login_spatiu_erori{
+  width: 100%;
+    height: 30px;
+    padding-top: 10px;
+    font-family: serif;
+    font-weight: 600;
+    font-size: large;
+}
+.logout_message{
+  font-size: 15px;
+    font-family: serif;
+    padding-top: 96px;
 }
