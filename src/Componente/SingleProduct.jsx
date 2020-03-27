@@ -4,6 +4,7 @@ import imagineArticol from "../images/vazatest.jpg";
 import remove_article from "../images/remove_product.png";
 import edit_article from "../images/edit_article.png";
 import axios from "axios";
+import {Redirect} from 'react-router-dom';
 
 class SingleProduct extends React.Component {
 
@@ -12,26 +13,30 @@ class SingleProduct extends React.Component {
         this.state = {
             product: {
                 id: 0,
-                
                 title: "Test Product",
-                titleClicked: false,
-                
                 description: "This is just a basic product while we load the page. Check your internet connection if it takes too long",
-                descriptionClicked:false,
-
                 price: 0,
-                priceClicked:false,
-
                 negotiable: 0,
-                negotiableClicked:false,
-
                 seller_id: 0,
-               
-            },
-            vizibilitateButoane: [false, false, false, false],
-            user: JSON.parse(localStorage.getItem('user'))
+                },
+            redirect:false,
+            mesaj: "",
+            want_to_edit:false,
+            want_to_edit_clicks:0,
+            titleUpdated:"",
+            priceUpdated:"",
+            descriptionUpdated:"",
+            user: JSON.parse(localStorage.getItem('user')),
+            
         }
+        this.edit_article = this.edit_article.bind(this);
     }
+
+    renderRedirect = () => {
+      if (this.state.redirect) {
+          return <Redirect to='/products'/>
+      }
+  }
 
     componentDidMount() {
         const url_get = `http://localhost:8000/api/products/`;
@@ -46,60 +51,15 @@ class SingleProduct extends React.Component {
         })
             .then(res => {
                 const product = res.data;
-                this.setState({product: product});
+                this.setState({product: product, descriptionUpdated:product.description, priceUpdated:product.price});
             })
-
-    }
-     // Actualizarea textului din input-uri
-  handleChange = (event, index) => {
-    const value = event.target.value;
-    let userData = this.state.userData;
-    switch (index) {
-      case 0:
-        this.setState(prevState => {
-          product.title = value;
-          return { userData };
-        });
-        break;
-      case 1:
-        this.setState(prevState => {
-          product.description = value;
-          return { userData };
-        });
-        break;
-      case 2:
-        this.setState(prevState => {
-          product.price = value;
-          return { userData };
-        });
-        break;
-      case 3:
-        this.setState(prevState => {
-          product.negotiable = value;
-          return { userData };
-        });
-        break;
-      default: {
-        alert(
-          "Nu se poate actualiza textul inputului sau nu exista butonul cu indexul " +
-            index
-        );
-      }
-    }
-  };
-
-  afisareText = index => {
-    const vizibilitateButon = this.state.vizibilitateButoane[index]
-      ? "none"
-      : "block";
-    return vizibilitateButon;
-  };
-
-    remove_article_function = (e) => {
+ }
+        
+        remove_article_function = (e) => {
 
         const url = `http://localhost:8000/api/products/`;
         const id = this.props.match.params.product;
-        e.preventDefault();
+        
         axios.delete(url + id, {
             headers: {
                 'Content-Type': "application/json",
@@ -109,27 +69,133 @@ class SingleProduct extends React.Component {
         })
             .then(res => {
                 console.log(res.data);
+                this.setState({mesaj:"Your product has been deleted from Piazeta!"})
+
             })
             .catch((err) => {
                 console.log(err);
-            })
-    }
+            }
+            
+            )
+            e.preventDefault();
+            this.setState({redirect:true})
+          }
+
+        
+        edit_article(){
+              this.setState({want_to_edit:true, want_to_edit_clicks:this.state.want_to_edit_clicks+1})
+              console.log(this.state.want_to_edit_clicks)
+            }
+
+        handleChange = e => {
+          const name = e.target.name;
+           this.setState({ [name]: e.target.value });
+           console.log(this.state)
+          };
+
+
+     handleUpdateProduct = (e) => {
+      const product_up = {
+        description: this.state.descriptionUpdated,
+        price: this.state.priceUpdated,
+        title: this.state.product.title,
+        seller_id: this.state.product.seller_id
+        
+      };
+      this.setState((prevStae, props) => ({
+        product:product_up,
+        mesaj: "Changes updated !"
+      }));
+
+      const url = `http://localhost:8000/api/products/`;
+      const id = this.props.match.params.product;
+      
+      axios.put(url + id, product_up, {
+          headers: {
+              'Content-Type': "application/json",
+              'Accept': "application/json",
+              'Authorization': "Bearer " + JSON.parse(localStorage.getItem('user')).token
+          }
+      })
+          .then(res => {
+              console.log(res.data);
+          })
+          .catch((err) => {
+              console.log(err);
+          }
+          )
+          e.preventDefault();
+    };
 
 
     render() {
+      const inputIsEmpty =
+      this.state.title === "" && this.state.price === "" ? true : false;
+      
+
+
         return (
             <>
             <div className="container_sgrpoduct_total">
                 <div className="sgproduct_container">
                     <div className="sgproduct_titleart">Selected article: {this.state.product.title}</div>
+                    
+                    <div className="sgproduct_containertext">
                     <div className="sgproduct_title">Price: {this.state.product.price} RON</div>
+                   {this.state.want_to_edit_clicks%2 ? 
+                   <>
+                    <input
+                    style={{ width: 35, marginLeft:20 }}
+                    type="price"
+                    placeholder="Edit price"
+                    onChange={this.handleChange}
+                    name="priceUpdated"
+                    value={this.state.priceUpdated}
+                    />
+                    <button
+                  style={{marginLeft:5 }}
+                  disabled={inputIsEmpty}
+                  onClick={this.handleUpdateProduct}
+                  >
+                    Update
+                  </button>
+                  </>
+                   : ""}
+                  </div>
+
+                  <div className="sgproduct_containertext">
+                  <div className="sgproduct_title">Description: {this.state.product.description}</div>
+                    {this.state.want_to_edit_clicks%2 ? 
+                    <>
+                    
+                    <input
+                  style={{ width: 250 }}
+                  type="text"
+                  placeholder="Edit description"
+                  onChange={this.handleChange}
+                  name="descriptionUpdated"
+                  value={this.state.descriptionUpdated}
+                    />
+                    <button
+                    style={{ marginLeft:5}}
+                    disabled={inputIsEmpty}
+                    onClick={this.handleUpdateProduct}>
+                      Update
+                    </button>
+                    </> : ""}
+                    </div>
+
                     {/*<div className="sgproduct_title">Sold by: {this.state.user.name}</div>*/}
                     {this.state.product.negociabil === true ?
                         <div className="sgproduct_conditionals">! Product is negotiable</div> : "" }
                     {/*{item.exchangeable === true ?*/}
                     {/*<div className="sgproduct_conditionals">! Product(s) in exchange may be accepted by the*/}
                     {/*seller</div> : "" }*/}
-                    <div className="sgproduct_title">Description: {this.state.product.description}</div>
+                    <div className="mesaj_singleproduct" style={{paddingTop:20}}>{this.state.mesaj}</div>
+                    
+
+
+
                 </div>
                 <div className="image_container_sgproduct">
                     <img src={imagineArticol} alt="imagine_articol_sgproduct"/>
@@ -139,13 +205,13 @@ class SingleProduct extends React.Component {
                     {this.state.product.seller_id === this.state.user.id
                         ?
                         <div>
-                            <button className="seller_tools" onClick={this.remove_article_function}>
-                                <div className="buton_remove_article">
+                           
+                                <div className="buton_remove_article" onClick={this.remove_article_function}>
                                     <img src={remove_article} alt="remove_article"/>
                                 </div>
-                            </button>
+                           
                             <div>
-                                <div className="buton_edit_article">
+                                <div className="buton_edit_article" onClick={this.edit_article}>
                                     <img src={edit_article} alt="edit_article"/>
                                 </div>
                             </div>
@@ -159,3 +225,9 @@ class SingleProduct extends React.Component {
     }
 }
 export default SingleProduct;
+
+
+
+    
+  
+  

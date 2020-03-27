@@ -40,7 +40,7 @@ const items = [
     {name: 'about_us', label: 'About us'},
     {name: 'profile', label: 'Profile'},
     // { name: 'myorders', label: 'My orders' },
-    {name: 'add_product', label: 'Add product'},
+    {name: 'products/create', label: 'Add product'},
     {name: 'products', label: 'Products'},
     {name: 'cart', label: 'Cart'},
     {
@@ -256,13 +256,15 @@ export class MapContainer extends Component {
                             {/* PAGINA ADAUGA PRODUS */}
 
                             <Route
-                                path="/add_product"
+                                path="/products/create"
                                 component={props => (
                                     <AddProduct
                                         judete={judete}
                                         tags={tags}
                                     />
                                 )}/>
+
+    
 
                               {/* PAGINA PRODUS INDIVIDUAL */}
 
