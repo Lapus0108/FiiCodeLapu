@@ -1,11 +1,20 @@
 import {AUTH_LOGOUT, AUTH_LOGIN} from "../login-actions/types";
 
-const initialState = false;
+const initialState = {
+    isLoggedIn: false,
+    user: {
+        id: 0,
+        name: "guest",
+    }
+};
 
 const authReducer = (state = initialState, action) => {
     switch (action.type) {
         case AUTH_LOGIN:
-            return true;
+            return {
+                isLoggedIn: true,
+                user: action.user,
+            };
         case AUTH_LOGOUT:
             return initialState;
         default:

@@ -79,14 +79,16 @@ class AddArticles extends React.Component {
 
         if (this.state.bifa2 === true && this.state.county !== "99") {
 
+
+
             const product = {
                 title: this.state.name,
                 description: this.state.description,
                 price: this.state.price,
                 negotiable: this.state.negotiable,
                 county_id: this.state.county,
-                seller_id: JSON.parse(localStorage.getItem('user')).id,
-                // image_buna: this.setUploadedImgString(this.state.image)
+                seller_id: 2,
+                file: this.state.image
 
             }
 
@@ -96,7 +98,7 @@ class AddArticles extends React.Component {
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json',
-                    'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('user')).token
+                    'Authorization': 'Bearer ' + "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiM2ViNmI4NWI0ZmNlMDM0Y2RkZTMzZjA4MDVhYjUwYTI0ZjIxMWE0ZTgzYWI2YWVjOTkzYmQxYmNiNzU2OGY0YWIzNDM4Mjk1Y2YxM2U2OTciLCJpYXQiOjE1ODUyNDE4ODYsIm5iZiI6MTU4NTI0MTg4NiwiZXhwIjoxNjE2Nzc3ODg2LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.CeHHa3ascsRVTPPlqnZvfm7ZxyzGffSLADuKbc4zi0Ne8Px33bMBz8ksNAJwkSyxFHgWTJY1r8dFNvg-pwSk_3xLhk1HxFs41nBHWsqYluhZEVMAOXIlqCCh5ocRbsZGGckQ9PegA7MqeVDPCdTPpEHrMhKMjkYy2j1Q0ClZ10VyRhGdEi_Iz3-TWfRGkvezrtl79YTMjWniHmN5RURG9MOZxFXhqIurGagvEUnEx4do-xAOU9MqXRoGdwvhfz6OXj-M8U-ogVohR0IJsOAqYz1PqAj6DUjTZ6sx188UIVFz4BI6aJAgnccqVWPKM1GIn4ljSvsEQycQuhBrSAV-rULCeifvJGNj1smxFwugqdoUMHm9W0J5OmzDFEPisE8LqK3Rc1aoJhEmGBDFPMT0rpUcRTIJ8IzsIziXZX3eP9N9B0oDBi0rU8DciPe0Vm5umeHrac6JYhSGYYvgkOeyzhiW8JJUt06pjSqTEdwVEIgBgcuXfQKA6lGpUUlQKe3akwZGb2jYHlnImXNXQoyqRRsruNMByl6zmhlrqRZ-srSrEcUDDSjW8xHTT-GqfRmwx7JCAHmvAFLd_yI9vqUXXEmNq3VMflY1l_D6j4DkVojD-PgbiWUdOc53bnyZw5uKzM7VnfHck6bk4BNfGtzhWpBEw7d8-u_fqL509jN5pXY"
                 }
             })
                 .then(response => {
@@ -149,7 +151,6 @@ class AddArticles extends React.Component {
                             })}
                         </select>
                     </label>
-
                     <input
                         type="text"
                         name="price"

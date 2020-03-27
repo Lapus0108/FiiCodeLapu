@@ -28,14 +28,6 @@ class Login extends React.Component {
         }
     }
 
-    componentDidMount() {
-        axios.get(`DATABASE`)
-            .then(res => {
-                const user = res.data;
-                this.setState({user});
-            })
-    }
-
     handleChange(event) {
         this.setState({
             [event.target.name]: event.target.value
@@ -59,13 +51,12 @@ class Login extends React.Component {
             .then(response => {
                 console.log("res from login", response);
                 if (response.status = 200) {
-                    localStorage.setItem('user', JSON.stringify(response.data));
+                    this.props.doLogin(response.data);
                 }
             }).catch(error => {
             console.log("login error", error);
         })
         event.preventDefault();
-        this.props.doLogin();
     }
 
     render() {
@@ -110,8 +101,8 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        doLogin: () => {
-            dispatch(userLogin())
+        doLogin: (user) => {
+            dispatch(userLogin(user))
         },
     }
 }

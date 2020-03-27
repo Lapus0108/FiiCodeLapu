@@ -65,7 +65,7 @@ class Registration extends React.Component {
             county_id: this.state.county,
         }
 
-        axios.post("http://localhost:8000/api/register", user, {
+        axios.post( process.env.REACT_APP_SERVER_APP_URL + "/register", user, {
                 headers: {}
             }
         ).then(response => {

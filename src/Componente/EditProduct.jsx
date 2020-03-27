@@ -4,7 +4,7 @@ import {Redirect} from 'react-router-dom';
 import judete from '../assets/data/county.json';
 import tags from '../assets/data/tags.json'
 
-class AddArticles extends React.Component {
+class EditProduct extends React.Component {
     constructor() {
         super();
 
@@ -232,4 +232,4 @@ class AddArticles extends React.Component {
     }
 }
 
-export default AddArticles;
+export default EditProduct;

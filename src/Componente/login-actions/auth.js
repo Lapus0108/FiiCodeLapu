@@ -1,8 +1,9 @@
 import {AUTH_LOGIN, AUTH_LOGOUT} from "./types";
 
-export function userLogin (){
+export function userLogin (user){
     return {
         type: AUTH_LOGIN,
+        user
     }
 }
 

@@ -24,15 +24,11 @@ class Logout extends React.Component {
             headers: {
                 'Content-Type': "application/json",
                 'Accept': "application/json",
-                'Authorization': "Bearer " + JSON.parse(localStorage.getItem('user')).token
+                'Authorization': "Bearer " + this.props.user.token
             }
         })
             .then(response => {
                 console.log("res from logout", response);
-                if (response.status = 200) {
-                    const user = JSON.stringify({id: 0, name: "guest"});
-                    localStorage.setItem('user', user);
-                }
             }).catch(error => {
             console.log("logout error", error);
         });
@@ -58,7 +54,7 @@ class Logout extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        isLoggedIn: state.auth
+        user: state.auth.user
     }
 }
 const mapDispatchToProps = (dispatch) => {

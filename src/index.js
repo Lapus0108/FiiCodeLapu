@@ -2,17 +2,24 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import rootReducer from '../src/Componente/login-reducers/index.js';
-import { Provider } from 'react-redux';
-import {applyMiddleware, createStore} from 'redux';
+import {Provider} from 'react-redux';
 import "./fonts/Retroholic-Demo.ttf";
-
-const store = createStore(rootReducer);
-
-console.log(store.getState(), "initial")
+import {store, persistor } from './Componente/login-reducers/configStore'
+import {PersistGate} from 'redux-persist/integration/react'
+require ('dotenv').config();
 
 // Every time the state changes, log it
 // Note that subscribe() returns a function for unregistering the listener
 const unsubscribe = store.subscribe(() => console.log(store.getState(), "dispatch"))
 
-ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
+const Piazeta = () => {
+    return (
+        <Provider store={store}>
+            <PersistGate loading={null} persistor={persistor}>
+                <App />
+            </PersistGate>
+        </Provider>
+    )
+}
+
+ReactDOM.render(<Piazeta />, document.getElementById('root'));

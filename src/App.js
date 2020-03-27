@@ -24,6 +24,7 @@ import PrivateRoute from "./Componente/login-actions/PrivateRoute";
 import history from "./Componente/login-actions/history";
 import { connect } from "react-redux";
 import auth from "./Componente/login-reducers/auth";
+import EditProduct from "./Componente/EditProduct";
 
 
 
@@ -241,10 +242,15 @@ export class MapContainer extends Component {
                                 )}/>
 
                               {/* PAGINA PRODUS INDIVIDUAL */}
-
+                            <Route
+                                path="/products/:product/edit"
+                                component={EditProduct}/>
                               <Route
-                                path="/products/:product/"
+                                path="/products/:product"
                                 component={SingleProduct}/>
+
+
+
 
                             {/* PAGINA CART */}
 
@@ -324,7 +330,7 @@ export class MapContainer extends Component {
 //     apiKey: 'AIzaSyDNwR7Y528w5gyiSweT0IJ-awU2mPUEYhs'
 // })(MapContainer);
 const mapStateToProps = state => ({
-    isLoggedIn: state.auth,
+    isLoggedIn: state.auth.isLoggedIn,
   });
 
 export default connect(mapStateToProps, {userLogin, userLogout})(MapContainer);
