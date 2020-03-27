@@ -20,7 +20,8 @@ class Registration extends React.Component {
             address: "",
             age: "",
             redirect: false,
-            mesaj:""
+            mesaj:"",
+            image:""
 
         };
 
@@ -67,6 +68,7 @@ class Registration extends React.Component {
             age: this.state.age,
             address: this.state.address,
             county_id: this.state.county,
+            image: this.state.image
         }
     if(this.state.password_confirmation===this.state.password){
         axios.post("http://localhost:8000/api/register", user, {
@@ -135,6 +137,11 @@ class Registration extends React.Component {
                         maxLength={12}
                         onChange={this.handleChange}
                         required/>
+
+                    <div className="input_image">
+                        <input type="file" onChange={this.onImageChange} className="filetype" id="user_image"/>
+                        {/* <img id="target" src={this.state.image}/> */}
+                    </div>
 
                     <input
                         type="text"
