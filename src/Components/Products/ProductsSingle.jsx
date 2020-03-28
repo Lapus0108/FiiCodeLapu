@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
+import {useState} from 'react';
 import {Redirect} from "react-router-dom";
 import axios from "axios";
-
 import product_image from 'assets/images/vazatest.jpg';
-import remove_article from 'assets/images/remove_product.png';
-import edit_article from 'assets/images/edit_article.png';
+import remove_article from '../../assets/images/Icons/Remove_product.png';
+import edit_article from  '../../assets/images/Icons/Edit_product.png';
+import sold_article from  '../../assets/images/Icons/Sold_product.png';
 
 export default class ProductsSingle extends Component {
 
@@ -18,6 +19,8 @@ export default class ProductsSingle extends Component {
                 price: 0,
                 negotiable: 0,
                 seller_id: 0,
+                county_id:"",
+                image:""
             },
             redirect: false,
             mesaj: "",
@@ -26,15 +29,32 @@ export default class ProductsSingle extends Component {
             titleUpdated: "",
             priceUpdated: "",
             descriptionUpdated: "",
-
+            hover_sold:false,
+            hover_remove:false,
+            hover_edit:false
         }
         this.edit_article = this.edit_article.bind(this);
+        this.toggleHover_sold = this.toggleHover_sold.bind(this);
+        this.toggleHover_remove = this.toggleHover_remove.bind(this);
+        this.toggleHover_edit= this.toggleHover_edit.bind(this);
     }
 
     renderRedirect = () => {
         if (this.state.redirect) {
             return <Redirect to='/products'/>
         }
+    }
+
+    toggleHover_sold(){
+        this.setState({hover_sold: !this.state.hover_sold})
+    }
+
+    toggleHover_remove(){
+        this.setState({hover_remove: !this.state.hover_remove})
+    }
+    
+    toggleHover_edit(){
+        this.setState({hover_edit: !this.state.hover_edit})
     }
 
     getHttpClient() {
@@ -84,15 +104,24 @@ export default class ProductsSingle extends Component {
         console.log(this.state)
     };
 
+    inputIsEmpty(){
+        if(this.state.product.price===this.state.priceUpdated)
+            return true
+    }
+
 
     handleUpdateProduct = (e) => {
         const product_up = {
+            id:this.state.product.id,
+            title: this.state.product.title,
             description: this.state.descriptionUpdated,
             price: this.state.priceUpdated,
-            title: this.state.product.title,
-            seller_id: this.state.product.seller_id
-
-        };
+            negotiable: this.state.product.negotiable,
+            seller_id: this.state.product.seller_id,
+            county_id: this.state.product.county_id,
+            image: this.state.product.image
+            
+     };
         this.setState((prevStae, props) => ({
             product: product_up,
             mesaj: "Changes updated !"
@@ -113,8 +142,8 @@ export default class ProductsSingle extends Component {
 
 
     render() {
-        const inputIsEmpty = this.state.title === "" && this.state.price === "" ? true : false;
-
+        
+        
         return (
             <>
             <div className="container_sgrpoduct_total">
@@ -133,20 +162,23 @@ export default class ProductsSingle extends Component {
                                 name="priceUpdated"
                                 value={this.state.priceUpdated}
                             />
+                             {this.state.product.price!==this.state.priceUpdated ?
                             <button
                                 style={{marginLeft: 5}}
-                                disabled={inputIsEmpty}
                                 onClick={this.handleUpdateProduct}
                             >
                                 Update
                             </button>
+                            : ""}
                             </>
                             : ""}
                     </div>
 
                     <div className="sgproduct_containertext">
                         <div className="sgproduct_title">Description: {this.state.product.description}</div>
-                        {this.state.want_to_edit_clicks % 2 ?
+                        
+                    </div>
+                    {this.state.want_to_edit_clicks % 2 ?
                             <>
 
                             <input
@@ -157,14 +189,14 @@ export default class ProductsSingle extends Component {
                                 name="descriptionUpdated"
                                 value={this.state.descriptionUpdated}
                             />
+                            {this.state.product.description!==this.state.descriptionUpdated ?
                             <button
                                 style={{marginLeft: 5}}
-                                disabled={inputIsEmpty}
                                 onClick={this.handleUpdateProduct}>
                                 Update
                             </button>
+                            : ""}
                             </> : ""}
-                    </div>
 
                     {/*<div className="sgproduct_title">Sold by: {this.state.user.name}</div>*/}
                     {this.state.product.negociabil === true ?
@@ -180,18 +212,39 @@ export default class ProductsSingle extends Component {
                     <img src={product_image} alt="imagine_articol_sgproduct"/>
                 </div>
 
-                <div>
-                    {this.state.product.seller_id === this.state.user.id
+                <div className="seller_tools">
+                    {this.state.product.seller_id === this.props.user.id
                         ?
                         <div>
 
-                            <div className="buton_remove_article" onClick={this.remove_article_function}>
+                            <div className="buton_remove_article" 
+                            onClick={this.remove_article_function}
+                            onMouseEnter={this.toggleHover_remove}
+                                onMouseLeave={this.toggleHover_remove}>
+                            {this.state.hover_remove ? <div className="hover_remove">Remove from market</div> : ""}
                                 <img src={remove_article} alt="remove_article"/>
                             </div>
 
                             <div>
-                                <div className="buton_edit_article" onClick={this.edit_article}>
+                                <div className="buton_edit_article" 
+                                onClick={this.edit_article}
+                                onMouseEnter={this.toggleHover_edit}
+                                onMouseLeave={this.toggleHover_edit}>
+                                {this.state.hover_edit ? <div className="hover_edit">Edit your product</div> : ""}
                                     <img src={edit_article} alt="edit_article"/>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div className="buton_sold_article" 
+                                onClick={this.remove_article_function} 
+                                onMouseEnter={this.toggleHover_sold}
+                                onMouseLeave={this.toggleHover_sold}
+                               
+                                >
+                                {this.state.hover_sold ? <div className="hover_sold">Product sold</div> : ""}
+                            
+                                    <img src={sold_article} alt="sold_article"/>
                                 </div>
                             </div>
                         </div>

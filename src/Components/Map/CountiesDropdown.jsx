@@ -8,26 +8,8 @@ export default class Dropdown extends Component {
 
         this.state = {
             displayMenu: false,
-            judete: [
-                {
-                    id: 1,
-                    nume: "Iasi",
-                    lat_centru: 44,
-                    long_centru: 55
-                },
-                {
-                    id: 2,
-                    nume: "Bucuresti",
-                    lat_centru: 42,
-                    long_centru: 34
-                },
-                {
-                    id: 3,
-                    nume: "Timisoara",
-                    lat_centru: 33,
-                    long_centru: 41
-                }
-            ]
+            judete: [],
+            
         };
 
 
@@ -59,7 +41,7 @@ export default class Dropdown extends Component {
                     <div>
                         {judete.map((item, key) => {
                             return (
-                                <div className="element_dropdown" key={item.id}>{item.nume}</div>
+                                <div className="element_dropdown" key={item.id}>{item.name}</div>
 
                             );
                         })}

@@ -29,5 +29,18 @@
     {
         "id": 7,
         "name": "Cars"
-    }
+    },
+    {
+        "id": 8,
+        "name": "Tools"
+    },
+
+    {
+        "id": 9,
+        "name": "Jewelry"
+    },
+    {
+	  "id":10,
+	  "name":"Other"
+    }	
 ]

@@ -2,8 +2,14 @@ import {ADD_TO_CART, REMOVE_ITEM, SUB_QUANTITY, ADD_QUANTITY, ADD_SHIPPING} from
 
 
 const initState = {
-    items: [],
-    addedItems: [],
+    items: [
+        {},
+        {}
+    ],
+    addedItems: [
+        {},
+        {}
+    ],
     total: 0
 
 }

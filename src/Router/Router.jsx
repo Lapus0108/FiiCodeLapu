@@ -14,6 +14,7 @@ import HomeContainer from "../Containers/HomeContainer";
 import ProductsContainer from "../Containers/Products/ProductsContainer";
 import ProductsAddContainer from "../Containers/Products/ProductsAddContainer";
 import ProductsSingleContainer from "../Containers/Products/ProductsSingleContainer";
+import CountiesDropdown from "../Components/Map/CountiesDropdown";
 
 export default class Router extends Component {
     constructor() {
@@ -31,7 +32,7 @@ export default class Router extends Component {
                     <Switch>
 
                         {/* PAGINA REGISTER */}
-                        <PrivateRoute
+                        <Route
                             path="/register"
                             component={Registration}
                             isLoggedIn={!this.props.isLoggedIn}
@@ -61,6 +62,8 @@ export default class Router extends Component {
                             exact
                             path="/products"
                             component={ProductsContainer}
+                            
+                           
                         />
 
                         {/* PAGINA ADAUGA PRODUS */}
@@ -94,11 +97,10 @@ export default class Router extends Component {
                             component={AboutUs}/>
 
                         {/* PAGINA HARTA GOOGLE */}
-                        <Route
-                            path="/map"
-                            component={Map}
+                        <Route path='/map' 
+                               component={Map} 
                         />
-
+                            
                     </Switch>
                 </div>
             </BrowserRouter>
