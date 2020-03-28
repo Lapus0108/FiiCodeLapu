@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {addToCart} from "../../Actions/Cart/cartActions";
-import simbolMesaj from "../../assets/images/pngwave.png";
-import simbolCart from "../../assets/images/cart.png";
-import axios from "axios";
 import {Link} from "react-router-dom";
+import axios from "axios";
+
+import simbolCart from 'assets/images/cart.png';
 
 export default class Products extends Component {
 
@@ -30,8 +28,19 @@ export default class Products extends Component {
         this.props.addToCart(id);
     }
 
+    getHttpClient() {
+        return axios.create({
+            baseURL: process.env.REACT_APP_SERVER_APP_URL,
+            timeout: 1000,
+            headers: {
+                'Content-Type': "application/json",
+                'Accept': "application/json",
+            }
+        })
+    }
+
     componentDidMount() {
-        axios.get("http://localhost:8000/api/products")
+        this.getHttpClient().get("products")
             .then(res => {
                 const produs = res.data.data;
                 this.setState({produs: produs});
@@ -49,7 +58,7 @@ export default class Products extends Component {
                 <Link to={`/products/${item.id}`}>
                     <div className="card" key={item.id}>
                         <div className="card-image">
-                            <img src={item.img} alt=""/>
+                            <img src={item.image} alt=""/>
                             <span className="card-title">{item.title}</span>
                             {isLoggedIn === true ?
                                 <span to="/" className="btn-floating halfway-fab waves-effect waves-light red"
@@ -62,7 +71,7 @@ export default class Products extends Component {
                         </div>
 
                         <div className="card-content">
-                            <p>{item.desc}</p>
+                            <p>{item.description}</p>
                             <p><b>Pret: {item.price}{" "}RON</b></p>
                         </div>
                     </div>

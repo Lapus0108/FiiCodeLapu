@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
 import background_auth from 'assets/images/Buton_lemn.png';
@@ -10,15 +10,17 @@ export default class HomeMenu extends Component {
         this.state = {};
     };
 
-    render() {
-        const {isLoggedIn} = this.props;
+    componentDidMount() {
+        console.log(this.props.isLoggedIn)
+    }
 
+    render() {
         return (
             <>
             <div className="text_dr_sus">Designed and created for FiiCODE 2020</div>
             <div className="homepage_title">Piazeta</div>
             <div className="container_placi">
-                {isLoggedIn === false ?
+                {this.props.isLoggedIn === false ?
                     <div>
                         <Link to="/register">
                             <div className="container_buton1">

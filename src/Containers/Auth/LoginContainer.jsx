@@ -1,12 +1,11 @@
-import {userLogin} from "../Actions/Auth/authActions";
 import {connect} from "react-redux";
-import Login from "../Componente/Login";
+import {userLogin} from 'Actions/Auth/authActions';
+import Login from 'Components/Auth/Login';
 
-const mapStateToProps = (state) => {
-    return {
-        isLoggedIn: state.auth
-    }
+const mapStateToProps = () => {
+    return {}
 }
+
 const mapDispatchToProps = (dispatch) => {
     return {
         doLogin: (user) => {
@@ -14,4 +13,5 @@ const mapDispatchToProps = (dispatch) => {
         },
     }
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(Login)

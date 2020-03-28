@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import {Provider} from 'react-redux';
-import "./fonts/Retroholic-Demo.ttf";
-import {store, persistor } from './Componente/login-reducers/configStore'
+import "./assets/fonts/Retroholic-Demo.ttf";
+import {store, persistor} from './Reducers/configStore'
 import {PersistGate} from 'redux-persist/integration/react'
-require ('dotenv').config();
+require('dotenv').config();
 
 // Every time the state changes, log it
 // Note that subscribe() returns a function for unregistering the listener

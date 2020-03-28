@@ -1,4 +1,4 @@
-import {ADD_TO_CART, REMOVE_ITEM, SUB_QUANTITY, ADD_QUANTITY, ADD_SHIPPING} from "./cart-actions"
+import {ADD_TO_CART, REMOVE_ITEM, SUB_QUANTITY, ADD_QUANTITY, ADD_SHIPPING} from 'Actions/Cart/cartActionsTypes';
 
 
 const initState = {

@@ -1,6 +1,9 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import axios from 'axios';
 import {Redirect} from 'react-router-dom';
+
+import judete from 'assets/data/county.json';
+import tags from 'assets/data/tags.json';
 
 export default class ProductsAdd extends Component {
     constructor() {
@@ -29,6 +32,17 @@ export default class ProductsAdd extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
+    getHttpClient() {
+        return axios.create({
+            baseURL: process.env.REACT_APP_SERVER_APP_URL,
+            timeout: 1000,
+            headers: {
+                'Content-Type': "application/json",
+                'Accept': "application/json",
+                'Authorization': "Bearer " + this.props.user.token
+            }
+        })
+    }
 
     renderRedirect = () => {
         if (this.state.redirect) {
@@ -66,49 +80,30 @@ export default class ProductsAdd extends Component {
         }
     }
 
-    setUploadedImgString = (img64Base) => {
-        this.setState({uploadedImgString: img64Base});
-    }
-
-
     handleSubmit(event) {
         event.preventDefault();
 
-        console.log(this.state.county, "County");
-        console.log(this.state.tag, "Tag")
+        const product = {
+            title: this.state.name,
+            description: this.state.description,
+            price: this.state.price,
+            negotiable: this.state.negotiable,
+            county_id: this.state.county,
+            seller_id: this.props.user.id,
+            image: this.state.image
+        }
 
         if (this.state.bifa2 === true && this.state.county !== "99") {
-
-
-
-            const product = {
-                title: this.state.name,
-                description: this.state.description,
-                price: this.state.price,
-                negotiable: this.state.negotiable,
-                county_id: this.state.county,
-                seller_id: 2,
-                file: this.state.image
-
-            }
-
             console.log(product);
 
-            axios.post("http://localhost:8000/api/products", product, {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    'Authorization': 'Bearer ' + "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiM2ViNmI4NWI0ZmNlMDM0Y2RkZTMzZjA4MDVhYjUwYTI0ZjIxMWE0ZTgzYWI2YWVjOTkzYmQxYmNiNzU2OGY0YWIzNDM4Mjk1Y2YxM2U2OTciLCJpYXQiOjE1ODUyNDE4ODYsIm5iZiI6MTU4NTI0MTg4NiwiZXhwIjoxNjE2Nzc3ODg2LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.CeHHa3ascsRVTPPlqnZvfm7ZxyzGffSLADuKbc4zi0Ne8Px33bMBz8ksNAJwkSyxFHgWTJY1r8dFNvg-pwSk_3xLhk1HxFs41nBHWsqYluhZEVMAOXIlqCCh5ocRbsZGGckQ9PegA7MqeVDPCdTPpEHrMhKMjkYy2j1Q0ClZ10VyRhGdEi_Iz3-TWfRGkvezrtl79YTMjWniHmN5RURG9MOZxFXhqIurGagvEUnEx4do-xAOU9MqXRoGdwvhfz6OXj-M8U-ogVohR0IJsOAqYz1PqAj6DUjTZ6sx188UIVFz4BI6aJAgnccqVWPKM1GIn4ljSvsEQycQuhBrSAV-rULCeifvJGNj1smxFwugqdoUMHm9W0J5OmzDFEPisE8LqK3Rc1aoJhEmGBDFPMT0rpUcRTIJ8IzsIziXZX3eP9N9B0oDBi0rU8DciPe0Vm5umeHrac6JYhSGYYvgkOeyzhiW8JJUt06pjSqTEdwVEIgBgcuXfQKA6lGpUUlQKe3akwZGb2jYHlnImXNXQoyqRRsruNMByl6zmhlrqRZ-srSrEcUDDSjW8xHTT-GqfRmwx7JCAHmvAFLd_yI9vqUXXEmNq3VMflY1l_D6j4DkVojD-PgbiWUdOc53bnyZw5uKzM7VnfHck6bk4BNfGtzhWpBEw7d8-u_fqL509jN5pXY"
-                }
-            })
+            this.getHttpClient().post("products", product)
                 .then(response => {
-                    console.log("registration res", response);
+                    console.log("creation res", response);
+                    this.setState({
+                        redirect: true
+                    })
                 }).catch(error => {
-                console.log("registration error", error);
-            })
-
-            this.setState({
-                redirect: true
+                console.log("creation error", error);
             })
         } else {
             this.setState({redirect: false})
@@ -144,7 +139,7 @@ export default class ProductsAdd extends Component {
 
                     <label>Select category
                         <select value={this.state.tag.name} onChange={this.handleChange} name="tag">
-                            {this.props.tags.map((item, key) => {
+                            {tags.map((item, key) => {
                                 return (
                                     <option value={item.id} onChange={this.handleChange}>{item.name}</option>
                                 )
@@ -162,7 +157,7 @@ export default class ProductsAdd extends Component {
 
                     <label>Select county
                         <select value={this.state.county.name} onChange={this.handleChange} name="county">
-                            {this.props.judete.map((item, key) => {
+                            {judete.map((item, key) => {
                                 return (
                                     <option value={item.id} onChange={this.handleChange}>{item.name}</option>
                                 )

@@ -1,0 +1,54 @@
+[
+  {
+    "name": "home",
+    "label": "Home"
+  },
+  {
+    "name": "about_us",
+    "label": "About us"
+  },
+  {
+    "name": "profile",
+    "label": "Profile"
+  },
+  {
+    "name": "products/create",
+    "label": "Add product"
+  },
+  {
+    "name": "products",
+    "label": "Products"
+  },
+  {
+    "name": "cart",
+    "label": "Cart"
+  },
+  {
+    "name": "mailing",
+    "label": "Retro mailing",
+    "items": [
+      {
+        "name": "mailing",
+        "label": "About letters"
+      },
+      {
+        "name": "map",
+        "label": "Send your letter!"
+      }
+    ]
+  },
+  {
+    "name": "settings",
+    "label": "Settings",
+    "items": [
+      {
+        "name": "account_settings",
+        "label": "Account settings"
+      },
+      {
+        "name": "notif_settings",
+        "label": "Notification settings"
+      }
+    ]
+  }
+]

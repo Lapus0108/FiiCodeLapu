@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
 import axios from "axios";
 
-import background_auth from "../../assets/images/Buton_lemn.png";
+import judete from 'assets/data/county.json'
+
+import background_auth from 'assets/images/Buton_lemn.png';
 
 export default class Registration extends Component {
     constructor() {
@@ -20,8 +22,8 @@ export default class Registration extends Component {
             address: "",
             age: "",
             redirect: false,
-            mesaj:"",
-            image:""
+            mesaj: "",
+            image: ""
 
         };
 
@@ -56,6 +58,26 @@ export default class Registration extends Component {
         }));
     }
 
+    getHttpClient() {
+        return axios.create({
+            baseURL: process.env.REACT_APP_SERVER_APP_URL,
+            timeout: 1000,
+            headers: {
+                'Content-Type': "application/json",
+                'Accept': "application/json",
+            }
+        })
+    }
+
+    onImageChange = (event) => {
+        if (event.target.files && event.target.files[0]) {
+            let reader = new FileReader();
+            reader.onload = (e) => {
+                this.setState({image: e.target.result});
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    }
 
     handleSubmit(event) {
         const user = {
@@ -67,20 +89,19 @@ export default class Registration extends Component {
             county_id: this.state.county,
             image: this.state.image
         }
-        if(this.state.password_confirmation===this.state.password) {
-            axios.post(process.env.REACT_APP_SERVER_APP_URL + "/register", user, {
-                    headers: {}
-                }
-            ).then(response => {
+
+        if (this.state.password_confirmation === this.state.password) {
+            this.getHttpClient().post("/register", user).then(response => {
                 console.log("registration res", response);
-            this.setState({mesaj: "Registration successful, please log in!"})
-            this.timer = setTimeout(() => {this.setState({redirect: true, })
-           }, 2000);
+                this.setState({mesaj: "Registration successful, please log in!"})
+                setTimeout(() => {
+                    this.setState({redirect: true,})
+                }, 2000);
             }).catch(error => {
                 console.log("registration error", error);
             })
-    }
-    else this.setState({mesaj: "Password and password confirmation do not match"})
+        }
+        else this.setState({mesaj: "Password and password confirmation do not match"})
         event.preventDefault();
     }
 
@@ -147,7 +168,7 @@ export default class Registration extends Component {
 
                     <label>Select county
                         <select value={this.state.county} onChange={this.handleChange} name="county">
-                            {this.props.judete.map((item, key) => {
+                            {judete.map((item, key) => {
                                 return (
                                     <option value={item.id} onChange={this.handleChange}>{item.name}</option>
                                 )
@@ -170,7 +191,7 @@ export default class Registration extends Component {
                         <label className="containerTermeni">
 
                             <input
-                            required
+                                required
                                 onChange={this.onChange1}
                                 type="checkbox"
                                 checked={this.state.bifa1}
@@ -185,7 +206,7 @@ export default class Registration extends Component {
                             {/* trebuie pus link */}
 
                             <input
-                            required
+                                required
                                 onChange={this.onChange2}
                                 checked={this.state.bifa2}
                                 type="checkbox"

@@ -1,4 +1,4 @@
-import {AUTH_LOGIN, AUTH_LOGOUT} from "./types";
+import {AUTH_LOGIN, AUTH_LOGOUT} from "./authActionTypes";
 
 export function userLogin (user){
     return {

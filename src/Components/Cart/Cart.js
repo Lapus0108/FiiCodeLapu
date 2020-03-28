@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import {removeItem, addQuantity, subtractQuantity} from '../../Actions/Cart/cartActions'
-import Recipe from "./Receipt";
-import arrowUp from "../../assets/images/ArrowUp2.png";
-import arrowDown from "../../assets/images/ArrowDown.png";
+
+import Receipt from "./Receipt";
+
+import arrowUp from 'assets/images/ArrowUp2.png';
+import arrowDown from 'assets/images/ArrowDown.png';
 
 export default class Cart extends Component {
 
@@ -75,7 +75,7 @@ export default class Cart extends Component {
                         {addedItems}
                     </ul>
                 </div>
-                <Recipe />
+                <Receipt />
             </div>
         )
     }

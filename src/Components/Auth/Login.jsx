@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
 import axios from "axios";
 
-import background_auth from "../../assets/images/Buton_lemn.png";
+import background_auth from 'assets/images/Buton_lemn.png';
 
 export default class Login extends Component {
     constructor() {
@@ -13,7 +13,7 @@ export default class Login extends Component {
             password: "",
             loginErrors: "",
             redirect: false,
-            mesaj:"",
+            mesaj: "",
 
 
         };
@@ -22,6 +22,16 @@ export default class Login extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
+    getHttpClient() {
+        return axios.create({
+            baseURL: process.env.REACT_APP_SERVER_APP_URL,
+            timeout: 1000,
+            headers: {
+                'Content-Type': "application/json",
+                'Accept': "application/json",
+            }
+        })
+    }
 
     renderRedirect = () => {
         if (this.state.redirect) {
@@ -35,7 +45,11 @@ export default class Login extends Component {
         })
     }
 
+
     handleSubmit(event) {
+
+        event.preventDefault();
+
         const user = {
             email: this.state.email,
             password: this.state.password
@@ -43,24 +57,18 @@ export default class Login extends Component {
 
         console.log(user, "user")
 
-        axios.post("http://localhost:8000/api/login", user, {
-            headers: {
-                'Content-Type': "application/json",
-                'Accept': "application/json",
-            }
-        })                                    //AICI TREBUIE PUS LINKUL DE LA DATABASE CU USERII CREATI
+        this.getHttpClient().post('login', user)                                    //AICI TREBUIE PUS LINKUL DE LA DATABASE CU USERII CREATI
             .then(response => {
                 console.log("res from login", response);
                 if (response.status = 200) {
-                    this.setState({redirect:true})
+                    this.setState({redirect: true})
                     this.props.doLogin(response.data)
                 }
             }).catch(error => {
             console.log("login error", error);
-            this.setState({mesaj:"Email and password does not match"});
+            this.setState({mesaj: "Email and password does not match"});
         });
-        event.preventDefault();
-}
+    }
 
 
     render() {
@@ -90,7 +98,7 @@ export default class Login extends Component {
                         required/>
 
 
-                    <button type="submit" onClick={this.handleSubmit} >Login</button>
+                    <button type="submit" onClick={this.handleSubmit}>Login</button>
                 </form>
             </div>
             </>

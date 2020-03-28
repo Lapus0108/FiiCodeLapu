@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
-import {connect} from 'react-redux'
-//import { addShipping } from './actions/cartActions'
 
-export default class Reciept extends Component {
+export default class Receipt extends Component {
 
     componentWillUnmount() {
         if (this.refs.shipping.checked)

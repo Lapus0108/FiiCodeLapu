@@ -4,8 +4,9 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import {Link} from 'react-router-dom';
 
+import items from 'assets/data/sidebarRoutes'
 
-function Sidebar({items}) {
+function Sidebar() {
 
     return (
         <div className="sidebar">
