@@ -6,6 +6,7 @@ import Cart from 'Components/Cart/Cart';
 const mapStateToProps = (state) => {
     return {
         items: state.cart.items,
+        user: state.auth.user
     }
 }
 

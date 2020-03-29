@@ -1,5 +1,6 @@
 import {ADD_TO_CART, REMOVE_ITEM, SUB_QUANTITY, ADD_QUANTITY, ADD_SHIPPING} from 'Actions/Cart/cartActionsTypes';
 import _ from 'lodash'
+import { EMPTY_CART } from '../Actions/Cart/cartActionsTypes';
 
 const initState = {
     items: [],
@@ -44,6 +45,10 @@ const cartReducer = (state = initState, action) => {
                 }),
                 total: state.total - action.item.price
             };
+
+        case EMPTY_CART:
+            return initState;
+        
         default:
             return state;
     }

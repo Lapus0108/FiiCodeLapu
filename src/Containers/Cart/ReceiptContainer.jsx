@@ -5,7 +5,9 @@ import Receipt from "../../Components/Cart/Receipt";
 
 const mapStateToProps = (state) => {
     return {
-        total: state.cart.total
+        total: state.cart.total,
+        user: state.auth.user,
+        items: state.cart.items,
     }
 }
 

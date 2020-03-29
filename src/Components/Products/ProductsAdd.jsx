@@ -1,10 +1,18 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import {Redirect} from 'react-router-dom';
-
 import judete from 'assets/data/county.json';
 import tags from 'assets/data/tags.json';
 import tag_animals from '../../assets/images/Icons/Tags/Animals.png';
+import tag_books from '../../assets/images/Icons/Tags/Books.png';
+import tag_food from '../../assets/images/Icons/Tags/Food.png';
+import tag_homemade from '../../assets/images/Icons/Tags/Homemade.png';
+import tag_clothing from '../../assets/images/Icons/Tags/Clothing.png';
+import tag_furniture from '../../assets/images/Icons/Tags/Furniture.png';
+import tag_cars from '../../assets/images/Icons/Tags/Cars.png';
+import tag_tools from '../../assets/images/Icons/Tags/Tools.png';
+import tag_jewelry from '../../assets/images/Icons/Tags/Jewelry.png';
+import tag_other from '../../assets/images/Icons/Tags/Other.png';
 
 export default class ProductsAdd extends Component {
     constructor() {
@@ -53,9 +61,8 @@ export default class ProductsAdd extends Component {
     }
 
     handleChange(event) {
-        this.setState({
-            [event.target.name]: event.target.value
-        })
+        this.setState({[event.target.name]: event.target.value})
+        
     }
 
     onChange1 = () => {
@@ -70,6 +77,18 @@ export default class ProductsAdd extends Component {
             bifa2: !initialState.bifa2,
 
         }));
+        if(this.state.image==="Not set") {
+            if(this.state.tag==="1") this.setState({image: tag_animals})
+            if(this.state.tag==="2") this.setState({image: tag_books})
+            if(this.state.tag==="3") this.setState({image: tag_food})
+            if(this.state.tag==="4") this.setState({image: tag_homemade})
+            if(this.state.tag==="5") this.setState({image: tag_clothing})
+            if(this.state.tag==="6") this.setState({image: tag_furniture})
+            if(this.state.tag==="7") this.setState({image: tag_cars})
+            if(this.state.tag==="8") this.setState({image: tag_tools})
+            if(this.state.tag==="9") this.setState({image: tag_jewelry})
+            if(this.state.tag==="10") this.setState({image: tag_other})
+        }
     }
 
     onImageChange = (event) => {
@@ -80,13 +99,18 @@ export default class ProductsAdd extends Component {
             };
             reader.readAsDataURL(event.target.files[0]);
             this.setState({has_photo:true});
+       
         }
     }
+
+
+
 
     handleSubmit(event) {
         event.preventDefault();
         
-        const product = {
+        
+             const product = {
             title: this.state.name,
             description: this.state.description,
             price: this.state.price,
@@ -113,6 +137,7 @@ export default class ProductsAdd extends Component {
             this.setState({redirect: false})
         }
         console.log(this.state.image);
+        console.log(this.state.has_photo);
     }
     
 

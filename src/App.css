@@ -153,6 +153,13 @@
 
 
 }
+.cart_titlu{
+    font-family: serif;
+    font-size: 40px;
+}
+.cart_titlu ul{
+    font-size: 20px;
+}
 
 .card-content span img{
 height: 30px;
@@ -175,7 +182,19 @@ margin-left: 10px;
 
 .material-icons img {
     width: 40px;
-    height: 35px;
+    height: 42px;
+}
+.remove_cart img{
+    width: 40px;
+    height: 42px;
+}
+.item-img{
+    height: 230px;
+    width: 275px;
+}
+.item-img img{
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .card {
@@ -205,8 +224,7 @@ margin-left: 10px;
 }
 
 .collection .collection-item img {
-    width: 150px;
-    margin-right: 25px;
+    padding-right: 20px;
 }
 
 .item-desc {
@@ -460,7 +478,9 @@ margin-left: 10px;
 }
 .card-image img {
     max-width: 100%;
-    max-height: 100%;
+    /* max-height: 100%; */
+    vertical-align: middle;
+    height: 90%;
 }
 .description_product{
     overflow-y: auto;

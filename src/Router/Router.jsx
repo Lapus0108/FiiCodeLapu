@@ -15,6 +15,7 @@ import ProductsAddContainer from "../Containers/Products/ProductsAddContainer";
 import ProductsSingleContainer from "../Containers/Products/ProductsSingleContainer";
 import CartContainer from "../Containers/Cart/CartContainer";
 
+
 export default class Router extends Component {
     constructor() {
         super();
@@ -61,12 +62,14 @@ export default class Router extends Component {
                             exact
                             path="/products"
                             component={ProductsContainer}
+                        
                             
                            
                         />
 
                         {/* PAGINA ADAUGA PRODUS */}
                         <PrivateRoute
+                        
                             path="/products/create"
                             component={ProductsAddContainer}
                             isLoggedIn={this.props.isLoggedIn}
@@ -100,6 +103,7 @@ export default class Router extends Component {
                         <Route path='/map' 
                                component={Map} 
                         />
+
                             
                     </Switch>
                 </div>

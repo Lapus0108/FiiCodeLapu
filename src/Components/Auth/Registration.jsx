@@ -206,7 +206,7 @@ export default class Registration extends Component {
                                 type="checkbox"
                                 checked={this.state.bifa1}
                             />
-                            Sunt de acord cu termenii și condițiile date
+                            I agree with the terms and conditions
                             <span className="checkmarkTermenisiConditii"/>
                         </label>
                     </div>
@@ -221,7 +221,8 @@ export default class Registration extends Component {
                                 checked={this.state.bifa2}
                                 type="checkbox"
                             />
-                            Sunt de acord cu politicile de confidențialitate
+                            
+                            I agree with the privacy policies
                             <span className="checkmarkPolitici"/>
                         </label>
                     </div>

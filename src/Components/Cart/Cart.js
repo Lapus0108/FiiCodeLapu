@@ -5,6 +5,7 @@ import ReceiptContainer from "../../Containers/Cart/ReceiptContainer";
 
 import arrowUp from "../../assets/images/Icons/Diverse/Arrow_up.png";
 import arrowDown from "../../assets/images/Icons/Diverse/Arrow_down.png";
+import remove from "../../assets/images/Icons/Diverse/Remove_product.png";
 
 
 export default class Cart extends Component {
@@ -37,9 +38,9 @@ export default class Cart extends Component {
                             <div className="item-desc">
                                 <span className="title">{item.title}</span>
                                 <p>{item.desc}</p>
-                                <p><b>Pret: {item.price}$</b></p>
+                                <p><b>Price: {item.price*item.quantity} RON</b></p>
                                 <p>
-                                    <b>Cantitate: {item.quantity}</b>
+                                    <b>Quantity: {item.quantity}</b>
                                 </p>
                                 <div className="add-remove">
                                     <Link to="/cart"><i className="material-icons" onClick={() => {
@@ -47,16 +48,21 @@ export default class Cart extends Component {
                                     }}>
                                         <div className="arrowup"><img src={arrowUp} alt="arrowup"/></div>
                                     </i></Link>
+                                    {item.quantity>1 ?
                                     <Link to="/cart"><i className="material-icons" onClick={() => {
                                         this.handleSubtractQuantity(item)
                                     }}>
                                         <div className="arrowdown"><img src={arrowDown} alt="arrowdown"/></div>
                                     </i></Link>
-                                </div>
-                                <button className="waves-effect waves-light btn pink remove" onClick={() => {
+                                    : ""}
+
+                                    <div className="remove_cart" onClick={() => {
                                     this.handleRemove(item)
-                                }}>Elimina
-                                </button>
+                                }}>
+                                    <img src={remove} alt="remove_from_cart"/>
+                                </div>
+                                </div>
+                               
                             </div>
 
                         </li>
@@ -66,12 +72,12 @@ export default class Cart extends Component {
             ) :
 
             (
-                <p>Cosul tau este gol.</p>
+                <p style={{marginRight: 37}}>Your cart is empty!</p>
             )
         return (
             <div className="container">
-                <div className="cart">
-                    <h5>Ai comandat:</h5>
+                <div className="cart_titlu">
+                    <h5>Your cart:</h5>
                     <ul className="collection">
                         {addedItems}
                     </ul>

@@ -34,7 +34,9 @@ export default class Logout extends Component {
         this.getHttpClient().post("logout")
             .then(response => {
                 console.log("res from logout", response);
+                this.props.emptyCart()
                 this.props.doLogout()
+                
             }).catch(error => {
             console.log("logout error", error);
         });
