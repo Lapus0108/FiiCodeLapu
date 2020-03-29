@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 import axios from "axios";
 
-import simbolCart from 'assets/images/cart.png';
+import simbolCart from '../../assets/images/Icons/Cart_add.png';
 
 export default class Products extends Component {
 
@@ -17,7 +17,8 @@ export default class Products extends Component {
                 description: "",
                 img: "",
                 negociabil: "",
-                price: ""
+                price: "",
+                tag:""
             }
             ]
         }
@@ -44,38 +45,54 @@ export default class Products extends Component {
             .then(res => {
                 const produs = res.data.data;
                 this.setState({produs: produs});
+                console.log(this.state.produs);
             })
+        console.log(this.props.isLoggedIn);
 
     }
 
+    imageSetter(){
+        if(this.state.produs.img==="Not set")
+            return <div>Nu are imagine</div>
+     }
+
     render() {
-        const {isLoggedIn} = this.props;
-        console.log(isLoggedIn)
+        const isLoggedIn = this.props;
+       
         let itemList = this.state.produs.sort(function (a, b) {     //FILTRU PRET CRESCATOR
             return a.price - b.price;
         }).map(item => {
             return (
-                <Link to={`/products/${item.id}`}>
+                
+                
                     <div className="card" key={item.id}>
-                        <div className="card-image">
+                            <Link to={`/products/${item.id}`}>
+                        <div className="card-image" >
+                            <div className="product_image_container">
                             <img src={item.image} alt=""/>
-                            <span className="card-title">{item.title}</span>
-                            {isLoggedIn === true ?
-                                <span to="/" className="btn-floating halfway-fab waves-effect waves-light red"
+                            </div>
+                            <span className="card-title">{item.title}
+                          
+                            </span>
+
+                        </div>
+                             </Link>
+                        <div className="card-content">
+                            <div className="description_product">
+                            <p>{item.description}</p>
+                            </div>
+                            <p><b>Pret: {item.price}{" "}RON
+                            {isLoggedIn ? 
+                            <span to="/" className="btn-floating halfway-fab waves-effect waves-light red"
                                       onClick={() => {
                                           this.handleClick(item.id)
-                                      }}><i className="material-icons">
-                        <img src={simbolCart} alt="Logo"/></i></span>
-                                : ""}
-
-                        </div>
-
-                        <div className="card-content">
-                            <p>{item.description}</p>
-                            <p><b>Pret: {item.price}{" "}RON</b></p>
+                                      }}>
+                            <img src={simbolCart} alt="Logo"/></span>
+                            : ""}
+                            </b></p>
                         </div>
                     </div>
-                </Link>
+                
 
             )
         })

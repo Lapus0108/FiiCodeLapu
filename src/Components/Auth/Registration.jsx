@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
 import axios from "axios";
-
 import judete from 'assets/data/county.json'
-
 import background_auth from 'assets/images/Buton_lemn.png';
+import default_picture from '../../assets/images/Icons/ProfileDefault.png';
 
 export default class Registration extends Component {
     constructor() {
@@ -23,7 +22,9 @@ export default class Registration extends Component {
             age: "",
             redirect: false,
             mesaj: "",
-            image: ""
+            image: {default_picture},
+            // image:"",
+            has_image:false
 
         };
 
@@ -76,8 +77,11 @@ export default class Registration extends Component {
                 this.setState({image: e.target.result});
             };
             reader.readAsDataURL(event.target.files[0]);
+            this.setState({has_image:true});
         }
+
     }
+
 
     handleSubmit(event) {
         const user = {
@@ -87,7 +91,7 @@ export default class Registration extends Component {
             age: this.state.age,
             address: this.state.address,
             county_id: this.state.county,
-            image: this.state.image
+            image: this.state.image 
         }
 
         if (this.state.password_confirmation === this.state.password) {
@@ -103,6 +107,8 @@ export default class Registration extends Component {
         }
         else this.setState({mesaj: "Password and password confirmation do not match"})
         event.preventDefault();
+        console.log(this.state.image);
+        
     }
 
     render() {
@@ -154,7 +160,11 @@ export default class Registration extends Component {
                         required/>
 
                     <div className="input_image">
-                        <input type="file" onChange={this.onImageChange} className="filetype" id="user_image"/>
+                        <input 
+                        type="file" 
+                        onChange={this.onImageChange} 
+                        className="filetype" 
+                        id="user_image"/>
                     </div>
 
                     <input

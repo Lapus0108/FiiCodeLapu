@@ -4,7 +4,8 @@ import Products from 'Components/Products/Products';
 
 const mapStateToProps = (state) => {
     return {
-        items: state.cart.items
+        items: state.cart.items,
+        isLoggedIn:state.auth.isLoggedIn
     }
 }
 

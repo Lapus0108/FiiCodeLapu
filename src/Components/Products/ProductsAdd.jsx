@@ -4,6 +4,7 @@ import {Redirect} from 'react-router-dom';
 
 import judete from 'assets/data/county.json';
 import tags from 'assets/data/tags.json';
+import tag_animals from '../../assets/images/Icons/Tags/Animals.png';
 
 export default class ProductsAdd extends Component {
     constructor() {
@@ -19,12 +20,13 @@ export default class ProductsAdd extends Component {
             },
             negotiable: false,
             bifa2: false,
-            image: "",
+            image: "Not set",
             tag: {
                 name: "",
                 id: ""
             },
             redirect: false,
+            has_photo:false
 
 
         };
@@ -77,12 +79,13 @@ export default class ProductsAdd extends Component {
                 this.setState({image: e.target.result});
             };
             reader.readAsDataURL(event.target.files[0]);
+            this.setState({has_photo:true});
         }
     }
 
     handleSubmit(event) {
         event.preventDefault();
-
+        
         const product = {
             title: this.state.name,
             description: this.state.description,
@@ -109,15 +112,16 @@ export default class ProductsAdd extends Component {
         } else {
             this.setState({redirect: false})
         }
+        console.log(this.state.image);
     }
-
+    
 
     render() {
         return (
             <>
             {this.renderRedirect()}
             <div className="title_addarticles">
-                Adauga un produs nou pe piata:
+                Add a new product on our market:
             </div>
             <div className="container_add_product">
                 <form onSubmit={this.handleSubmit}>
@@ -147,6 +151,7 @@ export default class ProductsAdd extends Component {
                             })}
                         </select>
                     </label>
+                    
                     <input
                         type="text"
                         name="price"
@@ -167,7 +172,7 @@ export default class ProductsAdd extends Component {
                     </label>
 
                     <div className="input_image">
-                        <input type="file" onChange={this.onImageChange} className="filetype" id="product_image"/>
+                        <input type="file" onChange={this.onImageChange}  className="filetype" id="product_image"/>
                         {/* <img id="target" src={this.state.image}/> */}
                     </div>
 

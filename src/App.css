@@ -39,22 +39,26 @@
 
 /* Pagina harta google */
 .container_mapa_google {
-    width: 70vw;
-    height: 40vw;
+    width: 55vw;
+    height: 33vw;
     position: absolute;
-    top: 11vw;
+    top: 13vw;
     left: 14vw;
 }
 
 .dropdown_container {
     width: fit-content;
     height: 5vw;
-    font-size: 3.6vw;
+    font-size: 2.6vw;
     justify-content: center;
     margin-bottom: 1vw;
     color: white;
     font-family: serif;
     padding-left: 1vw;
+    position: absolute;
+    top: 9vw;
+    left: 15vw;
+
 }
 
 .background_map_page {
@@ -99,12 +103,13 @@
 .titlu_pagina_harta {
     position: absolute;
     height: 70px;
-    width: 100%;
+    width: fit-content;
     top: 4vw;
     color: white;
     font-size: 55px;
     padding-left: 0px;
     font-family: serif;
+    left: 16vw;
 }
 
 .element_dropdown {
@@ -146,6 +151,14 @@
     font-size: 15px;
     border-radius: 8px;
 
+
+}
+
+.card-content span img{
+height: 30px;
+width: 30px;
+margin-bottom: -6px;
+margin-left: 10px;
 }
 
 .box {
@@ -438,11 +451,28 @@
     color: whitesmoke;
     font-size: 18px;
 }
-
+.card-image{
+    display:inline-grid;
+}
+.product_image_container{
+    width: 320px;
+    height: 240px;
+}
 .card-image img {
     max-width: 100%;
     max-height: 100%;
 }
+.description_product{
+    overflow-y: auto;
+    height: 60px;
+    width: 320px;
+    margin: auto;
+   
+}
+
+.description_product::-webkit-scrollbar {
+    display: none;
+  }
 
 /* ADAUGA PRODUS */
 
@@ -544,9 +574,10 @@
 }
 
 .sgproduct_containertext {
-    height: 30px;
+    height: 40px;
     width: 100%;
     margin-bottom: 10px;
+    overflow-y: auto;
 }
 
 .sgproduct_containertext button {
@@ -651,4 +682,34 @@
     font-size: 15px;
     font-family: serif;
     padding-top: 96px;
+}
+
+.hover_sold{
+    background-color: beige;
+    padding: 6px;
+    font-family: serif;
+    position: absolute;
+    top: 54%;
+    width: 210px;
+    right: -25%;
+}
+
+.hover_edit{
+    background-color: beige;
+    padding: 6px;
+    font-family: serif;
+    position: absolute;
+    top: 40%;
+    width: 210px;
+    right: -25%;
+}
+
+.hover_remove{
+    background-color: beige;
+    padding: 6px;
+    font-family: serif;
+    position: absolute;
+    top: 13%;
+    width: 210px;
+    right: -25%;
 }

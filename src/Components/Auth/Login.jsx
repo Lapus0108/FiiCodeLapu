@@ -35,7 +35,7 @@ export default class Login extends Component {
 
     renderRedirect = () => {
         if (this.state.redirect) {
-            return <Redirect to='/products'/>
+            return <Redirect to='/home'/>
         }
     }
 

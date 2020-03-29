@@ -1,8 +1,15 @@
 import React, {Component} from 'react';
-import Dropdown from "./CountiesDropdown";
-import {InfoWindow, Map, Marker} from "google-maps-react";
+import {InfoWindow, Map, Marker, GoogleApiWrapper} from "google-maps-react";
+import judete from 'assets/data/county.json'
 
-export default class AboutUs extends Component {
+
+const mapStyles = {
+    width: '100%',
+    height: '100%'
+  };
+
+
+export class MapContainer extends Component {
 
     constructor(props) {
         super(props);
@@ -18,8 +25,19 @@ export default class AboutUs extends Component {
                 {latitude: 47.6307081, longitude: -122.1434325},
                 {latitude: 47.3084488, longitude: -122.2140121},
                 {latitude: 47.5524695, longitude: -122.0425407}
-            ]
+            ],
+            judet_ales:{
+                id:"",
+                nume:""
+            }
         }
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(event) {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
     }
 
     onMarkerClick = (props, marker, e) =>
@@ -38,24 +56,34 @@ export default class AboutUs extends Component {
         }
     };
 
-    displayMarkers = () => {
-        return this.state.oficii_post.map((item, index) => {
-            return <Marker key={index} id={index} position={{
-                lat: item.latitude,
-                lng: item.longitude
-            }}
-                           onClick={() => {
-                               console.log("You clicked me!")
-                               this.setState({activeMarker: true})
-                           }}/>
-        })
-    }
+    // displayMarkers = () => {
+    //     return this.state.oficii_post.map((item, index) => {
+    //         return <Marker key={index} id={index} position={{
+    //             lat: item.latitude,
+    //             lng: item.longitude
+    //         }}
+    //                        onClick={() => {
+    //                            console.log("You clicked me!")
+    //                            this.setState({activeMarker: true})
+    //                        }}/>
+    //     })
+    // }
 
     render() {
         return (
             <>
-            <div className="titlu_pagina_harta">Unde poti trimite cel mai rapid scrisoarea?
-            </div>
+            <div className="titlu_pagina_harta">Unde poti trimite cel mai rapid scrisoarea?</div>
+            
+            <div className="dropdown_container">Select your county:
+                        <select value={this.state.judet_ales.nume} onChange={this.handleChange} name="judet_ales" style={{marginLeft: 15, fontSize:30}}>
+                            {judete.map((item, key) => {
+                                return (
+                                    <option value={item.id} onChange={this.handleChange}>{item.name}</option>
+                                )
+                            })}
+                        </select>
+             </div>
+
             <div className="container_mapa_google">
 
                 <Map
@@ -69,7 +97,7 @@ export default class AboutUs extends Component {
 
                 >
                     {/* {this.displayMarkers()} */}
-                    <Marker
+                    {/* <Marker
                         onClick={this.onMarkerClick}
                         name={'Oficiul postal nr 1'}
                     />
@@ -81,11 +109,14 @@ export default class AboutUs extends Component {
                         <div>
                             <h4>{this.state.selectedPlace.name}</h4>
                         </div>
-                    </InfoWindow>
+                    </InfoWindow> */}
                 </Map>
-                <Dropdown/>
+                
             </div>
             </>
         )
     }
 }
+export default GoogleApiWrapper({
+    apiKey: 'AIzaSyDNwR7Y528w5gyiSweT0IJ-awU2mPUEYhs'
+  })(MapContainer);
