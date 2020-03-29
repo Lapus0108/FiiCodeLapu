@@ -181,7 +181,7 @@ export default class ProductsSingle extends Component {
                 </div>
 
                 <div>
-                    {this.state.product.seller_id === this.state.user.id
+                    {this.state.product.seller_id === this.props.user.id
                         ?
                         <div>
 

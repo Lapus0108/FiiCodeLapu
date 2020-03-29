@@ -90,7 +90,8 @@ export default class ProductsAdd extends Component {
             negotiable: this.state.negotiable,
             county_id: this.state.county,
             seller_id: this.props.user.id,
-            image: this.state.image
+            image: this.state.image,
+            tags: this.state.tag
         }
 
         if (this.state.bifa2 === true && this.state.county !== "99") {
