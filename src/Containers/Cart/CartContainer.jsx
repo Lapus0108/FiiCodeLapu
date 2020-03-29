@@ -5,21 +5,20 @@ import Cart from 'Components/Cart/Cart';
 
 const mapStateToProps = (state) => {
     return {
-        items: state.addedItems,
-        //addedItems: state.addedItems
+        items: state.cart.items,
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        removeItem: (id) => {
-            dispatch(removeItem(id))
+        removeItem: (item) => {
+            dispatch(removeItem(item))
         },
-        addQuantity: (id) => {
-            dispatch(addQuantity(id))
+        addQuantity: (item) => {
+            dispatch(addQuantity(item))
         },
-        subtractQuantity: (id) => {
-            dispatch(subtractQuantity(id))
+        subtractQuantity: (item) => {
+            dispatch(subtractQuantity(item))
         }
     }
 }

@@ -1,4 +1,4 @@
-import {addToCart} from 'Actions/Cart/cartActions';
+import { addToCart } from 'Actions/Cart/cartActions';
 import {connect} from "react-redux";
 import Products from 'Components/Products/Products';
 
@@ -12,8 +12,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 
     return {
-        addToCart: (id) => {
-            dispatch(addToCart(id))
+        addToCart: (item) => {
+            dispatch(addToCart(item))
         }
     }
 }

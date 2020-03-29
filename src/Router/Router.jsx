@@ -6,7 +6,6 @@ import Sidebar from "../Components/Sidebar";
 import Registration from "../Components/Auth/Registration";
 import Mailing from "../Components/Mailing";
 import AboutUs from "../Components/AboutUs";
-import Cart from "../Components/Cart/Cart";
 import Map from "../Components/Map/Map"
 import LoginContainer from "../Containers/Auth/LoginContainer";
 import LogoutContainer from "../Containers/Auth/LogoutContainer";
@@ -14,7 +13,7 @@ import HomeContainer from "../Containers/HomeContainer";
 import ProductsContainer from "../Containers/Products/ProductsContainer";
 import ProductsAddContainer from "../Containers/Products/ProductsAddContainer";
 import ProductsSingleContainer from "../Containers/Products/ProductsSingleContainer";
-import CountiesDropdown from "../Components/Map/CountiesDropdown";
+import CartContainer from "../Containers/Cart/CartContainer";
 
 export default class Router extends Component {
     constructor() {
@@ -81,9 +80,10 @@ export default class Router extends Component {
                         />
 
                         {/* PAGINA CART */}
-                        <Route
+                        <PrivateRoute
                             path="/cart"
-                            component={Cart}
+                            component={CartContainer}
+                            isLoggedIn={this.props.isLoggedIn}
                         />
 
                         {/* PAGINA SCRISORI */}

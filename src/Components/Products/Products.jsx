@@ -25,8 +25,9 @@ export default class Products extends Component {
 
     }
 
-    handleClick = (id) => {
-        this.props.addToCart(id);
+    handleClick = (item) => {
+        console.log(item);
+        this.props.addToCart(item);
     }
 
     getHttpClient() {
@@ -62,6 +63,8 @@ export default class Products extends Component {
         let itemList = this.state.produs.sort(function (a, b) {     //FILTRU PRET CRESCATOR
             return a.price - b.price;
         }).map(item => {
+            item = { ...item, quantity: 0}
+            console.log(item, "hey")
             return (
                 
                 
@@ -85,7 +88,7 @@ export default class Products extends Component {
                             {isLoggedIn ? 
                             <span to="/" className="btn-floating halfway-fab waves-effect waves-light red"
                                       onClick={() => {
-                                          this.handleClick(item.id)
+                                          this.handleClick(item)
                                       }}>
                             <img src={simbolCart} alt="Logo"/></span>
                             : ""}

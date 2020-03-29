@@ -1,22 +1,17 @@
 import {connect} from "react-redux";
-import {Receipt} from "@material-ui/icons/esm/index";
+import Receipt from "../../Components/Cart/Receipt";
+
 
 
 const mapStateToProps = (state) => {
     return {
-        addedItems: state.addedItems,
-        total: state.total
+        total: state.cart.total
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        addShipping: () => {
-            dispatch({type: 'ADD_SHIPPING'})
-        },
-        substractShipping: () => {
-            dispatch({type: 'SUB_SHIPPING'})
-        }
+
     }
 }
 
