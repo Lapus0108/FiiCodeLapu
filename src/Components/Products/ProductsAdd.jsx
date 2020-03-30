@@ -34,7 +34,9 @@ export default class ProductsAdd extends Component {
                 id: ""
             },
             redirect: false,
-            has_photo:false
+            has_photo:false,
+            max_quantity:1
+            
 
 
         };
@@ -118,7 +120,8 @@ export default class ProductsAdd extends Component {
             county_id: this.state.county,
             seller_id: this.props.user.id,
             image: this.state.image,
-            tags: this.state.tag
+            tags: this.state.tag,
+            max_quantity:this.state.max_quantity
         }
 
         if (this.state.bifa2 === true && this.state.county !== "99") {
@@ -176,7 +179,8 @@ export default class ProductsAdd extends Component {
                             })}
                         </select>
                     </label>
-                    
+
+                
                     <input
                         type="text"
                         name="price"
@@ -184,6 +188,23 @@ export default class ProductsAdd extends Component {
                         value={this.state.price}
                         onChange={event => this.setState({price: event.target.value.replace(/\D/, '')})}
                         required/>
+                    
+                    <label>Select quantity
+                        <select value={this.state.max_quantity} onChange={this.handleChange} name="max_quantity">
+                                <option value="1" onChange={this.handleChange}>1</option>
+                                <option value="2" onChange={this.handleChange}>2</option>
+                                <option value="3" onChange={this.handleChange}>3</option>
+                                <option value="4" onChange={this.handleChange}>4</option>
+                                <option value="5" onChange={this.handleChange}>5</option>
+                                <option value="6" onChange={this.handleChange}>6</option>
+                                <option value="7" onChange={this.handleChange}>7</option>
+                                <option value="8" onChange={this.handleChange}>8</option>
+                                <option value="9" onChange={this.handleChange}>9</option>
+                                <option value="10" onChange={this.handleChange}>10</option>
+                            
+                            
+                        </select>
+                    </label>
 
 
                     <label>Select county

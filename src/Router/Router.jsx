@@ -14,6 +14,7 @@ import ProductsContainer from "../Containers/Products/ProductsContainer";
 import ProductsAddContainer from "../Containers/Products/ProductsAddContainer";
 import ProductsSingleContainer from "../Containers/Products/ProductsSingleContainer";
 import CartContainer from "../Containers/Cart/CartContainer";
+import ProfileContainer from "../Containers/ProfileContainer";
 
 
 export default class Router extends Component {
@@ -102,6 +103,13 @@ export default class Router extends Component {
                         {/* PAGINA HARTA GOOGLE */}
                         <Route path='/map' 
                                component={Map} 
+                        />
+
+                        {/* PAGINA PROFIL */}
+                        <PrivateRoute 
+                                path='/profile' 
+                               component={ProfileContainer} 
+                               isLoggedIn={this.props.isLoggedIn}
                         />
 
                             

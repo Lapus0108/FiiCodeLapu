@@ -22,7 +22,7 @@ export default class Registration extends Component {
             age: "",
             redirect: false,
             mesaj: "",
-            image: {default_picture},
+            image:default_picture,
             // image:"",
             has_image:false
 
