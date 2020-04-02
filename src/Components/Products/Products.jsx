@@ -26,7 +26,7 @@ export default class Products extends Component {
     }
 
     handleClick = (item) => {
-        console.log(item);
+        
         this.props.addToCart(item);
     }
 
@@ -46,7 +46,7 @@ export default class Products extends Component {
             .then(res => {
                 const produs = res.data.data;
                 this.setState({produs: produs});
-                console.log(this.state.produs);
+                
             })
         console.log(this.props.isLoggedIn);
 
@@ -58,13 +58,13 @@ export default class Products extends Component {
      }
 
     render() {
+        console.log("Connected user ID:" ,this.props.user.id)
         const isLoggedIn = this.props;
        
         let itemList = this.state.produs.sort(function (a, b) {     //FILTRU PRET CRESCATOR
             return a.price - b.price;
         }).map(item => {
             item = { ...item, quantity: 0}
-            console.log(item, "hey")
             return (
                 
                 
@@ -85,7 +85,7 @@ export default class Products extends Component {
                             <p>{item.description}</p>
                             </div>
                             <p><b>Pret: {item.price}{" "}RON
-                            {isLoggedIn ? 
+                            {isLoggedIn && this.props.user.id!==item.seller_id ?
                             <span to="/" className="btn-floating halfway-fab waves-effect waves-light red"
                                       onClick={() => {
                                           this.handleClick(item)

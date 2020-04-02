@@ -54,6 +54,7 @@ function Sidebar() {
                     )
                 })}
             </List>
+            <div className="titlu_app_sidebar">Piazeta</div>
         </div>
     )
 }

@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Redirect} from "react-router-dom";
 import axios from "axios";
-import product_image from 'assets/images/vazatest.jpg';
 import remove_article from '../../assets/images/Icons/Remove_product.png';
 import edit_article from  '../../assets/images/Icons/Edit_product.png';
 import sold_article from  '../../assets/images/Icons/Sold_product.png';
@@ -141,7 +140,7 @@ export default class ProductsSingle extends Component {
 
 
     render() {
-
+        console.log(this.state.product)
 
         return (
             <>
@@ -198,7 +197,7 @@ export default class ProductsSingle extends Component {
                             </> : ""}
 
                     {/*<div className="sgproduct_title">Sold by: {this.state.user.name}</div>*/}
-                    {this.state.product.negociabil === true ?
+                    {this.state.product.negotiable === 1 ?
                         <div className="sgproduct_conditionals">! Product is negotiable</div> : "" }
                     {/*{item.exchangeable === true ?*/}
                     {/*<div className="sgproduct_conditionals">! Product(s) in exchange may be accepted by the*/}
@@ -208,7 +207,7 @@ export default class ProductsSingle extends Component {
 
                 </div>
                 <div className="image_container_sgproduct">
-                    <img src={product_image} alt="imagine_articol_sgproduct"/>
+                    <img src={this.state.product.image} alt="imagine_articol_sgproduct"/>
                 </div>
 
                 <div className="seller_tools">

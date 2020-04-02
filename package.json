@@ -22,9 +22,12 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0",
     "react-select": "^3.0.8",
+    "react-simple-chatbot": "^0.6.1",
+    "react-star-rating-component": "^1.4.1",
     "redux": "^4.0.5",
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0",
+    "styled-components": "^5.0.1",
     "tough-cookie": "^4.0.0"
   },
   "scripts": {

@@ -1,18 +1,31 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-
+import StarRatingComponent from 'react-star-rating-component';
 import background_auth from 'assets/images/Buton_lemn.png';
 
 export default class HomeMenu extends Component {
     constructor() {
         super();
 
-        this.state = {};
+        this.state = {
+            rating: 1,
+            mesaj_rating:"",
+            displayRating: true
+        };
+        this.onStarClick=this.onStarClick.bind(this);
     };
 
     componentDidMount() {
         console.log(this.props.isLoggedIn)
     }
+
+    componentDidUpdate(){
+        setTimeout(() => this.setState({displayRating: false}), 3000);
+      }
+
+    onStarClick(nextValue, prevValue, name) {
+        this.setState({rating: nextValue, mesaj_rating:"Thank you! You can tell us how to improve on the About Us page!"});
+      }
 
     render() {
         return (
@@ -78,6 +91,20 @@ export default class HomeMenu extends Component {
 
 
             </div>
+            { this.state.displayRating&&this.props.isLoggedIn ?
+            <div className="review_app">
+                <h>Don't forget to leave a review of our app!</h>
+                    <div className="review_stars">
+                    <StarRatingComponent 
+                        name="rate_our_app" 
+                        starCount={5}
+                        value={this.state.rating}
+                        onStarClick={this.onStarClick}
+                    />
+                    </div>
+                <h>{this.state.mesaj_rating}</h>
+                </div>
+            : ""}
             </>
         );
     }

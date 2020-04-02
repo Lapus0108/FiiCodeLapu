@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import {PrivateRoute} from "./PrivateRoute";
-
 import Sidebar from "../Components/Sidebar";
 import Registration from "../Components/Auth/Registration";
 import Mailing from "../Components/Mailing";
@@ -15,6 +14,8 @@ import ProductsAddContainer from "../Containers/Products/ProductsAddContainer";
 import ProductsSingleContainer from "../Containers/Products/ProductsSingleContainer";
 import CartContainer from "../Containers/Cart/CartContainer";
 import ProfileContainer from "../Containers/ProfileContainer";
+import ConfirmSaleContainer from "../Containers/Cart/ConfirmSaleContainer";
+import CustomerChat from "../Components/CustomerChat";
 
 
 export default class Router extends Component {
@@ -28,7 +29,10 @@ export default class Router extends Component {
             <BrowserRouter>
                 <div className="App">
                     {this.props.isLoggedIn === true
-                        ? <Sidebar />
+                        ? <>
+                        <Sidebar />
+                         <CustomerChat />
+                         </>
                         : ""}
                     <Switch>
 
@@ -109,6 +113,13 @@ export default class Router extends Component {
                         <PrivateRoute 
                                 path='/profile' 
                                component={ProfileContainer} 
+                               isLoggedIn={this.props.isLoggedIn}
+                        />
+
+                        {/* PAGINA CONFIRM SALE */}
+                        <PrivateRoute 
+                               path='/sale' 
+                               component={ConfirmSaleContainer} 
                                isLoggedIn={this.props.isLoggedIn}
                         />
 

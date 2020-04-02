@@ -19,12 +19,14 @@ export class MapContainer extends Component {
             activeMarker: {},          //Shows the active marker upon click
             selectedPlace: {},          //Shows the infoWindow to the selected place upon a marker
             oficii_post: [
-                {lat: 47.257309, lng: 27.600330},
                 {latitude: 47.257423, longitude: 27.600332},
-                {latitude: 47.2052192687988, longitude: -121.988426208496},
-                {latitude: 47.6307081, longitude: -122.1434325},
-                {latitude: 47.3084488, longitude: -122.2140121},
-                {latitude: 47.5524695, longitude: -122.0425407}
+                {latitude: 47.166031, longitude: 27.585198},
+                {latitude: 47.166031, longitude: 27.585198},
+                {latitude: 47.161309, longitude: 27.617409},
+                {latitude: 47.169602, longitude: 27.582909},
+                {latitude: 47.175539, longitude: 27.553390},
+                {latitude: 47.163959, longitude: 27.561690},
+                {latitude:47.174461,  longitude: 27.549344}
             ],
             judet_ales:{
                 id:"",
@@ -56,18 +58,18 @@ export class MapContainer extends Component {
         }
     };
 
-    // displayMarkers = () => {
-    //     return this.state.oficii_post.map((item, index) => {
-    //         return <Marker key={index} id={index} position={{
-    //             lat: item.latitude,
-    //             lng: item.longitude
-    //         }}
-    //                        onClick={() => {
-    //                            console.log("You clicked me!")
-    //                            this.setState({activeMarker: true})
-    //                        }}/>
-    //     })
-    // }
+    displayMarkers = () => {
+        return this.state.oficii_post.map((item, index) => {
+            return <Marker key={index} id={index} position={{
+                lat: item.latitude,
+                lng: item.longitude
+            }}
+                           onClick={() => {
+                               console.log("You clicked me!")
+                               this.setState({activeMarker: true})
+                           }}/>
+        })
+    }
 
     render() {
         return (
@@ -96,10 +98,10 @@ export class MapContainer extends Component {
                     }}
 
                 >
-                    {/* {this.displayMarkers()} */}
-                    {/* <Marker
+                    {this.displayMarkers()}
+                    <Marker
                         onClick={this.onMarkerClick}
-                        name={'Oficiul postal nr 1'}
+                        name={'Postal office'}
                     />
                     <InfoWindow
                         marker={this.state.activeMarker}
@@ -109,7 +111,7 @@ export class MapContainer extends Component {
                         <div>
                             <h4>{this.state.selectedPlace.name}</h4>
                         </div>
-                    </InfoWindow> */}
+                    </InfoWindow>
                 </Map>
                 
             </div>
