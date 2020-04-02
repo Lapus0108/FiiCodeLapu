@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import background from "./assets/images/Background-map-page-2.jpg";
+import background from "./assets/images/retro-wallpaper-1.jpg";
 import './App.css';
 import RouterContainer from "./Router/RouterContainer";
 import CookieConsent from "react-cookie-consent";

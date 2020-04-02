@@ -24,7 +24,7 @@ export default class Cart extends Component {
     }
 
     render() {
-
+        console.log(this.props.items)
         let addedItems = this.props.items.length ?
             (
                 this.props.items.map(item => {
@@ -42,12 +42,15 @@ export default class Cart extends Component {
                                 <p>
                                     <b>Quantity: {item.quantity}</b>
                                 </p>
+                                    
                                 <div className="add-remove">
+                                    {item.quantity<=item.max_quantity ?
                                     <Link to="/cart"><i className="material-icons" onClick={() => {
                                         this.handleAddQuantity(item)
                                     }}>
                                         <div className="arrowup"><img src={arrowUp} alt="arrowup"/></div>
                                     </i></Link>
+                                    : ""}
                                     {item.quantity>1 ?
                                     <Link to="/cart"><i className="material-icons" onClick={() => {
                                         this.handleSubtractQuantity(item)

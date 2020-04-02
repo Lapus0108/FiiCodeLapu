@@ -12,6 +12,7 @@ export default class Profile extends Component {
           name:"",
           email:"",
           county:"",
+          image:"",
           seePublished:false,
           seePurchased: false,
           produsele_mele:[]
@@ -46,7 +47,8 @@ export default class Profile extends Component {
           console.log(this.state.produsele_mele)
           this.setState({
             name:this.props.user.name,
-            email:this.props.user.email
+            email:this.props.user.email,
+            image:this.props.user.image
         })
     }
 
@@ -68,8 +70,8 @@ export default class Profile extends Component {
                 
                 <div className="container_user_info_profile">
                     <div className="container_imagine_profile">
-                      <img src={poza_profil}/>
-                    {this.props.isLoggedIn ? <div className="status_user" style={{color:"green", fontWeight: 600}}>LOGGED IN</div>
+                      <img src={this.state.image}/>
+                    {this.props.isLoggedIn ? <div className="status_user" style={{color:"#18ba44", fontWeight: 600}}>LOGGED IN</div>
                     : <div className="status_user" style={{color:"red"}}>NOT LOGGED IN</div>}
                     </div>
                     <div className="container_date_profile">
