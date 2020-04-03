@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
-import axios from "axios";
 import simbolCart from '../../assets/images/Icons/Cart_add.png';
+import axiosRequest from '../../Utils/axios';
 
 const filterCriterias=[
     {
@@ -56,28 +56,27 @@ export default class Products extends Component {
     }
 
     handleClick = (item) => {
-        this.props.addToCart(item);
-    }
+        axiosRequest.post("/cart/add-product", {product_id: item.id, quantity: 1})
+    };
 
-    getHttpClient() {
-        return axios.create({
-            baseURL: process.env.REACT_APP_SERVER_APP_URL,
-            timeout: 1000,
-            headers: {
-                'Content-Type': "application/json",
-                'Accept': "application/json",
-            }
-        })
-    }
+    // getHttpClient() {
+    //     return axios.create({
+    //         baseURL: process.env.REACT_APP_SERVER_APP_URL,
+    //         timeout: 1000,
+    //         headers: {
+    //             'Content-Type': "application/json",
+    //             'Accept': "application/json",
+    //         }
+    //     })
+    // }
 
     componentDidMount() {
-        this.getHttpClient().get("products")
+        axiosRequest.get("products")
             .then(res => {
                 const produs = res.data.data;
                 this.setState({produs: produs});
             })
         console.log(this.props.isLoggedIn);
-
     }
     
     imageSetter(){

@@ -6,11 +6,12 @@ export default class ResetPassword extends Component {
     constructor() {
         super();
         this.state = {
-            email:"",
+            email: "",
             newPassword:"",
             confirmNewPassword:"",
             redirect: false,
-            mesaj:""
+            mesaj:"",
+            token: ""
         }
         this.handleChange=this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,10 +23,13 @@ export default class ResetPassword extends Component {
         })
     }
 
+    componentDidMount(){
+        this.setState({token: this.props.location.pathname.slice(16), email: this.props.location.search.slice(7).replace("%40", "@")})
+    }
+
     getHttpClient() {
         return axios.create({
             baseURL: process.env.REACT_APP_SERVER_APP_URL,
-            timeout: 1000,
             headers: {
                 'Content-Type': "application/json",
                 'Accept': "application/json",
@@ -39,14 +43,16 @@ export default class ResetPassword extends Component {
         }
     }
 
-    handleSubmit(){
+    handleSubmit(event){
+        event.preventDefault();
         const new_password_details= {
-            new_password:this.state.newPassword,
-            email:this.state.email
+            password:this.state.newPassword,
+            email:this.state.email,
+            token: this.state.token
         }
         if (this.state.newPassword === this.state.confirmNewPassword)
         {
-            this.getHttpClient().post("DATABASE", new_password_details).then(response => {
+            this.getHttpClient().post("password/reset", new_password_details).then(response => {
                 this.setState({mesaj: "Your new password is set, please log in!"})
                 setTimeout(() => {
                     this.setState({redirect: true,})

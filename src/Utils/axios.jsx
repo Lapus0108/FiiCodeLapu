@@ -1,17 +1,14 @@
 import axios from 'axios';
-import config from '../config';
-import store from 'store';
-import Errors from './errorsHandler';
+import {store} from '../Reducers/configStore'
 
 const axiosRequest = axios.create({
-    baseURL: config.apiUrl
+    baseURL:  process.env.REACT_APP_SERVER_APP_URL
 });
 
 
 axiosRequest.interceptors.request.use((axiosConfig) => {
         return new Promise((resolve, reject) => {
-
-            let token = store.get(config.user.token);
+            let token = store.getState().auth.user.token;
             axiosConfig.headers = {
                 'Authorization': 'Bearer ' + token,
                 'Content-Type': 'application/json',
@@ -21,13 +18,12 @@ axiosRequest.interceptors.request.use((axiosConfig) => {
         });
     },
     (err) => {
-        Errors.errorSwitch(err.response.status);
+
     });
 
 axiosRequest.interceptors.response.use((response) => {
     return response;
 }, (error) => {
-    Errors.errorSwitch(error.response.status);
     return Promise.reject(error);
 });
 
