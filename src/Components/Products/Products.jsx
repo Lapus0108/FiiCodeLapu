@@ -119,8 +119,11 @@ export default class Products extends Component {
         const isLoggedIn = this.props;
         let sortChoice=this.state.filterCriteria
         const data=this.state.produs;
-        console.log(data.sort(this.sortFilters))
-        console.log("Connected user ID:" ,this.props.user.id)
+        console.log(data)
+        // console.log(data.sort(this.sortFilters))
+        // console.log("Connected user ID:" ,this.props.user.id)
+        // const productsAnimals = data.filter(item => item.tags.id===2);
+        console.log(productsAnimals);
         
         switch (sortChoice) {
             case 'priceAsc':
