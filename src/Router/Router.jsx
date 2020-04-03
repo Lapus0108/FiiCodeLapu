@@ -16,7 +16,9 @@ import CartContainer from "../Containers/Cart/CartContainer";
 import ProfileContainer from "../Containers/ProfileContainer";
 import ConfirmSaleContainer from "../Containers/Cart/ConfirmSaleContainer";
 import CustomerChat from "../Components/CustomerChat";
+import ResetPassword from '../Components/Auth/ResetPassword';
 import ForgotPassword from '../Components/Auth/ForgotPassword';
+
 
 
 export default class Router extends Component {
@@ -120,9 +122,16 @@ export default class Router extends Component {
                                isLoggedIn={this.props.isLoggedIn}
                         />
 
-                         {/* PAGINA FORGOT PASSWORD */}
+                         {/* PAGINA RESET PASSWORD */}
                          <Route 
                                path='/password/reset' 
+                               component={ResetPassword} 
+                               
+                        />
+
+                        {/* PAGINA FORGOT PASSWORD */}
+                        <Route 
+                               path='/password/forgot' 
                                component={ForgotPassword} 
                                
                         />

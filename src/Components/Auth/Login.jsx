@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
 import axios from "axios";
-
+import {Link} from 'react-router-dom';
 import background_auth from 'assets/images/Buton_lemn.png';
 
 export default class Login extends Component {
@@ -57,7 +57,7 @@ export default class Login extends Component {
 
         console.log(user, "user")
 
-        this.getHttpClient().post('login', user)                                    //AICI TREBUIE PUS LINKUL DE LA DATABASE CU USERII CREATI
+        this.getHttpClient().post('login', user)                                    
             .then(response => {
                 console.log("res from login", response);
                 if (response.status = 200) {
@@ -100,6 +100,9 @@ export default class Login extends Component {
 
                     <button type="submit" onClick={this.handleSubmit}>Login</button>
                 </form>
+                <Link to="/password/forgot">
+                    <div className="login_forgot_password">Forgot password?</div>
+                </Link>
             </div>
             </>
         );

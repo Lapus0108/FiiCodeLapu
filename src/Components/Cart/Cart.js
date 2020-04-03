@@ -44,7 +44,7 @@ export default class Cart extends Component {
                                 </p>
                                     
                                 <div className="add-remove">
-                                    {item.quantity<=item.max_quantity ?
+                                    {item.quantity<item.max_quantity ?
                                     <Link to="/cart"><i className="material-icons" onClick={() => {
                                         this.handleAddQuantity(item)
                                     }}>
