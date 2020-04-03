@@ -73,7 +73,7 @@ export default class Products extends Component {
     componentDidMount() {
         axiosRequest.get("products")
             .then(res => {
-                const produs = res.data.data;
+                const produs = res.data;
                 this.setState({produs: produs});
             })
         console.log(this.props.isLoggedIn);
@@ -119,16 +119,16 @@ export default class Products extends Component {
         let sortChoice=this.state.filterCriteria
         const data=this.state.produs;
         console.log(data[0])
-        // console.log(data.sort(this.sortFilters))
+        console.log(data.sort(this.sortFilters))
         // console.log("Connected user ID:" ,this.props.user.id)
-        const productsAnimals = data.filter(item => item.tags);
-        console.log(productsAnimals);
+        // const productsAnimals = data.filter(item => item.tags);
+        // console.log(productsAnimals);
         
-        switch (sortChoice) {
-            case 'priceAsc':
-                data.sort(this.sortFilters);
-                break;
-        }
+        // switch (sortChoice) {
+        //     case 'priceAsc':
+                // data.sort(this.sortFilters);
+                // break;
+        // }
     
         let itemList = data.map(item => {
             item = { ...item, quantity: 0}

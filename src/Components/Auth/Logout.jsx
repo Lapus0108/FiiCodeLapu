@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Redirect} from "react-router-dom";
-import axios from "axios";
+import axiosRequest from "../../Utils/axios";
 
 import background_auth from 'assets/images/Buton_lemn.png';
 
@@ -18,25 +18,12 @@ export default class Logout extends Component {
         }
     }
 
-    getHttpClient() {
-        return axios.create({
-            baseURL: process.env.REACT_APP_SERVER_APP_URL,
-            timeout: 1000,
-            headers: {
-                'Content-Type': "application/json",
-                'Accept': "application/json",
-                'Authorization': "Bearer " + this.props.user.token
-            }
-        })
-    }
-
     componentDidMount() {
-        this.getHttpClient().post("logout")
+        axiosRequest.post("logout")
             .then(response => {
                 console.log("res from logout", response);
                 this.props.emptyCart()
                 this.props.doLogout()
-                
             }).catch(error => {
             console.log("logout error", error);
         });
@@ -44,7 +31,6 @@ export default class Logout extends Component {
             this.setState({redirect: true,})
         }, 1000);
     }
-
 
     render() {
         return (

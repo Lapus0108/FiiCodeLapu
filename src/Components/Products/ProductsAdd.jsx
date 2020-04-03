@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import axios from 'axios';
+import axiosRequest from '../../Utils/axios';
 import {Redirect} from 'react-router-dom';
 import judete from 'assets/data/county.json';
 import tags from 'assets/data/tags.json';
@@ -44,18 +44,6 @@ export default class ProductsAdd extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    getHttpClient() {
-        return axios.create({
-            baseURL: process.env.REACT_APP_SERVER_APP_URL,
-            timeout: 1000,
-            headers: {
-                'Content-Type': "application/json",
-                'Accept': "application/json",
-                'Authorization': "Bearer " + this.props.user.token
-            }
-        })
-    }
-
     renderRedirect = () => {
         if (this.state.redirect) {
             return <Redirect to='/products'/>
@@ -64,12 +52,10 @@ export default class ProductsAdd extends Component {
 
     handleChange(event) {
         this.setState({[event.target.name]: event.target.value})
-        
     }
 
     onChange1 = () => {
         this.setState(initialState => ({
-
             negotiable: !initialState.negotiable
         }));
     }
@@ -105,9 +91,6 @@ export default class ProductsAdd extends Component {
         }
     }
 
-
-
-
     handleSubmit(event) {
         event.preventDefault();
         
@@ -127,7 +110,7 @@ export default class ProductsAdd extends Component {
         if (this.state.bifa2 === true && this.state.county !== "99") {
             console.log(product);
 
-            this.getHttpClient().post("products", product)
+            axiosRequest.post("products", product)
                 .then(response => {
                     console.log("creation res", response);
                     this.setState({

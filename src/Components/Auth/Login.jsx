@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
-import axios from "axios";
+import axiosRequest from "../../Utils/axios";
 import {Link} from 'react-router-dom';
 import background_auth from 'assets/images/Buton_lemn.png';
 
@@ -22,17 +22,6 @@ export default class Login extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    getHttpClient() {
-        return axios.create({
-            baseURL: process.env.REACT_APP_SERVER_APP_URL,
-            timeout: 1000,
-            headers: {
-                'Content-Type': "application/json",
-                'Accept': "application/json",
-            }
-        })
-    }
-
     renderRedirect = () => {
         if (this.state.redirect) {
             return <Redirect to='/home'/>
@@ -47,17 +36,16 @@ export default class Login extends Component {
 
 
     handleSubmit(event) {
-
         event.preventDefault();
 
         const user = {
             email: this.state.email,
             password: this.state.password
-        }
+        };
 
-        console.log(user, "user")
+        console.log(user, "user");
 
-        this.getHttpClient().post('login', user)                                    
+        axiosRequest.post('login', user)
             .then(response => {
                 console.log("res from login", response);
                 if (response.status = 200) {
@@ -97,7 +85,7 @@ export default class Login extends Component {
                         onChange={this.handleChange}
                         required/>
 
-
+                    {/*<Button type="submit" class="bp3-large" intent="primary" text="Login" onClick={this.handleSubmit} />*/}
                     <button type="submit" onClick={this.handleSubmit}>Login</button>
                 </form>
                 <Link to="/password/forgot">

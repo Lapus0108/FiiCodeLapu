@@ -1,45 +1,41 @@
 import React, {Component} from 'react'
 import {Redirect} from 'react-router-dom';
-import axios from "axios";
+import axiosRequest from "../../Utils/axios";
 
 export default class Receipt extends Component {
-    constructor(props){
+    constructor(props) {
         super();
-        this.state={
+        this.state = {
             redirect: false,
-            mesaj:"",
-            sale:{
-                seller_id:"",
-                buyer_id:"",
-                quantity:"",
-                price:""
+            mesaj: "",
+            sale: {
+                seller_id: "",
+                buyer_id: "",
+                quantity: "",
+                price: ""
             }
-        }  
+        }
     }
-    
 
-   
     renderRedirect = () => {
         if (this.state.redirect) {
             return <Redirect to='/Products'/>
         }
     }
-    
 
-    handleSubmit = event => {
-            event.preventDefault();
-            axios.post(`Database`, this.props.items )
-              .then(res => {
+    handleSubmit(event){
+        event.preventDefault();
+        axiosRequest.post("/orders")
+            .then(res => {
                 console.log(res);
-                console.log(res.data);
-              })
-              .catch(error => {
+                return <Redirect to='/Products'/>
+            })
+            .catch(error => {
                 console.log("registration error", error);
             })
-              this.setState({redirect:true})
-          }
+    }
 
-        
+
     render() {
         console.log(this.props.items)
         return (
@@ -49,7 +45,8 @@ export default class Receipt extends Component {
                     <li className="collection-item"><b>Total: {this.props.total} RON</b></li>
                 </div>
                 <div className="checkout">
-                    <button className="waves-effect waves-light btn" onClick={this.handleSubmit}>Submit your order</button>
+                    <button className="waves-effect waves-light btn" onClick={this.handleSubmit}>Submit your order
+                    </button>
                 </div>
             </div>
             </>

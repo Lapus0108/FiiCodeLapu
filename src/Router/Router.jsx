@@ -18,6 +18,7 @@ import ConfirmSaleContainer from "../Containers/Cart/ConfirmSaleContainer";
 import CustomerChat from "../Components/CustomerChat";
 import ResetPassword from '../Components/Auth/ResetPassword';
 import ForgotPassword from '../Components/Auth/ForgotPassword';
+import ConfirmOrders from "../Components/Cart/ConfirmOrders";
 
 
 
@@ -117,8 +118,8 @@ export default class Router extends Component {
 
                         {/* PAGINA CONFIRM SALE */}
                         <PrivateRoute 
-                               path='/sale' 
-                               component={ConfirmSaleContainer} 
+                               path='/orders/:id'
+                               component={ConfirmOrders}
                                isLoggedIn={this.props.isLoggedIn}
                         />
 

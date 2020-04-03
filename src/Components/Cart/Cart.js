@@ -1,33 +1,63 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom'
+import axiosRequest from '../../Utils/axios'
 
 import ReceiptContainer from "../../Containers/Cart/ReceiptContainer";
 
 import arrowUp from "../../assets/images/Icons/Diverse/Arrow_up.png";
 import arrowDown from "../../assets/images/Icons/Diverse/Arrow_down.png";
 import remove from "../../assets/images/Icons/Diverse/Remove_product.png";
+import Receipt from "./Receipt";
 
 
 export default class Cart extends Component {
 
-    //to remove the item completely
-    handleRemove = (item) => {
-        this.props.removeItem(item);
-    }
-    //to add the quantity
-    handleAddQuantity = (item) => {
-        this.props.addQuantity(item);
-    }
-    //to substruct from the quantity
-    handleSubtractQuantity = (item) => {
-        this.props.subtractQuantity(item);
+    constructor() {
+        super()
+        this.state = {
+            products: "",
+            total: ""
+        }
     }
 
+    updateCart() {
+        axiosRequest.get("cart")
+            .then(res => {
+                const products = res.data.products;
+                const total = res.data.total
+                this.setState({products: products, total: total});
+            })
+        console.log(this.props.isLoggedIn);
+    }
+
+    componentDidMount() {
+        this.updateCart();
+    }
+
+    //to remove the item completely
+    handleRemove = (item) => {
+        axiosRequest.post("cart/remove-product", {
+            product_id: item.id,
+            new_total: item.pivot.quantity * item.price
+        });
+        this.updateCart()
+    }
+    //to change the quantity
+    handleQuantity = (item, quantity) => {
+        axiosRequest.post("cart/change-product", {
+            product_id: item.id,
+            quantity: item.pivot.quantity + quantity,
+            new_total: item.price * quantity
+        })
+        this.updateCart()
+    }
+
+
     render() {
-        console.log(this.props.items)
-        let addedItems = this.props.items.length ?
+        console.log(this.state.products)
+        let addedItems = this.state.products.length ?
             (
-                this.props.items.map(item => {
+                this.state.products.map(item => {
                     return (
 
                         <li className="collection-item avatar" key={item.id}>
@@ -38,34 +68,34 @@ export default class Cart extends Component {
                             <div className="item-desc">
                                 <span className="title">{item.title}</span>
                                 <p>{item.desc}</p>
-                                <p><b>Price: {item.price*item.quantity} RON</b></p>
+                                <p><b>Price: {item.price * item.pivot.quantity} RON</b></p>
                                 <p>
-                                    <b>Quantity: {item.quantity}</b>
+                                    <b>Quantity: {item.pivot.quantity}</b>
                                 </p>
-                                    
+
                                 <div className="add-remove">
-                                    {item.quantity<item.max_quantity ?
-                                    <Link to="/cart"><i className="material-icons" onClick={() => {
-                                        this.handleAddQuantity(item)
-                                    }}>
-                                        <div className="arrowup"><img src={arrowUp} alt="arrowup"/></div>
-                                    </i></Link>
-                                    : ""}
-                                    {item.quantity>1 ?
-                                    <Link to="/cart"><i className="material-icons" onClick={() => {
-                                        this.handleSubtractQuantity(item)
-                                    }}>
-                                        <div className="arrowdown"><img src={arrowDown} alt="arrowdown"/></div>
-                                    </i></Link>
-                                    : ""}
+                                    {item.pivot.quantity < item.max_quantity ?
+                                        <Link to="/cart"><i className="material-icons" onClick={() => {
+                                            this.handleQuantity(item, 1)
+                                        }}>
+                                            <div className="arrowup"><img src={arrowUp} alt="arrowup"/></div>
+                                        </i></Link>
+                                        : ""}
+                                    {item.pivot.quantity > 1 ?
+                                        <Link to="/cart"><i className="material-icons" onClick={() => {
+                                            this.handleQuantity(item, -1)
+                                        }}>
+                                            <div className="arrowdown"><img src={arrowDown} alt="arrowdown"/></div>
+                                        </i></Link>
+                                        : ""}
 
                                     <div className="remove_cart" onClick={() => {
-                                    this.handleRemove(item)
-                                }}>
-                                    <img src={remove} alt="remove_from_cart"/>
+                                        this.handleRemove(item)
+                                    }}>
+                                        <img src={remove} alt="remove_from_cart"/>
+                                    </div>
                                 </div>
-                                </div>
-                               
+
                             </div>
 
                         </li>
@@ -85,7 +115,7 @@ export default class Cart extends Component {
                         {addedItems}
                     </ul>
                 </div>
-                <ReceiptContainer />
+                <Receipt total={this.state.total}/>
             </div>
         )
     }

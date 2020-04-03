@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
-import axios from "axios";
+import axiosRequest from "../../Utils/axios";
 import judete from 'assets/data/county.json'
 import background_auth from 'assets/images/Buton_lemn.png';
 import default_picture from '../../assets/images/Icons/ProfileDefault.png';
@@ -59,17 +59,6 @@ export default class Registration extends Component {
         }));
     }
 
-    getHttpClient() {
-        return axios.create({
-            baseURL: process.env.REACT_APP_SERVER_APP_URL,
-            timeout: 1000,
-            headers: {
-                'Content-Type': "application/json",
-                'Accept': "application/json",
-            }
-        })
-    }
-
     onImageChange = (event) => {
         if (event.target.files && event.target.files[0]) {
             let reader = new FileReader();
@@ -95,7 +84,7 @@ export default class Registration extends Component {
         }
 
         if (this.state.password_confirmation === this.state.password) {
-            this.getHttpClient().post("/register", user).then(response => {
+            axiosRequest.post("/register", user).then(response => {
                 console.log("registration res", response);
                 this.setState({mesaj: "Registration successful, please log in!"})
                 setTimeout(() => {

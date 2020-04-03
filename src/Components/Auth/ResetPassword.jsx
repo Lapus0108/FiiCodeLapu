@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Redirect} from "react-router-dom";
-import axios from "axios";
+import axiosRequest from "axios";
 
 export default class ResetPassword extends Component {
     constructor() {
@@ -27,16 +27,6 @@ export default class ResetPassword extends Component {
         this.setState({token: this.props.location.pathname.slice(16), email: this.props.location.search.slice(7).replace("%40", "@")})
     }
 
-    getHttpClient() {
-        return axios.create({
-            baseURL: process.env.REACT_APP_SERVER_APP_URL,
-            headers: {
-                'Content-Type': "application/json",
-                'Accept': "application/json",
-            }
-        })
-    }
-
     renderRedirect = () => {
         if (this.state.redirect) {
             return <Redirect to='/home'/>
@@ -52,7 +42,7 @@ export default class ResetPassword extends Component {
         }
         if (this.state.newPassword === this.state.confirmNewPassword)
         {
-            this.getHttpClient().post("password/reset", new_password_details).then(response => {
+            axiosRequest.post("password/reset", new_password_details).then(response => {
                 this.setState({mesaj: "Your new password is set, please log in!"})
                 setTimeout(() => {
                     this.setState({redirect: true,})

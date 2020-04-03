@@ -1,5 +1,5 @@
 import {connect} from "react-redux";
-import ConfirmSale from "../../Components/Cart/ConfirmSale";
+import ConfirmSale from "../../Components/Cart/ConfirmOrders";
 
 
 

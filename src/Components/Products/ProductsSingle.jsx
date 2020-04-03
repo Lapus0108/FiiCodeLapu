@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Redirect} from "react-router-dom";
-import axios from "axios";
+import axiosRequest from "../../Utils/axios";
 import remove_article from '../../assets/images/Icons/Remove_product.png';
 import edit_article from  '../../assets/images/Icons/Edit_product.png';
 import sold_article from  '../../assets/images/Icons/Sold_product.png';
@@ -55,21 +55,9 @@ export default class ProductsSingle extends Component {
         this.setState({hover_edit: !this.state.hover_edit})
     }
 
-    getHttpClient() {
-        return axios.create({
-            baseURL: process.env.REACT_APP_SERVER_APP_URL,
-            timeout: 1000,
-            headers: {
-                'Content-Type': "application/json",
-                'Accept': "application/json",
-                'Authorization': "Bearer " + this.props.user.token
-            }
-        })
-    }
-
     componentDidMount() {
         const id_get = this.props.match.params.product;
-        this.getHttpClient().get("products/" + id_get)
+        axiosRequest.get("products/" + id_get)
             .then(res => {
                 const product = res.data;
                 this.setState({product: product, descriptionUpdated: product.description, priceUpdated: product.price});
@@ -79,7 +67,7 @@ export default class ProductsSingle extends Component {
     remove_article_function = (e) => {
         const id = this.props.match.params.product;
         e.preventDefault();
-        this.getHttpClient().delete("products/" + id)
+        axiosRequest.delete("products/" + id)
             .then(res => {
                 console.log(res.data);
                 this.setState({mesaj: "Your product has been deleted from Piazeta!"})
@@ -107,7 +95,6 @@ export default class ProductsSingle extends Component {
             return true
     }
 
-
     handleUpdateProduct = (e) => {
         const product_up = {
             id:this.state.product.id,
@@ -127,7 +114,7 @@ export default class ProductsSingle extends Component {
 
         const id = this.props.match.params.product;
 
-        this.getHttpClient().put('products/' + id, product_up)
+        axiosRequest.put('products/' + id, product_up)
             .then(res => {
                 console.log(res.data);
             })

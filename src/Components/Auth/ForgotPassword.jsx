@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-// import axiosRequest from '../../Utils/axios';
+import axiosRequest from '../../Utils/axios';
 
 export default class ForgotPassword extends Component {
     constructor() {
@@ -20,7 +20,7 @@ export default class ForgotPassword extends Component {
     }
 
     handleSubmit(event){
-        // axiosRequest.post("/password/email", {email:this.state.email});
+        axiosRequest.post("/password/email", {email:this.state.email});
         this.setState({
             mesaj_forgot_password:"Instructions have been sent to this email address in order to reset your password!",
             button_clicks:this.state.button_clicks+1
