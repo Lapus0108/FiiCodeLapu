@@ -59,7 +59,7 @@ export default class Cart extends Component {
             (
                 this.state.products.map(item => {
                     return (
-
+                        
                         <li className="collection-item avatar" key={item.id}>
                             <div className="item-img">
                                 <img src={item.image} className=""/>
@@ -95,10 +95,13 @@ export default class Cart extends Component {
                                         <img src={remove} alt="remove_from_cart"/>
                                     </div>
                                 </div>
-
-                            </div>
+                                {item.sold_out=== 1 ?
+                                <div>Item not avalabile anymore on Piazeta! Please remove it from your cart.</div>
+                                : ""}
+                                </div>
 
                         </li>
+                     
 
                     )
                 })

@@ -4,6 +4,7 @@ import axiosRequest from "../../Utils/axios";
 import remove_article from '../../assets/images/Icons/Remove_product.png';
 import edit_article from  '../../assets/images/Icons/Edit_product.png';
 import sold_article from  '../../assets/images/Icons/Sold_product.png';
+import Moment from 'react-moment';
 
 export default class ProductsSingle extends Component {
 
@@ -18,7 +19,8 @@ export default class ProductsSingle extends Component {
                 negotiable: 0,
                 seller_id: 0,
                 county_id:"",
-                image:""
+                image:"",
+                created_at:""
             },
             redirect: false,
             mesaj: "",
@@ -184,6 +186,14 @@ export default class ProductsSingle extends Component {
                             </> : ""}
 
                     {/*<div className="sgproduct_title">Sold by: {this.state.user.name}</div>*/}
+                    
+                    <div className="sgproduct_containertext">
+                        Uploaded on:{" "}
+                        <Moment format="DD.MM.YYYY">
+                        {this.state.product.created_at}
+                        </Moment>
+                    </div>
+                    
                     {this.state.product.negotiable === 1 ?
                         <div className="sgproduct_conditionals">! Product is negotiable</div> : "" }
                     {/*{item.exchangeable === true ?*/}

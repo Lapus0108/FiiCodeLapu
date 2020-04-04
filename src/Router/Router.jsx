@@ -18,7 +18,7 @@ import ConfirmSaleContainer from "../Containers/Cart/ConfirmSaleContainer";
 import CustomerChat from "../Components/CustomerChat";
 import ResetPassword from '../Components/Auth/ResetPassword';
 import ForgotPassword from '../Components/Auth/ForgotPassword';
-import ConfirmOrders from "../Components/Cart/ConfirmOrders";
+// import ConfirmOrders from "../Components/Cart/ConfirmOrders";
 
 
 
@@ -60,11 +60,17 @@ export default class Router extends Component {
                             isLoggedIn={this.props.isLoggedIn}
                         />
 
-                        {/* PAGINA INCEPUT */}
+                         {/* PAGINA INCEPUT */}
+                         <Route
+                            path={process.env.PUBLIC_URL}
+                            component={HomeContainer}
+                        />
+
                         <Route
                             path="/home"
                             component={HomeContainer}
                         />
+
 
                         {/* PAGINA PRODUSE */}
                         <Route
@@ -119,7 +125,7 @@ export default class Router extends Component {
                         {/* PAGINA CONFIRM SALE */}
                         <PrivateRoute 
                                path='/orders/:id'
-                               component={ConfirmOrders}
+                               component={ConfirmSaleContainer}
                                isLoggedIn={this.props.isLoggedIn}
                         />
 

@@ -6,7 +6,6 @@ export default class Receipt extends Component {
     constructor(props) {
         super();
         this.state = {
-            redirect: false,
             mesaj: "",
             sale: {
                 seller_id: "",
@@ -15,28 +14,26 @@ export default class Receipt extends Component {
                 price: ""
             }
         }
-    }
-
-    renderRedirect = () => {
-        if (this.state.redirect) {
-            return <Redirect to='/Products'/>
-        }
+        // this.handleSubmit=this.handleSubmit.bind(this);
+        
     }
 
     handleSubmit(event){
-        event.preventDefault();
         axiosRequest.post("/orders")
             .then(res => {
                 console.log(res);
-                return <Redirect to='/Products'/>
+                
             })
             .catch(error => {
                 console.log("registration error", error);
             })
+      window.location.href='/products'
+      event.preventDefault();
     }
 
-
     render() {
+        const disableButton= this.props.total>0;
+        console.log(disableButton);
         console.log(this.props.items)
         return (
             <>
@@ -45,7 +42,7 @@ export default class Receipt extends Component {
                     <li className="collection-item"><b>Total: {this.props.total} RON</b></li>
                 </div>
                 <div className="checkout">
-                    <button className="waves-effect waves-light btn" onClick={this.handleSubmit}>Submit your order
+                    <button className="waves-effect waves-light btn" disabled={!disableButton} onClick={this.handleSubmit}>Submit your order
                     </button>
                 </div>
             </div>

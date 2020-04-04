@@ -18,6 +18,7 @@ export default class Registration extends Component {
             bifa2: false,
             county: "",
             username: "",
+            phone_number:"",
             address: "",
             age: "",
             redirect: false,
@@ -47,7 +48,6 @@ export default class Registration extends Component {
 
     onChange1 = () => {
         this.setState(initialState => ({
-
             bifa1: !initialState.bifa1
         }));
     }
@@ -80,7 +80,8 @@ export default class Registration extends Component {
             age: this.state.age,
             address: this.state.address,
             county_id: this.state.county,
-            image: this.state.image 
+            image: this.state.image, 
+            phone_number: this.state.phone_number
         }
 
         if (this.state.password_confirmation === this.state.password) {
@@ -146,6 +147,15 @@ export default class Registration extends Component {
                         value={this.state.username}
                         maxLength={12}
                         onChange={this.handleChange}
+                        required/>
+
+                    <input
+                        type="text"
+                        name="phone_number"
+                        placeholder="Phone number"
+                        value={this.state.phone_number}
+                        maxLength={10}
+                        onChange={event => this.setState({phone_number: event.target.value.replace(/\D/, '')})}
                         required/>
 
                     <div className="input_image">

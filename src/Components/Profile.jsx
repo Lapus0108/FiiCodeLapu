@@ -110,14 +110,18 @@ export default class Profile extends Component {
                     <div className="container_tranzactii">
                         <div className="titlu_tranzactii">Your last products bought from the market:</div>
                         <div className="container_ultimele_tranzactii">
+                        {this.state.bought_products.map((item) => {
+                                return (
+
                             <div className="tranzactie">
-                                <div className="nume">Product: Vaza veche</div>
-                                <div className="nume">Price: 230 RON</div>
+                                <div className="nume">Product: {item.title} ({item.pivot.quantity})</div>
+                                <div className="nume">Price: {item.price*item.pivot.quantity} RON</div>
                                 <div className="nume">Bought on:{" "}
                                     <Moment format="DD.MM.YYYY">2020-03-29 14:37:19</Moment>
                                 </div>
 
                             </div>
+                                )})}
                         </div>
 
                     </div>

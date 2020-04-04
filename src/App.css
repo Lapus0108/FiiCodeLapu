@@ -184,11 +184,11 @@ margin-left: 10px;
 }
 
 .material-icons img {
-    width: 40px;
+    width: 58px;
     height: 42px;
 }
 .remove_cart img{
-    width: 40px;
+    width: 55px;
     height: 42px;
 }
 .item-img{
@@ -219,7 +219,7 @@ margin-left: 10px;
 
 .collection-item.avatar .title {
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 600;
     color: #ee6e73;
     display: block;
     margin-bottom: 20px;
@@ -1009,3 +1009,26 @@ margin-left: 10px;
     margin-top: 12px;
 
 }
+.mesaj_not_your_order{
+    font-size: 25px;
+    margin-top: 10%;
+    font-weight: 500;
+    font-family: serif;
+}
+.goback_not_your_order{
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.container_produse_confirm_sale{
+    height: 178px;
+    overflow-y: scroll;
+}
+.product_row_product_title{
+    text-align: left;
+    margin-top: 20px;
+    margin-left: 30px;
+    font-size: 20px;
+    font-weight: 600;
+}
+    

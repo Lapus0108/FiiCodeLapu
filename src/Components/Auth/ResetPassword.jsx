@@ -9,7 +9,6 @@ export default class ResetPassword extends Component {
             email: "",
             newPassword:"",
             confirmNewPassword:"",
-            redirect: false,
             mesaj:"",
             token: ""
         }
@@ -27,12 +26,6 @@ export default class ResetPassword extends Component {
         this.setState({token: this.props.location.pathname.slice(16), email: this.props.location.search.slice(7).replace("%40", "@")})
     }
 
-    renderRedirect = () => {
-        if (this.state.redirect) {
-            return <Redirect to='/home'/>
-        }
-    }
-
     handleSubmit(event){
         event.preventDefault();
         const new_password_details= {
@@ -44,12 +37,10 @@ export default class ResetPassword extends Component {
         {
             axiosRequest.post("password/reset", new_password_details).then(response => {
                 this.setState({mesaj: "Your new password is set, please log in!"})
-                setTimeout(() => {
-                    this.setState({redirect: true,})
-                }, 2000);
             }).catch(error => {
                 console.log("registration error", error);
-            })     
+            })    
+            window.location.href='/home';        
         }
         else 
             this.setState({mesaj: "Password and password confirmation do not match"})
@@ -59,7 +50,7 @@ export default class ResetPassword extends Component {
         return (
             <div className="forgot-password">
             <div className="forgot-password-title">Reset you password:</div>
-            <form onSubmit={this.handleSubmit}>
+            <form>
 
                 <input
                     type="email"
@@ -89,7 +80,7 @@ export default class ResetPassword extends Component {
                     onChange={this.handleChange}
                     required/>
 
-                <button type="submit" onClick={this.setRedirect}>Submit</button>
+                <button type="submit" onClick={this.handleSubmit}>Submit</button>
             </form>
 
             <div className="forgot_password_spatiu_erori">{this.state.mesaj}</div>

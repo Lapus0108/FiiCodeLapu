@@ -1,11 +1,11 @@
 import {connect} from "react-redux";
-import ConfirmSale from "../../Components/Cart/ConfirmOrders";
+import ConfirmOrders from "../../Components/Cart/ConfirmOrders";
 
 
 
 const mapStateToProps = (state) => {
     return {
-      
+      user:state.auth.user
     }
 }
 
@@ -15,4 +15,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ConfirmSale)
+export default connect(mapStateToProps, mapDispatchToProps)(ConfirmOrders)

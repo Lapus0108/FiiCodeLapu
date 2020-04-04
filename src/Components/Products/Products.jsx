@@ -59,17 +59,6 @@ export default class Products extends Component {
         axiosRequest.post("/cart/add-product", {product_id: item.id, quantity: 1})
     };
 
-    // getHttpClient() {
-    //     return axios.create({
-    //         baseURL: process.env.REACT_APP_SERVER_APP_URL,
-    //         timeout: 1000,
-    //         headers: {
-    //             'Content-Type': "application/json",
-    //             'Accept': "application/json",
-    //         }
-    //     })
-    // }
-
     componentDidMount() {
         axiosRequest.get("products")
             .then(res => {
@@ -96,7 +85,8 @@ export default class Products extends Component {
         if (this.state.filterCriteria == 2) {
             return date_compare;
         }
-        if (this.state.filterCriteria == 3) {
+        if (this.state.filterCriteria == 3 ||
+            this.state.filterCriteria==1) {
             return -1 * date_compare;
         }
         if (this.state.filterCriteria == 4) {
@@ -114,23 +104,11 @@ export default class Products extends Component {
     }
     
      render() {
-        
         const isLoggedIn = this.props;
-        let sortChoice=this.state.filterCriteria
         const data=this.state.produs;
-        console.log(data[0])
-        console.log(data.sort(this.sortFilters))
-        // console.log("Connected user ID:" ,this.props.user.id)
-        // const productsAnimals = data.filter(item => item.tags);
-        // console.log(productsAnimals);
-        
-        // switch (sortChoice) {
-        //     case 'priceAsc':
-                // data.sort(this.sortFilters);
-                // break;
-        // }
+        console.log("Connected user ID:" ,this.props.user.id)
     
-        let itemList = data.map(item => {
+        let itemList = data.sort(this.sortFilters).map(item => {
             item = { ...item, quantity: 0}
             return (
                  <div className="card" key={item.id}>
@@ -156,11 +134,8 @@ export default class Products extends Component {
                                     </b></p>
                             </div>
                  </div>
-                
-
             )
         })
-
 
         return (
             <div className="container">
