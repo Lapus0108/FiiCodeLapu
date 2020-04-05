@@ -81,7 +81,7 @@ export default class Registration extends Component {
             address: this.state.address,
             county_id: this.state.county,
             image: this.state.image, 
-            phone_number: this.state.phone_number
+            phone: this.state.phone_number
         }
 
         if (this.state.password_confirmation === this.state.password) {

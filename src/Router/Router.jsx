@@ -21,7 +21,6 @@ import ForgotPassword from '../Components/Auth/ForgotPassword';
 // import ConfirmOrders from "../Components/Cart/ConfirmOrders";
 
 
-
 export default class Router extends Component {
     constructor() {
         super();
@@ -35,8 +34,8 @@ export default class Router extends Component {
                     {this.props.isLoggedIn === true
                         ? <>
                         <Sidebar />
-                         <CustomerChat />
-                         </>
+                        <CustomerChat />
+                        </>
                         : ""}
                     <Switch>
 
@@ -60,8 +59,8 @@ export default class Router extends Component {
                             isLoggedIn={this.props.isLoggedIn}
                         />
 
-                         {/* PAGINA INCEPUT */}
-                         <Route
+                        {/* PAGINA INCEPUT */}
+                        <Route
                             path={process.env.PUBLIC_URL}
                             component={HomeContainer}
                         />
@@ -111,39 +110,39 @@ export default class Router extends Component {
                             component={AboutUs}/>
 
                         {/* PAGINA HARTA GOOGLE */}
-                        <Route path='/map' 
-                               component={Map} 
+                        <Route path='/map'
+                               component={Map}
                         />
 
                         {/* PAGINA PROFIL */}
-                        <PrivateRoute 
-                                path='/profile' 
-                               component={ProfileContainer} 
-                               isLoggedIn={this.props.isLoggedIn}
+                        <PrivateRoute
+                            path='/profile'
+                            component={ProfileContainer}
+                            isLoggedIn={this.props.isLoggedIn}
                         />
 
                         {/* PAGINA CONFIRM SALE */}
-                        <PrivateRoute 
-                               path='/orders/:id'
-                               component={ConfirmSaleContainer}
-                               isLoggedIn={this.props.isLoggedIn}
+                        <PrivateRoute
+                            path='/orders/:id'
+                            component={ConfirmSaleContainer}
+                            isLoggedIn={this.props.isLoggedIn}
                         />
 
-                         {/* PAGINA RESET PASSWORD */}
-                         <Route 
-                               path='/password/reset' 
-                               component={ResetPassword} 
-                               
+                        {/* PAGINA RESET PASSWORD */}
+                        <Route
+                            path='/password/reset'
+                            component={ResetPassword}
+
                         />
 
                         {/* PAGINA FORGOT PASSWORD */}
-                        <Route 
-                               path='/password/forgot' 
-                               component={ForgotPassword} 
-                               
+                        <Route
+                            path='/password/forgot'
+                            component={ForgotPassword}
+
                         />
 
-                            
+
                     </Switch>
                 </div>
             </BrowserRouter>

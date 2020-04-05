@@ -16,3 +16,18 @@ code {
     font-family: 'Retroholic';
     src: local('Retroholic'), url(assets/fonts/Retroholic-Demo.ttf) format('truetype');
 }
+
+@font-face {
+    font-family: 'Vintages';
+    src: local('Vintages'), url(assets/fonts/Vintages.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Franchise';
+    src: local('Franchise'), url(assets/fonts/Franchise.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: 'Franchise-Filled';
+    src: local('Franchise-filled'), url(assets/fonts/FranchiseFilled.ttf) format('truetype');
+}

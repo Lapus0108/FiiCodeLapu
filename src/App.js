@@ -6,6 +6,7 @@ import "@blueprintjs/core/lib/css/blueprint.css";
 import "@blueprintjs/icons/lib/css/blueprint-icons.css";
 import RouterContainer from "./Router/RouterContainer";
 import CookieConsent from "react-cookie-consent";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 export default class App extends Component {

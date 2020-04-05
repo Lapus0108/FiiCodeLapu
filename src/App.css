@@ -64,8 +64,6 @@
 .background_map_page {
     position: fixed;
     top: 0;
-   
-
 }
 
 .background_map_page img {
@@ -125,7 +123,6 @@
 }
 
 .sidebar {
-
     max-width: 240px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     background-color: darkred;
@@ -174,6 +171,8 @@ margin-left: 10px;
 .box {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    margin-left: 10%;
     flex-wrap: wrap
 }
 
@@ -201,11 +200,13 @@ margin-left: 10px;
 }
 
 .card {
+    margin: 10px;
     width: 400px;
+    height: 300px;
+    max-height: 300px;
 }
 
 .card .card-image .card-title {
-
     color: black;
 }
 
@@ -277,8 +278,8 @@ margin-left: 10px;
     width: max-content;
     margin-right: auto;
     margin-left: auto;
-    color: darkred;
-    font-family: Retroholic;
+    color: White;
+    font-family: Franchise;
 }
 
 .card-title {
@@ -370,8 +371,8 @@ margin-left: 10px;
 /* HOMEPAGE */
 
 .homepage_title {
-    font-family: Retroholic;
-    font-size: 130px;
+    font-family: Franchise;
+    font-size: 100px;
     position: absolute;
     left: 20%;
     top: 5%;
@@ -895,7 +896,7 @@ margin-left: 10px;
 }
 
 .titlu_app_sidebar{
-    font-family: Retroholic;
+    font-family: Franchise;
     font-size: 60px;
     position: absolute;
     bottom: 0;
