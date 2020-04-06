@@ -3,7 +3,6 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import {Link} from 'react-router-dom';
-
 import items from 'assets/data/sidebarRoutes'
 
 function Sidebar() {
@@ -16,7 +15,7 @@ function Sidebar() {
                         <>
                         <React.Fragment key={name}>
                             <div className="element_lista">
-                                <Link to={`/${name}`}>
+                                <Link to={`/${name}`} style={{textDecoration: 'none',color: '#FFFFFF'}}>
                                     <ListItem style={{paddingLeft: 18}} button {...rest}>
                                         <ListItemText>{label}</ListItemText>
                                     </ListItem>

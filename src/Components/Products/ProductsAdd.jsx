@@ -13,6 +13,7 @@ import tag_cars from '../../assets/images/Icons/Tags/Cars.png';
 import tag_tools from '../../assets/images/Icons/Tags/Tools.png';
 import tag_jewelry from '../../assets/images/Icons/Tags/Jewelry.png';
 import tag_other from '../../assets/images/Icons/Tags/Other.png';
+import {Switch} from "@blueprintjs/core";
 
 export default class ProductsAdd extends Component {
     constructor() {
@@ -198,31 +199,17 @@ export default class ProductsAdd extends Component {
                     </div>
 
                     <div className="add_product_bifa ">
-                        {/* trebuie pus link */}
-                        <label className="containerTermeni">
-
-                            <input
-                                onChange={this.onChange1}
-                                type="checkbox"
-                                checked={this.state.negotiable}
-                            />
+                      <Switch onChange={this.onChange1} checked={this.state.negotiable}>
                             I would like to receive negotiation offers
-                            <span className="checkmarkTermenisiConditii"/>
-                        </label>
+                      </Switch>
+                            
                     </div>
 
-                    <div className="add_product_bifa ">
-                        {/* trebuie pus link */}
-                        <label className="containerTermeni">
 
-                            <input
-                                onChange={this.onChange2}
-                                type="checkbox"
-                                checked={this.state.bifa2}
-                            />
+                    <div className="add_product_bifa ">
+                        <Switch onChange={this.onChange2} checked={this.state.bifa2}>
                             I assure that the declared data are real
-                            <span className="checkmarkTermenisiConditii"/>
-                        </label>
+                        </Switch>  
                     </div>
 
 

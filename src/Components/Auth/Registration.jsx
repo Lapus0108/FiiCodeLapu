@@ -2,9 +2,10 @@ import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
 import axiosRequest from "../../Utils/axios";
 
-import {FormGroup, InputGroup, Card, Elevation, FileInput} from '@blueprintjs/core'
+import {Card, Elevation, FileInput, Checkbox} from '@blueprintjs/core'
 
 import judete from 'assets/data/county.json'
+
 import CreateAccount from 'assets/images/buttons/CreateAccount.svg';
 import default_picture from '../../assets/images/Icons/ProfileDefault.png';
 
@@ -117,8 +118,8 @@ export default class Registration extends Component {
                         <div class="row justify-content-center">
                             <div class="col-sm-2"/>
                             <div class="col-sm-8">
-                                    <Card interactive={true} elevation={Elevation.TWO} className="no-margin no-background">
-                                        <div class="container">
+                                <Card className="no-margin no-background no-shadow no-border">
+                                    <div class="container">
                                         <h1 className="font-main">Register Now</h1>
                                         <form onSubmit={this.handleSubmit}>
                                             <input
@@ -192,15 +193,15 @@ export default class Registration extends Component {
                                                 required/>
 
                                             {/*<label className="font-main">Select county*/}
-                                                {/*<select value={this.state.county} onChange={this.handleChange}*/}
-                                                        {/*name="county" className="ml-2 input-main">*/}
-                                                    {/*{judete.map((item, key) => {*/}
-                                                        {/*return (*/}
-                                                            {/*<option value={item.id}*/}
-                                                                    {/*onChange={this.handleChange}>{item.name}</option>*/}
-                                                        {/*)*/}
-                                                    {/*})}*/}
-                                                {/*</select>*/}
+                                            {/*<select value={this.state.county} onChange={this.handleChange}*/}
+                                            {/*name="county" className="ml-2 input-main">*/}
+                                            {/*{judete.map((item, key) => {*/}
+                                            {/*return (*/}
+                                            {/*<option value={item.id}*/}
+                                            {/*onChange={this.handleChange}>{item.name}</option>*/}
+                                            {/*)*/}
+                                            {/*})}*/}
+                                            {/*</select>*/}
                                             {/*</label>*/}
 
 
@@ -237,16 +238,18 @@ export default class Registration extends Component {
                                                         type="checkbox"
                                                         className="mr-1"
                                                     />
-                                                        I agree with the privacy policies
+                                                    I agree with the privacy policies
                                                     <span className="checkmarkPolitici"/>
                                                 </label>
                                             </div>
 
-                                            <button className="input-button-main" type="submit" onClick={this.setRedirect}>Submit</button>
+                                            <button className="input-button-main" type="submit"
+                                                    onClick={this.setRedirect}>Submit
+                                            </button>
                                         </form>
                                         <div className="register_spatiu_erori">{this.state.mesaj}</div>
-                                        </div>
-                                    </Card>
+                                    </div>
+                                </Card>
                             </div>
                             <div class="col-sm-2"/>
                         </div>
