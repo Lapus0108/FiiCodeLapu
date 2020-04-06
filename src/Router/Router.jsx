@@ -18,6 +18,8 @@ import ConfirmSaleContainer from "../Containers/Cart/ConfirmSaleContainer";
 import CustomerChat from "../Components/CustomerChat";
 import ResetPassword from '../Components/Auth/ResetPassword';
 import ForgotPassword from '../Components/Auth/ForgotPassword';
+import MediaQuery from "react-responsive";
+import SidebarMobile from "../Components/SidebarMobile";
 // import ConfirmOrders from "../Components/Cart/ConfirmOrders";
 
 
@@ -33,8 +35,17 @@ export default class Router extends Component {
                 <div className="App">
                     {this.props.isLoggedIn === true
                         ? <>
-                        <Sidebar />
-                        <CustomerChat />
+                        <MediaQuery  minDeviceWidth={800} >
+                            <Sidebar />
+                            <CustomerChat />
+                        </MediaQuery>
+
+                        <MediaQuery  maxDeviceWidth={800} >
+                            <SidebarMobile />
+                           <CustomerChat />
+                            
+                        </MediaQuery>
+                                               
                         </>
                         : ""}
                     <Switch>

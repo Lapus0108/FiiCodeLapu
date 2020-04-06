@@ -49,14 +49,14 @@
 .dropdown_container {
     width: fit-content;
     height: 5vw;
-    font-size: 2.6vw;
+    font-size: 60px;
     justify-content: center;
     margin-bottom: 1vw;
     color: white;
-    font-family: serif;
+    font-family: retroholic;
     padding-left: 1vw;
     position: absolute;
-    top: 9vw;
+    top: 8vw;
     left: 15vw;
 
 }
@@ -64,10 +64,14 @@
 .background_map_page {
     position: fixed;
     top: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .background_map_page img {
     max-width: 100%;
+    height: 100%;
+    width:100%;
 }
 
 .add-remove {
@@ -101,13 +105,15 @@
 .titlu_pagina_harta {
     position: absolute;
     height: 70px;
+    width: -moz-fit-content;
     width: fit-content;
-    top: 4vw;
+    top: 3vw;
     color: white;
-    font-size: 55px;
+    font-size: 77px;
     padding-left: 0px;
-    font-family: serif;
+    font-family: Retroholic;
     left: 16vw;
+
 }
 
 .element_dropdown {
@@ -371,7 +377,7 @@ margin-left: 10px;
 /* HOMEPAGE */
 
 .homepage_title {
-    font-family: Franchise;
+    font-family: Retroholic;
     font-size: 100px;
     position: absolute;
     left: 20%;
@@ -896,7 +902,7 @@ margin-left: 10px;
 }
 
 .titlu_app_sidebar{
-    font-family: Franchise;
+    font-family: Retroholic;
     font-size: 60px;
     position: absolute;
     bottom: 0;
@@ -1032,4 +1038,107 @@ margin-left: 10px;
     font-size: 20px;
     font-weight: 600;
 }
-    
+
+.mailing{
+    margin-top: 3%;
+    height: 100%;
+    width: 100%;
+}
+.mailing_title{
+    font-size: 60px;
+    font-family: Retroholic;
+}
+.mailing_paragraph{
+    font-family: retroholic;
+    font-size: 40px;
+    text-align: left;
+    margin-left: 230px;
+    margin-top: 25px;
+}
+.mailing_paragraph_content{
+    padding-left: 281px;
+    padding-right: 50px;
+    font-size: 21px;
+    text-align: left;
+    text-indent: 50px;
+    font-family: serif;
+}
+.spacer {
+    padding-top: 20px;
+    /* padding-bottom: 25px;*/
+} 
+.list_element{
+    text-align: left;
+    margin-left: 331px;
+    font-size: 17px;
+    margin-top: 10px;
+    font-family: serif;
+}
+.li{
+    font-size: 18px;
+    text-align: left;
+    margin-left: 331px;
+    font-family: serif;
+    margin-top: 7px;
+
+}
+.spatiu_gol{
+    height: 60px;
+}
+.footer_mailing{
+    font-size: 18px;
+    font-family: serif;
+    margin-bottom: 10px;
+}
+
+.mailing a{
+    text-decoration: none;
+    color: black;
+    font-weight: 500
+}
+.text_mobile_device{
+    width: 100%;
+    text-align: center;
+    font-family: Retroholic;
+    font-size: 35px;
+}
+.logo_mobile_devices{
+    width: 100%;
+    margin-top: 50px;
+    text-align: center;
+    font-family: Retroholic;
+    font-size: 60px;
+}
+.text_stay_tuned{
+    width: 100%;
+    margin-top: 50px;
+    text-align: center;
+    font-family: Retroholic;
+    font-size: 35px;
+}
+.mobile_dev{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+.bottom_buttons{
+    display: flex;
+    width: 100%;
+    position: fixed;
+    bottom: 5%;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+    font-family: serif;
+}
+.bottom_buton{
+    margin: auto;
+}
+.bottom_buton img{
+    height: 40px;
+    width: 40px;
+}
+.button_bottom_text{
+    color: white;
+    font-size:70%;
+}

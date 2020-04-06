@@ -4,6 +4,9 @@ import axiosRequest from "../../Utils/axios";
 import judete from 'assets/data/county.json'
 import background_auth from 'assets/images/Buton_lemn.png';
 import default_picture from '../../assets/images/Icons/ProfileDefault.png';
+import {Checkbox, FileInput} from "@blueprintjs/core";
+import { Select } from "@blueprintjs/select";
+
 
 export default class Registration extends Component {
     constructor() {
@@ -139,7 +142,6 @@ export default class Registration extends Component {
                         onChange={this.handleChange}
                         required/>
 
-
                     <input
                         type="text"
                         name="username"
@@ -158,14 +160,14 @@ export default class Registration extends Component {
                         onChange={event => this.setState({phone_number: event.target.value.replace(/\D/, '')})}
                         required/>
 
-                    <div className="input_image">
+                    {/* <div className="input_image">
                         <input 
                         type="file" 
                         onChange={this.onImageChange} 
                         className="filetype" 
                         id="user_image"/>
-                    </div>
-
+                    </div> */}
+                        
                     <input
                         type="text"
                         name="age"
@@ -185,7 +187,6 @@ export default class Registration extends Component {
                         </select>
                     </label>
 
-
                     <input
                         type="text"
                         name="address"
@@ -194,36 +195,25 @@ export default class Registration extends Component {
                         onChange={this.handleChange}
                         required/>
 
+                    <FileInput hasSelection={this.state.has_image} text="Choose profile photo" onInputChange={this.onImageChange} />
 
                     <div className="politici marginBottomInputs">
-                        {/* trebuie pus link */}
-                        <label className="containerTermeni">
-
-                            <input
-                                required
-                                onChange={this.onChange1}
-                                type="checkbox"
-                                checked={this.state.bifa1}
-                            />
+                        <Checkbox
+                            onChange={this.onChange1}
+                            checked={this.state.bifa1}
+                        >
                             I agree with the terms and conditions
-                            <span className="checkmarkTermenisiConditii"/>
-                        </label>
+                        </Checkbox>
                     </div>
 
                     <div className="politici marginBottomInputs">
-                        <label className="containerPolitici">
-                            {/* trebuie pus link */}
-
-                            <input
-                                required
-                                onChange={this.onChange2}
-                                checked={this.state.bifa2}
-                                type="checkbox"
-                            />
-                            
+                        <Checkbox
+                            required
+                            onChange={this.onChange2}
+                            checked={this.state.bifa2}
+                        >    
                             I agree with the privacy policies
-                            <span className="checkmarkPolitici"/>
-                        </label>
+                        </Checkbox> 
                     </div>
 
                     <button type="submit" onClick={this.setRedirect}>Register</button>
