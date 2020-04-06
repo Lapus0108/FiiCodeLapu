@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
 import axiosRequest from "../../Utils/axios";
 import {Link} from 'react-router-dom';
-import background_auth from 'assets/images/Buton_lemn.png';
+import LoginImage from '../../assets/images/buttons/Login.svg';
 
 export default class Login extends Component {
     constructor() {
@@ -63,34 +63,39 @@ export default class Login extends Component {
         return (
             <>
             {this.renderRedirect()}
-            <div className="container_titlu_auth">
-                <img src={background_auth} alt="login_img"/>
-                <div className="titlu_pagina_auth">Login</div>
-            </div>
-            <div className="container_register">
-                <form onSubmit={this.handleSubmit}>
-                    <input
-                        type="email"
-                        name="email"
-                        placeholder="Email"
-                        value={this.state.email}
-                        onChange={this.handleChange}
-                        required/>
+            <div className="container h-100">
+                <div class="row">
+                    <div class="col-sm-3"/>
+                    <div class="col-sm-6">
+                        <img src={LoginImage} alt="login" class="title-image"/>
+                        <div className="container_register">
+                            <form onSubmit={this.handleSubmit}>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    placeholder="Email"
+                                    value={this.state.email}
+                                    onChange={this.handleChange}
+                                    required/>
 
-                    <input
-                        type="password"
-                        name="password"
-                        placeholder="Password"
-                        value={this.state.password}
-                        onChange={this.handleChange}
-                        required/>
+                                <input
+                                    type="password"
+                                    name="password"
+                                    placeholder="Password"
+                                    value={this.state.password}
+                                    onChange={this.handleChange}
+                                    required/>
 
-                    {/*<Button type="submit" class="bp3-large" intent="primary" text="Login" onClick={this.handleSubmit} />*/}
-                    <button type="submit" onClick={this.handleSubmit}>Login</button>
-                </form>
-                <Link to="/password/forgot">
-                    <div className="login_forgot_password">Forgot password?</div>
-                </Link>
+                                {/*<Button type="submit" class="bp3-large" intent="primary" text="Login" onClick={this.handleSubmit} />*/}
+                                <button type="submit" onClick={this.handleSubmit}>Login</button>
+                            </form>
+                            <Link to="/password/forgot">
+                                <div className="login_forgot_password">Forgot password?</div>
+                            </Link>
+                        </div>
+                    </div>
+                    <div class="col-sm-3"/>
+                </div>
             </div>
             </>
         );

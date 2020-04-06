@@ -13,6 +13,28 @@
     }
 }
 
+.no-background {
+    background: none ! important;
+}
+
+.no-margin {
+    margin: 0 ! important;
+    padding: 0 ! important;
+}
+
+.font-main {
+    font-family: Franchise;
+}
+
+.color-primary {
+    color: white;
+}
+
+.title-image {
+    width: 75%;
+    height: 25%;
+}
+
 .App-header {
     background-color: #282c34;
     min-height: 100vh;
@@ -305,7 +327,6 @@ margin-left: 10px;
 }
 
 .container_register {
-    width: 365px;
     height: auto;
     margin-left: auto;
     margin-right: auto;
@@ -313,7 +334,7 @@ margin-left: 10px;
     top: 45px;
 }
 
-.container_register button {
+.input-button-main {
     background-color: darkred;
     color: white;
     border-radius: 15px;
@@ -322,8 +343,8 @@ margin-left: 10px;
     font-family: serif;
 }
 
-.container_register input {
-    font-size: 16px;
+.input-main {
+    font-size: large;
     margin-bottom: 13px;
     height: 25px;
     background-color: burlywood;
@@ -386,38 +407,38 @@ margin-left: 10px;
     margin-right: auto;
     margin-left: auto;
     margin-top: 174px;
-
 }
 
-.container_buton1 {
-    position: absolute;
-    height: 140px;
-    width: 200px;
+.container_buton {
+    align-self: center;
+    align-content: center;
+    justify-content: center;
+    height: 25%;
+    width: 50%;
     left: 0;
     top: 0;
-
 }
 
 .container_buton2 {
     position: absolute;
-    height: 140px;
-    width: 200px;
+    height: 25%;
+    width: 50%;
     right: 0;
     top: 0;
 }
 
 .container_buton3 {
     position: absolute;
-    height: 140px;
-    width: 200px;
+    height: 25%;
+    width: 50%;
     left: 0;
     bottom: 0;
 }
 
 .container_buton4 {
     position: absolute;
-    height: 140px;
-    width: 200px;
+    height: 25%;
+    width: 50%;
     right: 0;
     bottom: 0;
 }

@@ -6,6 +6,7 @@ import {Provider} from 'react-redux';
 import "./assets/fonts/Retroholic-Demo.ttf";
 import {store, persistor} from './Reducers/configStore'
 import {PersistGate} from 'redux-persist/integration/react'
+import 'bootstrap/dist/css/bootstrap.min.css';
 require('dotenv').config();
 
 // Every time the state changes, log it

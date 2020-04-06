@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Redirect} from "react-router-dom";
 import axiosRequest from "../../Utils/axios";
 
-import background_auth from 'assets/images/Buton_lemn.png';
+import LogoutImage from 'assets/images/buttons/Logout.svg';
 
 export default class Logout extends Component {
     constructor() {
@@ -36,12 +36,19 @@ export default class Logout extends Component {
         return (
             <>
             {this.renderRedirect()}
-            <div className="container_titlu_auth">
-                <img src={background_auth} alt="login_img"/>
-                <div className="titlu_pagina_auth">Logout</div>
-            </div>
-            <div className="logout_message">
-                <h1>Logging you out...</h1>
+            <div className="container h-100">
+                <div class="row">
+                    <div class="col-sm-3"/>
+                    <div class="col-sm-6">
+                        <img src={LogoutImage} alt="logout" class="title-image"/>
+                        <div class="row justify-content-center">
+                            <div class="display-1 font-main color-primary pt-5 mt-5">
+                                <h1>Logging you out...</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3"/>
+                </div>
             </div>
             </>
         )
