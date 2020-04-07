@@ -37,12 +37,14 @@ const filterCriterias = [
 
 const colors = ["#5c7329", "#5c7329", "#c69421", "#cc6f22", "#8c2f0b"];
 
+
 export default class Products extends Component {
 
     constructor() {
         super();
         this.state = {
             filterCriteria: 1,
+            search:"",
             produs: [{
                 id: "",
                 name: "",
@@ -56,6 +58,7 @@ export default class Products extends Component {
         }
         this.handleChange = this.handleChange.bind(this);
         this.sortFilters = this.sortFilters.bind(this);
+        this.updateSearch=this.updateSearch.bind(this);
 
     }
 
@@ -80,6 +83,10 @@ export default class Products extends Component {
 
     handleChange(event) {
         this.setState({[event.target.name]: event.target.value})
+    }
+
+    updateSearch(event){
+        this.setState({search: event.target.value});
     }
 
     sortFilters(a, b) {
@@ -109,10 +116,16 @@ export default class Products extends Component {
     }
 
     render() {
-        const data = this.state.produs;
         console.log("Connected user ID:", this.props.user.id)
+        let data = this.state.produs;
+        
+        let filteredData=this.state.produs.filter(
+            (item)=>{
+            return item.description.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+        });
+        console.log(filteredData);
 
-        let itemList = data.sort(this.sortFilters).map(item => {
+        let itemList = filteredData.sort(this.sortFilters).map(item => {
             item = {...item, quantity: 0}
             return (
                 <div className="card" key={item.id}>
@@ -156,8 +169,11 @@ export default class Products extends Component {
 
         return (
             <div className="container">
+                
                 <h3 className="center_title">Products</h3>
+                <div class="row">
                 <div className="productsFilters">
+                    <div class="col">
                     <label>Sort by:
                         <select value={this.state.filterCriteria} onChange={this.handleChange} name="filterCriteria">
                             {filterCriterias.map((item, key) => {
@@ -167,11 +183,22 @@ export default class Products extends Component {
                             })}
                         </select>
                     </label>
+                    </div>
+                    
+                    <div class="col">
+                    <input type="text"
+                        placeholder={"Explore our market..."}
+                        value={this.state.search}
+                        onChange={this.updateSearch}/>
+                    </div>
+                </div>
+                    
                 </div>
 
                 <div className="box">
                     {itemList}
                 </div>
+            
             </div>
         )
     }

@@ -4,6 +4,7 @@ import your_products from '../assets/images/Icons/Published.png';
 import purchased_products from '../assets/images/Icons/Cart_full.png';
 import Moment from 'react-moment';
 import axiosRequest from '../Utils/axios';
+import background_profile from '../assets/images/buttons/template.svg';
 
 export default class Profile extends Component {
     constructor() {
@@ -55,31 +56,42 @@ export default class Profile extends Component {
     render() {
 
         return (
-            <div>
-
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col col-xl-5">
+                    {/* <img src={background_profile}/> */}
                 <div className="container_user_info_profile">
+                    
                     <div className="container_imagine_profile">
                         <img src={this.state.image}/>
                         {this.props.isLoggedIn ?
                             <div className="status_user" style={{color: "#18ba44", fontWeight: 600}}>LOGGED IN</div>
                             : <div className="status_user" style={{color: "red"}}>NOT LOGGED IN</div>}
                     </div>
+                    <div class="row">
+                        <div class="col">
                     <div className="container_date_profile">
                         <div className="info_user_text">Username: {this.state.name}</div>
                         <div className="info_user_text">Email: {this.state.email}</div>
                         <div className="info_user_text">County: Iasi, Romania</div>
-                        <div className="info_user_text">Click to see to see your published articles
+                        <div className="info_user_text">
+                            <div>Click to see to see your published articles</div>
                             <img src={your_products} onClick={this.showPublished}/>
                         </div>
-                        <div className="info_user_text">Click to see the purchased items
+                        <div className="info_user_text">
+                            <div>Click to see the purchased items</div>
                             <img src={purchased_products} onClick={this.showPurchased}/>
                         </div>
-
-
                     </div>
+                         </div>
+                    </div>
+                </div>
                 </div>
 
                 {this.state.seePublished ?
+                <div class="container-fluid">
+                    <div class="row pb-5 ">
+                        <div class="col col-xl-5">
                     <div className="container_tranzactii">
                         <div className="titlu_tranzactii">Your last products published on the market:</div>
                         <div className="container_ultimele_tranzactii">
@@ -87,26 +99,31 @@ export default class Profile extends Component {
                                 return (
 
                                     <div className="tranzactie">
-                                        <div className="nume">Product: {item.title}</div>
-                                        <div className="nume">Price: {item.price} RON</div>
-                                        <div className="nume">Published on: {" "}
+                                        <div className="col">Product: {item.title}</div>
+                                        <div className="col">Price: {item.price} RON</div>
+                                        <div className="col">Published on: {" "}
                                             <Moment format="DD.MM.YYYY">{item.created_at}</Moment>
                                         </div>
                                         {!item.sold_out ?
-                                            <div className="nume">Status: Avalabile</div>
+                                            <div className="col">Status: Avalabile</div>
                                             :
-                                            <div className="nume">Status: Unavalabile</div>
+                                            <div className="col">Status: Unavalabile</div>
                                         }
 
                                     </div>
                                 )
                             })}
                         </div>
-
+                        </div>
+                        </div>
+                    </div>
                     </div>
                     : ""}
 
                 {this.state.seePurchased ?
+                <div class="container-fluid">
+                    <div class="row pb-5">
+                        <div class="col col-xl-5">
                     <div className="container_tranzactii">
                         <div className="titlu_tranzactii">Your last products bought from the market:</div>
                         <div className="container_ultimele_tranzactii">
@@ -114,18 +131,23 @@ export default class Profile extends Component {
                                 return (
 
                             <div className="tranzactie">
-                                <div className="nume">Product: {item.title} ({item.pivot.quantity})</div>
-                                <div className="nume">Price: {item.price*item.pivot.quantity} RON</div>
-                                <div className="nume">Bought on:{" "}
+                                
+                                <div className="col">Product: {item.title} ({item.pivot.quantity})</div>
+                                <div className="col">Price: {item.price*item.pivot.quantity} RON</div>
+                                <div className="col">Bought on:{" "}
                                     <Moment format="DD.MM.YYYY">2020-03-29 14:37:19</Moment>
                                 </div>
 
                             </div>
                                 )})}
                         </div>
-
                     </div>
+                    </div>
+                    </div>
+                    </div>
+
                     : ""}
+            </div>
             </div>
         )
 

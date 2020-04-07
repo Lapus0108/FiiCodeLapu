@@ -8,7 +8,16 @@ export default class AboutUs extends Component {
 
     render() {
         return (
-            <div></div>
+            <div>
+                <div class="container-fluid">
+                    <h class="titlu_mailing"></h> 
+                    <div class="row"> 
+                        <div class="col">
+                            <p class="text-left"></p></div>
+                       
+                    </div> 
+                </div>
+            </div>
         )
     }
 }

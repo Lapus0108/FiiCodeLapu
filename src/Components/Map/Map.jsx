@@ -66,18 +66,29 @@ export class MapContainer extends Component {
     render() {
         return (
             <>
-            <div className="titlu_pagina_harta">Where can you quickly send the letter?</div>
-            <div className="dropdown_container">Select your county:
-                        <select value={this.state.judet_ales.nume} onChange={this.handleChange}  name="judet_ales" style={{marginLeft: 15, fontSize:30}}>
+            <div class="container-fluid">
+                <div class="row"> 
+                        <div class="col-sm-12 col-lg-12">
+                            <h className="titlu_pagina_harta">Where can you quickly send the letter?</h>
+                        </div>
+                </div>
+                
+                <div class="row">
+                    {/* <div class="col">Select your county:</div> */}
+                    <div class="col">Select your county:
+                        <select value={this.state.judet_ales.nume} onChange={this.handleChange}  name="judet_ales" style={{marginLeft: 15, fontSize:15}}>
                             {judete.map((item, key) => {
                                 return (
                                     <option value={item.id}>{item.name}</option>
                                 )
                             })}
                         </select>
+                </div>
              </div>
-
-            <div className="container_mapa_google">
+                            </div>
+            <div class="container justify-content-center  ">
+            <div class="row d-flex justify-content-center mr-2 pb-5">
+                <div class="col container_mapa_google col-xl-5 ">
 
             <Map
                     google={this.props.google}
@@ -105,9 +116,11 @@ export class MapContainer extends Component {
                         </div>
                 </InfoWindow>
             </Map>
-                
             </div>
-            </>
+            </div>
+            </div>
+            <div className="sp_gol"></div>
+        </>
         )
     }
 }

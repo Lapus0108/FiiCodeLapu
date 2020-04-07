@@ -1,11 +1,8 @@
 import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
 import axiosRequest from "../../Utils/axios";
-
 import {Card, Elevation, FileInput, Checkbox} from '@blueprintjs/core'
-
 import judete from 'assets/data/county.json'
-
 import CreateAccount from 'assets/images/buttons/CreateAccount.svg';
 import default_picture from '../../assets/images/Icons/ProfileDefault.png';
 

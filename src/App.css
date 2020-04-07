@@ -69,11 +69,8 @@
 
 /* Pagina harta google */
 .container_mapa_google {
-    width: 55vw;
-    height: 33vw;
-    position: absolute;
-    top: 13vw;
-    left: 14vw;
+  top: 8vh;
+  height: 45vh;
 }
 
 .dropdown_container {
@@ -90,7 +87,10 @@
     left: 15vw;
 
 }
-
+.sp_gol{
+    width: 100%;
+    height: 100px;
+}
 .background_map_page {
     position: fixed;
     top: 0;
@@ -133,16 +133,12 @@
 }
 
 .titlu_pagina_harta {
-    position: absolute;
     height: 70px;
-    width: -moz-fit-content;
     width: fit-content;
     top: 3vw;
     color: white;
-    font-size: 77px;
-    padding-left: 0px;
-    font-family: Retroholic;
-    left: 16vw;
+    font-size: 60px;
+     font-family: Retroholic;
 
 }
 
@@ -163,7 +159,6 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
     background-color: darkred;
     color: whitesmoke;
-    position: fixed;
     height: 100%;
     top: 0;
 }
@@ -172,9 +167,6 @@
     font-size: 0.8rem;
 }
 
-.total {
-    display: inline-flex;
-}
 
 /* pentru produse si cart */
 
@@ -331,7 +323,7 @@ margin-left: 10px;
 .App {
     width: 100%;
     height: 100%;
-    position: absolute;
+    overflow: auto;
 }
 
 .container_register form {
@@ -777,16 +769,15 @@ margin-left: 10px;
 /* PROFILE */
 
 .container_user_info_profile{
-    width: 600px;
-    height: 300px;
-    position: absolute;
-    left: 20%;
-    top: 10%;
-    background-color: darkcyan;
+    width: 100%;
+    height: 35vh;
+    border-radius: 5px;
     display: inline-flex;
+    margin-top:3vh;
+    background-color: cornsilk;
+    /* background-image:url("../src/assets/images/Icons/template.png"); */
 }
 .container_date_profile{
-    width: 370px;
     display: inline-grid;
     height: 100%;
     padding-top: 15px;
@@ -811,9 +802,14 @@ margin-left: 10px;
     font-weight: 600;
     display: inline-flex;
 }
+.info_user_text div{
+    align-self: center;
+}
 .info_user_text img{
     height: 25px;
     padding-left: 10px;
+    align-self: center;
+    padding-right: 10px;
 }
 .status_user{
     height: fit-content;
@@ -821,13 +817,13 @@ margin-left: 10px;
 }
 
 .container_tranzactii{
-    width: 600px;
+    width: 100%;
     height: 300px;
-    position: absolute;
-    left: 20%;
-    top: 50%;
-    background-color: darkcyan;
+    background-color: cornsilk;
     display: table;
+    margin-top: 3vh;
+    border-radius: 5px;
+
 }
 .titlu_tranzactii{
     height: fit-content;
@@ -845,7 +841,7 @@ margin-left: 10px;
 }
 .tranzactie{
     width: 100%;
-    height: 50px;
+    height: auto;
     display: inline-flex;
     font-weight: 500;
 }
@@ -1080,13 +1076,9 @@ margin-left: 10px;
 .mailing_paragraph{
     font-family: retroholic;
     font-size: 40px;
-    text-align: left;
-    margin-left: 230px;
     margin-top: 25px;
 }
 .mailing_paragraph_content{
-    padding-left: 281px;
-    padding-right: 50px;
     font-size: 21px;
     text-align: left;
     text-indent: 50px;
@@ -1098,7 +1090,7 @@ margin-left: 10px;
 } 
 .list_element{
     text-align: left;
-    margin-left: 331px;
+    
     font-size: 17px;
     margin-top: 10px;
     font-family: serif;
@@ -1106,13 +1098,13 @@ margin-left: 10px;
 .li{
     font-size: 18px;
     text-align: left;
-    margin-left: 331px;
+   
     font-family: serif;
     margin-top: 7px;
 
 }
 .spatiu_gol{
-    height: 60px;
+    height: 90px;
 }
 .footer_mailing{
     font-size: 18px;
@@ -1154,11 +1146,13 @@ margin-left: 10px;
     display: flex;
     width: 100%;
     position: fixed;
-    bottom: 5%;
+    bottom: 0%;
     font-size: 20px;
     font-weight: 600;
     color: white;
     font-family: serif;
+    z-index: 99;
+    background-color: maroon;
 }
 .bottom_buton{
     margin: auto;
@@ -1170,4 +1164,14 @@ margin-left: 10px;
 .button_bottom_text{
     color: white;
     font-size:70%;
+}
+.titlu_mailing{
+    font-family: Retroholic;
+    font-size: 60px;
+}
+.retro_app_total{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    display: inline-flex;
 }
