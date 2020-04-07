@@ -35,17 +35,10 @@ export default class Router extends Component {
                 <div className="App">
                     {this.props.isLoggedIn === true
                         ? <>
-                        <MediaQuery  minDeviceWidth={800} >
+                        <MediaQuery  minDeviceWidth={800} minDeviceHeight={800}>>
                             <Sidebar />
                             <CustomerChat />
                         </MediaQuery>
-
-                        <MediaQuery  maxDeviceWidth={800} >
-                            <SidebarMobile />
-                           <CustomerChat />
-                            
-                        </MediaQuery>
-                                               
                         </>
                         : ""}
                     <Switch>
@@ -155,6 +148,16 @@ export default class Router extends Component {
 
 
                     </Switch>
+                    {this.props.isLoggedIn === true
+                            ? <>
+                            <MediaQuery  maxDeviceWidth={800} maxDeviceHeight={800}>
+                                <SidebarMobile />
+                                <CustomerChat />
+
+                            </MediaQuery>
+
+                            </>
+                            : ""}
                 </div>
             </BrowserRouter>
         )

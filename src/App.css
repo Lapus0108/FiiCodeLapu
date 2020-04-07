@@ -34,13 +34,21 @@
     font-family: Franchise;
 }
 
+.font-secondary {
+    font-family: Serif;
+}
+
 .color-primary {
     color: white;
 }
 
+.background-primary{
+    background-color: #edd294 !important;
+}
+
 .title-image {
     width: 75%;
-    height: 25%;
+    height: 100%;
 }
 
 .App-header {
@@ -237,7 +245,6 @@ margin-left: 10px;
 
 .card {
     margin: 10px;
-    width: 400px;
     height: 300px;
     max-height: 300px;
 }
@@ -349,6 +356,7 @@ margin-left: 10px;
 }
 
 .input-button-main {
+    width: 50%;
     background-color: darkred;
     color: white;
     border-radius: 15px;
@@ -360,11 +368,11 @@ margin-left: 10px;
 .input-main {
     font-size: large;
     margin-bottom: 13px;
-    height: 25px;
+    height: 100%;
     background-color: burlywood;
     border-radius: 5px;
     font-family: serif;
-
+    width: 90%;
 }
 
 .titlu_pagina_auth {

@@ -64,34 +64,46 @@ export default class Login extends Component {
             <>
             {this.renderRedirect()}
             <div className="container h-100">
-                <div class="row">
+                <div class="row h-100">
                     <div class="col-sm-3"/>
                     <div class="col-sm-6">
-                        <img src={LoginImage} alt="login" class="title-image"/>
-                        <div className="container_register">
-                            <form onSubmit={this.handleSubmit}>
-                                <input
-                                    type="email"
-                                    name="email"
-                                    placeholder="Email"
-                                    value={this.state.email}
-                                    onChange={this.handleChange}
-                                    required/>
+                        <div className="row justify-content-center h-25">
+                            <img src={LoginImage} alt="login" class="title-image"/>
+                        </div>
+                        <div class="row justify-content-center h-75 mt-2">
+                            <div class="col-sm-2"/>
+                            <div class="col-sm-8">
+                                <div class="container no-margin">
+                                    <form onSubmit={this.handleSubmit}>
+                                        <input
+                                            className="input-main"
+                                            type="email"
+                                            name="email"
+                                            placeholder="Email"
+                                            value={this.state.email}
+                                            onChange={this.handleChange}
+                                            required/>
 
-                                <input
-                                    type="password"
-                                    name="password"
-                                    placeholder="Password"
-                                    value={this.state.password}
-                                    onChange={this.handleChange}
-                                    required/>
+                                        <input
+                                            className="input-main"
+                                            type="password"
+                                            name="password"
+                                            placeholder="Password"
+                                            value={this.state.password}
+                                            onChange={this.handleChange}
+                                            required/>
 
-                                {/*<Button type="submit" class="bp3-large" intent="primary" text="Login" onClick={this.handleSubmit} />*/}
-                                <button type="submit" onClick={this.handleSubmit}>Login</button>
-                            </form>
-                            <Link to="/password/forgot">
-                                <div className="login_forgot_password">Forgot password?</div>
-                            </Link>
+                                        {/*<Button type="submit" class="bp3-large" intent="primary" text="Login" onClick={this.handleSubmit} />*/}
+                                        <button class="input-button-main" type="submit" onClick={this.handleSubmit}>
+                                            Login
+                                        </button>
+                                    </form>
+                                    <Link to="/password/forgot">
+                                        <div className="login_forgot_password">Forgot password?</div>
+                                    </Link>
+                                </div>
+                            </div>
+                            <div class="col-sm-2"/>
                         </div>
                     </div>
                     <div class="col-sm-3"/>

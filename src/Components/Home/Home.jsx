@@ -43,7 +43,9 @@ export default class HomeMenu extends Component {
                         <p class="text-sm-center font-main color-primary">Designed and created for FiiCODE 2020</p>
                     </div>
                 </div>
-                {this.props.isLoggedIn === false ? <HomeGuest /> : <HomeUser />}
+                <div class="row h-75">
+                    {this.props.isLoggedIn === false ? <HomeGuest /> : <HomeUser />}
+                </div>
                 {/*</div>*/}
                 {/*{ this.state.displayRating && this.props.isLoggedIn ?*/}
                 {/*<div className="review_app">*/}

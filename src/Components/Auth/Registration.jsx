@@ -47,7 +47,7 @@ export default class Registration extends Component {
 
     handleChange(event) {
         this.setState({
-            [event.target.id]: event.target.value
+            [event.target.name]: event.target.value
         })
     }
 
@@ -111,150 +111,149 @@ export default class Registration extends Component {
             <>
             {this.renderRedirect()}
             <div class="container h-100">
-                <div class="row">
+                <div class="row h-100">
                     <div class="col-sm-3"/>
                     <div class="col-sm-6">
-                        <img src={CreateAccount} alt="create_account" className="title-image"/>
+                        <div className="row justify-content-center h-25">
+                            <img src={CreateAccount} alt="create_account" className="title-image"/>
+                        </div>
                         <div class="row justify-content-center">
                             <div class="col-sm-2"/>
                             <div class="col-sm-8">
-                                <Card className="no-margin no-background no-shadow no-border">
-                                    <div class="container">
-                                        <h1 className="font-main">Register Now</h1>
-                                        <form onSubmit={this.handleSubmit}>
+                                <div class="container no-margin">
+                                    <form onSubmit={this.handleSubmit} className="no-margin">
+                                        <input
+                                            className="input-main"
+                                            type="email"
+                                            name="email"
+                                            placeholder="Email"
+                                            value={this.state.email}
+                                            onChange={this.handleChange}
+                                            required/>
+
+                                        <input
+                                            className="input-main"
+                                            type="password"
+                                            name="password"
+                                            placeholder="Password"
+                                            value={this.state.password}
+                                            maxLength={16}
+                                            minLength={8}
+                                            onChange={this.handleChange}
+                                            required/>
+
+                                        <input
+                                            className="input-main"
+                                            type="password"
+                                            name="password_confirmation"
+                                            placeholder="Confirm password"
+                                            value={this.state.password_confirmation}
+                                            maxLength={16}
+                                            minLength={8}
+                                            onChange={this.handleChange}
+                                            required/>
+
+
+                                        <input
+                                            className="input-main"
+                                            type="text"
+                                            name="username"
+                                            placeholder="Username"
+                                            value={this.state.username}
+                                            maxLength={12}
+                                            onChange={this.handleChange}
+                                            required/>
+
+                                        <input
+                                            className="input-main"
+                                            type="text"
+                                            name="phone_number"
+                                            placeholder="Phone number"
+                                            value={this.state.phone_number}
+                                            maxLength={10}
+                                            onChange={event => this.setState({phone_number: event.target.value.replace(/\D/, '')})}
+                                            required/>
+
+                                        <div className="container font-secondary small">
                                             <input
-                                                className="input-main"
-                                                type="email"
-                                                name="email"
-                                                placeholder="Email"
-                                                value={this.state.email}
-                                                onChange={this.handleChange}
-                                                required/>
+                                                type="file"
+                                                onChange={this.onImageChange}
+                                                className="m-1 align-self-center"
+                                                id="user_image"/>
+                                        </div>
 
-                                            <input
-                                                className="input-main"
-                                                type="password"
-                                                name="password"
-                                                placeholder="Password"
-                                                value={this.state.password}
-                                                maxLength={16}
-                                                minLength={8}
-                                                onChange={this.handleChange}
-                                                required/>
+                                        <input
+                                            className="input-main"
+                                            type="text"
+                                            name="age"
+                                            placeholder="Age"
+                                            value={this.state.age}
+                                            maxLength={2}
+                                            onChange={event => this.setState({age: event.target.value.replace(/\D/, '')})}
+                                            required/>
 
-                                            <input
-                                                className="input-main"
-                                                type="password"
-                                                name="password_confirmation"
-                                                placeholder="Confirm password"
-                                                value={this.state.password_confirmation}
-                                                maxLength={16}
-                                                minLength={8}
-                                                onChange={this.handleChange}
-                                                required/>
+                                        <label className="font-secondary">Select county
+                                            <select value={this.state.county} onChange={this.handleChange}
+                                                    name="county" className="ml-2 input-main w-auto">
+                                                {judete.map((item, key) => {
+                                                    return (
+                                                        <option value={item.id}
+                                                                onChange={this.handleChange}>{item.name}</option>
+                                                    )
+                                                })}
+                                            </select>
+                                        </label>
 
 
-                                            <input
-                                                className="input-main"
-                                                type="text"
-                                                name="username"
-                                                placeholder="Username"
-                                                value={this.state.username}
-                                                maxLength={12}
-                                                onChange={this.handleChange}
-                                                required/>
+                                        <input
+                                            className="input-main"
+                                            type="text"
+                                            name="address"
+                                            placeholder="Full address"
+                                            value={this.state.address}
+                                            onChange={this.handleChange}
+                                            required/>
 
-                                            <input
-                                                className="input-main"
-                                                type="text"
-                                                name="phone_number"
-                                                placeholder="Phone number"
-                                                value={this.state.phone_number}
-                                                maxLength={10}
-                                                onChange={event => this.setState({phone_number: event.target.value.replace(/\D/, '')})}
-                                                required/>
 
-                                            <div className="font-main justify-content-center align-content-center">
+                                        <div className="politici marginBottomInputs">
+                                            <label className="containerTermeni">
                                                 <input
-                                                    type="file"
-                                                    onChange={this.onImageChange}
-                                                    className="m-1 align-self-center"
-                                                    id="user_image"/>
-                                            </div>
+                                                    required
+                                                    onChange={this.onChange1}
+                                                    type="checkbox"
+                                                    checked={this.state.bifa1}
+                                                    className="mr-1"
+                                                />
+                                                I agree with the terms and conditions
+                                                <span className="checkmarkTermenisiConditii"/>
+                                            </label>
+                                        </div>
 
-                                            <input
-                                                className="input-main"
-                                                type="text"
-                                                name="age"
-                                                placeholder="Age"
-                                                value={this.state.age}
-                                                maxLength={2}
-                                                onChange={event => this.setState({age: event.target.value.replace(/\D/, '')})}
-                                                required/>
+                                        <div className="politici marginBottomInputs">
+                                            <label className="containerPolitici">
+                                                <input
+                                                    required
+                                                    onChange={this.onChange2}
+                                                    checked={this.state.bifa2}
+                                                    type="checkbox"
+                                                    className="mr-1"
+                                                />
+                                                I agree with the privacy policies
+                                                <span className="checkmarkPolitici"/>
+                                            </label>
+                                        </div>
 
-                                            {/*<label className="font-main">Select county*/}
-                                            {/*<select value={this.state.county} onChange={this.handleChange}*/}
-                                            {/*name="county" className="ml-2 input-main">*/}
-                                            {/*{judete.map((item, key) => {*/}
-                                            {/*return (*/}
-                                            {/*<option value={item.id}*/}
-                                            {/*onChange={this.handleChange}>{item.name}</option>*/}
-                                            {/*)*/}
-                                            {/*})}*/}
-                                            {/*</select>*/}
-                                            {/*</label>*/}
-
-
-                                            <input
-                                                className="input-main"
-                                                type="text"
-                                                name="address"
-                                                placeholder="Full address"
-                                                value={this.state.address}
-                                                onChange={this.handleChange}
-                                                required/>
-
-
-                                            <div className="politici marginBottomInputs">
-                                                <label className="containerTermeni">
-                                                    <input
-                                                        required
-                                                        onChange={this.onChange1}
-                                                        type="checkbox"
-                                                        checked={this.state.bifa1}
-                                                        className="mr-1"
-                                                    />
-                                                    I agree with the terms and conditions
-                                                    <span className="checkmarkTermenisiConditii"/>
-                                                </label>
-                                            </div>
-
-                                            <div className="politici marginBottomInputs">
-                                                <label className="containerPolitici">
-                                                    <input
-                                                        required
-                                                        onChange={this.onChange2}
-                                                        checked={this.state.bifa2}
-                                                        type="checkbox"
-                                                        className="mr-1"
-                                                    />
-                                                    I agree with the privacy policies
-                                                    <span className="checkmarkPolitici"/>
-                                                </label>
-                                            </div>
-
-                                            <button className="input-button-main" type="submit"
-                                                    onClick={this.setRedirect}>Submit
-                                            </button>
-                                        </form>
-                                        <div className="register_spatiu_erori">{this.state.mesaj}</div>
-                                    </div>
-                                </Card>
+                                        <button className="input-button-main" type="submit"
+                                                onClick={this.setRedirect}>Submit
+                                        </button>
+                                    </form>
+                                    <div className="register_spatiu_erori">{this.state.mesaj}</div>
+                                </div>
                             </div>
                             <div class="col-sm-2"/>
                         </div>
                     </div>
-                    <div class="col-sm-3"/>
+                    <div class="col-sm-3 "/>
                 </div>
             </div>
             </>

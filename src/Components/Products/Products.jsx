@@ -115,61 +115,68 @@ export default class Products extends Component {
         let itemList = data.sort(this.sortFilters).map(item => {
             item = {...item, quantity: 0}
             return (
-                <div className="card" key={item.id}>
-                    {/*<Link to={`/products/${item.id}`}>*/}
-                    {/*<div className="card-image" >*/}
-                    {/*<div className="product_image_container">*/}
-                    {/*<img src={item.image} alt=""/>*/}
-                    {/*</div>*/}
-                    {/*<span className="card-title">{item.title}</span>*/}
-                    {/*</div>*/}
+                <div className="col-12 col-lg-4 justify-content-center mb-2">
+                    <div className="card no-margin" key={item.id}>
+                        {/*<Link to={`/products/${item.id}`}>*/}
+                        {/*<div className="card-image" >*/}
+                        {/*<div className="product_image_container">*/}
+                        {/*<img src={item.image} alt=""/>*/}
+                        {/*</div>*/}
+                        {/*<span className="card-title">{item.title}</span>*/}
+                        {/*</div>*/}
 
-                    {/*</Link>*/}
-                    {/*<div className="card-content">*/}
-                    {/*<div className="description_product">*/}
-                    {/*<p>{item.description}</p>*/}
-                    {/*</div>*/}
-                    {/*<p><b>Pret: {item.price}{" "}RON*/}
-                    {/*{isLoggedIn && this.props.user.id!==item.seller_id ?*/}
-                    {/*<span to="/" className="btn-floating halfway-fab waves-effect waves-light red"*/}
-                    {/*onClick={() => {this.handleClick(item)}}>*/}
-                    {/*<img src={simbolCart} alt="Logo"/></span>*/}
-                    {/*: ""}*/}
-                    {/*</b></p>*/}
-                    {/*</div>*/}
-                    <Card interactive={false} elevation={Elevation.FOUR} style={{backgroundColor: "#edd294", height:"100%"}}>
-                        <img src={item.image} alt=""/>
-                        <h5 style={{color: colors[item.id % 5]}}>{item.title}</h5>
-                        <p style={{color: "white"}}>{item.description}</p>
-                        <div class="container-fluid">
-                            <div class="row justify-content-center">
-                                <p style={{color: "white", marginRight: "10px"}}>{item.price} RON </p>
-                                {this.props.isLoggedIn && this.props.user.id !== item.seller_id ?
-                                    <Icon icon="shopping-cart" onClick={() => {this.handleClick(item)}}/>
-                                    : ""}
+                        {/*</Link>*/}
+                        {/*<div className="card-content">*/}
+                        {/*<div className="description_product">*/}
+                        {/*<p>{item.description}</p>*/}
+                        {/*</div>*/}
+                        {/*<p><b>Pret: {item.price}{" "}RON*/}
+                        {/*{isLoggedIn && this.props.user.id!==item.seller_id ?*/}
+                        {/*<span to="/" className="btn-floating halfway-fab waves-effect waves-light red"*/}
+                        {/*onClick={() => {this.handleClick(item)}}>*/}
+                        {/*<img src={simbolCart} alt="Logo"/></span>*/}
+                        {/*: ""}*/}
+                        {/*</b></p>*/}
+                        {/*</div>*/}
+                        <Card interactive={false} elevation={Elevation.FOUR} className="background-primary h-100">
+                            <img src={item.image} alt=""/>
+                            <div><a href="/products/{item.id}" className="h4 font-main" style={{color: colors[item.id % 5]}}>{item.title}</a></div>
+                            <p className="color-primary">{item.description}</p>
+                            <div class="container-fluid">
+                                <div class="row justify-content-center">
+                                    <p className="color-primary">{item.price} RON </p>
+                                    {this.props.isLoggedIn && this.props.user.id !== item.seller_id ?
+                                        <Icon className="ml-2" iconSize={Icon.SIZE_LARGE} icon="shopping-cart" onClick={() => {
+                                            this.handleClick(item)
+                                        }}/>
+                                        : ""}
+                                </div>
                             </div>
-                        </div>
-                    </Card>
+                        </Card>
+                    </div>
                 </div>
             )
         })
 
         return (
             <div className="container">
-                <h3 className="center_title">Products</h3>
-                <div className="productsFilters">
-                    <label>Sort by:
-                        <select value={this.state.filterCriteria} onChange={this.handleChange} name="filterCriteria">
-                            {filterCriterias.map((item, key) => {
-                                return (
-                                    <option value={item.id} onChange={this.handleChange}>{item.name}</option>
-                                )
-                            })}
-                        </select>
-                    </label>
+                <div className="container h-10">
+                    <h1 className="row font-main display-1 justify-content-center">Products</h1>
+                    <div className="productsFilters">
+                        <label>Sort by:
+                            <select value={this.state.filterCriteria} onChange={this.handleChange}
+                                    name="filterCriteria">
+                                {filterCriterias.map((item, key) => {
+                                    return (
+                                        <option value={item.id} onChange={this.handleChange}>{item.name}</option>
+                                    )
+                                })}
+                            </select>
+                        </label>
+                    </div>
                 </div>
 
-                <div className="box">
+                <div className="row h-80 ml-lg-5">
                     {itemList}
                 </div>
             </div>
