@@ -43,6 +43,7 @@ export default class Products extends Component {
         super();
         this.state = {
             filterCriteria: 1,
+            search:"",
             produs: [{
                 id: "",
                 name: "",
@@ -56,6 +57,7 @@ export default class Products extends Component {
         }
         this.handleChange = this.handleChange.bind(this);
         this.sortFilters = this.sortFilters.bind(this);
+        this.updateSearch=this.updateSearch.bind(this);
 
     }
 
@@ -80,6 +82,10 @@ export default class Products extends Component {
 
     handleChange(event) {
         this.setState({[event.target.name]: event.target.value})
+    }
+
+    updateSearch(event){
+        this.setState({search: event.target.value});
     }
 
     sortFilters(a, b) {
@@ -109,10 +115,16 @@ export default class Products extends Component {
     }
 
     render() {
-        const data = this.state.produs;
         console.log("Connected user ID:", this.props.user.id)
+        let data = this.state.produs;
 
-        let itemList = data.sort(this.sortFilters).map(item => {
+        let filteredData=this.state.produs.filter(
+            (item)=>{
+            return item.description.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+        });
+        console.log(filteredData);
+
+        let itemList = filteredData.sort(this.sortFilters).map(item => {
             item = {...item, quantity: 0}
             return (
                 <div className="col-12 col-lg-4 justify-content-center mb-2">
@@ -174,6 +186,13 @@ export default class Products extends Component {
                             </select>
                         </label>
                     </div>
+                </div>
+
+                <div class="col">
+                    <input type="text"
+                           placeholder={"Explore our market..."}
+                           value={this.state.search}
+                           onChange={this.updateSearch}/>
                 </div>
 
                 <div className="row h-80 ml-lg-5">

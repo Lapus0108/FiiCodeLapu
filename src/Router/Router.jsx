@@ -31,15 +31,24 @@ export default class Router extends Component {
 
     render() {
         return (
+            <div className="retro_app_total">
+
             <BrowserRouter>
+                <MediaQuery  minDeviceWidth={800} >
+                    <Sidebar />
+                    <CustomerChat />
+                 </MediaQuery>
+
                 <div className="App">
                     {this.props.isLoggedIn === true
-                        ? <>
-                        <MediaQuery  minDeviceWidth={800} minDeviceHeight={800}>>
-                            <Sidebar />
-                            <CustomerChat />
+                        ?
+                        <MediaQuery  maxDeviceWidth={800} >
+                            <SidebarMobile />
+                           {/* <CustomerChat /> */}
+
                         </MediaQuery>
-                        </>
+
+
                         : ""}
                     <Switch>
 
@@ -148,18 +157,10 @@ export default class Router extends Component {
 
 
                     </Switch>
-                    {this.props.isLoggedIn === true
-                            ? <>
-                            <MediaQuery  maxDeviceWidth={800} maxDeviceHeight={800}>
-                                <SidebarMobile />
-                                <CustomerChat />
 
-                            </MediaQuery>
-
-                            </>
-                            : ""}
                 </div>
             </BrowserRouter>
+            </div>
         )
     }
 }
