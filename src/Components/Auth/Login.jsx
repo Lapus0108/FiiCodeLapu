@@ -3,6 +3,7 @@ import {Redirect} from 'react-router-dom';
 import axiosRequest from "../../Utils/axios";
 import {Link} from 'react-router-dom';
 import LoginImage from '../../assets/images/buttons/Login.svg';
+import { store } from 'react-notifications-component';
 
 export default class Login extends Component {
     constructor() {
@@ -13,10 +14,7 @@ export default class Login extends Component {
             password: "",
             loginErrors: "",
             redirect: false,
-            mesaj: "",
-
-
-        };
+            };
 
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -51,13 +49,35 @@ export default class Login extends Component {
                 if (response.status = 200) {
                     this.setState({redirect: true})
                     this.props.doLogin(response.data)
+                    store.addNotification({
+                        title: "Login message",
+                        message: "You have been logged in successfully!",
+                        type: "success",
+                        insert: "bottom",
+                        container: "bottom-right",
+                        animationIn: ["animated", "fadeIn"],
+                        animationOut: ["animated", "fadeOut"],
+                        dismiss: {
+                            duration: 3000
+                         }
+                      });
                 }
             }).catch(error => {
             console.log("login error", error);
-            this.setState({mesaj: "Email and password does not match"});
+            store.addNotification({
+                title: "Authentication error",
+                message: "Email and password do not match",
+                type: "warning",
+                insert: "bottom",
+                container: "bottom-right",
+                animationIn: ["animated", "fadeIn"],
+                animationOut: ["animated", "fadeOut"],
+                dismiss: {
+                    duration: 3000
+                 }
+              });
         });
     }
-
 
     render() {
         return (

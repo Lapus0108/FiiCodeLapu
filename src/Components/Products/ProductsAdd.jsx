@@ -14,6 +14,7 @@ import tag_tools from '../../assets/images/Icons/Tags/Tools.png';
 import tag_jewelry from '../../assets/images/Icons/Tags/Jewelry.png';
 import tag_other from '../../assets/images/Icons/Tags/Other.png';
 import {Switch} from "@blueprintjs/core";
+import { store } from 'react-notifications-component';
 
 export default class ProductsAdd extends Component {
     constructor() {
@@ -117,14 +118,26 @@ export default class ProductsAdd extends Component {
                     this.setState({
                         redirect: true
                     })
+                    store.addNotification({
+                        title: "Store update",
+                        message: "Your product has been added successfully on our market!",
+                        type: "success",
+                        insert: "bottom",
+                        container: "bottom-right",
+                        animationIn: ["animated", "fadeIn"],
+                        animationOut: ["animated", "fadeOut"],
+                        dismiss: {
+                            duration: 3000
+                         }
+                      });
+                    
+
                 }).catch(error => {
                 console.log("creation error", error);
             })
         } else {
             this.setState({redirect: false})
         }
-        console.log(this.state.image);
-        console.log(this.state.has_photo);
     }
     
 

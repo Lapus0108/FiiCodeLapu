@@ -6,6 +6,7 @@ import remove_article from '../../assets/images/Icons/Remove_product.png';
 import edit_article from  '../../assets/images/Icons/Edit_product.png';
 import sold_article from  '../../assets/images/Icons/Sold_product.png';
 import Moment from 'react-moment';
+import {store} from 'react-notifications-component';
 
 const colors = ["#5c7329", "#5c7329", "#c69421", "#cc6f22", "#8c2f0b"];
 
@@ -127,6 +128,18 @@ export default class ProductsSingle extends Component {
                 }
             )
         e.preventDefault();
+        store.addNotification({
+            title: "Product updated successfully!",
+            message: " ",
+            type: "success",
+            insert: "bottom",
+            container: "bottom-right",
+            animationIn: ["animated", "fadeIn"],
+            animationOut: ["animated", "fadeOut"],
+            dismiss: {
+                duration: 5000
+             }
+          });
     };
 
 

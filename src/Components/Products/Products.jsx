@@ -3,6 +3,8 @@ import {Link} from "react-router-dom";
 import simbolCart from '../../assets/images/Icons/Cart_add.png';
 import axiosRequest from '../../Utils/axios';
 import {Card, Elevation, Icon} from "@blueprintjs/core";
+import { Card, Elevation, Icon} from "@blueprintjs/core";
+import { store } from 'react-notifications-component';
 
 const filterCriterias = [
     {
@@ -62,6 +64,19 @@ export default class Products extends Component {
 
     handleClick = (item) => {
         axiosRequest.post("/cart/add-product", {product_id: item.id, quantity: 1})
+        store.addNotification({
+            title: "Product added successfully!",
+            message: "To complete your order go to your cart.",
+            type: "success",
+            insert: "bottom",
+            container: "bottom-right",
+            animationIn: ["animated", "fadeIn"],
+            animationOut: ["animated", "fadeOut"],
+            dismiss: {
+              duration: 3000
+
+            }
+          });
     };
 
 
