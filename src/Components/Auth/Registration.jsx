@@ -5,6 +5,7 @@ import {Card, Elevation, FileInput, Checkbox} from '@blueprintjs/core'
 import judete from 'assets/data/county.json'
 import CreateAccount from 'assets/images/buttons/CreateAccount.svg';
 import default_picture from '../../assets/images/Icons/ProfileDefault.png';
+import { store } from 'react-notifications-component';
 
 
 export default class Registration extends Component {
@@ -24,7 +25,6 @@ export default class Registration extends Component {
             address: "",
             age: "",
             redirect: false,
-            mesaj: "",
             image: default_picture,
             // image:"",
             has_image: false
@@ -89,7 +89,18 @@ export default class Registration extends Component {
         if (this.state.password_confirmation === this.state.password) {
             axiosRequest.post("/register", user).then(response => {
                 console.log("registration res", response);
-                this.setState({mesaj: "Registration successful, please log in!"})
+                store.addNotification({
+                    title: "Welcome to Piazeta!",
+                    message: "Your account has been created successfully!",
+                    type: "success",
+                    insert: "bottom",
+                    container: "bottom-right",
+                    animationIn: ["animated", "fadeIn"],
+                    animationOut: ["animated", "fadeOut"],
+                    dismiss: {
+                        duration: 4000
+                     }
+                  });
                 setTimeout(() => {
                     this.setState({redirect: true,})
                 }, 2000);
@@ -97,7 +108,18 @@ export default class Registration extends Component {
                 console.log("registration error", error);
             })
         }
-        else this.setState({mesaj: "Password and password confirmation do not match"})
+        else store.addNotification({
+            title: "Registration error",
+            message: "Password and password confirmation do not match",
+            type: "warning",
+            insert: "bottom",
+            container: "bottom-right",
+            animationIn: ["animated", "fadeIn"],
+            animationOut: ["animated", "fadeOut"],
+            dismiss: {
+                 duration: 3000
+                    }
+            });
         event.preventDefault();
         console.log(this.state.image);
 
@@ -244,7 +266,6 @@ export default class Registration extends Component {
                                                 onClick={this.setRedirect}>Submit
                                         </button>
                                     </form>
-                                    <div className="register_spatiu_erori">{this.state.mesaj}</div>
                                 </div>
                             </div>
                             <div class="col-sm-2"/>

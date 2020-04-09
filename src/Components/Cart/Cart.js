@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom'
 import axiosRequest from '../../Utils/axios'
-
 import ReceiptContainer from "../../Containers/Cart/ReceiptContainer";
-
+import { store } from 'react-notifications-component';
 import arrowUp from "../../assets/images/Icons/Diverse/Arrow_up.png";
 import arrowDown from "../../assets/images/Icons/Diverse/Arrow_down.png";
 import remove from "../../assets/images/Icons/Diverse/Remove_product.png";
@@ -41,6 +40,18 @@ export default class Cart extends Component {
             new_total: item.pivot.quantity * item.price
         });
         this.updateCart()
+        store.addNotification({
+            title: "Product removed from your cart",
+            message:" ",
+            type: "danger",
+            insert: "bottom",
+            container: "bottom-right",
+            animationIn: ["animated", "fadeIn"],
+            animationOut: ["animated", "fadeOut"],
+            dismiss: {
+              duration: 5000
+            }
+          });
     }
     //to change the quantity
     handleQuantity = (item, quantity) => {

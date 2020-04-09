@@ -8,16 +8,20 @@ import RouterContainer from "./Router/RouterContainer";
 import CookieConsent from "react-cookie-consent";
 import MediaQuery from "react-responsive";
 // import 'bootstrap/dist/css/bootstrap.min.css';
+import ReactNotification from 'react-notifications-component';
+import 'react-notifications-component/dist/theme.css';
 
 
 export default class App extends Component {
     render() {
 
         return (
+            
             <div className="total">
                 <div className="background_map_page">
                     <img src={background}/>
                 </div>
+                <ReactNotification />
                 <RouterContainer />
                 <CookieConsent
                     location="bottom"

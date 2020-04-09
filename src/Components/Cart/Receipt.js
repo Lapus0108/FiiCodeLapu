@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {Redirect} from 'react-router-dom';
 import axiosRequest from "../../Utils/axios";
+import { store } from 'react-notifications-component';
 
 export default class Receipt extends Component {
     constructor(props) {
@@ -27,8 +28,25 @@ export default class Receipt extends Component {
             .catch(error => {
                 console.log("registration error", error);
             })
-      window.location.href='/products'
+        const timer = setTimeout(() => {
+            window.location.href='/products'
+            }, 3500);
+              
       event.preventDefault();
+      
+      store.addNotification({
+        title: "Order received successfully!",
+        message: "For more details about your transaction and further instructions please check your e-mail!",
+        type: "success",
+        insert: "bottom",
+        container: "bottom-right",
+        animationIn: ["animated", "fadeIn"],
+        animationOut: ["animated", "fadeOut"],
+        dismiss: {
+          duration: 5000
+          
+        }
+      });
     }
 
     render() {
