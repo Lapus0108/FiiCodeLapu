@@ -2,8 +2,7 @@ import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 import simbolCart from '../../assets/images/Icons/Cart_add.png';
 import axiosRequest from '../../Utils/axios';
-import {Button, Card, Elevation, Icon} from "@blueprintjs/core";
-import {IconNames} from "@blueprintjs/icons"
+import {Card, Elevation, Icon} from "@blueprintjs/core";
 
 const filterCriterias = [
     {
@@ -43,10 +42,10 @@ export default class Products extends Component {
         super();
         this.state = {
             filterCriteria: 1,
-            search:"",
+            search: "",
             produs: [{
                 id: "",
-                name: "",
+                title: "",
                 county: "",
                 description: "",
                 img: "",
@@ -57,7 +56,7 @@ export default class Products extends Component {
         }
         this.handleChange = this.handleChange.bind(this);
         this.sortFilters = this.sortFilters.bind(this);
-        this.updateSearch=this.updateSearch.bind(this);
+        this.updateSearch = this.updateSearch.bind(this);
 
     }
 
@@ -84,7 +83,7 @@ export default class Products extends Component {
         this.setState({[event.target.name]: event.target.value})
     }
 
-    updateSearch(event){
+    updateSearch(event) {
         this.setState({search: event.target.value});
     }
 
@@ -118,10 +117,10 @@ export default class Products extends Component {
         console.log("Connected user ID:", this.props.user.id)
         let data = this.state.produs;
 
-        let filteredData=this.state.produs.filter(
-            (item)=>{
-            return item.description.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
-        });
+        let filteredData = this.state.produs.filter(
+            (item) => {
+                return item.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
+            });
         console.log(filteredData);
 
         let itemList = filteredData.sort(this.sortFilters).map(item => {
@@ -151,16 +150,18 @@ export default class Products extends Component {
                         {/*</b></p>*/}
                         {/*</div>*/}
                         <Card interactive={false} elevation={Elevation.FOUR} className="background-primary h-100">
-                            <img src={item.image} alt=""/>
-                            <div><a href="/products/{item.id}" className="h4 font-main" style={{color: colors[item.id % 5]}}>{item.title}</a></div>
+                            <img className="w-50 h-50" src={item.image} alt=""/>
+                            <div><a href={"/products/" + item.id} className="h4 font-main"
+                                    style={{color: colors[item.id % 5]}}>{item.title}</a></div>
                             <p className="color-primary">{item.description}</p>
                             <div class="container-fluid">
                                 <div class="row justify-content-center">
                                     <p className="color-primary">{item.price} RON </p>
                                     {this.props.isLoggedIn && this.props.user.id !== item.seller_id ?
-                                        <Icon className="ml-2" iconSize={Icon.SIZE_LARGE} icon="shopping-cart" onClick={() => {
-                                            this.handleClick(item)
-                                        }}/>
+                                        <Icon className="ml-2" iconSize={Icon.SIZE_LARGE} icon="shopping-cart"
+                                              onClick={() => {
+                                                  this.handleClick(item)
+                                              }}/>
                                         : ""}
                                 </div>
                             </div>
@@ -174,28 +175,38 @@ export default class Products extends Component {
             <div className="container">
                 <div className="container h-10">
                     <h1 className="row font-main display-1 justify-content-center">Products</h1>
-                    <div className="productsFilters">
-                        <label>Sort by:
-                            <select value={this.state.filterCriteria} onChange={this.handleChange}
-                                    name="filterCriteria">
-                                {filterCriterias.map((item, key) => {
-                                    return (
-                                        <option value={item.id} onChange={this.handleChange}>{item.name}</option>
-                                    )
-                                })}
-                            </select>
-                        </label>
+                    <div class="row mb-2">
+                        <div class="col-lg-3">
+                            <div class="row">
+                                <div className="productsFilters">
+                                    <label className="font-main">Sort by:
+                                        <select className="font-secondary input-secondary"
+                                                value={this.state.filterCriteria}
+                                                onChange={this.handleChange}
+                                                name="filterCriteria">
+                                            {filterCriterias.map((item, key) => {
+                                                return (
+                                                    <option value={item.id}
+                                                            onChange={this.handleChange}>{item.name}</option>
+                                                )
+                                            })}
+                                        </select>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-9 justify-content-center">
+                            <input
+                                className="input-secondary font-secondary"
+                                type="text"
+                                placeholder={"Explore our market..."}
+                                value={this.state.search}
+                                onChange={this.updateSearch}/>
+                        </div>
                     </div>
                 </div>
 
-                <div class="col">
-                    <input type="text"
-                           placeholder={"Explore our market..."}
-                           value={this.state.search}
-                           onChange={this.updateSearch}/>
-                </div>
-
-                <div className="row h-80 ml-lg-5">
+                <div className="row h-80">
                     {itemList}
                 </div>
             </div>

@@ -93,7 +93,6 @@ export default class Login extends Component {
                                             onChange={this.handleChange}
                                             required/>
 
-                                        {/*<Button type="submit" class="bp3-large" intent="primary" text="Login" onClick={this.handleSubmit} />*/}
                                         <button class="input-button-main" type="submit" onClick={this.handleSubmit}>
                                             Login
                                         </button>

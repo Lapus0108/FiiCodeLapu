@@ -75,8 +75,8 @@ export class MapContainer extends Component {
                 
                 <div class="row">
                     {/* <div class="col">Select your county:</div> */}
-                    <div class="col">Select your county:
-                        <select value={this.state.judet_ales.nume} onChange={this.handleChange}  name="judet_ales" style={{marginLeft: 15, fontSize:15}}>
+                    <div class="col font-third h2 no-margin">Select your county:
+                        <select class="input-main w-25" value={this.state.judet_ales.nume} onChange={this.handleChange}  name="judet_ales" style={{marginLeft: 15, fontSize:15}}>
                             {judete.map((item, key) => {
                                 return (
                                     <option value={item.id}>{item.name}</option>
@@ -86,9 +86,9 @@ export class MapContainer extends Component {
                 </div>
              </div>
                             </div>
-            <div class="container justify-content-center  ">
-            <div class="row d-flex justify-content-center mr-2 pb-5">
-                <div class="col container_mapa_google col-xl-5 ">
+            <div class="container-fluid">
+            <div class="row justify-content-center mr-2 pb-5">
+                <div class="col container_mapa_google col-lg-8">
 
             <Map
                     google={this.props.google}

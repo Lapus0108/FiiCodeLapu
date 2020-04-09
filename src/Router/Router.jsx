@@ -34,7 +34,7 @@ export default class Router extends Component {
             <div className="retro_app_total">
 
             <BrowserRouter>
-                <MediaQuery  minDeviceWidth={800} >
+                <MediaQuery  minDeviceWidth={850} >
                     <Sidebar />
                     <CustomerChat />
                  </MediaQuery>
@@ -42,7 +42,7 @@ export default class Router extends Component {
                 <div className="App">
                     {this.props.isLoggedIn === true
                         ?
-                        <MediaQuery  maxDeviceWidth={800} >
+                        <MediaQuery  maxDeviceWidth={850} >
                             <SidebarMobile />
                            {/* <CustomerChat /> */}
 

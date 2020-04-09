@@ -22,17 +22,15 @@ export default class Receipt extends Component {
         axiosRequest.post("/orders")
             .then(res => {
                 console.log(res);
-                
             })
             .catch(error => {
                 console.log("registration error", error);
             })
-      window.location.href='/products'
       event.preventDefault();
     }
 
     render() {
-        const disableButton= this.props.total>0;
+        const disableButton = this.props.total>0;
         console.log(disableButton);
         console.log(this.props.items)
         return (
@@ -42,7 +40,7 @@ export default class Receipt extends Component {
                     <li className="collection-item"><b>Total: {this.props.total} RON</b></li>
                 </div>
                 <div className="checkout">
-                    <button className="waves-effect waves-light btn" disabled={!disableButton} onClick={this.handleSubmit}>Submit your order
+                    <button className="waves-effect waves-light btn input-button-main" disabled={!disableButton} onClick={this.handleSubmit}>Submit your order
                     </button>
                 </div>
             </div>
