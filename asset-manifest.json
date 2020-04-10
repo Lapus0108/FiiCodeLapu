@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/FiiCodeCodLapu/static/css/main.e9056b9d.chunk.css",
+    "main.js": "/FiiCodeCodLapu/static/js/main.a9dc2840.chunk.js",
+    "main.js.map": "/FiiCodeCodLapu/static/js/main.a9dc2840.chunk.js.map",
+    "runtime-main.js": "/FiiCodeCodLapu/static/js/runtime-main.12ba995b.js",
+    "runtime-main.js.map": "/FiiCodeCodLapu/static/js/runtime-main.12ba995b.js.map",
+    "static/css/2.8d78c2cf.chunk.css": "/FiiCodeCodLapu/static/css/2.8d78c2cf.chunk.css",
+    "static/js/2.58f94286.chunk.js": "/FiiCodeCodLapu/static/js/2.58f94286.chunk.js",
+    "static/js/2.58f94286.chunk.js.map": "/FiiCodeCodLapu/static/js/2.58f94286.chunk.js.map",
+    "index.html": "/FiiCodeCodLapu/index.html",
+    "precache-manifest.7162ccc1c5b9b2b986f192f8909c20d5.js": "/FiiCodeCodLapu/precache-manifest.7162ccc1c5b9b2b986f192f8909c20d5.js",
+    "service-worker.js": "/FiiCodeCodLapu/service-worker.js",
+    "static/css/2.8d78c2cf.chunk.css.map": "/FiiCodeCodLapu/static/css/2.8d78c2cf.chunk.css.map",
+    "static/css/main.e9056b9d.chunk.css.map": "/FiiCodeCodLapu/static/css/main.e9056b9d.chunk.css.map",
+    "static/js/2.58f94286.chunk.js.LICENSE.txt": "/FiiCodeCodLapu/static/js/2.58f94286.chunk.js.LICENSE.txt",
+    "static/media/About.svg": "/FiiCodeCodLapu/static/media/About.771a9da6.svg",
+    "static/media/CreateAccount.svg": "/FiiCodeCodLapu/static/media/CreateAccount.81b00387.svg",
+    "static/media/index.css": "/FiiCodeCodLapu/static/media/Vintages.b38c6ef4.ttf",
+    "static/media/Login.svg": "/FiiCodeCodLapu/static/media/Login.bb0a524d.svg",
+    "static/media/Logout.svg": "/FiiCodeCodLapu/static/media/Logout.83f272e6.svg",
+    "static/media/Products.svg": "/FiiCodeCodLapu/static/media/Products.79d4cd71.svg",
+    "static/media/Profile.svg": "/FiiCodeCodLapu/static/media/Profile.fdccebba.svg",
+    "static/media/Retroholic-Demo.ttf": "/FiiCodeCodLapu/static/media/Retroholic-Demo.abfcbea8.ttf",
+    "static/media/blueprint-icons.css": "/FiiCodeCodLapu/static/media/icons-20.cef8cdbb.woff",
+    "static/media/retro-wallpaper-1.jpg": "/FiiCodeCodLapu/static/media/retro-wallpaper-1.c2e21dd7.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.12ba995b.js",
+    "static/css/2.8d78c2cf.chunk.css",
+    "static/js/2.58f94286.chunk.js",
+    "static/css/main.e9056b9d.chunk.css",
+    "static/js/main.a9dc2840.chunk.js"
+  ]
+}
