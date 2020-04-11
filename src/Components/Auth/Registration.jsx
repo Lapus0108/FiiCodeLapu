@@ -134,7 +134,7 @@ export default class Registration extends Component {
                         <div class="row justify-content-center">
                             <div class="col-sm-2"/>
                             <div class="col-sm-8">
-                                <div class="container no-margin">
+                                <div class="container-fluid no-margin">
                                     <form onSubmit={this.handleSubmit} className="no-margin">
                                         <input
                                             className="input-main"
@@ -188,7 +188,7 @@ export default class Registration extends Component {
                                             onChange={event => this.setState({phone_number: event.target.value.replace(/\D/, '')})}
                                             required/>
 
-                                        <div className="container font-secondary small">
+                                        <div className="container-fluid font-secondary small">
                                             <input
                                                 type="file"
                                                 onChange={this.onImageChange}

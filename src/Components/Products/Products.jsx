@@ -185,7 +185,7 @@ export default class Products extends Component {
                     <h1 className="row font-main display-1 justify-content-center">Products</h1>
                     <div class="row mb-2">
                         <div class="col-lg-3">
-                            <div class="row">
+                            <div class="row justify-content-center">
                                 <div className="productsFilters">
                                     <label className="font-main">Sort by:
                                         <select className="font-secondary input-secondary"
