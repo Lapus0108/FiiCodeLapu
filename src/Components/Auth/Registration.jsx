@@ -29,11 +29,7 @@ export default class Registration extends Component {
             has_image: false
 
         };
-
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleChange = this.handleChange.bind(this);
     }
-
 
     renderRedirect = () => {
         if (this.state.redirect) {
@@ -41,7 +37,7 @@ export default class Registration extends Component {
         }
     }
 
-    handleChange(event) {
+    handleChange=(event)=> {
         this.setState({
             [event.target.name]: event.target.value
         })
@@ -73,7 +69,7 @@ export default class Registration extends Component {
     }
 
 
-    handleSubmit(event) {
+    handleSubmit=(event)=> {
         const user = {
             email: this.state.email,
             password: this.state.password,

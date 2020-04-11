@@ -9,17 +9,15 @@ export default class ForgotPassword extends Component {
             mesaj_forgot_password:"",
             button_clicks: 0
         }
-        this.handleChange=this.handleChange.bind(this);
-        this.handleSubmit=this.handleSubmit.bind(this);
     }
 
-    handleChange(event) {
+    handleChange=(event)=> {
         this.setState({
             [event.target.name]: event.target.value
         })
     }
 
-    handleSubmit(event){
+    handleSubmit=(event)=>{
         axiosRequest.post("/password/email", {email:this.state.email});
         this.setState({
             mesaj_forgot_password:"Instructions have been sent to this email address in order to reset your password!",

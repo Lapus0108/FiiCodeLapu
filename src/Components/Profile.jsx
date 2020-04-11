@@ -3,9 +3,11 @@ import your_products from '../assets/images/Icons/Published.png';
 import purchased_products from '../assets/images/Icons/Cart_full.png';
 import Moment from 'react-moment';
 import axiosRequest from '../Utils/axios';
-import {store} from 'react-notifications-component';
+import { store } from 'react-notifications-component';
 import edit_user from '../assets/images/Icons/Edit_user.png';
 import edit_user2 from '../assets/images/Icons/Edit_product.png';
+import add_product from '../assets/images/Icons/Published.png';
+import buy_product from '../assets/images/Icons/Cart_add.png';
 
 
 export default class Profile extends Component {
@@ -29,9 +31,6 @@ export default class Profile extends Component {
             phoneUpdated: "",
             addressUpdated: "",
         }
-        this.showPublished = this.showPublished.bind(this);
-        this.showPurchased = this.showPurchased.bind(this);
-        this.edit_user = this.edit_user.bind(this);
     }
 
     componentDidMount() {
@@ -54,7 +53,7 @@ export default class Profile extends Component {
         })
     }
 
-    showPublished() {
+    showPublished=()=> {
         console.log("Show published clicked");
         this.setState({seePublished: true, seePurchased: false})
         if (this.state.my_products.length === 5) {
@@ -82,12 +81,12 @@ export default class Profile extends Component {
                 animationOut: ["animated", "fadeOut"],
                 dismiss: {
                     duration: 5000
-                }
-            });
+                 }
+              });
         }
     }
 
-    showPurchased() {
+    showPurchased=()=> {
         console.log("Show purchased clicked");
         this.setState({seePurchased: true, seePublished: false})
     }
@@ -98,7 +97,7 @@ export default class Profile extends Component {
         console.log(this.state)
     };
 
-    edit_user() {
+    edit_user=()=> {
         this.setState({
             want_to_edit_user: !this.state.want_to_edit_user
         })
@@ -118,6 +117,13 @@ export default class Profile extends Component {
         this.setState({
             want_to_edit_address: !this.state.want_to_edit_address
         })
+    }
+
+    redirectAddProducts=()=>{
+        window.location.href='/products/create'
+    }
+    redirectBuyProducts=()=>{
+        window.location.href='/products'
     }
 
 
@@ -169,44 +175,43 @@ export default class Profile extends Component {
             <div class="container-fluid h-100">
                 <div class="row h-100">
                     <div class="col col-xl-6 h-50 mb-2">
-                        {/* <img src={background_profile}/> */}
-                        <div className="container_user_info_profile h-100">
-                            <div className="container_imagine_profile">
-                                <img src={this.state.image} alt="profile_image"/>
-                                {this.props.isLoggedIn ?
-                                    <div className="status_user" style={{color: "#18ba44", fontWeight: 600}}>LOGGED
-                                        IN</div>
-                                    : <div className="status_user" style={{color: "red"}}>NOT LOGGED IN</div>}
+                    {/* <img src={background_profile}/> */}
+                <div className="container_user_info_profile h-100">
+                    <div className="container_imagine_profile">
+                        <img src={this.state.image}/>
+                        {this.props.isLoggedIn ?
+                            <div className="status_user" style={{color: "#18ba44", fontWeight: 600}}>LOGGED IN</div>
+                            : <div className="status_user" style={{color: "red"}}>NOT LOGGED IN</div>}
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                    <div className="container_date_profile">
+
+                        <div className="info_user_text">
+                            <div>
+                                Username: {this.state.name}
                             </div>
-                            <div class="row">
-                                <div class="col">
-                                    <div className="container_date_profile">
-                                        <div className="info_user_text">
-                                            <div>
-                                                Username: {this.state.name}
-                                            </div>
-                                            <img src={edit_user} onClick={this.edit_user} alt="edit_button"/>
-                                        </div>
+                            <img src={edit_user} onClick={this.edit_user}/>
+                        </div>
 
-                                        {this.state.want_to_edit_user ?
-                                            <div className="info_user_text">
-
-                                                <input
-                                                    style={{width: 250}}
-                                                    type="text"
-                                                    placeholder="Edit username"
-                                                    onChange={this.handleChange}
-                                                    name="usernameUpdated"
-                                                    value={this.state.usernameUpdated}
-                                                />
-                                                {this.state.name !== this.state.usernameUpdated ?
-                                                    <button
-                                                        style={{marginLeft: 5}}
-                                                        onClick={this.handleUpdateUser}>
-                                                        Update
-                                                    </button>
-                                                    : ""}
-                                            </div> : ""}
+                        {this.state.want_to_edit_user ?
+                            <div className="info_user_text">
+                            <input
+                                style={{width: 160}}
+                                type="text"
+                                placeholder="Edit username"
+                                onChange={this.handleChange}
+                                name="usernameUpdated"
+                                value={this.state.usernameUpdated}
+                            />
+                            {this.state.name!==this.state.usernameUpdated ?
+                            <button
+                                style={{marginLeft: 5}}
+                                onClick={this.handleUpdateUser}>
+                                Update
+                            </button>
+                            : ""}
+                            </div> : ""}
 
 
                                         <div className="info_user_text">
@@ -220,22 +225,22 @@ export default class Profile extends Component {
                                         {this.state.want_to_edit_phone ?
                                             <div className="info_user_text">
 
-                                                <input
-                                                    style={{width: 250}}
-                                                    type="text"
-                                                    placeholder="Edit phone number"
-                                                    onChange={this.handleChange}
-                                                    name="phoneUpdated"
-                                                    value={this.state.phoneUpdated}
-                                                />
-                                                {this.state.phone !== this.state.phoneUpdated ?
-                                                    <button
-                                                        style={{marginLeft: 5}}
-                                                        onClick={this.handleUpdateUser}>
-                                                        Update
-                                                    </button>
-                                                    : ""}
-                                            </div> : ""}
+                            <input
+                                style={{width: 160}}
+                                type="text"
+                                placeholder="Edit phone number"
+                                onChange={event => this.setState({phoneUpdated: event.target.value.replace(/\D/, '')})}
+                                name="phoneUpdated"
+                                value={this.state.phoneUpdated}
+                            />
+                            {this.state.phone!==this.state.phoneUpdated ?
+                            <button
+                                style={{marginLeft: 5}}
+                                onClick={this.handleUpdateUser}>
+                                Update
+                            </button>
+                            : ""}
+                            </div> : ""}
 
 
                                         <div className="info_user_text">
@@ -245,71 +250,73 @@ export default class Profile extends Component {
                                         {this.state.want_to_edit_address ?
                                             <div className="info_user_text">
 
-                                                <input
-                                                    style={{width: 250}}
-                                                    type="text"
-                                                    placeholder="Edit address"
-                                                    onChange={this.handleChange}
-                                                    name="addressUpdated"
-                                                    value={this.state.addressUpdated}
-                                                />
-                                                {this.state.address !== this.state.addressUpdated ?
-                                                    <button
-                                                        style={{marginLeft: 5}}
-                                                        onClick={this.handleUpdateUser}>
-                                                        Update
-                                                    </button>
-                                                    : ""}
-                                            </div> : ""}
-                                        <div className="info_user_text">
-                                            <div>Click to see to see your published articles</div>
-                                            <img src={your_products} onClick={this.showPublished} alt="products_button"/>
-                                        </div>
-                                        <div className="info_user_text">
-                                            <div>Click to see the purchased items</div>
-                                            <img src={purchased_products} onClick={this.showPurchased} alt="products_button"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <input
+                                style={{width: 160}}
+                                type="text"
+                                placeholder="Edit address"
+                                onChange={this.handleChange}
+                                name="addressUpdated"
+                                value={this.state.addressUpdated}
+                            />
+                            {this.state.address!==this.state.addressUpdated ?
+                            <button
+                                style={{marginLeft: 5}}
+                                onClick={this.handleUpdateUser}>
+                                Update
+                            </button>
+                            : ""}
+                            </div> : ""}
+                        <div className="info_user_text">
+                            <div>Click to see to see your published articles</div>
+                            <img src={your_products} onClick={this.showPublished}/>
+                        </div>
+                        <div className="info_user_text">
+                            <div>Click to see the purchased items</div>
+                            <img src={purchased_products} onClick={this.showPurchased}/>
                         </div>
                     </div>
+                         </div>
+                    </div>
+                </div>
+                </div>
 
-                    {this.state.seePublished ?
-                        <div class="container-fluid h-50">
-                            <div class="row pb-5">
-                                <div class="col-xl-6">
-                                    <div className="container_tranzactii w-100">
-                                        <div className="titlu_tranzactii">Your last products published on the market:
+                {this.state.seePublished ?
+                <div class="container-fluid h-50">
+                    <div class="row pb-5">
+                        <div class="col-xl-6">
+                    <div className="container_tranzactii w-100">
+                        <div className="titlu_tranzactii">Your last products published on the market:</div>
+                        <div className="container_ultimele_tranzactii">
+                            {this.state.my_products.length>0 ? <>
+                            {this.state.my_products.reverse().map((item) => {
+                                return (
+                                    <div className="tranzactie">
+                                        <div className="col no-margin mr-1 ml-1">Product: {item.title}</div>
+                                        <div className="col no-margin mr-1 ml-1">Price: {item.price} RON</div>
+                                        <div className="col no-margin mr-1 ml-1">Published on: {" "}
+                                            <Moment format="DD.MM.YYYY">{item.created_at}</Moment>
                                         </div>
-                                        <div className="container_ultimele_tranzactii">
-                                            {this.state.my_products.reverse().map((item) => {
-                                                return (
-                                                    <div className="tranzactie">
-                                                        <div className="col no-margin mr-1 ml-1">
-                                                            Product: {item.title}</div>
-                                                        <div className="col no-margin mr-1 ml-1">Price: {item.price}
-                                                            RON
-                                                        </div>
-                                                        <div className="col no-margin mr-1 ml-1">Published on: {" "}
-                                                            <Moment format="DD.MM.YYYY">{item.created_at}</Moment>
-                                                        </div>
-                                                        {!item.sold_out ?
-                                                            <div className="col no-margin mr-1 ml-1">Status:
-                                                                Available</div>
-                                                            :
-                                                            <div className="col no-margin mr-1 ml-1">Status:
-                                                                Unavailable</div>
-                                                        }
-                                                    </div>
-                                                )
-                                            })}
-                                        </div>
+                                        {!item.sold_out ?
+                                            <div className="col no-margin mr-1 ml-1">Status: Available</div>
+                                            :
+                                            <div className="col no-margin mr-1 ml-1">Status: Unavailable</div>
+                                        }
                                     </div>
-                                </div>
-                            </div>
+                                )
+                            })}
+                            </>
+                            :
+                            <div className="no_products_added">
+                            <h>No products uploaded yet. You can add one right now!</h>
+                            <img src={add_product} onClick={this.redirectAddProducts}/>
+                            </div>}
                         </div>
-                        : ""}
+                        </div>
+                        <div className="spatiu_gol_profile"/>
+                        </div>
+                    </div>
+                    </div>
+                    : ""}
 
                     {this.state.seePurchased ?
                         <div class="container-fluid h-50">
@@ -319,6 +326,7 @@ export default class Profile extends Component {
                                         <div className="titlu_tranzactii">Your last products bought from the market:
                                         </div>
                                         <div className="container_ultimele_tranzactii">
+                                        {this.state.bought_products.length>0 ? <>
                                             {this.state.bought_products.map((item) => {
                                                 return (
 
@@ -338,8 +346,14 @@ export default class Profile extends Component {
                                                     </div>
                                                 )
                                             })}
+                                            </>
+                                            : <div className="no_products_added">
+                                                    <h>No products bought yet. Go check our market!</h>
+                                            <img src={buy_product} onClick={this.redirectBuyProducts}/>
+                                            </div>}
                                         </div>
                                     </div>
+                                    <div className="spatiu_gol_profile"/>
                                 </div>
                             </div>
                         </div>

@@ -35,10 +35,6 @@ export default class ProductsSingle extends Component {
             hover_remove: false,
             hover_edit: false
         }
-        this.edit_article = this.edit_article.bind(this);
-        this.toggleHover_sold = this.toggleHover_sold.bind(this);
-        this.toggleHover_remove = this.toggleHover_remove.bind(this);
-        this.toggleHover_edit = this.toggleHover_edit.bind(this);
     }
 
     renderRedirect = () => {
@@ -47,15 +43,15 @@ export default class ProductsSingle extends Component {
         }
     }
 
-    toggleHover_sold() {
+    toggleHover_sold=()=> {
         this.setState({hover_sold: !this.state.hover_sold})
     }
 
-    toggleHover_remove() {
+    toggleHover_remove=()=> {
         this.setState({hover_remove: !this.state.hover_remove})
     }
 
-    toggleHover_edit() {
+    toggleHover_edit=()=> {
         this.setState({hover_edit: !this.state.hover_edit})
     }
 
@@ -83,7 +79,7 @@ export default class ProductsSingle extends Component {
         e.preventDefault();
     }
 
-    edit_article() {
+    edit_article=()=> {
         this.setState({want_to_edit: !this.state.want_to_edit})
         console.log(this.state.want_to_edit_clicks)
     }

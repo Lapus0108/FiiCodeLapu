@@ -52,8 +52,9 @@ export default class Mailing extends Component {
                     
                     <div className="footer_mailing px-2"> You can find more details about sending letters and postal packages on the website of the Romanian Post:</div>
                     <a style={{color:"red", fontWeight:600}} href ="https://www.posta-romana.ro/">Just click here</a>
-                    <div className="spatiu_gol"></div>
+                    
             </div> 
+            <div className="spatiu_gol_mailing"></div>
          </>   
         )
     }

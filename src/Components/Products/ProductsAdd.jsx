@@ -19,7 +19,6 @@ import { store } from 'react-notifications-component';
 export default class ProductsAdd extends Component {
     constructor() {
         super();
-
         this.state = {
             name: "",
             description: "",
@@ -37,14 +36,9 @@ export default class ProductsAdd extends Component {
             },
             redirect: false,
             has_photo:false,
-            max_quantity:""
-            
-
-
+            max_quantity:""   
         };
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleChange = this.handleChange.bind(this);
-    }
+      }
 
     renderRedirect = () => {
         if (this.state.redirect) {
@@ -52,7 +46,7 @@ export default class ProductsAdd extends Component {
         }
     }
 
-    handleChange(event) {
+    handleChange=(event)=> {
         this.setState({[event.target.name]: event.target.value})
     }
 
@@ -89,14 +83,11 @@ export default class ProductsAdd extends Component {
             };
             reader.readAsDataURL(event.target.files[0]);
             this.setState({has_photo:true});
-       
         }
     }
 
-    handleSubmit(event) {
+    handleSubmit=(event)=> {
         event.preventDefault();
-        
-        
              const product = {
             title: this.state.name,
             description: this.state.description,
@@ -130,8 +121,6 @@ export default class ProductsAdd extends Component {
                             duration: 3000
                          }
                       });
-                    
-
                 }).catch(error => {
                 console.log("creation error", error);
             })
@@ -177,7 +166,7 @@ export default class ProductsAdd extends Component {
 
 
                     <label>Select category
-                        <select value={this.state.tag.name} onChange={this.handleChange} name="tag">
+                        <select value={this.state.tag.name} onChange={this.handleChange} name="tag" style={{borderRadius:5}}>
                             {tags.map((item, key) => {
                                 return (
                                     <option value={item.id} onChange={this.handleChange}>{item.name}</option>
@@ -185,7 +174,6 @@ export default class ProductsAdd extends Component {
                             })}
                         </select>
                     </label>
-
                 
                     <input
                         type="text"
@@ -195,9 +183,8 @@ export default class ProductsAdd extends Component {
                         onChange={event => this.setState({price: event.target.value.replace(/\D/, '')})}
                         required/>
                     
-
                     <label>Select county
-                        <select value={this.state.county.name} onChange={this.handleChange} name="county">
+                        <select value={this.state.county.name} onChange={this.handleChange} name="county" style={{borderRadius:5}}>
                             {judete.map((item, key) => {
                                 return (
                                     <option value={item.id} onChange={this.handleChange}>{item.name}</option>
@@ -208,7 +195,6 @@ export default class ProductsAdd extends Component {
 
                     <div className="input_image">
                         <input type="file" onChange={this.onImageChange}  className="filetype" id="product_image"/>
-                        {/* <img id="target" src={this.state.image}/> */}
                     </div>
 
                     <div className="add_product_bifa ">
@@ -229,6 +215,7 @@ export default class ProductsAdd extends Component {
                     <button type="submit" onClick={this.handleSubmit}>Add you product</button>
 
                 </form>
+                <div className="spatiu_gol_add_product"></div>
             </div>
             </>
         );

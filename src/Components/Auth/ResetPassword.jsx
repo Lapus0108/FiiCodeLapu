@@ -11,11 +11,9 @@ export default class ResetPassword extends Component {
             mesaj:"",
             token: ""
         }
-        this.handleChange=this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(event) {
+    handleChange=(event)=> {
         this.setState({
             [event.target.name]: event.target.value
         })
@@ -25,7 +23,7 @@ export default class ResetPassword extends Component {
         this.setState({token: this.props.location.pathname.slice(16), email: this.props.location.search.slice(7).replace("%40", "@")})
     }
 
-    handleSubmit(event){
+    handleSubmit=(event)=>{
         event.preventDefault();
         const new_password_details= {
             password:this.state.newPassword,
