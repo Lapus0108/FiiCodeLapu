@@ -75,12 +75,12 @@ export default class Router extends Component {
                             isLoggedIn={this.props.isLoggedIn}
                         />
 
-                        {/*/!* PAGINA INCEPUT *!/*/}
-                        {/*<Route*/}
-                            {/*path={process.env.PUBLIC_URL}*/}
-                            {/*exact*/}
-                            {/*component={HomeContainer}*/}
-                        {/*/>*/}
+                        {/* PAGINA INCEPUT */}
+                        <Route
+                            path="/"
+                            exact
+                            component={HomeContainer}
+                        />
 
                         <Route
                             path="/home"
