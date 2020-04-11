@@ -119,6 +119,7 @@
     max-width: 100%;
     height: 100%;
     width:100%;
+    object-fit: cover;
 }
 
 .add-remove {
@@ -355,6 +356,7 @@ margin-left: 10px;
     width: 100%;
     height: 100%;
     overflow: auto;
+    /* background-image: url("./assets/images/retro-wallpaper-1.jpg"); */
 }
 
 .container_register form {
@@ -820,7 +822,7 @@ margin-left: 10px;
     display: block;
 }
 .container_imagine_profile img{
-    height: 66%;
+    width: 100%;
     vertical-align: middle;
     max-width: 100%;
     max-height: 100%;
@@ -836,6 +838,9 @@ margin-left: 10px;
 }
 .info_user_text div{
     align-self: center;
+}
+.info_user_text input{
+    width: 160px;
 }
 .info_user_text img{
     height: 25px;
@@ -874,6 +879,11 @@ margin-left: 10px;
     height: auto;
     display: inline-flex;
     font-weight: 500;
+    margin-top: 15px;
+}
+.no_products_added img{
+    height: 25px;
+    margin-left: 10px;
 }
 .nume{
     margin-left: 20px;
@@ -881,7 +891,6 @@ margin-left: 10px;
 }
 
 /* SALE CONFIRMATION */
-
 .confirmation_title{
     font-family: serif;
     font-size: 20px;
@@ -890,12 +899,12 @@ margin-left: 10px;
 }
 .info_tranzactie_confirmation{
     height: 500px;
-    width: 60%;
     background-color: beige;
     display: block;
     margin-left: auto;
     margin-right: auto;
     margin-top: 5%;
+    border-radius: 10px;
 }
 .buyer_info{
     width: 100%;
@@ -1133,8 +1142,17 @@ margin-left: 10px;
     margin-top: 7px;
 
 }
+.spatiu_gol_profile{
+    height: 45px;
+}
 .spatiu_gol{
-    height: 90px;
+    height: 60px;
+}
+.spatiu_gol_mailing{
+    height: 100px;
+}
+.spatiu_gol_add_product{
+    height: 80px;
 }
 .footer_mailing{
     font-size: 18px;
@@ -1204,4 +1222,10 @@ margin-left: 10px;
     width: 100%;
     position: fixed;
     display: inline-flex;
+}
+.home_icon_clicked{
+    filter: invert(100%) sepia(0%) saturate(3798%) hue-rotate(175deg) brightness(122%) contrast(112%);
+}
+.home_icon{
+    filter: invert(0%) sepia(85%) saturate(7500%) hue-rotate(299deg) brightness(81%) contrast(112%);
 }

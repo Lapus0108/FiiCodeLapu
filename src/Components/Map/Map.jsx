@@ -21,10 +21,9 @@ export class MapContainer extends Component {
             lat_centru:47.165204,
             long_centru:27.582852
         }
-        this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange(event) {
+    handleChange=(event)=> {
         this.setState({
             judet_ales: event.target.value},
         () => {  //callback

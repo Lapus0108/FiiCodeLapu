@@ -20,6 +20,7 @@ import ResetPassword from '../Components/Auth/ResetPassword';
 import ForgotPassword from '../Components/Auth/ForgotPassword';
 import MediaQuery from "react-responsive";
 import SidebarMobile from "../Components/SidebarMobile";
+import background from "../assets/images/retro-wallpaper-1.jpg";
 // import ConfirmOrders from "../Components/Cart/ConfirmOrders";
 
 
@@ -38,7 +39,7 @@ export default class Router extends Component {
                     <Sidebar />
                     <CustomerChat />
                  </MediaQuery>
-
+                 
                 <div className="App">
                     {this.props.isLoggedIn === true
                         ?

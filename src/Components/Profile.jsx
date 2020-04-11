@@ -6,6 +6,8 @@ import axiosRequest from '../Utils/axios';
 import { store } from 'react-notifications-component';
 import edit_user from '../assets/images/Icons/Edit_user.png';
 import edit_user2 from '../assets/images/Icons/Edit_product.png';
+import add_product from '../assets/images/Icons/Published.png';
+import buy_product from '../assets/images/Icons/Cart_add.png';
 
 
 export default class Profile extends Component {
@@ -29,9 +31,6 @@ export default class Profile extends Component {
             phoneUpdated:"",
             addressUpdated:"",
         }
-        this.showPublished = this.showPublished.bind(this);
-        this.showPurchased = this.showPurchased.bind(this);
-        this.edit_user=this.edit_user.bind(this);
     }
 
     componentDidMount() {
@@ -54,7 +53,7 @@ export default class Profile extends Component {
         })
     }
 
-    showPublished() {
+    showPublished=()=> {
         console.log("Show published clicked");
         this.setState({seePublished: true, seePurchased: false})
         if(this.state.my_products.length===5){
@@ -87,7 +86,7 @@ export default class Profile extends Component {
         }
     }
 
-    showPurchased() {
+    showPurchased=()=> {
         console.log("Show purchased clicked");
         this.setState({seePurchased: true, seePublished: false})
     }
@@ -98,7 +97,7 @@ export default class Profile extends Component {
         console.log(this.state)
     };
 
-    edit_user() {
+    edit_user=()=> {
         this.setState({
             want_to_edit_user:!this.state.want_to_edit_user
         })
@@ -118,7 +117,13 @@ export default class Profile extends Component {
             want_to_edit_address:!this.state.want_to_edit_address
         })
     }
-
+    
+    redirectAddProducts=()=>{
+        window.location.href='/products/create'
+    }
+    redirectBuyProducts=()=>{
+        window.location.href='/products'
+    }
 
 
     handleUpdateUser = (e) => {
@@ -164,7 +169,7 @@ export default class Profile extends Component {
 
 
     render() {
-
+        console.log(this.state.my_products.length)
         return (
             <div class="container-fluid h-100">
                 <div class="row h-100">
@@ -180,6 +185,7 @@ export default class Profile extends Component {
                     <div class="row">
                         <div class="col">
                     <div className="container_date_profile">
+                        
                         <div className="info_user_text">
                             <div>
                                 Username: {this.state.name}
@@ -189,9 +195,8 @@ export default class Profile extends Component {
 
                         {this.state.want_to_edit_user ?
                             <div className="info_user_text">
-
                             <input
-                                style={{width: 250}}
+                                style={{width: 160}}
                                 type="text"
                                 placeholder="Edit username"
                                 onChange={this.handleChange}
@@ -222,10 +227,10 @@ export default class Profile extends Component {
                             <div className="info_user_text">
 
                             <input
-                                style={{width: 250}}
+                                style={{width: 160}}
                                 type="text"
                                 placeholder="Edit phone number"
-                                onChange={this.handleChange}
+                                onChange={event => this.setState({phoneUpdated: event.target.value.replace(/\D/, '')})}
                                 name="phoneUpdated"
                                 value={this.state.phoneUpdated}
                             />
@@ -247,7 +252,7 @@ export default class Profile extends Component {
                             <div className="info_user_text">
 
                             <input
-                                style={{width: 250}}
+                                style={{width: 160}}
                                 type="text"
                                 placeholder="Edit address"
                                 onChange={this.handleChange}
@@ -283,6 +288,7 @@ export default class Profile extends Component {
                     <div className="container_tranzactii w-100">
                         <div className="titlu_tranzactii">Your last products published on the market:</div>
                         <div className="container_ultimele_tranzactii">
+                            {this.state.my_products.length>0 ? <>
                             {this.state.my_products.reverse().map((item) => {
                                 return (
                                     <div className="tranzactie">
@@ -299,8 +305,15 @@ export default class Profile extends Component {
                                     </div>
                                 )
                             })}
+                            </>
+                            : 
+                            <div className="no_products_added">
+                            <h>No products uploaded yet. You can add one right now!</h>
+                            <img src={add_product} onClick={this.redirectAddProducts}/>
+                            </div>}
                         </div>
                         </div>
+                        <div className="spatiu_gol_profile"/>
                         </div>
                     </div>
                     </div>
@@ -314,6 +327,7 @@ export default class Profile extends Component {
                                         <div className="titlu_tranzactii">Your last products bought from the market:
                                         </div>
                                         <div className="container_ultimele_tranzactii">
+                                        {this.state.bought_products.length>0 ? <>
                                             {this.state.bought_products.map((item) => {
                                                 return (
 
@@ -332,8 +346,14 @@ export default class Profile extends Component {
                                                     </div>
                                                 )
                                             })}
+                                            </>
+                                            : <div className="no_products_added">
+                                                    <h>No products bought yet. Go check our market!</h>
+                                            <img src={buy_product} onClick={this.redirectBuyProducts}/>
+                                            </div>}
                                         </div>
                                     </div>
+                                    <div className="spatiu_gol_profile"/>
                                 </div>
                             </div>
                         </div>

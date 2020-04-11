@@ -11,21 +11,16 @@ export default class Dropdown extends Component {
             judete: [],
             
         };
-
-
-        this.showDropdownMenu = this.showDropdownMenu.bind(this);
-        this.hideDropdownMenu = this.hideDropdownMenu.bind(this);
-
     };
 
-    showDropdownMenu(event) {
+    showDropdownMenu=(event)=> {
         event.preventDefault();
         this.setState({displayMenu: true}, () => {
             document.addEventListener('click', this.hideDropdownMenu);
         });
     }
 
-    hideDropdownMenu() {
+    hideDropdownMenu=()=> {
         this.setState({displayMenu: false}, () => {
             document.removeEventListener('click', this.hideDropdownMenu);
         });

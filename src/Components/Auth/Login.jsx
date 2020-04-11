@@ -15,9 +15,6 @@ export default class Login extends Component {
             loginErrors: "",
             redirect: false,
             };
-
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleChange = this.handleChange.bind(this);
     }
 
     renderRedirect = () => {
@@ -26,14 +23,14 @@ export default class Login extends Component {
         }
     }
 
-    handleChange(event) {
+    handleChange=(event)=> {
         this.setState({
             [event.target.name]: event.target.value
         })
     }
 
 
-    handleSubmit(event) {
+    handleSubmit=(event)=> {
         event.preventDefault();
 
         const user = {

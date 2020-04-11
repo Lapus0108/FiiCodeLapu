@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
-
 import StarRatingComponent from 'react-star-rating-component';
 import HomeGuest from "./HomeGuest";
 import HomeUser from "./HomeUser";
+import IGlogo from "../../assets/images/Icons/IgLogo.svg";
+
 
 
 export default class HomeMenu extends Component {
@@ -14,7 +15,6 @@ export default class HomeMenu extends Component {
             mesaj_rating: "",
             displayRating: true
         };
-        this.onStarClick = this.onStarClick.bind(this);
     };
 
     componentDidMount() {
@@ -25,7 +25,7 @@ export default class HomeMenu extends Component {
         setTimeout(() => this.setState({displayRating: false}), 3000);
     }
 
-    onStarClick(nextValue, prevValue, name) {
+    onStarClick=(nextValue, prevValue, name)=> {
         this.setState({
             rating: nextValue,
             mesaj_rating: "Thank you! You can tell us how to improve on the About Us page!"
@@ -34,13 +34,19 @@ export default class HomeMenu extends Component {
 
     render() {
         return (
-            <div class="container h-100">
+            <div class="container-fluid h-100">
                 <div class="row h-25">
                     <div class="col-sm-8">
                         <div class="display-1 font-main color-primary text-lg-left">Piazeta</div>
                     </div>
-                    <div class="col-sm-4">
-                        <p class="text-sm-center font-main color-primary">Designed and created for FiiCODE 2020</p>
+                    <div class="col-sm-4 mt-3">
+                        <p class="text-sm-center font-main color-primary" style={{fontSize:25}}>Designed and created for FiiCODE 2020 
+                            <a href="https://www.instagram.com/piazetaa/?hl=ro">
+                                <img src={IGlogo} style={{width:30, height:30, marginLeft:5}}/>
+                                
+                            </a>
+                        </p>
+                        
                     </div>
                 </div>
                 <div class="row h-75">

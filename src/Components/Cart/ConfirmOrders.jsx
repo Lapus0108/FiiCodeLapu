@@ -20,7 +20,6 @@ export default class ConfirmSale extends Component {
                 image: ""
             },
         };
-        this.handleClick = this.handleClick.bind(this);
     }
 
     componentDidMount() {
@@ -33,7 +32,7 @@ export default class ConfirmSale extends Component {
             })
     }
 
-    handleClick(status) {
+    handleClick=(status)=> {
         axiosRequest.post("orders/" + this.props.match.params.id, {confirmed: status})
         window.location.href='/products';
     }
@@ -51,9 +50,15 @@ export default class ConfirmSale extends Component {
                     </div>
             </>
             :
-            <>
-            <div className="confirmation_title">This is the summary of the order you just received:</div>
-
+            <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <div className="confirmation_title">This is the summary of the order you just received:</div>
+                </div>
+            </div>
+            <div class="container-fluid">
+            <div class="row">
+                <div class="col">
             <div className="info_tranzactie_confirmation">
                 <div className="product_info">
                     <div className="product_row_title">Product info:</div>
@@ -75,22 +80,30 @@ export default class ConfirmSale extends Component {
                 <div className="logo_piazeta_confirmation">Piazeta</div>
             </div>
 
+            </div>
+            </div>
+            </div>
 
-            <div className="container_agree_transaction">
-                {this.state.confirmed === false ?
-                    <>
-                    <div className="text_agree_transaction">Do you agree to complete the order by getting in touch with
-                        the buyer?
-                    </div>
-                    <div className="container_butoane_agree_transaction">
-                        <button onClick={() => this.handleClick(true)}>Yes</button>
-                        <button onClick={() => this.handleClick(false)}>No</button>
-                    </div>
-                    </>
+            <div class="row">
+                <div class="col">
+                    <div className="container_agree_transaction">
+                        {this.state.confirmed === false ?
+                        <>
+                                <div className="text_agree_transaction">Do you agree to complete the order by getting in touch with the buyer?</div>
+                            <div className="container_butoane_agree_transaction">
+                                <div class="row justify-content-center">
+                                <div class="col xs-6 xl-6 text-right"><button onClick={() => this.handleClick(true)}>Yes</button></div>
+                                 <div class="col xs-6 xl-6 text-left"><button onClick={() => this.handleClick(false)}>No</button></div>
+                            </div>
+                            </div>
+                        </>
                     : <div className="text_agree_transaction">This order has been agreed. Thank you! </div>}
 
+                    </div>
+                </div>
             </div>
-            </>
+            <div className="spatiu_gol"/>
+        </div>
         )
     }
 }

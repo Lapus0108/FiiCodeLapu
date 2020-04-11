@@ -3,7 +3,6 @@ import {Link} from "react-router-dom";
 import simbolCart from '../../assets/images/Icons/Cart_add.png';
 import axiosRequest from '../../Utils/axios';
 import {Card, Elevation, Icon} from "@blueprintjs/core";
-import { Card, Elevation, Icon} from "@blueprintjs/core";
 import { store } from 'react-notifications-component';
 
 const filterCriterias = [
@@ -56,10 +55,6 @@ export default class Products extends Component {
                 tag: ""
             }]
         }
-        this.handleChange = this.handleChange.bind(this);
-        this.sortFilters = this.sortFilters.bind(this);
-        this.updateSearch = this.updateSearch.bind(this);
-
     }
 
     handleClick = (item) => {
@@ -94,15 +89,15 @@ export default class Products extends Component {
             return <div>Nu are imagine</div>
     }
 
-    handleChange(event) {
+    handleChange=(event)=> {
         this.setState({[event.target.name]: event.target.value})
     }
 
-    updateSearch(event) {
+    updateSearch=(event)=> {
         this.setState({search: event.target.value});
     }
 
-    sortFilters(a, b) {
+    sortFilters=(a, b)=> {
         const diff = a.price - b.price;
         const text_compare = a.title.toLowerCase().localeCompare(b.title.toLowerCase());
         const date_compare = a.created_at.localeCompare(b.created_at);
@@ -182,6 +177,7 @@ export default class Products extends Component {
                             </div>
                         </Card>
                     </div>
+                    
                 </div>
             )
         })
@@ -221,9 +217,10 @@ export default class Products extends Component {
                     </div>
                 </div>
 
-                <div className="row h-80">
+                <div className="row h-80 pb-5">
                     {itemList}
                 </div>
+                <div className="spatiu_gol"></div>
             </div>
         )
     }

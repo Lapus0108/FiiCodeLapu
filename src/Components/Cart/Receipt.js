@@ -15,8 +15,6 @@ export default class Receipt extends Component {
                 price: ""
             }
         }
-        // this.handleSubmit=this.handleSubmit.bind(this);
-        
     }
 
     handleSubmit(event){
