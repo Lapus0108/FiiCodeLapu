@@ -145,8 +145,8 @@ export default class ProductsAdd extends Component {
         return (
             <>
             {this.renderRedirect()}
-            <div className="title_addarticles">
-                Add a new product on our market:
+            <div className="font-main display-1">
+                Add product
             </div>
             <div className="container_add_product">
                 <form onSubmit={this.handleSubmit}>

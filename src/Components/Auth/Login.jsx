@@ -46,7 +46,7 @@ export default class Login extends Component {
         axiosRequest.post('login', user)
             .then(response => {
                 console.log("res from login", response);
-                if (response.status = 200) {
+                if (response.status === 200) {
                     this.setState({redirect: true})
                     this.props.doLogin(response.data)
                     store.addNotification({
@@ -84,16 +84,16 @@ export default class Login extends Component {
             <>
             {this.renderRedirect()}
             <div className="container h-100">
-                <div class="row h-100">
-                    <div class="col-sm-3"/>
-                    <div class="col-sm-6">
+                <div className="row h-100">
+                    <div className="col-sm-3"/>
+                    <div className="col-sm-6">
                         <div className="row justify-content-center h-25">
-                            <img src={LoginImage} alt="login" class="title-image"/>
+                            <img src={LoginImage} alt="login" className="title-image"/>
                         </div>
-                        <div class="row justify-content-center h-75 mt-2">
-                            <div class="col-sm-2"/>
-                            <div class="col-sm-8">
-                                <div class="container no-margin">
+                        <div className="row justify-content-center h-75 mt-2">
+                            <div className="col-sm-2"/>
+                            <div className="col-sm-8">
+                                <div className="container no-margin">
                                     <form onSubmit={this.handleSubmit}>
                                         <input
                                             className="input-main"
@@ -113,7 +113,7 @@ export default class Login extends Component {
                                             onChange={this.handleChange}
                                             required/>
 
-                                        <button class="input-button-main" type="submit" onClick={this.handleSubmit}>
+                                        <button className="input-button-main" type="submit" onClick={this.handleSubmit}>
                                             Login
                                         </button>
                                     </form>
@@ -122,10 +122,10 @@ export default class Login extends Component {
                                     </Link>
                                 </div>
                             </div>
-                            <div class="col-sm-2"/>
+                            <div className="col-sm-2"/>
                         </div>
                     </div>
-                    <div class="col-sm-3"/>
+                    <div className="col-sm-3"/>
                 </div>
             </div>
             </>

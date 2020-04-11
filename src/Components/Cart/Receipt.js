@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import {Redirect} from 'react-router-dom';
 import axiosRequest from "../../Utils/axios";
 import { store } from 'react-notifications-component';
 
@@ -28,7 +27,7 @@ export default class Receipt extends Component {
             .catch(error => {
                 console.log("registration error", error);
             })
-        const timer = setTimeout(() => {
+        setTimeout(() => {
             window.location.href='/products'
             }, 3500);
 

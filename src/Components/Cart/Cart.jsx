@@ -1,17 +1,15 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom'
 import axiosRequest from '../../Utils/axios'
 import _ from 'lodash'
-import {Card, Elevation, Icon} from '@blueprintjs/core'
+import {Card, Elevation} from '@blueprintjs/core'
 
-import ReceiptContainer from "../../Containers/Cart/ReceiptContainer";
 import { store } from 'react-notifications-component';
 import arrowUp from "../../assets/images/Icons/Diverse/Arrow_up.png";
 import arrowDown from "../../assets/images/Icons/Diverse/Arrow_down.png";
 import remove from "../../assets/images/Icons/Diverse/Remove_product.png";
 import Receipt from "./Receipt";
 
-const colors = ["#5c7329", "#5c7329", "#c69421", "#cc6f22", "#8c2f0b"];
+const colors = ["#5c7329", "#548d78", "#c69421", "#cc6f22", "#8c2f0b"];
 
 export default class Cart extends Component {
 
@@ -96,6 +94,9 @@ export default class Cart extends Component {
                                                style={{color: colors[item.id % 5]}}>{item.title}</a>
                                             <p className="h5">{item.description}</p>
                                             <p className="h6">Quantity: {item.pivot.quantity}</p>
+                                            {item.sold_out=== 1 ?
+                                                <div className="text-danger h6">Item not avalabile anymore on Piazeta! Please remove it from your cart.</div>
+                                                : ""}
                                         </div>
                                         <div className="col-lg-1">
                                             <div className="row no-margin">

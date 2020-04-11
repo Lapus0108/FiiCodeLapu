@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
 import {Redirect} from "react-router-dom";
 import axiosRequest from "../../Utils/axios";
-import {Card, Elevation, Icon} from '@blueprintjs/core'
+import {Card, Elevation} from '@blueprintjs/core'
 import remove_article from '../../assets/images/Icons/Remove_product.png';
 import edit_article from  '../../assets/images/Icons/Edit_product.png';
-import sold_article from  '../../assets/images/Icons/Sold_product.png';
 import Moment from 'react-moment';
 import {store} from 'react-notifications-component';
 
-const colors = ["#5c7329", "#5c7329", "#c69421", "#cc6f22", "#8c2f0b"];
+const colors = ["#5c7329", "#548d78", "#c69421", "#cc6f22", "#8c2f0b"];
 
 export default class ProductsSingle extends Component {
 
@@ -138,8 +137,8 @@ export default class ProductsSingle extends Component {
             animationOut: ["animated", "fadeOut"],
             dismiss: {
                 duration: 5000
-             }
-          });
+            }
+        });
     };
 
 
@@ -158,15 +157,17 @@ export default class ProductsSingle extends Component {
                                     <div className="col-lg-5 align-content-center">
                                         <img className="product_image_single" src={this.state.product.image} alt=""/>
                                     </div>
-                                    <div className="col-lg-6 text-lg-left">
-                                        <a className="h1 font-main"
-                                           style={{color: colors[this.state.product.id % 5]}}>{this.state.product.title}</a>
-                                        <div className="row">
-                                                {this.state.want_to_edit ?
-                                                    <>
+                                    <div className="col-lg-6">
+                                        <div className="row justify-content-center justify-content-lg-start ">
+                                            <div className="h1 font-main"
+                                               style={{color: colors[this.state.product.id % 5]}}>{this.state.product.title}</div>
+                                        </div>
+                                        <div className="row justify-content-center justify-content-lg-start mb-2">
+                                            {this.state.want_to_edit ?
+                                                <div className="row">
                                                     <input
-                                                        style={{width: 35, marginLeft: 20}}
-                                                        type="price"
+                                                        className="input-secondary"
+                                                        type="number"
                                                         placeholder="Edit price"
                                                         onChange={this.handleChange}
                                                         name="priceUpdated"
@@ -181,10 +182,43 @@ export default class ProductsSingle extends Component {
                                                             Update
                                                         </button>
                                                         : ""}
-                                                    </>
-                                                    : <p className="h4">{this.state.product.price} RON</p>}
+                                                </div>
+                                                : <p className="h4">{this.state.product.price} RON</p>}
                                         </div>
-                                        <p className="h5">{this.state.product.description}</p>
+                                        <div className="row justify-content-center justify-content-lg-start mb-2">
+                                            {this.state.want_to_edit ?
+                                                <div className="row">
+                                                    <input
+                                                        className="input-secondary"
+                                                        type="text"
+                                                        placeholder="Edit description"
+                                                        onChange={this.handleChange}
+                                                        name="descriptionUpdated"
+                                                        value={this.state.descriptionUpdated}
+                                                    />
+                                                    {this.state.product.description !== this.state.descriptionUpdated ?
+                                                        <button
+                                                            style={{marginLeft: 5}}
+                                                            onClick={this.handleUpdateProduct}>
+                                                            Update
+                                                        </button>
+                                                        : ""}
+                                                </div> : <p className="h5">{this.state.product.description}</p>}
+                                        </div>
+                                        <div className="row justify-content-center justify-content-lg-start mb-2">
+                                            <div>Uploaded on:</div>
+                                            <Moment format="DD.MM.YYYY">
+                                                {this.state.product.created_at}
+                                            </Moment>
+                                        </div>
+                                        {this.state.product.negotiable === 1 ?
+                                            <div className="row justify-content-center justify-content-lg-start mb-2 text-danger">
+                                                ! Product is negotiable
+                                            </div> : "" }
+                                        {/*{this.state.product.exchangeable === true ?*/}
+                                            {/*<div className="sgproduct_conditionals">! Product(s) in exchange may be*/}
+                                                {/*accepted by the*/}
+                                                {/*seller</div> : "" }*/}
                                     </div>
                                     <div className="col-lg-1 ">
                                         {this.state.product.seller_id === this.props.user.id || this.props.user.is_admin

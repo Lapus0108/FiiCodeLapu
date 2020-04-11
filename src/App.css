@@ -816,8 +816,9 @@ margin-left: 10px;
 }
 .container_imagine_profile{
     width: 230px;
-    height: 100%;
+    height: auto;
     display: block;
+    padding: 5px;
 }
 .container_imagine_profile img{
     height: 66%;

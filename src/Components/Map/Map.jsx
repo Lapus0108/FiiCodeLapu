@@ -4,11 +4,6 @@ import judete from 'assets/data/county.json'
 import oficii_post from 'assets/data/postal_offices.json';
 import county_centres from 'assets/data/county_centres.json';
 
-const mapStyles = {
-    width: '100%',
-    height: '100%'
-  };
-
 export class MapContainer extends Component {
 
     constructor(props) {
@@ -93,7 +88,6 @@ export class MapContainer extends Component {
             <Map
                     google={this.props.google}
                     zoom={13}
-                    style={""}
                     center={{
                         lat:this.state.lat_centru,
                         lng:this.state.long_centru

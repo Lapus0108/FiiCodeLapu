@@ -41,13 +41,13 @@ export default class ConfirmSale extends Component {
     render() {
             console.log(this.state.products);
         return (
-            this.state.products[0].seller_id!==this.props.user.id ?
+            this.state.products[0].seller_id!==this.props.user.id && !this.props.user.is_admin  ?
 
             <>
                 <div className="mesaj_not_your_order">This is not your order and you can't access it.</div>
                 <div className="goback_not_your_order">To return to our site you can click here: </div>
                     <div onClick={()=> window.location.href='/home'}>
-                        <img src={return_site} style={{width:40, height:40}}/>
+                        <img src={return_site} style={{width:40, height:40}} alt="return_site"/>
                     </div>
             </>
             :

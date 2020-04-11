@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Redirect} from "react-router-dom";
 import axiosRequest from "axios";
 
 export default class ResetPassword extends Component {

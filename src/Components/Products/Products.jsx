@@ -1,9 +1,6 @@
 import React, {Component} from 'react';
-import {Link} from "react-router-dom";
-import simbolCart from '../../assets/images/Icons/Cart_add.png';
 import axiosRequest from '../../Utils/axios';
 import {Card, Elevation, Icon} from "@blueprintjs/core";
-import { Card, Elevation, Icon} from "@blueprintjs/core";
 import { store } from 'react-notifications-component';
 
 const filterCriterias = [
@@ -36,7 +33,7 @@ const filterCriterias = [
         name: "Name DESC"
     }]
 
-const colors = ["#5c7329", "#5c7329", "#c69421", "#cc6f22", "#8c2f0b"];
+const colors = ["#5c7329", "#548d78", "#c69421", "#cc6f22", "#8c2f0b"];
 
 export default class Products extends Component {
 
@@ -107,30 +104,29 @@ export default class Products extends Component {
         const text_compare = a.title.toLowerCase().localeCompare(b.title.toLowerCase());
         const date_compare = a.created_at.localeCompare(b.created_at);
 
-        if (this.state.filterCriteria == 2) {
+        if (this.state.filterCriteria === 2) {
             return date_compare;
         }
-        if (this.state.filterCriteria == 3 ||
-            this.state.filterCriteria == 1) {
+        if (this.state.filterCriteria === 3 ||
+            this.state.filterCriteria === 1) {
             return -1 * date_compare;
         }
-        if (this.state.filterCriteria == 4) {
+        if (this.state.filterCriteria === 4) {
             return diff;
         }
-        if (this.state.filterCriteria == 5) {
+        if (this.state.filterCriteria === 5) {
             return -1 * diff;
         }
-        if (this.state.filterCriteria == 6) {
+        if (this.state.filterCriteria === 6) {
             return text_compare;
         }
-        if (this.state.filterCriteria == 7) {
+        if (this.state.filterCriteria === 7) {
             return -1 * text_compare;
         }
     }
 
     render() {
         console.log("Connected user ID:", this.props.user.id)
-        let data = this.state.produs;
 
         let filteredData = this.state.produs.filter(
             (item) => {

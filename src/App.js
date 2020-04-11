@@ -1,15 +1,10 @@
 import React, {Component} from 'react';
 import background from "./assets/images/retro-wallpaper-1.jpg";
-import './App.css';
-import "normalize.css";
-import "@blueprintjs/core/lib/css/blueprint.css";
-import "@blueprintjs/icons/lib/css/blueprint-icons.css";
+
 import RouterContainer from "./Router/RouterContainer";
 import CookieConsent from "react-cookie-consent";
-import MediaQuery from "react-responsive";
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import ReactNotification from 'react-notifications-component';
-import 'react-notifications-component/dist/theme.css';
+
 
 
 export default class App extends Component {
@@ -19,7 +14,7 @@ export default class App extends Component {
             
             <div className="total">
                 <div className="background_map_page">
-                    <img src={background}/>
+                    <img src={background} alt="background"/>
                 </div>
                 <ReactNotification />
                 <RouterContainer />

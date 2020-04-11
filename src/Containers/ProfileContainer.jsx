@@ -1,6 +1,5 @@
 import Profile from "../Components/Profile";
 import {connect} from "react-redux";
-import { useRadioGroup } from "@material-ui/core";
 import {userLogin} from 'Actions/Auth/authActions';
 
 const mapStateToProps = (state) => {

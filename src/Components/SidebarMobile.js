@@ -13,14 +13,14 @@ function SidebarMobile(){
         
         <div className="bottom_buton">
         <Link to="/home">
-            <img src={home_icon}/>
+            <img src={home_icon} alt="home_button"/>
                 <div className="button_bottom_text" >Home</div>
         </Link>
         </div>
         
         <div className="bottom_buton">
         <Link to="/products">
-            <img src={products_icon}/>
+            <img src={products_icon} alt="products_button"/>
            <div className="button_bottom_text" >Products</div>
         </Link>
         </div>
@@ -28,7 +28,7 @@ function SidebarMobile(){
         
         <div className="bottom_buton">
         <Link to="/products/create">
-            <img src={add_product_icon}/>
+            <img src={add_product_icon} alt="add_product_button"/>
             <div className="button_bottom_text">Add product</div>
         </Link>
         </div>
@@ -36,7 +36,7 @@ function SidebarMobile(){
         
         <div className="bottom_buton">
         <Link to="/cart">
-            <img src={cart_icon}/>
+            <img src={cart_icon} alt="cart_button"/>
             <div className="button_bottom_text">Cart</div>
         </Link>
         </div>
@@ -44,7 +44,7 @@ function SidebarMobile(){
         
         <div className="bottom_buton">
         <Link to="/mailing">
-            <img src={mailing_icon}/>
+            <img src={mailing_icon} alt="mailing_button"/>
             <div className="button_bottom_text">Mailing</div>
         </Link>
         </div>

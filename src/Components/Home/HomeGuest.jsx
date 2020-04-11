@@ -14,33 +14,33 @@ export default class HomeGuest extends Component {
 
     render() {
         return (
-            <div class="row h-75 w-100 justify-content-center no-margin">
-                <div class="row w-100 h-25 mb-5 mb-lg-0">
-                    <div class="d-flex justify-content-end col-lg-6 p-1 p-lg-3">
-                        <div class="col-lg-6">
+            <div className="row h-75 w-100 justify-content-center no-margin">
+                <div className="row w-100 h-25 mb-5 mb-lg-0">
+                    <div className="d-flex justify-content-end col-lg-6 p-1 p-lg-3">
+                        <div className="col-lg-6">
                             <Link to="/register" >
                                 <img  src={CreateAccount} alt="createAccount"/>
                             </Link>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-start col-lg-6 p-1 p-lg-3">
-                        <div class="col-lg-6">
+                    <div className="d-flex justify-content-start col-lg-6 p-1 p-lg-3">
+                        <div className="col-lg-6">
                             <Link to="/Login">
                                 <img src={Login} alt="login"/>
                             </Link>
                         </div>
                     </div>
                 </div>
-                <div class="row w-100 h-25 mt-5 mt-lg-0">
-                    <div class="d-flex justify-content-end col-lg-6 p-1 p-lg-3">
-                        <div class="col-lg-6">
+                <div className="row w-100 h-25 mt-5 mt-lg-0">
+                    <div className="d-flex justify-content-end col-lg-6 p-1 p-lg-3">
+                        <div className="col-lg-6">
                             <Link to="/products">
                                 <img src={Products} alt="products"/>
                             </Link>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-start col-lg-6 p-1 p-lg-3">
-                        <div class="col-lg-6">
+                    <div className="d-flex justify-content-start col-lg-6 p-1 p-lg-3">
+                        <div className="col-lg-6">
                             <Link to="/about">
                                 <img src={About} alt="about"/>
                             </Link>
