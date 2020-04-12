@@ -2,13 +2,19 @@ import React from 'react';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
-import {Link} from 'react-router-dom';
+import {Link, withRouter, useHistory} from 'react-router-dom';
 import items from 'assets/data/sidebarRoutes'
+import return_button from '../assets/images/Icons/Back-button.png';
+import refresh_button from '../assets/images/Icons/Refresh.png';
 
 function Sidebar() {
-
+    let history = useHistory();
     return (
         <div className="sidebar">
+            <div className="butoane_top_sidebar" style={{textAlign:"center",paddingTop:5, paddingBottom:5}}>
+                <img src={return_button} style={{height:30, paddingRight:15}} onClick={()=>history.goBack()}/>
+                <img src={refresh_button} style={{height:30, paddingLeft:15}}  onClick={()=>window.location.reload()}/>
+            </div>
             <List disablePadding dense>
                 {items.map(({label, name, items: subItems, ...rest}) => {
                     return (
@@ -58,6 +64,6 @@ function Sidebar() {
     )
 }
 
-export default Sidebar
+export default withRouter(Sidebar)
 
 

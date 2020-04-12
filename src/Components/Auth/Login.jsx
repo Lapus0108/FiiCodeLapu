@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import {Redirect} from 'react-router-dom';
+import {Redirect, withRouter, history} from 'react-router-dom';
 import axiosRequest from "../../Utils/axios";
 import {Link} from 'react-router-dom';
 import LoginImage from '../../assets/images/buttons/Login.svg';
 import { store } from 'react-notifications-component';
+import back_button from '../../assets/images/Icons/Back-button.svg';
 
 export default class Login extends Component {
     constructor() {
@@ -27,6 +28,10 @@ export default class Login extends Component {
         this.setState({
             [event.target.name]: event.target.value
         })
+    }
+
+    goBack=()=>{
+        this.props.history.goBack();
     }
 
 
@@ -63,7 +68,7 @@ export default class Login extends Component {
             console.log("login error", error);
             store.addNotification({
                 title: "Authentication error",
-                message: "Email and password do not match",
+                message: "Check your connection and authentication data and try again",
                 type: "warning",
                 insert: "bottom",
                 container: "bottom-right",
@@ -109,14 +114,19 @@ export default class Login extends Component {
                                             value={this.state.password}
                                             onChange={this.handleChange}
                                             required/>
-
-                                        <button className="input-button-main" type="submit" onClick={this.handleSubmit}>
+                                        <div className="row justify-content-center">
+                                            <button className="input-button-main" type="submit" onClick={this.handleSubmit}>
                                             Login
                                         </button>
-                                    </form>
+                                            </div>
+                                        
+                                   </form>
                                     <Link to="/password/forgot">
                                         <div className="login_forgot_password">Forgot password?</div>
                                     </Link>
+                                    <div class="row justify-content-center">
+                                        <img src={back_button} onClick={this.goBack} style={{height:32, backgroundColor:"darkred", borderRadius:15, marginTop: 7}}/>
+                                    </div>
                                 </div>
                             </div>
                             <div className="col-sm-2"/>

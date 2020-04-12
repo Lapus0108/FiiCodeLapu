@@ -782,9 +782,8 @@ margin-left: 10px;
     padding: 6px;
     font-family: serif;
     position: absolute;
-    top: 40%;
+    top: 100%;
     width: 210px;
-    right: -25%;
 }
 
 .hover_remove{
@@ -792,9 +791,8 @@ margin-left: 10px;
     padding: 6px;
     font-family: serif;
     position: absolute;
-    top: 13%;
+    top: 100%;
     width: 210px;
-    right: -25%;
 }
 
 /* PROFILE */
@@ -969,6 +967,7 @@ margin-left: 10px;
     position: absolute;
     bottom: 0;
     width: 100%;
+    left:10px;
 }
 .chatbot{
     position: absolute;

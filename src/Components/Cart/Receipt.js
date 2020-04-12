@@ -23,7 +23,7 @@ export default class Receipt extends Component {
                 
             })
             .catch(error => {
-                console.log("registration error", error);
+                console.log("order processing error", error);
             })
         setTimeout(() => {
             window.location.href='/products'
