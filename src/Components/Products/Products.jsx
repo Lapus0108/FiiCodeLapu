@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axiosRequest from '../../Utils/axios';
 import {Card, Elevation, Icon} from "@blueprintjs/core";
-import { store } from 'react-notifications-component';
+import {store} from 'react-notifications-component';
 import tags from 'assets/data/tags.json';
 
 const filterCriterias = [
@@ -43,7 +43,7 @@ export default class Products extends Component {
         this.state = {
             filterCriteria: 1,
             search: "",
-            tagfilter:"",
+            tagfilter: "",
             produs: [{
                 id: "",
                 title: "",
@@ -68,10 +68,10 @@ export default class Products extends Component {
             animationIn: ["animated", "fadeIn"],
             animationOut: ["animated", "fadeOut"],
             dismiss: {
-              duration: 3000
+                duration: 3000
 
             }
-          });
+        });
     };
 
 
@@ -81,7 +81,6 @@ export default class Products extends Component {
                 const produs = res.data;
                 this.setState({produs: produs});
             })
-        console.log(this.props.isLoggedIn);
     }
 
     imageSetter() {
@@ -89,15 +88,33 @@ export default class Products extends Component {
             return <div>Nu are imagine</div>
     }
 
-    handleChange=(event)=> {
+    handleChange = (event) => {
         this.setState({[event.target.name]: event.target.value})
     }
 
-    updateSearch=(event)=> {
+    handleTagChange = (event) => {
+        this.setState({[event.target.name]: event.target.value})
+        console.log(event.target.value)
+        if (event.target.value < 99) {
+            axiosRequest.get("products", {params: {tag: event.target.value}})
+                .then(res => {
+                    const produs = res.data;
+                    this.setState({produs: produs});
+                })
+        } else {
+            axiosRequest.get("products")
+                .then(res => {
+                    const produs = res.data;
+                    this.setState({produs: produs});
+                })
+        }
+    }
+
+    updateSearch = (event) => {
         this.setState({search: event.target.value});
     }
 
-    sortFilters=(a, b)=> {
+    sortFilters = (a, b) => {
         const diff = a.price - b.price;
         const text_compare = a.title.toLowerCase().localeCompare(b.title.toLowerCase());
         const date_compare = a.created_at.localeCompare(b.created_at);
@@ -159,29 +176,30 @@ export default class Products extends Component {
                         {/*: ""}*/}
                         {/*</b></p>*/}
                         {/*</div>*/}
-                        
+
                         <Card interactive={false} elevation={Elevation.FOUR} className="background-primary h-100">
-                        <a href={"/products/" + item.id}>
-                            <img className="w-50 h-50" src={item.image} alt=""/>
-                            <div><a href={"/products/" + item.id} className="h4 font-main"
-                                    style={{color: colors[item.id % 5]}}>{item.title}</a></div>
-                            <p className="color-primary" >{item.description}</p>
-                            <div class="container-fluid">
-                                <div class="row justify-content-center">
-                                    <p className="color-primary">{item.price} RON </p>
-                                    {this.props.isLoggedIn && this.props.user.id !== item.seller_id ?
-                                        <Icon className="ml-2" iconSize={Icon.SIZE_LARGE} icon="shopping-cart" style={{color:'black', paddingTop:5}}
-                                              onClick={() => {
-                                                  this.handleClick(item)
-                                              }}/>
-                                        : ""}
+                            <a href={"/products/" + item.id}>
+                                <img className="w-50 h-50" src={item.image} alt=""/>
+                                <div><a href={"/products/" + item.id} className="h4 font-main"
+                                        style={{color: colors[item.id % 5]}}>{item.title}</a></div>
+                                <p className="color-primary">{item.description}</p>
+                                <div class="container-fluid">
+                                    <div class="row justify-content-center">
+                                        <p className="color-primary">{item.price} RON </p>
+                                        {this.props.isLoggedIn && this.props.user.id !== item.seller_id ?
+                                            <Icon className="ml-2" iconSize={Icon.SIZE_LARGE} icon="shopping-cart"
+                                                  style={{color: 'black', paddingTop: 5}}
+                                                  onClick={() => {
+                                                      this.handleClick(item)
+                                                  }}/>
+                                            : ""}
+                                    </div>
                                 </div>
-                            </div>
                             </a>
                         </Card>
-                        
+
                     </div>
-                    
+
                 </div>
             )
         })
@@ -212,31 +230,33 @@ export default class Products extends Component {
                         </div>
                         <div class="col-lg-4 justify-content-center">
                             <input
-                                className="input-secondary font-secondary"
+                                className="input-secondary font-secondary mb-2"
                                 type="text"
                                 placeholder={"Explore our market..."}
                                 value={this.state.search}
                                 onChange={this.updateSearch}/>
-                                
+
                         </div>
-                <div class="col-lg-4">
-                    <div class="row justify-content-center">
-                    <label style={{display:'contents', fontFamily:'Franchise', marginRight:5}}>Filter by category:
-                         <select 
-                            value={this.state.tagfilter} 
-                            className="font-secondary input-secondary" 
-                            onChange={this.handleChange} 
-                            name="tagfilter" 
-                            style={{borderRadius:5,marginLeft:5}}>
-                        {tags.map((item, key) => {
-                                return (
-                                    <option value={item.id} onChange={this.handleChange}>{item.name}</option>
-                                )
-                            })}
-                        </select>
-                    </label>
-                    </div>
-                </div>
+                        <div class="col-lg-4">
+                            <div class="row justify-content-center">
+                                <label style={{display: 'contents', fontFamily: 'Franchise', marginRight: 5}}>Filter by
+                                    category:
+                                    <select
+                                        value={this.state.tagfilter}
+                                        className="font-secondary input-secondary"
+                                        onChange={this.handleTagChange}
+                                        name="tagfilter"
+                                        style={{borderRadius: 5, marginLeft: 5}}>
+                                        {tags.map((item, key) => {
+                                            return (
+                                                <option value={item.id}
+                                                        onChange={this.handleTagChange}>{item.name}</option>
+                                            )
+                                        })}
+                                    </select>
+                                </label>
+                            </div>
+                        </div>
 
                     </div>
                 </div>

@@ -1,46 +1,46 @@
-[   {
-	"id": 99,
-	"name":" "
-    },
-    {
-        "id": 1,
-        "name": "Animals"
-    },
-    {
-        "id": 2,
-        "name": "Books"
-    },
-    {
-        "id": 3,
-        "name": "Food"
-    },
-    {
-        "id": 4,
-        "name": "Homemade"
-    },
-    {
-        "id": 5,
-        "name": "Clothing"
-    },
-    {
-        "id": 6,
-        "name": "Furniture"
-    },
-    {
-        "id": 7,
-        "name": "Cars"
-    },
-    {
-        "id": 8,
-        "name": "Tools"
-    },
-
-    {
-        "id": 9,
-        "name": "Jewelry"
-    },
-    {
-	  "id":10,
-	  "name":"Other"
-    }	
+[
+  {
+    "id": 99,
+    "name": ""
+  },
+  {
+    "id": 1,
+    "name": "Books"
+  },
+  {
+    "id": 2,
+    "name": "Homemade"
+  },
+  {
+    "id": 3,
+    "name": "Clothing"
+  },
+  {
+    "id": 4,
+    "name": "Furniture"
+  },
+  {
+    "id": 5,
+    "name": "Cars"
+  },
+  {
+    "id": 6,
+    "name": "Tools"
+  },
+  {
+    "id": 7,
+    "name": "Jewelry"
+  },
+  {
+    "id": 8,
+    "name": "Army"
+  },
+  {
+    "id": 9,
+    "name": "Technology"
+  },
+  {
+    "id": 10,
+    "name": "Other"
+  }
 ]
