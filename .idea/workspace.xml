@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="afcd3093-47b8-4864-bc34-0d923338da10" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Components/Cart/ConfirmOrders.jsx" afterPath="$PROJECT_DIR$/src/Components/Cart/ConfirmOrders.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Components/Home/HomeUser.jsx" afterPath="$PROJECT_DIR$/src/Components/Home/HomeUser.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Components/Products/Products.jsx" afterPath="$PROJECT_DIR$/src/Components/Products/Products.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/data/tags.json" afterPath="$PROJECT_DIR$/src/assets/data/tags.json" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -50,61 +51,6 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Login.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Components/Auth/Login.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="68" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Mailing.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Components/Mailing.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AboutUs.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Components/AboutUs.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="4" column="25" lean-forward="false" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/App.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="11" column="44" lean-forward="true" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="44" />
-              <folding>
-                <marker date="1586723198430" expanded="true" signature="82:776" ph="{&quot;@blueprintjs/core&quot;: &quot;^3.24.0&quot;...}" />
-                <marker date="1586723198430" expanded="true" signature="1799:1863" ph="{&quot;dotenv&quot;: &quot;^8.2.0&quot;...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name=".env" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Utils/.env">
           <provider selected="true" editor-type-id="text-editor">
@@ -115,7 +61,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".env" pinned="false" current-in-tab="false">
+      <file leaf-file-name=".env" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.env">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="92">
@@ -125,21 +71,71 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+      <file leaf-file-name="ConfirmOrders.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Components/Cart/ConfirmOrders.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="6" column="5" lean-forward="true" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+            <state relative-caret-position="270">
+              <caret line="42" column="5" lean-forward="true" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Products.jsx" pinned="false" current-in-tab="true">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="322">
+              <caret line="14" column="6" lean-forward="true" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HomeUser.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Components/Home/HomeUser.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="115">
+              <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HomeGuest.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Components/Home/HomeGuest.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="253">
+              <caret line="17" column="61" lean-forward="true" selection-start-line="17" selection-start-column="61" selection-end-line="17" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Home.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Components/Home/Home.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1150">
+              <caret line="54" column="41" lean-forward="true" selection-start-line="54" selection-start-column="41" selection-end-line="54" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Products.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/Products/Products.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="94" column="34" lean-forward="true" selection-start-line="94" selection-start-column="34" selection-end-line="94" selection-end-column="34" />
+            <state relative-caret-position="178">
+              <caret line="180" column="66" lean-forward="true" selection-start-line="180" selection-start-column="66" selection-end-line="180" selection-end-column="66" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="setupTests.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/setupTests.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="46">
+              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -219,7 +215,6 @@
         <option value="$PROJECT_DIR$/src/Components/Products/ProductsAdd.jsx" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/Components/Home/HomeGuest.jsx" />
-        <option value="$PROJECT_DIR$/src/Components/Home/HomeUser.jsx" />
         <option value="$PROJECT_DIR$/src/Components/SidebarMobile.js" />
         <option value="$PROJECT_DIR$/src/Components/Profile.jsx" />
         <option value="$PROJECT_DIR$/src/Reducers/cartReducer.js" />
@@ -230,7 +225,6 @@
         <option value="$PROJECT_DIR$/src/Containers/ProfileContainer.jsx" />
         <option value="$PROJECT_DIR$/src/Components/Home/Home.jsx" />
         <option value="$PROJECT_DIR$/src/Components/Auth/Login.jsx" />
-        <option value="$PROJECT_DIR$/src/Components/Cart/ConfirmOrders.jsx" />
         <option value="$PROJECT_DIR$/src/Components/Map/Map.jsx" />
         <option value="$PROJECT_DIR$/public/.htaccess" />
         <option value="$PROJECT_DIR$/package.json" />
@@ -244,9 +238,11 @@
         <option value="$PROJECT_DIR$/src/Components/AboutUs.jsx" />
         <option value="$PROJECT_DIR$/src/App.js" />
         <option value="$PROJECT_DIR$/src/Utils/.env" />
-        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/src/assets/data/tags.json" />
+        <option value="$PROJECT_DIR$/src/Components/Home/HomeUser.jsx" />
         <option value="$PROJECT_DIR$/src/Components/Products/Products.jsx" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/src/Components/Cart/ConfirmOrders.jsx" />
       </list>
     </option>
   </component>
@@ -379,7 +375,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../retro-site" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
-    <property name="SearchEverywhereHistoryKey" value="Prod&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Products/Products.jsx&#10;produ&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Products/Products.jsx&#10;profile&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Profile.jsx&#10;cart&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Cart/Cart.jsx&#10;Cart&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Containers/Cart/CartContainer.jsx&#10;regist&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Auth/Registration.jsx&#10;Router&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Router/Router.jsx&#10;login&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Auth/Login.jsx&#10;products&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Products/Products.jsx&#10;app.css&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/App.css&#10;reg&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Auth/Registration.jsx&#10;app&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/App.js&#10;index&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/index.js&#10;webpack.config.js&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/node_modules/react-scripts/config/webpack.config.js&#10;Side&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Sidebar.js&#10;Map&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Map/Map.jsx&#10;Confirm&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Cart/ConfirmOrders.jsx&#10;Home&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Home/Home.jsx&#10;home&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Home/HomeUser.jsx&#10;profileC&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Containers/ProfileContainer.jsx&#10;reset&#9;null&#9;null&#10;recei&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Cart/Receipt.js&#10;cartRe&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Reducers/cartReducer.js&#10;sidebar&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/SidebarMobile.js&#10;homeGue&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Home/HomeGuest.jsx&#10;product&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Products/ProductsSingle.jsx&#10;profil&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Profile.jsx&#10;produc&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Products/Products.jsx&#10;reducer&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Reducers/cartReducer.js&#10;prod&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Products/Products.jsx&#10;map&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Map/Map.jsx&#10;mailing&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Mailing.jsx&#10;router&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Router/Router.jsx&#10;input-main&#9;null&#9;null&#10;app.cs&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/App.css&#10;Rout&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Router/Router.jsx&#10;react-script&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/node_modules/react-scripts/bin/react-scripts.js&#10;side&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Sidebar.js&#10;sideba&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Sidebar.js" />
+    <property name="SearchEverywhereHistoryKey" value="order&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Cart/ConfirmOrders.jsx&#10;product&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Products/Products.jsx&#10;home&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Home/Home.jsx&#10;hom&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Home/HomeGuest.jsx&#10;Prod&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Products/Products.jsx&#10;produ&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Products/Products.jsx&#10;profile&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Profile.jsx&#10;cart&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Cart/Cart.jsx&#10;Cart&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Containers/Cart/CartContainer.jsx&#10;regist&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Auth/Registration.jsx&#10;Router&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Router/Router.jsx&#10;login&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Auth/Login.jsx&#10;products&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Products/Products.jsx&#10;app.css&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/App.css&#10;reg&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Auth/Registration.jsx&#10;app&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/App.js&#10;index&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/index.js&#10;webpack.config.js&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/node_modules/react-scripts/config/webpack.config.js&#10;Side&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Sidebar.js&#10;Map&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Map/Map.jsx&#10;Confirm&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Cart/ConfirmOrders.jsx&#10;Home&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Home/Home.jsx&#10;profileC&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Containers/ProfileContainer.jsx&#10;reset&#9;null&#9;null&#10;recei&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Cart/Receipt.js&#10;cartRe&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Reducers/cartReducer.js&#10;sidebar&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/SidebarMobile.js&#10;homeGue&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Home/HomeGuest.jsx&#10;profil&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Profile.jsx&#10;produc&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Products/Products.jsx&#10;reducer&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Reducers/cartReducer.js&#10;prod&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Products/Products.jsx&#10;map&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Map/Map.jsx&#10;mailing&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Mailing.jsx&#10;router&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Router/Router.jsx&#10;input-main&#9;null&#9;null&#10;app.cs&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/App.css&#10;Rout&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Router/Router.jsx&#10;react-script&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/node_modules/react-scripts/bin/react-scripts.js&#10;side&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Sidebar.js&#10;sideba&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Sidebar.js" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
   </component>
   <component name="RecentsManager">
@@ -857,7 +853,7 @@
       <workItem from="1586516197429" duration="11740000" />
       <workItem from="1586587680722" duration="9148000" />
       <workItem from="1586722659272" duration="1926000" />
-      <workItem from="1586769011410" duration="7216000" />
+      <workItem from="1586769011410" duration="10469000" />
     </task>
     <task id="LOCAL-00003" summary="ReModelling">
       <created>1586099945242</created>
@@ -957,15 +953,21 @@
       <option name="project" value="LOCAL" />
       <updated>1586778534958</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Added option to filter by tag">
+      <created>1586780724621</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1586780724621</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120045000" />
+    <option name="totallyTimeSpent" value="123298000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -973,15 +975,15 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22943723" sideWeight="0.5948827" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22943723" sideWeight="0.59808105" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18181819" sideWeight="0.47654584" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22943723" sideWeight="0.40511727" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22943723" sideWeight="0.40191898" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30063966" sideWeight="0.49530202" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30063966" sideWeight="0.49530202" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1590909" sideWeight="0.49573562" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1047,7 +1049,8 @@
     <MESSAGE value="More Adaptability for Mobile" />
     <MESSAGE value="Merge" />
     <MESSAGE value="Merge branch 'master' of https://github.com/Lapus0108/FiiCodeLapu&#10;&#10;About US + TC + PP" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/Lapus0108/FiiCodeLapu&#10;&#10;About US + TC + PP" />
+    <MESSAGE value="Added option to filter by tag" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added option to filter by tag" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1086,14 +1089,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/build/precache-manifest.20ea09a16537b6de36af02cc0b832e4d.js" />
-    <entry file="file://$PROJECT_DIR$/src/Components/Home/HomeGuest.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/SidebarMobile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
@@ -1145,27 +1140,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Home/HomeUser.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="11" column="23" lean-forward="false" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Home/Home.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="12" column="22" lean-forward="false" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Cart/ConfirmOrders.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="47" column="58" lean-forward="false" selection-start-line="47" selection-start-column="58" selection-end-line="47" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/Map/Map.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
@@ -1177,13 +1151,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/setupTests.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1302,7 +1269,7 @@
         <state relative-caret-position="385">
           <caret line="123" column="40" lean-forward="false" selection-start-line="123" selection-start-column="40" selection-end-line="123" selection-end-column="40" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1370,7 +1337,7 @@
         <state relative-caret-position="207">
           <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1410,26 +1377,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="5" lean-forward="true" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Utils/.env">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="16" lean-forward="true" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -1442,10 +1393,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="14" column="6" lean-forward="true" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Home/HomeUser.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Home/HomeGuest.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="17" column="61" lean-forward="true" selection-start-line="17" selection-start-column="61" selection-end-line="17" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Home/Home.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1150">
+          <caret line="54" column="41" lean-forward="true" selection-start-line="54" selection-start-column="41" selection-end-line="54" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/Products/Products.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="94" column="34" lean-forward="true" selection-start-line="94" selection-start-column="34" selection-end-line="94" selection-end-column="34" />
+        <state relative-caret-position="178">
+          <caret line="180" column="66" lean-forward="true" selection-start-line="180" selection-start-column="66" selection-end-line="180" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/setupTests.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Cart/ConfirmOrders.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="42" column="5" lean-forward="true" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="4" column="16" lean-forward="true" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
           <folding />
         </state>
       </provider>
