@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Card, Elevation} from '@blueprintjs/core';
 import Lapu from '../assets/images/about/Lapu.jpg';
-import Mihnea from '../assets/images/about/Mihnea1.jpg';
+import Mihnea from '../assets/images/about/Mihnea1.JPG';
 import back_button from '../assets/images/Icons/Back-button.svg';
 
 export default class AboutUs extends Component {
