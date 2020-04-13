@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Redirect} from "react-router-dom";
 import axiosRequest from "../../Utils/axios";
 
-import LogoutImage from 'assets/images/buttons/Logout.svg';
+import LogoutImage from '../../assets/images/buttons/Logout.svg';
 
 export default class Logout extends Component {
     constructor() {

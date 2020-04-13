@@ -1,5 +1,5 @@
-import {ADD_TO_CART, REMOVE_ITEM, SUB_QUANTITY, ADD_QUANTITY} from 'Actions/Cart/cartActionsTypes';
-import _ from 'lodash'
+import {ADD_TO_CART, REMOVE_ITEM, SUB_QUANTITY, ADD_QUANTITY} from '../../Actions/Cart/cartActionsTypes';
+import _ from 'lodash';
 import { EMPTY_CART } from '../Actions/Cart/cartActionsTypes';
 
 const initState = {

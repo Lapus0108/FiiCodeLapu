@@ -15,6 +15,7 @@ import ProductsSingleContainer from "../Containers/Products/ProductsSingleContai
 import CartContainer from "../Containers/Cart/CartContainer";
 import ProfileContainer from "../Containers/ProfileContainer";
 import ConfirmSaleContainer from "../Containers/Cart/ConfirmSaleContainer";
+import MySalesContainer from  "../Containers/Cart/MySalesContainer";
 import CustomerChat from "../Components/CustomerChat";
 import ResetPassword from '../Components/Auth/ResetPassword';
 import ForgotPassword from '../Components/Auth/ForgotPassword';
@@ -154,6 +155,13 @@ export default class Router extends Component {
                         <Route
                             path='/password/forgot'
                             component={ForgotPassword}
+
+                        />
+
+                         {/* PAGINA MY SALES */}
+                         <Route
+                            path='/sales'
+                            component={MySalesContainer}
 
                         />
 

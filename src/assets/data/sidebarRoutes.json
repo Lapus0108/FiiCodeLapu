@@ -3,10 +3,7 @@
     "name": "home",
     "label": "Home"
   },
-  {
-    "name": "about_us",
-    "label": "About us"
-  },
+  
   {
     "name": "profile",
     "label": "Profile"
@@ -23,6 +20,12 @@
     "name": "cart",
     "label": "Cart"
   },
+
+  {
+    "name": "sales",
+    "label": "My sales"
+  },
+
   {
     "name": "mailing",
     "label": "Retro mailing",
@@ -38,17 +41,12 @@
     ]
   },
   {
+    "name": "about_us",
+    "label": "About us"
+  },
+{
     "name": "settings",
-    "label": "Settings",
-    "items": [
-      {
-        "name": "account_settings",
-        "label": "Account settings"
-      },
-      {
-        "name": "notif_settings",
-        "label": "Notification settings"
-      }
-    ]
+    "label": "Settings"
   }
+
 ]

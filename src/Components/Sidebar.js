@@ -3,7 +3,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import {Link, withRouter, useHistory} from 'react-router-dom';
-import items from 'assets/data/sidebarRoutes'
+import items from '../assets/data/sidebarRoutes.json';
 import return_button from '../assets/images/Icons/Back-button.png';
 import refresh_button from '../assets/images/Icons/Refresh.png';
 

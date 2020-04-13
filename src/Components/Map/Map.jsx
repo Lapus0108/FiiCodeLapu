@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {InfoWindow, Map, Marker, GoogleApiWrapper} from "google-maps-react";
-import judete from 'assets/data/county.json'
-import oficii_post from 'assets/data/postal_offices.json';
-import county_centres from 'assets/data/county_centres.json';
+import judete from '../../assets/data/county.json'
+import oficii_post from '../../assets/data/postal_offices.json';
+import county_centres from '../../assets/data/county_centres.json';
 
 export class MapContainer extends Component {
 
