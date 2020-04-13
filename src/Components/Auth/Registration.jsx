@@ -256,7 +256,7 @@ export default class Registration extends Component {
                                                     checked={this.state.bifa1}
                                                     className="mr-1"
                                                 />
-                                                I agree with the terms and conditions
+                                                I agree with the <a href="https://drive.google.com/file/d/1sZrv-zaRGQmnwLaemMSwJ5OzXH6zDlRL/view?usp=sharing" target="_blank">Terms and Conditions</a>
                                                 <span className="checkmarkTermenisiConditii"/>
                                             </label>
                                         </div>
@@ -270,7 +270,7 @@ export default class Registration extends Component {
                                                     type="checkbox"
                                                     className="mr-1"
                                                 />
-                                                I agree with the privacy policies
+                                                I agree with the <a href="https://drive.google.com/open?id=1EkgMms9kcjg-SHZZqy-QyTlEU0pzvfJW" target="_blank">Privacy Policies</a>
                                                 <span className="checkmarkPolitici"/>
                                             </label>
                                         </div>

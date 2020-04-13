@@ -20,8 +20,6 @@ import ResetPassword from '../Components/Auth/ResetPassword';
 import ForgotPassword from '../Components/Auth/ForgotPassword';
 import MediaQuery from "react-responsive";
 import SidebarMobile from "../Components/SidebarMobile";
-import background from "../assets/images/retro-wallpaper-1.jpg";
-// import ConfirmOrders from "../Components/Cart/ConfirmOrders";
 
 
 export default class Router extends Component {
@@ -54,7 +52,6 @@ export default class Router extends Component {
 
                         : ""}
                     <Switch>
-
                         {/* PAGINA REGISTER */}
                         <Route
                             path="/register"
@@ -124,7 +121,7 @@ export default class Router extends Component {
 
                         {/* PAGINA ABOUT US */}
                         <Route
-                            path="/about_us"
+                            path="/about"
                             component={AboutUs}/>
 
                         {/* PAGINA HARTA GOOGLE */}

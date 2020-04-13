@@ -30,7 +30,7 @@ export default class App extends Component {
                     }}
                 >
                     This website uses cookies to enhance the user experience. By using our website you consent to
-                    all cookies in accordance with our Cookies Policy{" "}
+                    all cookies in accordance with our <a href="https://drive.google.com/open?id=1EkgMms9kcjg-SHZZqy-QyTlEU0pzvfJW" target="_blank">Privacy Policy</a>{" "}
                 </CookieConsent>
             </div>
         );
