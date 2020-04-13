@@ -15,7 +15,7 @@ export default class HomeGuest extends Component {
     render() {
         return (
             <div className="row h-75 w-100 justify-content-center no-margin">
-                <div className="row w-100 h-25 mb-5 mb-lg-0">
+                <div className="row w-100 h-auto">
                     <div className="d-flex justify-content-end col-lg-6 p-1 p-lg-3">
                         <div className="col-lg-6">
                             <Link to="/register" >
@@ -31,7 +31,7 @@ export default class HomeGuest extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="row w-100 h-25 mt-5 mt-lg-0">
+                <div className="row w-100 h-auto">
                     <div className="d-flex justify-content-end col-lg-6 p-1 p-lg-3">
                         <div className="col-lg-6">
                             <Link to="/products">

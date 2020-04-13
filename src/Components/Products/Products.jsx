@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import axiosRequest from '../../Utils/axios';
 import {Card, Elevation, Icon} from "@blueprintjs/core";
 import {store} from 'react-notifications-component';
-import tags from 'assets/data/tags.json';
+import tags from '../../assets/data/tags.json';
 
 const filterCriterias = [
     {

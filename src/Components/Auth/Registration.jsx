@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {Redirect, withRouter} from 'react-router-dom';
 import axiosRequest from "../../Utils/axios";
-import judete from 'assets/data/county.json'
-import CreateAccount from 'assets/images/buttons/CreateAccount.svg';
+import judete from '../../assets/data/county.json';
+import CreateAccount from '../../assets/images/buttons/CreateAccount.svg';
 import default_picture from '../../assets/images/Icons/ProfileDefault.png';
 import { store } from 'react-notifications-component';
 import back_button from '../../assets/images/Icons/Back-button.svg';

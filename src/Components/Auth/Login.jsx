@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom';
 import LoginImage from '../../assets/images/buttons/Login.svg';
 import { store } from 'react-notifications-component';
 import back_button from '../../assets/images/Icons/Back-button.svg';
+import see_password from '../../assets/images/Icons/See_password.png';
 
 export default class Login extends Component {
     constructor() {
@@ -15,6 +16,7 @@ export default class Login extends Component {
             password: "",
             loginErrors: "",
             redirect: false,
+            seePassword:false
             };
     }
 
@@ -108,12 +110,16 @@ export default class Login extends Component {
 
                                         <input
                                             className="input-main"
-                                            type="password"
+                                            type={this.state.seePassword ? "text" : "password"}
                                             name="password"
                                             placeholder="Password"
                                             value={this.state.password}
                                             onChange={this.handleChange}
                                             required/>
+
+                                        <img src={see_password} 
+                                        style={{height:30, position:'absolute', right:40}} 
+                                        onClick={()=>this.setState({seePassword:!this.state.seePassword})}/>
                                         <div className="row justify-content-center">
                                             <button className="input-button-main" type="submit" onClick={this.handleSubmit}>
                                             Login

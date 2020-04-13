@@ -170,7 +170,7 @@ export default class Profile extends Component {
 
 
     render() {
-
+        console.log(this.state.bought_products)
         return (
             <div class="container-fluid h-100">
                 <div class="row h-100">

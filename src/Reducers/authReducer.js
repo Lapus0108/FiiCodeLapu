@@ -1,4 +1,4 @@
-import {AUTH_LOGOUT, AUTH_LOGIN} from 'Actions/Auth/authActionTypes';
+import {AUTH_LOGOUT, AUTH_LOGIN} from '../Actions/Auth/authActionTypes';
 
 const initialState = {
     isLoggedIn: false,

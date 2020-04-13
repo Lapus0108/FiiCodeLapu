@@ -1,6 +1,6 @@
 import Profile from "../Components/Profile";
 import {connect} from "react-redux";
-import {userLogin} from 'Actions/Auth/authActions';
+import {userLogin} from '../Actions/Auth/authActions';
 
 const mapStateToProps = (state) => {
     return {

@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import axiosRequest from '../../Utils/axios';
 import {Redirect} from 'react-router-dom';
-import judete from 'assets/data/county.json';
-import tags from 'assets/data/tags.json';
+import judete from '../../assets/data/county.json';
+import tags from '../../assets/data/tags.json';
 import tag_animals from '../../assets/images/Icons/Tags/Animals.png';
 import tag_books from '../../assets/images/Icons/Tags/Books.png';
 import tag_food from '../../assets/images/Icons/Tags/Food.png';
