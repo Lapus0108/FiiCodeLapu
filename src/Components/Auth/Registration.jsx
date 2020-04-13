@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
-import {Redirect} from 'react-router-dom';
+import {Redirect, withRouter} from 'react-router-dom';
 import axiosRequest from "../../Utils/axios";
 import judete from 'assets/data/county.json'
 import CreateAccount from 'assets/images/buttons/CreateAccount.svg';
 import default_picture from '../../assets/images/Icons/ProfileDefault.png';
 import { store } from 'react-notifications-component';
+import back_button from '../../assets/images/Icons/Back-button.svg';
+import see_password from '../../assets/images/Icons/See_password.png';
 
 
 export default class Registration extends Component {
@@ -25,8 +27,9 @@ export default class Registration extends Component {
             age: "",
             redirect: false,
             image: default_picture,
-            // image:"",
-            has_image: false
+            has_image: false,
+            seePassword:false,
+            seePasswordConfirm:false
 
         };
     }
@@ -54,6 +57,10 @@ export default class Registration extends Component {
             bifa2: !initialState.bifa2,
 
         }));
+    }
+    
+    goBack=()=>{
+        this.props.history.goBack();
     }
 
     onImageChange = (event) => {
@@ -131,7 +138,7 @@ export default class Registration extends Component {
                         <div className="row justify-content-center h-25">
                             <img src={CreateAccount} alt="create_account" className="title-image"/>
                         </div>
-                        <div class="row justify-content-center">
+                        <div class="row justify-content-center pb-5">
                             <div class="col-sm-2"/>
                             <div class="col-sm-8">
                                 <div class="container-fluid no-margin">
@@ -144,10 +151,11 @@ export default class Registration extends Component {
                                             value={this.state.email}
                                             onChange={this.handleChange}
                                             required/>
-
+                                        
+                                        <div>
                                         <input
                                             className="input-main"
-                                            type="password"
+                                            type={this.state.seePassword ? "text" : "password"}
                                             name="password"
                                             placeholder="Password"
                                             value={this.state.password}
@@ -155,18 +163,27 @@ export default class Registration extends Component {
                                             minLength={8}
                                             onChange={this.handleChange}
                                             required/>
-
+                                        <img src={see_password} 
+                                        style={{height:30, position:'absolute', right:40}} 
+                                        onClick={()=>this.setState({seePassword:!this.state.seePassword})}/>
+                                        </div>
+                                        
+                                        <div>
                                         <input
                                             className="input-main"
-                                            type="password"
+                                            type={this.state.seePasswordConfirm ? "text" : "password"}
                                             name="password_confirmation"
                                             placeholder="Confirm password"
                                             value={this.state.password_confirmation}
                                             maxLength={16}
                                             minLength={8}
                                             onChange={this.handleChange}
-                                            required/>
-
+                                            required
+                                        />
+                                        <img src={see_password} 
+                                        style={{height:30, position:'absolute', right:40}} 
+                                        onClick={()=>this.setState({seePasswordConfirm:!this.state.seePasswordConfirm})}/>
+                                        </div>
 
                                         <input
                                             className="input-main"
@@ -188,8 +205,9 @@ export default class Registration extends Component {
                                             onChange={event => this.setState({phone_number: event.target.value.replace(/\D/, '')})}
                                             required/>
 
-                                        <div className="container-fluid font-secondary small">
+                                        <div className="container-fluid font-secondary small" style={{marginBottom:5}}>
                                             <input
+                                                style={{width:200}}
                                                 type="file"
                                                 onChange={this.onImageChange}
                                                 className="m-1 align-self-center"
@@ -206,7 +224,7 @@ export default class Registration extends Component {
                                             onChange={event => this.setState({age: event.target.value.replace(/\D/, '')})}
                                             required/>
 
-                                        <label className="font-secondary">Select county
+                                        <label className="font-secondary">Select county:
                                             <select value={this.state.county} onChange={this.handleChange}
                                                     name="county" className="ml-2 input-main w-auto">
                                                 {judete.map((item, key) => {
@@ -256,10 +274,14 @@ export default class Registration extends Component {
                                                 <span className="checkmarkPolitici"/>
                                             </label>
                                         </div>
-
+                                    <div className="row justify-content-center">                                   
                                         <button className="input-button-main" type="submit"
                                                 onClick={this.setRedirect}>Submit
                                         </button>
+                                    </div>
+                                    <div class="row justify-content-center">
+                                        <img src={back_button} onClick={this.goBack} style={{height:32, backgroundColor:"darkred", borderRadius:15, marginTop:7}}/>
+                                    </div>
                                     </form>
                                 </div>
                             </div>

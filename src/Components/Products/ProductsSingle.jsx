@@ -168,11 +168,12 @@ export default class ProductsSingle extends Component {
                                                         onChange={this.handleChange}
                                                         name="priceUpdated"
                                                         value={this.state.priceUpdated}
+                                                        style={{height:30, marginRight:5}}
                                                     />
                                                     <p className="h4">RON</p>
                                                     {this.state.product.price !== this.state.priceUpdated ?
                                                         <button
-                                                            style={{marginLeft: 5}}
+                                                            style={{marginLeft: 5, borderRadius:10, height:25, backgroundColor:'green', alignSelf:'center'}}
                                                             onClick={this.handleUpdateProduct}
                                                         >
                                                             Update
@@ -194,7 +195,7 @@ export default class ProductsSingle extends Component {
                                                     />
                                                     {this.state.product.description !== this.state.descriptionUpdated ?
                                                         <button
-                                                            style={{marginLeft: 5}}
+                                                            style={{marginLeft: 5, borderRadius:10, backgroundColor:'green'}}
                                                             onClick={this.handleUpdateProduct}>
                                                             Update
                                                         </button>
@@ -202,13 +203,13 @@ export default class ProductsSingle extends Component {
                                                 </div> : <p className="h5">{this.state.product.description}</p>}
                                         </div>
                                         <div className="row justify-content-center justify-content-lg-start mb-2">
-                                            <div>Uploaded on:</div>
-                                            <Moment format="DD.MM.YYYY">
+                                            <div style={{fontSize:16, marginRight:5}}>Uploaded on:</div>
+                                            <Moment format="DD.MM.YYYY" style={{fontWeight:600,alignSelf:'flex-end'}}>
                                                 {this.state.product.created_at}
                                             </Moment>
                                         </div>
                                         {this.state.product.negotiable === 1 ?
-                                            <div className="row justify-content-center justify-content-lg-start mb-2 text-danger">
+                                            <div className="row justify-content-center justify-content-lg-start mb-2 text-danger" style={{fontSize:16}}>
                                                 ! Product is negotiable
                                             </div> : "" }
                                         {/*{this.state.product.exchangeable === true ?*/}

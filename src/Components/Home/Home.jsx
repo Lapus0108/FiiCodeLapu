@@ -52,6 +52,7 @@ export default class HomeMenu extends Component {
                 <div className="row h-75">
                     {this.props.isLoggedIn === false ? <HomeGuest /> : <HomeUser />}
                 </div>
+                <div className="spatiu_gol"/>
                 {/*</div>*/}
                 {/*{ this.state.displayRating && this.props.isLoggedIn ?*/}
                 {/*<div className="review_app">*/}

@@ -165,7 +165,7 @@ export default class ProductsAdd extends Component {
                         required/>
 
 
-                    <label>Select category
+                    <label>Select category:
                         <select value={this.state.tag.name} onChange={this.handleChange} name="tag" style={{borderRadius:5}}>
                             {tags.map((item, key) => {
                                 return (
@@ -183,7 +183,7 @@ export default class ProductsAdd extends Component {
                         onChange={event => this.setState({price: event.target.value.replace(/\D/, '')})}
                         required/>
                     
-                    <label>Select county
+                    <label>Select county:
                         <select value={this.state.county.name} onChange={this.handleChange} name="county" style={{borderRadius:5}}>
                             {judete.map((item, key) => {
                                 return (
@@ -193,8 +193,9 @@ export default class ProductsAdd extends Component {
                         </select>
                     </label>
 
-                    <div className="input_image">
-                        <input type="file" onChange={this.onImageChange}  className="filetype" id="product_image"/>
+                    <div className="input_image" style={{display:"inline-flex"}}>
+                        <label style={{fontWeight:600, marginRight:10}}>Product photo:</label>
+                        <input type="file" onChange={this.onImageChange}  className="filetype" id="product_image" style={{width:200}}/>
                     </div>
 
                     <div className="add_product_bifa ">

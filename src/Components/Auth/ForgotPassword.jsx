@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import axiosRequest from '../../Utils/axios';
+import back_button from '../../assets/images/Icons/Back-button.svg';
+import {withRouter} from 'react-router-dom';
 
 export default class ForgotPassword extends Component {
     constructor() {
@@ -43,6 +45,7 @@ export default class ForgotPassword extends Component {
                         required
                     />
                     <button type="submit" onClick={this.handleSubmit} >Send instructions</button>
+                    <img src={back_button} onClick={()=>this.props.history.goBack()} style={{height:30, backgroundColor:"darkred", borderRadius:15,placeSelf:'center', marginTop:5}}/>
                 </form>
                 {this.state.button_clicks<=1 ?
                 <div className="reset_password_mesaj">{this.state.mesaj_forgot_password}</div>
