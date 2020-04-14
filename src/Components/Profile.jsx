@@ -136,7 +136,7 @@ export default class Profile extends Component {
         }));
 
         const user_updated = {
-            name: this.state.usernameUpdated ? this.state.usernameUpdated : this.props.user,
+            name: this.state.usernameUpdated ? this.state.usernameUpdated : this.props.user.name,
             address: this.state.addressUpdated ? this.state.addressUpdated : this.props.user.address,
             phone: this.state.phoneUpdated ? this.state.phoneUpdated : this.props.user.phone,
             image: this.state.image

@@ -3,14 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="afcd3093-47b8-4864-bc34-0d923338da10" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.css" afterPath="$PROJECT_DIR$/src/App.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Components/AboutUs.jsx" afterPath="$PROJECT_DIR$/src/Components/AboutUs.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Components/Auth/ForgotPassword.jsx" afterPath="$PROJECT_DIR$/src/Components/Auth/ForgotPassword.jsx" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Components/Auth/ResetPassword.jsx" afterPath="$PROJECT_DIR$/src/Components/Auth/ResetPassword.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Components/Map/Map.jsx" afterPath="$PROJECT_DIR$/src/Components/Map/Map.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Containers/Products/ProductsSingleContainer.jsx" afterPath="$PROJECT_DIR$/src/Containers/Products/ProductsSingleContainer.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Router/Router.jsx" afterPath="$PROJECT_DIR$/src/Router/Router.jsx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/data/sidebarRoutes.json" afterPath="$PROJECT_DIR$/src/assets/data/sidebarRoutes.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Components/Products/ProductsSingle.jsx" afterPath="$PROJECT_DIR$/src/Components/Products/ProductsSingle.jsx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Components/Profile.jsx" afterPath="$PROJECT_DIR$/src/Components/Profile.jsx" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -66,7 +61,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Map.jsx" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ProductsSingle.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Components/Products/ProductsSingle.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="284">
+              <caret line="103" column="54" lean-forward="true" selection-start-line="103" selection-start-column="54" selection-end-line="103" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Map.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Components/Map/Map.jsx">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="385">
@@ -83,6 +88,26 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="46">
               <caret line="3" column="31" lean-forward="true" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Profile.jsx" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Components/Profile.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="431">
+              <caret line="145" column="26" lean-forward="true" selection-start-line="145" selection-start-column="26" selection-end-line="145" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ResetPassword.jsx" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Components/Auth/ResetPassword.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="69" column="52" lean-forward="true" selection-start-line="69" selection-start-column="52" selection-end-line="69" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -152,8 +177,6 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/Components/Home/HomeGuest.jsx" />
         <option value="$PROJECT_DIR$/src/Components/SidebarMobile.js" />
-        <option value="$PROJECT_DIR$/src/Components/Profile.jsx" />
-        <option value="$PROJECT_DIR$/src/Components/Products/ProductsSingle.jsx" />
         <option value="$PROJECT_DIR$/src/Components/Cart/Receipt.js" />
         <option value="$PROJECT_DIR$/src/Components/Cart/Cart.js" />
         <option value="$PROJECT_DIR$/src/Containers/ProfileContainer.jsx" />
@@ -173,7 +196,6 @@
         <option value="$PROJECT_DIR$/src/Components/Products/Products.jsx" />
         <option value="$PROJECT_DIR$/src/Components/Cart/ConfirmOrders.jsx" />
         <option value="$PROJECT_DIR$/src/Reducers/cartReducer.js" />
-        <option value="$PROJECT_DIR$/src/Components/Auth/ResetPassword.jsx" />
         <option value="$PROJECT_DIR$/src/Components/Auth/ForgotPassword.jsx" />
         <option value="$PROJECT_DIR$/src/Router/PrivateRoute.jsx" />
         <option value="$PROJECT_DIR$/src/Containers/Products/ProductsSingleContainer.jsx" />
@@ -183,6 +205,9 @@
         <option value="$PROJECT_DIR$/src/Components/AboutUs.jsx" />
         <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/src/Components/Map/Map.jsx" />
+        <option value="$PROJECT_DIR$/src/Components/Products/ProductsSingle.jsx" />
+        <option value="$PROJECT_DIR$/src/Components/Auth/ResetPassword.jsx" />
+        <option value="$PROJECT_DIR$/src/Components/Profile.jsx" />
       </list>
     </option>
   </component>
@@ -442,7 +467,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../retro-site" />
     <property name="nodejs_interpreter_path" value="C:/Program Files/nodejs/node" />
-    <property name="SearchEverywhereHistoryKey" value="map&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Map/Map.jsx&#10;About&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/AboutUs.jsx&#10;Side&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Sidebar.js&#10;Private&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Router/PrivateRoute.jsx&#10;fo&#9;null&#9;null&#10;Router&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Router/Router.jsx&#10;produc&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Products/Products.jsx&#10;Route&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Router/Router.jsx&#10;about&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/AboutUs.jsx&#10;order&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Cart/ConfirmOrders.jsx&#10;product&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Products/Products.jsx&#10;home&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Home/Home.jsx&#10;hom&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Home/HomeGuest.jsx&#10;Prod&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Products/Products.jsx&#10;produ&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Products/Products.jsx&#10;profile&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Profile.jsx&#10;cart&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Cart/Cart.jsx&#10;Cart&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Containers/Cart/CartContainer.jsx&#10;regist&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Auth/Registration.jsx&#10;login&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Auth/Login.jsx&#10;products&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Products/Products.jsx&#10;app.css&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/App.css&#10;reg&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Auth/Registration.jsx&#10;app&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/App.js&#10;index&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/index.js&#10;webpack.config.js&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/node_modules/react-scripts/config/webpack.config.js&#10;Map&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Map/Map.jsx&#10;Confirm&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Cart/ConfirmOrders.jsx&#10;Home&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Home/Home.jsx&#10;profileC&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Containers/ProfileContainer.jsx&#10;reset&#9;null&#9;null&#10;recei&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Cart/Receipt.js&#10;cartRe&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Reducers/cartReducer.js&#10;sidebar&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/SidebarMobile.js&#10;homeGue&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Home/HomeGuest.jsx&#10;profil&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Profile.jsx&#10;reducer&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Reducers/cartReducer.js&#10;prod&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Products/Products.jsx&#10;mailing&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Mailing.jsx&#10;router&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Router/Router.jsx&#10;input-main&#9;null&#9;null&#10;app.cs&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/App.css&#10;Rout&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Router/Router.jsx&#10;react-script&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/node_modules/react-scripts/bin/react-scripts.js&#10;side&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Sidebar.js&#10;sideba&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Sidebar.js" />
+    <property name="SearchEverywhereHistoryKey" value="Reset&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Auth/ResetPassword.jsx&#10;profile&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Profile.jsx&#10;produc&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Products/ProductsSingle.jsx&#10;map&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Map/Map.jsx&#10;About&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/AboutUs.jsx&#10;Side&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Sidebar.js&#10;Private&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Router/PrivateRoute.jsx&#10;fo&#9;null&#9;null&#10;Router&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Router/Router.jsx&#10;Route&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Router/Router.jsx&#10;about&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/AboutUs.jsx&#10;order&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Cart/ConfirmOrders.jsx&#10;product&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Products/Products.jsx&#10;home&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Home/Home.jsx&#10;hom&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Home/HomeGuest.jsx&#10;Prod&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Products/Products.jsx&#10;produ&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Products/Products.jsx&#10;cart&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Cart/Cart.jsx&#10;Cart&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Containers/Cart/CartContainer.jsx&#10;regist&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Auth/Registration.jsx&#10;login&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Auth/Login.jsx&#10;products&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Products/Products.jsx&#10;app.css&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/App.css&#10;reg&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Auth/Registration.jsx&#10;app&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/App.js&#10;index&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/index.js&#10;webpack.config.js&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/node_modules/react-scripts/config/webpack.config.js&#10;Map&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Map/Map.jsx&#10;Confirm&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Cart/ConfirmOrders.jsx&#10;Home&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Home/Home.jsx&#10;profileC&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Containers/ProfileContainer.jsx&#10;reset&#9;null&#9;null&#10;recei&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Cart/Receipt.js&#10;cartRe&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Reducers/cartReducer.js&#10;sidebar&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/SidebarMobile.js&#10;homeGue&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Home/HomeGuest.jsx&#10;profil&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Profile.jsx&#10;reducer&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Reducers/cartReducer.js&#10;prod&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Products/Products.jsx&#10;mailing&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Mailing.jsx&#10;router&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Router/Router.jsx&#10;input-main&#9;null&#9;null&#10;app.cs&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/App.css&#10;Rout&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Router/Router.jsx&#10;react-script&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/node_modules/react-scripts/bin/react-scripts.js&#10;side&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Sidebar.js&#10;sideba&#9;FILE&#9;file://C:/Users/Mihnea/Desktop/FIICode/retrosite-app/src/Components/Sidebar.js" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
   </component>
   <component name="RecentsManager">
@@ -921,7 +946,7 @@
       <workItem from="1586587680722" duration="9148000" />
       <workItem from="1586722659272" duration="1926000" />
       <workItem from="1586769011410" duration="13517000" />
-      <workItem from="1586859611935" duration="4516000" />
+      <workItem from="1586859611935" duration="5244000" />
     </task>
     <task id="LOCAL-00003" summary="ReModelling">
       <created>1586099945242</created>
@@ -1056,11 +1081,18 @@
       <option name="project" value="LOCAL" />
       <updated>1586859971872</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Routes Fix + Map Fix + Password Fix">
+      <created>1586864153755</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1586864153755</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="130862000" />
+    <option name="totallyTimeSpent" value="131590000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1149,7 +1181,8 @@
     <MESSAGE value="Merge" />
     <MESSAGE value="Small fix" />
     <MESSAGE value="Routes Fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Routes Fix" />
+    <MESSAGE value="Routes Fix + Map Fix + Password Fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Routes Fix + Map Fix + Password Fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1171,13 +1204,6 @@
           <folding>
             <element signature="e#0#26#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Products/ProductsSingle.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="162" column="73" lean-forward="true" selection-start-line="162" selection-start-column="73" selection-end-line="162" selection-end-column="73" />
         </state>
       </provider>
     </entry>
@@ -1412,14 +1438,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Profile.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5888">
-          <caret line="265" column="37" lean-forward="false" selection-start-line="265" selection-start-column="37" selection-end-line="265" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Components/Products/Products.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -1432,14 +1450,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
           <caret line="9" column="19" lean-forward="false" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Auth/ResetPassword.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="71" column="50" lean-forward="true" selection-start-line="71" selection-start-column="50" selection-end-line="71" selection-end-column="50" />
           <folding />
         </state>
       </provider>
@@ -1457,7 +1467,7 @@
         <state relative-caret-position="569">
           <caret line="130" column="28" lean-forward="false" selection-start-line="130" selection-start-column="28" selection-end-line="130" selection-end-column="28" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1467,7 +1477,7 @@
         <state relative-caret-position="230">
           <caret line="10" column="13" lean-forward="true" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding>
-            <element signature="e#0#36#0" expanded="true" />
+            <element signature="e#0#36#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1477,7 +1487,7 @@
         <state relative-caret-position="220">
           <caret line="18" column="17" lean-forward="false" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1527,7 +1537,7 @@
         <state relative-caret-position="506">
           <caret line="144" column="105" lean-forward="false" selection-start-line="144" selection-start-column="105" selection-end-line="144" selection-end-column="105" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1540,6 +1550,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Map/Map.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="124" column="9" lean-forward="true" selection-start-line="124" selection-start-column="9" selection-end-line="124" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.env">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="115">
@@ -1548,13 +1568,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Components/Map/Map.jsx">
+    <entry file="file://$PROJECT_DIR$/src/Components/Products/ProductsSingle.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="124" column="9" lean-forward="true" selection-start-line="124" selection-start-column="9" selection-end-line="124" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="284">
+          <caret line="103" column="54" lean-forward="true" selection-start-line="103" selection-start-column="54" selection-end-line="103" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Auth/ResetPassword.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="69" column="52" lean-forward="true" selection-start-line="69" selection-start-column="52" selection-end-line="69" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Components/Profile.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="145" column="26" lean-forward="true" selection-start-line="145" selection-start-column="26" selection-end-line="145" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>

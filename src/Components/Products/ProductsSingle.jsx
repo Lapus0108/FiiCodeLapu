@@ -104,8 +104,8 @@ export default class ProductsSingle extends Component {
             negotiable: this.state.product.negotiable,
             seller_id: this.state.product.seller_id,
             county_id: this.state.product.county_id,
-            image: this.state.product.image
-
+            image: this.state.product.image,
+            max_quantity: this.state.max_quantity
         };
         this.setState((prevStae, props) => ({
             product: product_up,
