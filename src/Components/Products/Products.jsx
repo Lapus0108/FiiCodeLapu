@@ -178,24 +178,22 @@ export default class Products extends Component {
                         {/*</div>*/}
 
                         <Card interactive={false} elevation={Elevation.FOUR} className="background-primary h-100">
-                            <a href={"/products/" + item.id}>
-                                <img className="w-50 h-50" src={item.image} alt=""/>
-                                <div><a href={"/products/" + item.id} className="h4 font-main"
-                                        style={{color: colors[item.id % 5]}}>{item.title}</a></div>
-                                <p className="color-primary">{item.description}</p>
-                                <div class="container-fluid">
-                                    <div class="row justify-content-center">
-                                        <p className="color-primary">{item.price} RON </p>
-                                        {this.props.isLoggedIn && this.props.user.id !== item.seller_id ?
-                                            <Icon className="ml-2" iconSize={Icon.SIZE_LARGE} icon="shopping-cart"
-                                                  style={{color: 'black', paddingTop: 5}}
-                                                  onClick={() => {
-                                                      this.handleClick(item)
-                                                  }}/>
-                                            : ""}
-                                    </div>
+                            <img className="w-50 h-50" src={item.image} alt=""/>
+                            <div className="titlu_products" ><a href={"/products/" + item.id} className="h4 font-main"
+                                    style={{color: colors[item.id % 5]}}>{item.title}</a></div>
+                            <p className="description-product_products" style={{overflow:'auto', height:75}}>{item.description}</p>
+                            <div class="container-fluid">
+                                <div class="row justify-content-center">
+                                    <p className="color-primary">{item.price} RON </p>
+                                    {this.props.isLoggedIn && this.props.user.id !== item.seller_id ?
+                                        <Icon className="ml-2" iconSize={Icon.SIZE_LARGE} icon="shopping-cart"
+                                              style={{color: 'black', paddingTop: 5}}
+                                              onClick={() => {
+                                                  this.handleClick(item)
+                                              }}/>
+                                        : ""}
                                 </div>
-                            </a>
+                            </div>
                         </Card>
 
                     </div>

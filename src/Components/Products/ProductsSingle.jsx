@@ -23,7 +23,8 @@ export default class ProductsSingle extends Component {
                 seller_id: 0,
                 county_id: "",
                 image: "",
-                created_at: ""
+                created_at: "",
+                max_quantity:""
             },
             redirect: false,
             mesaj: "",
@@ -77,6 +78,21 @@ export default class ProductsSingle extends Component {
                 console.log(err);
             })
         e.preventDefault();
+        store.addNotification({
+            title: "Product removed from market!",
+            message: "It won't be displayed anymore on Piazeta.",
+            type: "danger",
+            insert: "bottom",
+            container: "bottom-right",
+            animationIn: ["animated", "fadeIn"],
+            animationOut: ["animated", "fadeOut"],
+            dismiss: {
+                duration: 5000
+            }
+        });
+        setTimeout(() => {
+            window.location.href='/products'
+            }, 2500);
     }
 
     edit_article=()=> {
@@ -104,8 +120,8 @@ export default class ProductsSingle extends Component {
             negotiable: this.state.product.negotiable,
             seller_id: this.state.product.seller_id,
             county_id: this.state.product.county_id,
-            image: this.state.product.image
-
+            image: this.state.product.image,
+            max_quantity: this.state.product.max_quantity
         };
         this.setState((prevStae, props) => ({
             product: product_up,
@@ -143,7 +159,7 @@ export default class ProductsSingle extends Component {
 
         return (
             <div className="container-fluid h-100">
-                <div className="row h-100 align-content-center">
+                <div className="row h-100 align-content-center mt-3">
                     <div className="col-1"/>
                     <div className="col-10 no-margin">
                         <div className="h-auto">
@@ -254,6 +270,7 @@ export default class ProductsSingle extends Component {
                     </div>
                     <div className="col-1"/>
                 </div>
+                <div className="sp_gol_sgproduct"></div>
             </div>
             // <div className="container_sgrpoduct_total">
             //     <div className="sgproduct_container">

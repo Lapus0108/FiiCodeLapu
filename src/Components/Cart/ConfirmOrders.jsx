@@ -136,9 +136,9 @@ export default class ConfirmSale extends Component {
                 <div className="logo_piazeta_confirmation">Piazeta</div>
             </div>
 
-            </div>
-            </div>
-            </div>
+                            </div>
+                        </div>
+                    </div>
 
             <div class="row">
                 <div class="col">

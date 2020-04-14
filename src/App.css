@@ -154,10 +154,9 @@
     height: 70px;
     width: fit-content;
     top: 3vw;
-    color: white;
+    color: black;
     font-size: 60px;
-     font-family: Retroholic;
-
+    font-family: Retroholic;
 }
 
 .element_dropdown {
@@ -553,6 +552,20 @@ margin-left: 10px;
 }
 
 .sale::-webkit-scrollbar {
+    display: none;
+  }
+
+/* .titlu_products::-webkit-scrollbar {
+    display: none;
+  } */
+.titlu_products{
+    overflow: hidden;
+    height: 35px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.description-product_products::-webkit-scrollbar {
     display: none;
   }
 
@@ -1156,6 +1169,15 @@ margin-left: 10px;
 .spatiu_gol_add_product{
     height: 80px;
 }
+
+.sp_gol_sgproduct{
+    height:80px;
+}
+
+@media screen and (min-width: 1024px) {
+    .sp_gol_sgproduct { display: none; }   /* hide it elsewhere */
+  }
+
 .footer_mailing{
     font-size: 18px;
     font-family: serif;
@@ -1206,6 +1228,15 @@ margin-left: 10px;
 }
 .bottom_buton{
     margin: auto;
+    width: 20%;
+}
+.textarea_add_product{
+    background-color: burlywood;
+    border-radius: 5px;
+    height: 30px;
+    margin-bottom: 19px;
+    font-family: serif;
+    font-size: 16px;
 }
 .bottom_buton img{
     height: 40px;
@@ -1213,7 +1244,7 @@ margin-left: 10px;
 }
 .button_bottom_text{
     color: white;
-    font-size:70%;
+    font-size:65%;
 }
 .titlu_mailing{
     font-family: Retroholic;

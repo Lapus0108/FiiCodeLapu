@@ -13,6 +13,9 @@ import tag_cars from '../../assets/images/Icons/Tags/Cars.png';
 import tag_tools from '../../assets/images/Icons/Tags/Tools.png';
 import tag_jewelry from '../../assets/images/Icons/Tags/Jewelry.png';
 import tag_other from '../../assets/images/Icons/Tags/Other.png';
+import tag_army from '../../assets/images/Icons/Tags/Army.png';
+import tag_technology from '../../assets/images/Icons/Tags/Technology.png';
+
 import {Switch} from "@blueprintjs/core";
 import { store } from 'react-notifications-component';
 
@@ -62,15 +65,15 @@ export default class ProductsAdd extends Component {
 
         }));
         if(this.state.image==="Not set") {
-            if(this.state.tag==="1") this.setState({image: tag_animals})
-            if(this.state.tag==="2") this.setState({image: tag_books})
-            if(this.state.tag==="3") this.setState({image: tag_food})
-            if(this.state.tag==="4") this.setState({image: tag_homemade})
-            if(this.state.tag==="5") this.setState({image: tag_clothing})
-            if(this.state.tag==="6") this.setState({image: tag_furniture})
-            if(this.state.tag==="7") this.setState({image: tag_cars})
-            if(this.state.tag==="8") this.setState({image: tag_tools})
-            if(this.state.tag==="9") this.setState({image: tag_jewelry})
+            if(this.state.tag==="1") this.setState({image: tag_books})
+            if(this.state.tag==="2") this.setState({image: tag_homemade})
+            if(this.state.tag==="3") this.setState({image: tag_clothing})
+            if(this.state.tag==="4") this.setState({image: tag_furniture})
+            if(this.state.tag==="5") this.setState({image: tag_cars})
+            if(this.state.tag==="6") this.setState({image: tag_tools})
+            if(this.state.tag==="7") this.setState({image: tag_jewelry})
+            if(this.state.tag==="8") this.setState({image: tag_army})
+            if(this.state.tag==="9") this.setState({image: tag_technology})
             if(this.state.tag==="10") this.setState({image: tag_other})
         }
     }
@@ -147,13 +150,14 @@ export default class ProductsAdd extends Component {
                         onChange={this.handleChange}
                         required/>
 
-                    <input
+                    <textarea
                         type="text"
                         name="description"
                         placeholder="Describe your product:"
                         value={this.state.description}
                         onChange={this.handleChange}
-                        required/>
+                        required
+                        className="textarea_add_product"/>
 
                     <input
                         type="text"
@@ -213,7 +217,7 @@ export default class ProductsAdd extends Component {
                     </div>
 
 
-                    <button type="submit" onClick={this.handleSubmit}>Add you product</button>
+                    <button type="submit" onClick={this.handleSubmit}>Add your product</button>
 
                 </form>
                 <div className="spatiu_gol_add_product"></div>

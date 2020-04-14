@@ -126,8 +126,9 @@ export default class Router extends Component {
                             component={AboutUs}/>
 
                         {/* PAGINA HARTA GOOGLE */}
-                        <Route path='/map'
-                               component={Map}
+                        <Route
+                            path='/map'
+                            component={Map}
                         />
 
                         {/* PAGINA PROFIL */}

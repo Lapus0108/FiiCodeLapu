@@ -96,7 +96,7 @@ export default class Cart extends Component {
                                             <p className="h6">Quantity: {item.pivot.quantity}</p>
                                             {item.sold_out=== 1 ?
                                                 <div className="text-danger h6">Item not avalabile anymore on Piazeta! Please remove it from your cart.</div>
-                                                : ""}
+                                                : <p className="h5">Price: {item.price} RON</p>}
                                         </div>
                                         <div className="col-lg-1">
                                             <div className="row no-margin">
