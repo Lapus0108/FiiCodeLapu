@@ -46,10 +46,10 @@ export default class ResetPassword extends Component {
     render() {
         return (
             <div className="forgot-password">
-            <div className="forgot-password-title">Reset you password:</div>
+            <div className="forgot-password-title">Reset your password:</div>
             <form>
-
                 <input
+                    className="input-main h-auto"
                     type="email"
                     name="email"
                     placeholder="Email"
@@ -58,6 +58,7 @@ export default class ResetPassword extends Component {
                     required/>
                 
                 <input
+                    className="input-main h-auto"
                     type="password"
                     name="newPassword"
                     placeholder="Enter your new password"
@@ -68,6 +69,7 @@ export default class ResetPassword extends Component {
                     required/>
 
                  <input
+                     className="input-main h-auto"
                     type="password"
                     name="confirmNewPassword"
                     placeholder="Confirm your new password"
@@ -77,7 +79,7 @@ export default class ResetPassword extends Component {
                     onChange={this.handleChange}
                     required/>
 
-                <button type="submit" onClick={this.handleSubmit}>Submit</button>
+                <button type="submit h-auto" onClick={this.handleSubmit}>Submit</button>
             </form>
 
             <div className="forgot_password_spatiu_erori">{this.state.mesaj}</div>

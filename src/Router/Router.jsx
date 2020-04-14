@@ -96,7 +96,6 @@ export default class Router extends Component {
 
                         {/* PAGINA ADAUGA PRODUS */}
                         <PrivateRoute
-                            exact
                             path="/products/create"
                             component={ProductsAddContainer}
                             isLoggedIn={this.props.isLoggedIn}
@@ -127,8 +126,9 @@ export default class Router extends Component {
                             component={AboutUs}/>
 
                         {/* PAGINA HARTA GOOGLE */}
-                        <Route path='/map'
-                               component={Map}
+                        <Route
+                            path='/map'
+                            component={Map}
                         />
 
                         {/* PAGINA PROFIL */}
@@ -147,7 +147,6 @@ export default class Router extends Component {
 
                         {/* PAGINA RESET PASSWORD */}
                         <Route
-                            exact
                             path='/password/reset'
                             component={ResetPassword}
 
@@ -155,7 +154,6 @@ export default class Router extends Component {
 
                         {/* PAGINA FORGOT PASSWORD */}
                         <Route
-                            exact
                             path='/password/forgot'
                             component={ForgotPassword}
 

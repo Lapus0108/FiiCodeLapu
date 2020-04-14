@@ -129,13 +129,11 @@ export default class AboutUs extends Component {
                                                     robots building and engineering.
                                                 </div>
                                                 <br/>
-                                                <div className="p">The last 2 years have been essential in my development as
-                                                    a programmer, Firstly because I have been part of an Internship from
-                                                    which I gained a lot of experience in coding, mainly in ReactJS and
-                                                    React Native, but also in other auxiliary platforms.
-                                                </div>
                                             </div>
-                                            <div className="p">This experience
+                                            <div className="p">The last 2 years have been essential in my development as
+                                                a programmer, Firstly because I have been part of an Internship from
+                                                which I gained a lot of experience in coding, mainly in ReactJS and
+                                                React Native, but also in other auxiliary platforms.This experience
                                                 also showed me how life looks like for a company in the IT field and
                                                 besides this I have done many online tutorials which really helped me to
                                                 understand more than the basics.
@@ -144,8 +142,8 @@ export default class AboutUs extends Component {
                                             <div className="p">I consider myself a very dedicated, hard-working and
                                                 sociable person, qualities that helped me build relationships with
                                                 valuable people from all the fields. More than that, sports represent a
-                                                significant part of my life, which truly contributes toa general state
-                                                on joy and energy.
+                                                significant part of my life, which truly contributes to a general state
+                                                of joy and energy.
                                             </div>
                                         </div>
                                     </Card>

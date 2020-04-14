@@ -33,8 +33,8 @@ export default class ForgotPassword extends Component {
         console.log(this.state.button_clicks)
         return (
             <div className="reset-password">
-                <div className="reset_password_title">Forgot password?</div>
-                <div className="reset_password_text">In order to get instructions to reset your password, please enter your email address associated with your Piazeta account</div>
+                <div className="reset_password_title">Forgot your password?</div>
+                <div className="reset_password_text">In order to get instructions for resetting your password, please enter your email address associated with your Piazeta account</div>
                 <form onSubmit={this.handleSubmit}>
                     <input
                         type="email"
