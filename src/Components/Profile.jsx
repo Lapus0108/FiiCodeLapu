@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import your_products from '../assets/images/Icons/Published.png';
 import purchased_products from '../assets/images/Icons/Cart_full.png';
+import sold_products from '../assets/images/Icons/Sold_product.png';
 import Moment from 'react-moment';
 import axiosRequest from '../Utils/axios';
 import { store } from 'react-notifications-component';
@@ -8,7 +9,6 @@ import edit_user from '../assets/images/Icons/Edit_user.png';
 import edit_user2 from '../assets/images/Icons/Edit_product.png';
 import add_product from '../assets/images/Icons/Published.png';
 import buy_product from '../assets/images/Icons/Cart_add.png';
-
 
 export default class Profile extends Component {
     constructor() {
@@ -54,7 +54,6 @@ export default class Profile extends Component {
     }
 
     showPublished=()=> {
-        console.log("Show published clicked");
         this.setState({seePublished: true, seePurchased: false})
         if (this.state.my_products.length === 5) {
             store.addNotification({
@@ -87,7 +86,6 @@ export default class Profile extends Component {
     }
 
     showPurchased=()=> {
-        console.log("Show purchased clicked");
         this.setState({seePurchased: true, seePublished: false})
     }
 
@@ -170,15 +168,14 @@ export default class Profile extends Component {
 
 
     render() {
-        console.log(this.state.bought_products)
+        console.log(this.state.image);
         return (
             <div class="container-fluid h-100">
                 <div class="row h-100">
                     <div class="col col-xl-6 h-50 mb-2">
-                    {/* <img src={background_profile}/> */}
                 <div className="container_user_info_profile h-100">
                     <div className="container_imagine_profile">
-                        <img src={this.state.image}/>
+                        <img src={this.state.image} alt=""/>
                         {this.props.isLoggedIn ?
                             <div className="status_user" style={{color: "#18ba44", fontWeight: 600}}>LOGGED IN</div>
                             : <div className="status_user" style={{color: "red"}}>NOT LOGGED IN</div>}
@@ -191,7 +188,7 @@ export default class Profile extends Component {
                             <div>
                                 Username: {this.state.name}
                             </div>
-                            <img src={edit_user} onClick={this.edit_user}/>
+                            <img src={edit_user} alt="edit_details" onClick={this.edit_user}/>
                         </div>
 
                         {this.state.want_to_edit_user ?
@@ -220,7 +217,7 @@ export default class Profile extends Component {
 
                                         <div className="info_user_text">
                                             <div>Phone number: {this.state.phone}</div>
-                                            <img src={edit_user2} onClick={this.edit_phone} alt="edit_button"/></div>
+                                            <img src={edit_user2}  onClick={this.edit_phone} alt="edit_button"/></div>
 
                                         {this.state.want_to_edit_phone ?
                                             <div className="info_user_text">
@@ -268,11 +265,15 @@ export default class Profile extends Component {
                             </div> : ""}
                         <div className="info_user_text">
                             <div>Click to see to see your published articles</div>
-                            <img src={your_products} onClick={this.showPublished}/>
+                            <img src={your_products} onClick={this.showPublished} alt="see_your_products"/>
                         </div>
                         <div className="info_user_text">
                             <div>Click to see the purchased items</div>
-                            <img src={purchased_products} onClick={this.showPurchased}/>
+                            <img src={purchased_products}  alt="see_your_purchased" onClick={this.showPurchased}/>
+                        </div>
+                        <div className="info_user_text">
+                            <div>Click to see your sales</div>
+                            <img src={sold_products}  alt="see_your_sales" onClick={()=> window.location.href='/sales'}/>
                         </div>
                     </div>
                          </div>
@@ -308,7 +309,7 @@ export default class Profile extends Component {
                             :
                             <div className="no_products_added">
                             <h>No products uploaded yet. You can add one right now!</h>
-                            <img src={add_product} onClick={this.redirectAddProducts}/>
+                            <img src={add_product} alt="go_add_product" onClick={this.redirectAddProducts}/>
                             </div>}
                         </div>
                         </div>
@@ -349,7 +350,7 @@ export default class Profile extends Component {
                                             </>
                                             : <div className="no_products_added">
                                                     <h>No products bought yet. Go check our market!</h>
-                                            <img src={buy_product} onClick={this.redirectBuyProducts}/>
+                                            <img src={buy_product} alt="go_buy_product" onClick={this.redirectBuyProducts}/>
                                             </div>}
                                         </div>
                                     </div>

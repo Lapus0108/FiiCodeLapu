@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Redirect, withRouter, history} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import axiosRequest from "../../Utils/axios";
 import {Link} from 'react-router-dom';
 import LoginImage from '../../assets/images/buttons/Login.svg';
@@ -45,7 +45,6 @@ export default class Login extends Component {
             password: this.state.password
         };
 
-        console.log(user, "user");
 
         axiosRequest.post('login', user)
             .then(response => {
@@ -117,7 +116,7 @@ export default class Login extends Component {
                                             onChange={this.handleChange}
                                             required/>
 
-                                        <img src={see_password} 
+                                        <img src={see_password} alt="see_password" 
                                         style={{height:30, position:'absolute', right:40}} 
                                         onClick={()=>this.setState({seePassword:!this.state.seePassword})}/>
                                         <div className="row justify-content-center">
@@ -130,8 +129,8 @@ export default class Login extends Component {
                                     <Link to="/password/forgot">
                                         <div className="login_forgot_password">Forgot password?</div>
                                     </Link>
-                                    <div class="row justify-content-center">
-                                        <img src={back_button} onClick={this.goBack} style={{height:32, backgroundColor:"darkred", borderRadius:15, marginTop: 7}}/>
+                                    <div className="row justify-content-center">
+                                        <img src={back_button} alt="backbtn_login" onClick={this.goBack} style={{height:32, backgroundColor:"darkred", borderRadius:15, marginTop: 7}}/>
                                     </div>
                                 </div>
                             </div>

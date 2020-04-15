@@ -48,8 +48,6 @@ export default class Receipt extends Component {
 
     render() {
         const disableButton = this.props.total>0;
-        console.log(disableButton);
-        console.log(this.props.items)
         return (
             <>
             <div className="container">

@@ -3,6 +3,7 @@ import axiosRequest from '../../Utils/axios';
 import {Card, Elevation, Icon} from "@blueprintjs/core";
 import {store} from 'react-notifications-component';
 import tags from '../../assets/data/tags.json';
+import Loader from 'react-loader-spinner'; 
 
 const filterCriterias = [
     {
@@ -42,6 +43,7 @@ export default class Products extends Component {
         super();
         this.state = {
             filterCriteria: 1,
+            loading:"",
             search: "",
             tagfilter: "",
             produs: [{
@@ -75,12 +77,14 @@ export default class Products extends Component {
     };
 
 
-    componentDidMount() {
+    componentDidMount=()=> {
+        this.setState({loading:true}, ()=>{
         axiosRequest.get("products")
             .then(res => {
                 const produs = res.data;
-                this.setState({produs: produs});
+                this.setState({produs: produs, loading:false});
             })
+        });
     }
 
     imageSetter() {
@@ -94,7 +98,7 @@ export default class Products extends Component {
 
     handleTagChange = (event) => {
         this.setState({[event.target.name]: event.target.value})
-        console.log(event.target.value)
+
         if (event.target.value < 99) {
             axiosRequest.get("products", {params: {tag: event.target.value}})
                 .then(res => {
@@ -141,41 +145,19 @@ export default class Products extends Component {
     }
 
     render() {
-        console.log("Connected user ID:", this.props.user.id)
-        console.log(this.state.tagfilter);
 
         let filteredData = this.state.produs.filter(
             (item) => {
                 return item.title.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1;
             });
-        console.log(filteredData);
 
         let itemList = filteredData.sort(this.sortFilters).map(item => {
             item = {...item, quantity: 0}
             return (
+                
                 <div className="col-12 col-lg-4 justify-content-center mb-2">
+                   
                     <div className="card no-margin" key={item.id}>
-                        {/*<Link to={`/products/${item.id}`}>*/}
-                        {/*<div className="card-image" >*/}
-                        {/*<div className="product_image_container">*/}
-                        {/*<img src={item.image} alt=""/>*/}
-                        {/*</div>*/}
-                        {/*<span className="card-title">{item.title}</span>*/}
-                        {/*</div>*/}
-
-                        {/*</Link>*/}
-                        {/*<div className="card-content">*/}
-                        {/*<div className="description_product">*/}
-                        {/*<p>{item.description}</p>*/}
-                        {/*</div>*/}
-                        {/*<p><b>Pret: {item.price}{" "}RON*/}
-                        {/*{isLoggedIn && this.props.user.id!==item.seller_id ?*/}
-                        {/*<span to="/" className="btn-floating halfway-fab waves-effect waves-light red"*/}
-                        {/*onClick={() => {this.handleClick(item)}}>*/}
-                        {/*<img src={simbolCart} alt="Logo"/></span>*/}
-                        {/*: ""}*/}
-                        {/*</b></p>*/}
-                        {/*</div>*/}
 
                         <Card interactive={false} elevation={Elevation.FOUR} className="background-primary h-100">
                             <img className="w-50 h-50" src={item.image} alt=""/>
@@ -197,6 +179,7 @@ export default class Products extends Component {
                         </Card>
 
                     </div>
+        
 
                 </div>
             )
@@ -260,7 +243,21 @@ export default class Products extends Component {
                 </div>
 
                 <div className="row h-80 pb-5">
-                    {itemList}
+                {this.state.loading ?  
+                <div style={{width:'100%'}}>
+                <Loader
+                     type="ThreeDots"
+                     color="darkred"
+                     height={100}
+                     width={100}
+                      timeout={14000} //3 secs
+
+                 />
+                 <h style={{fontFamily:'Franchise', fontSize:20}}>Products loading...</h>
+                 </div>
+                  :
+                    <>{itemList}</>
+                }
                 </div>
                 <div className="spatiu_gol"></div>
             </div>

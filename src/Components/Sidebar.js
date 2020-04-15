@@ -4,7 +4,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import {Link, withRouter, useHistory} from 'react-router-dom';
 import items from '../assets/data/sidebarRoutes.json';
-import return_button from '../assets/images/Icons/Back-button.png';
+import return_button from '../assets/images/Icons/Back-button.svg';
 import refresh_button from '../assets/images/Icons/Refresh.png';
 
 function Sidebar() {
@@ -12,8 +12,8 @@ function Sidebar() {
     return (
         <div className="sidebar">
             <div className="butoane_top_sidebar" style={{textAlign:"center",paddingTop:5, paddingBottom:5}}>
-                <img src={return_button} style={{height:30, paddingRight:15}} onClick={()=>history.goBack()}/>
-                <img src={refresh_button} style={{height:30, paddingLeft:15}}  onClick={()=>window.location.reload()}/>
+                <img src={return_button} style={{height:30, paddingRight:15}} alt="return" onClick={()=>history.goBack()}/>
+                <img src={refresh_button} style={{height:30, paddingLeft:15}} alt="refresh"  onClick={()=>window.location.reload()}/>
             </div>
             <List disablePadding dense>
                 {items.map(({label, name, items: subItems, ...rest}) => {

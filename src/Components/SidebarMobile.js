@@ -9,21 +9,20 @@ import mailing_icon from "../assets/images/Icons/Bottom_bar_svgs/Mailing.svg";
 
 function SidebarMobile(){
         let location = useLocation();
-        console.log(location.pathname);
 
     return(
     <div className="bottom_buttons">
         
         <div className="bottom_buton">
         <Link to="/home">
-            <img src={home_icon} class={location.pathname==="/home" ? "home_icon_clicked" : "home_icon"}  />
+            <img src={home_icon} alt="home_icon" class={location.pathname==="/home" ? "home_icon_clicked" : "home_icon"}  />
                 <div className="button_bottom_text" >Home</div>
         </Link>
         </div>
         
         <div className="bottom_buton">
         <Link to="/products">
-            <img src={products_icon} class={location.pathname==="/products" ? "home_icon_clicked" : "home_icon"} />
+            <img src={products_icon} alt="products_icon" class={location.pathname==="/products" ? "home_icon_clicked" : "home_icon"} />
            <div className="button_bottom_text" >Products</div>
         </Link>
         </div>
@@ -31,7 +30,7 @@ function SidebarMobile(){
         
         <div className="bottom_buton">
         <Link to="/products/create">
-            <img src={add_product_icon} class={location.pathname==="/products/create" ? "home_icon_clicked" : "home_icon"}/>
+            <img src={add_product_icon} alt="add_product_icon" class={location.pathname==="/products/create" ? "home_icon_clicked" : "home_icon"}/>
             <div className="button_bottom_text">Add product</div>
         </Link>
         </div>
@@ -39,7 +38,7 @@ function SidebarMobile(){
         
         <div className="bottom_buton">
         <Link to="/cart">
-            <img src={cart_icon} class={location.pathname==="/cart" ? "home_icon_clicked" : "home_icon"} />
+            <img src={cart_icon} alt="cart_icon" class={location.pathname==="/cart" ? "home_icon_clicked" : "home_icon"} />
             <div className="button_bottom_text">Cart</div>
         </Link>
         </div>
@@ -47,7 +46,7 @@ function SidebarMobile(){
         
         <div className="bottom_buton">
         <Link to="/mailing">
-            <img src={mailing_icon} class={location.pathname==="/mailing" || location.pathname==="/map" ? "home_icon_clicked" : "home_icon"} />
+            <img src={mailing_icon} alt="mailing_icon" class={location.pathname==="/mailing" || location.pathname==="/map" ? "home_icon_clicked" : "home_icon"} />
             <div className="button_bottom_text">Mailing</div>
         </Link>
         </div>

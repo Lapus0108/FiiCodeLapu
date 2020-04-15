@@ -70,12 +70,12 @@ export default class ProductsSingle extends Component {
         e.preventDefault();
         axiosRequest.delete("products/" + id)
             .then(res => {
-                console.log(res.data);
+                
                 this.setState({mesaj: "Your product has been deleted from Piazeta!"})
                 this.setState({redirect: true})
             })
             .catch((err) => {
-                console.log(err);
+                
             })
         e.preventDefault();
         store.addNotification({
@@ -97,13 +97,11 @@ export default class ProductsSingle extends Component {
 
     edit_article=()=> {
         this.setState({want_to_edit: !this.state.want_to_edit})
-        console.log(this.state.want_to_edit_clicks)
     }
 
     handleChange = e => {
         const name = e.target.name;
         this.setState({[name]: e.target.value});
-        console.log(this.state)
     };
 
     inputIsEmpty() {
@@ -155,7 +153,6 @@ export default class ProductsSingle extends Component {
 
 
     render() {
-        console.log(this.state.product)
 
         return (
             <div className="container-fluid h-100">

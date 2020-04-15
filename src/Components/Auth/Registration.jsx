@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Redirect, withRouter} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import axiosRequest from "../../Utils/axios";
 import judete from '../../assets/data/county.json';
 import CreateAccount from '../../assets/images/buttons/CreateAccount.svg';
@@ -17,16 +17,16 @@ export default class Registration extends Component {
             email: "",
             password: "",
             password_confirmation: "",
-            registrationErrors: "",
-            bifa1: false,
-            bifa2: false,
             county: "",
             username: "",
             phone_number: "",
+            image: default_picture,
             address: "",
             age: "",
+            bifa1: false,
+            bifa2: false,
             redirect: false,
-            image: default_picture,
+            registrationErrors: "",
             has_image: false,
             seePassword:false,
             seePasswordConfirm:false
@@ -123,7 +123,6 @@ export default class Registration extends Component {
                     }
             });
         event.preventDefault();
-        console.log(this.state.image);
 
     }
 
@@ -131,17 +130,17 @@ export default class Registration extends Component {
         return (
             <>
             {this.renderRedirect()}
-            <div class="container h-100">
-                <div class="row h-100">
-                    <div class="col-sm-3"/>
-                    <div class="col-sm-6">
+            <div className="container h-100">
+                <div className="row h-100">
+                    <div className="col-sm-3"/>
+                    <div className="col-sm-6">
                         <div className="row justify-content-center h-25">
                             <img src={CreateAccount} alt="create_account" className="title-image"/>
                         </div>
-                        <div class="row justify-content-center pb-5">
-                            <div class="col-sm-2"/>
-                            <div class="col-sm-8">
-                                <div class="container-fluid no-margin">
+                        <div className="row justify-content-center pb-5">
+                            <div className="col-sm-2"/>
+                            <div className="col-sm-8">
+                                <div className="container-fluid no-margin">
                                     <form onSubmit={this.handleSubmit} className="no-margin">
                                         <input
                                             className="input-main"
@@ -163,7 +162,7 @@ export default class Registration extends Component {
                                             minLength={8}
                                             onChange={this.handleChange}
                                             required/>
-                                        <img src={see_password} 
+                                        <img src={see_password}  alt="see_psw_register"
                                         style={{height:30, position:'absolute', right:40}} 
                                         onClick={()=>this.setState({seePassword:!this.state.seePassword})}/>
                                         </div>
@@ -180,7 +179,7 @@ export default class Registration extends Component {
                                             onChange={this.handleChange}
                                             required
                                         />
-                                        <img src={see_password} 
+                                        <img src={see_password} alt="see_psw_confirm_register"
                                         style={{height:30, position:'absolute', right:40}} 
                                         onClick={()=>this.setState({seePasswordConfirm:!this.state.seePasswordConfirm})}/>
                                         </div>
@@ -191,7 +190,7 @@ export default class Registration extends Component {
                                             name="username"
                                             placeholder="Username"
                                             value={this.state.username}
-                                            maxLength={12}
+                                            maxLength={24}
                                             onChange={this.handleChange}
                                             required/>
 
@@ -256,7 +255,7 @@ export default class Registration extends Component {
                                                     checked={this.state.bifa1}
                                                     className="mr-1"
                                                 />
-                                                I agree with the <a href="https://drive.google.com/file/d/1sZrv-zaRGQmnwLaemMSwJ5OzXH6zDlRL/view?usp=sharing" target="_blank">Terms and Conditions</a>
+                                                I agree with the <a href="https://drive.google.com/file/d/1sZrv-zaRGQmnwLaemMSwJ5OzXH6zDlRL/view?usp=sharing" target="_blank" rel="noopener noreferrer">Terms and Conditions</a>
                                                 <span className="checkmarkTermenisiConditii"/>
                                             </label>
                                         </div>
@@ -270,7 +269,7 @@ export default class Registration extends Component {
                                                     type="checkbox"
                                                     className="mr-1"
                                                 />
-                                                I agree with the <a href="https://drive.google.com/open?id=1EkgMms9kcjg-SHZZqy-QyTlEU0pzvfJW" target="_blank">Privacy Policies</a>
+                                                I agree with the <a href="https://drive.google.com/open?id=1EkgMms9kcjg-SHZZqy-QyTlEU0pzvfJW" target="_blank" rel="noopener noreferrer">Privacy Policies</a>
                                                 <span className="checkmarkPolitici"/>
                                             </label>
                                         </div>
@@ -279,16 +278,16 @@ export default class Registration extends Component {
                                                 onClick={this.setRedirect}>Submit
                                         </button>
                                     </div>
-                                    <div class="row justify-content-center">
-                                        <img src={back_button} onClick={this.goBack} style={{height:32, backgroundColor:"darkred", borderRadius:15, marginTop:7}}/>
+                                    <div className="row justify-content-center">
+                                        <img src={back_button} alt="backbtn_register" onClick={this.goBack} style={{height:32, backgroundColor:"darkred", borderRadius:15, marginTop:7}}/>
                                     </div>
                                     </form>
                                 </div>
                             </div>
-                            <div class="col-sm-2"/>
+                            <div className="col-sm-2"/>
                         </div>
                     </div>
-                    <div class="col-sm-3 "/>
+                    <div className="col-sm-3 "/>
                 </div>
             </div>
             </>

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import axiosRequest from '../../Utils/axios'
 import _ from 'lodash'
 import {Card, Elevation} from '@blueprintjs/core'
-
+import Loader from 'react-loader-spinner'; 
 import { store } from 'react-notifications-component';
 import arrowUp from "../../assets/images/Icons/Diverse/Arrow_up.png";
 import arrowDown from "../../assets/images/Icons/Diverse/Arrow_down.png";
@@ -17,18 +17,20 @@ export default class Cart extends Component {
         super()
         this.state = {
             products: "",
-            total: ""
+            total: "",
+            loading:""
         }
     }
 
-    updateCart() {
+    updateCart=()=> {
+        this.setState({loading:true}, ()=>{
         axiosRequest.get("cart")
             .then(res => {
                 const products = res.data.products;
                 const total = res.data.total
-                this.setState({products: products, total: total});
+                this.setState({products: products, total: total, loading:false});
             })
-        console.log(this.props.isLoggedIn);
+        });
     }
 
     componentDidMount() {
@@ -75,14 +77,12 @@ export default class Cart extends Component {
 
 
     render() {
-        console.log(this.state.products)
         let addedItems = this.state.products.length ?
             (
                 this.state.products.map(item => {
                     return (
                         <div className="col-12 mb-2">
                             <div className="h-auto no-margin" key={item.id}>
-                                {console.log(item.pivot.quantity, "Quantity")}
                                 <Card interactive={false} elevation={Elevation.FOUR}
                                       className="background-primary h-100">
                                     <div className="row h-100">
@@ -148,7 +148,16 @@ export default class Cart extends Component {
                     <div className="col-lg-10 align-content-start">
                         <div className="display-1 font-main">Your cart:</div>
                         <ul className="row h-80 no-margin justify-content-center">
-                            {addedItems}
+                            {this.state.loading ? 
+                    <Loader
+                     type="ThreeDots"
+                     color="darkred"
+                     height={100}
+                     width={100}
+                     timeout={14000}
+                    /> :
+                            
+                            <>{addedItems}</>}
                         </ul>
                         <Receipt total={this.state.total}/>
                     </div>

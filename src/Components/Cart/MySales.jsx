@@ -25,18 +25,16 @@ export default class MySales extends Component {
     }
 
     render() {
-        console.log(this.state.sales)
         return (
             <div>
                 <div class="container-fluid mt-5">
                     <h class="titlu_my_sales" style={{fontSize:30, fontFamily:'Franchise'}}>Please let us know about the final status of the received orders:</h> 
-                    <div class="row"> 
-                        <div class="col">
+                    <div class="row justify-content-center"> 
+                        <div class="col-lg-8">
                             <div className="container_sales" style={{width:'100%',marginTop:10, height:300,overflow:'auto', backgroundColor:'beige', borderRadius:20,}}>
                             {this.state.sales.length>0 ?
                             <>
                                 {this.state.sales.map((item,index) => {
-                                    let orderStatus= item.validated==1 ? "Sold" : "Not sold";
                                 return (
                                 <div className="sale" style={{display:'inline-flex',marginTop:10, width:'100%',alignItems:'center'}}>
                                     <div class="col">Order id: {item.id}</div>
@@ -49,9 +47,9 @@ export default class MySales extends Component {
                                     <div class="col" style={{alignSelf:'center'}}>
                                        {item.validated===0 ?
                                         
-                                        <img src={NotSold} style={{height:25}}/>
+                                        <img src={NotSold} alt="not_sold" style={{height:25}}/>
                                         :
-                                        <img src={Sold} style={{height:25}}/>}
+                                        <img src={Sold} alt="sold" style={{height:25}}/>}
                                     </div>
                                     
                                     
@@ -61,7 +59,7 @@ export default class MySales extends Component {
                             : 
                             <>
                             <div style={{fontSize:18, fontFamily:'Franchise',marginTop:10, padding:10}}>You don't have any sale so far. Go add your products on the market!</div>
-                            <img src={go_to_add_products} style={{height:35}} onClick={()=>window.location.href='/products/create'}/>
+                            <img src={go_to_add_products} alt="go_add_products_mysales" style={{height:35}} onClick={()=>window.location.href='/products/create'}/>
                             </>
                             }
 
